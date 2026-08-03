@@ -37,7 +37,15 @@ const OG_ALT_OUT = join(ROOT, "src/app/opengraph-image.alt.txt");
  * dark enough to carry type. Fractions of the full source image.
  */
 const SAFE_ZONE = { x0: 0.25, x1: 0.62, y0: 0.11, y1: 0.67 };
-const TEXT_CENTER = { x: 0.435, y: 0.42 };
+
+// Matches the hero's anchor: right of the wall's true centre (43.5%) so the
+// block reads as balanced inside the frame, but short of dead centre, which
+// would push the longest line into the shower's glass frame at x 65%.
+const TEXT_CENTER = { x: 0.465, y: 0.42 };
+
+// How much of the safe zone the longest line fills. Trimmed from 0.98 when the
+// anchor moved right, to keep clearance before the glass frame.
+const TEXT_FILL = 0.92;
 
 const HERO_WIDTH = 2560;
 const OG = { width: 1200, height: 630 };
@@ -93,7 +101,7 @@ function buildOverlay(font, lines, { width, height }) {
   const longest = Math.max(
     ...lines.map((line) => layoutLine(font, line, size, tracking).width),
   );
-  size *= (safeWidth * 0.98) / longest;
+  size *= (safeWidth * TEXT_FILL) / longest;
 
   const lineHeight = size * 1.16;
   const capHeight = size * 0.7;

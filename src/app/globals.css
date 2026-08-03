@@ -141,7 +141,7 @@
   .hero-scrim {
     background:
       radial-gradient(
-        72% 62% at 43.5% 42%,
+        72% 62% at 46.5% 42%,
         color-mix(in oklab, var(--warm-black) 56%, transparent) 0%,
         color-mix(in oklab, var(--warm-black) 34%, transparent) 55%,
         color-mix(in oklab, var(--warm-black) 6%, transparent) 100%

@@ -8,10 +8,14 @@ import { HeroMedia } from "./hero-media";
 import { HeroScrollCue } from "./hero-scroll-cue";
 
 /**
- * The quote is positioned over the one region of the photograph flat enough to
- * carry type — the fluted wall, measured at x 25–62%, y 11–67% of the source.
- * Hence the 43.5% horizontal anchor on large screens rather than dead centre,
- * and the bottom padding that lifts the block above the optical middle.
+ * The quote sits over the fluted wall, the one region of the photograph flat
+ * and dark enough to carry type. The wall is bounded by the marble corner at
+ * x 21.9% and the shower's glass frame at x 65%, so its true centre is 43.5%.
+ *
+ * The anchor is nudged right of that to 46.5%: centring on the wall alone
+ * reads as off-centre against the browser frame, since the wall itself sits
+ * left of the middle. 46.5% splits the difference and still leaves clearance
+ * before the glass frame. Dead centre (50%) would crowd it.
  *
  * On phones `object-position: 43.5%` crops to x 30.6–56.4%, which sits inside
  * the same safe zone, so a single landscape asset covers every breakpoint.
@@ -25,7 +29,7 @@ export function Hero() {
         {/* 37rem is the widest the block can be before the longest line
             outgrows the flat wall behind it and starts crossing the shower
             frame. The type ceiling is set from the same constraint. */}
-        <div className="px-gutter mx-auto w-full max-w-[37rem] text-center lg:mx-0 lg:ml-[43.5%] lg:-translate-x-1/2">
+        <div className="px-gutter mx-auto w-full max-w-[37rem] text-center lg:mx-0 lg:ml-[46.5%] lg:-translate-x-1/2">
           <SplitHeading
             as="h1"
             className="font-display text-ink text-[clamp(2.25rem,4.6vw,4.25rem)] leading-[1.12] tracking-[-0.01em]"
