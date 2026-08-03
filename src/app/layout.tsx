@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Inter, Inter_Tight } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 
 import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
 import { siteConfig } from "@/config/site";
@@ -7,24 +7,19 @@ import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider";
 
 import "./globals.css";
 
-// Placeholder typefaces — swap these once the design direction lands. The CSS
-// variable names are what globals.css maps to Tailwind's font utilities, so
-// changing the typeface here needs no other edits.
-const sans = Inter({
+// Both are variable fonts — passing an explicit `weight` would downgrade them
+// to static instances and cost an extra request per weight. globals.css maps
+// these CSS variables onto Tailwind's font utilities.
+const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans-variable",
   display: "swap",
 });
 
-const display = Inter_Tight({
+// Set at weight 300 in CSS. Manrope has no italic, so any italic belongs here.
+const display = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display-variable",
-  display: "swap",
-});
-
-const mono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono-variable",
   display: "swap",
 });
 
@@ -72,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${display.variable} ${mono.variable} antialiased`}
+      className={`${sans.variable} ${display.variable} antialiased`}
     >
       <body className="bg-background text-foreground flex min-h-dvh flex-col">
         <OrganizationJsonLd />

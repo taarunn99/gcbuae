@@ -33,6 +33,24 @@ GSAP (animation) · Motion (React animation) · Lenis (smooth scroll).
 - Respect `prefers-reduced-motion`; `useReducedMotion` in `@/hooks` is the hook,
   and `globals.css` already neutralises CSS transitions.
 
+## Imagery
+
+- Hero derivatives are generated, not hand-made. Edit `src/config/hero-copy.json`,
+  then run `npm run assets:hero` (`scripts/build-hero-assets.mjs`). It reads
+  `assets/source/hero-original.png` and writes `src/assets/hero.webp` plus
+  `src/app/opengraph-image.jpg` with the quote baked in as vector outlines.
+- **Open Graph images cannot be WebP.** Next's `opengraph-image` convention
+  accepts only `.jpg`, `.jpeg`, `.png`, `.gif`; a `.webp` is silently ignored.
+- **`priority` is deprecated in Next 16** — use `preload` on the LCP image.
+  `images.qualities` defaults to `[75]`, and any other value is silently
+  snapped to the nearest allowed one, so new qualities must be added to
+  `next.config.ts` first.
+- Never fade the LCP image in. Opacity animation delays the paint; transforms
+  are free.
+- Type over photography sits in a measured safe zone — for the current hero,
+  x 25–62% / y 11–67% of the source, hence `object-position: 43.5% 50%`. If the
+  photograph changes, re-measure before moving text.
+
 ## Styling
 
 - Design tokens are CSS custom properties in `src/app/globals.css`, exposed to

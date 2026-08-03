@@ -6,9 +6,9 @@ export const siteConfig = {
   name: "Global Classic Building Materials",
   shortName: "GCB",
   legalName: "Global Classic Building Materials LLC",
-  tagline: "Building materials trading across the UAE",
+  tagline: "Surfaces for enduring interiors",
   description:
-    "Global Classic Building Materials supplies and trades construction materials across the UAE, serving contractors, developers and consultants with reliable sourcing and on-time delivery.",
+    "Global Classic Building Materials supplies natural stone, marble, terrazzo and finishing materials across the UAE — for contractors, developers and consultants building interiors meant to last.",
   url: "https://www.gcbuae.com",
   locale: "en_AE",
   contact: {

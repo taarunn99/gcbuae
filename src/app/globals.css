@@ -1,22 +1,27 @@
 @import "tailwindcss";
 
 /*
- * Placeholder brand tokens. These are deliberately neutral — the palette,
- * type scale and radii get replaced once the design direction is set.
- * Change values here only; components reference the Tailwind utilities
- * generated from the @theme block below.
+ * Brand constants, sampled from the hero photograph. These do not change
+ * between light and dark — they are the materials themselves.
  */
 :root {
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.17 0.01 260);
+  --limestone: oklch(0.94 0.014 82); /* the fluted wall, cream marble */
+  --travertine: oklch(0.8 0.03 75); /* warm stone mid-tone */
+  --verde: oklch(0.26 0.032 165); /* the green marble vanity and floor */
+  --bronze: oklch(0.65 0.055 60); /* tapware and mirror rims */
+  --midnight: oklch(0.32 0.07 252); /* the city through the window */
+  --warm-black: oklch(0.16 0.012 58); /* shadow; also the scrim colour */
+  --ink: oklch(0.96 0.012 85); /* type over photography */
 
-  --surface: oklch(0.97 0.002 260);
-  --surface-raised: oklch(1 0 0);
-  --border: oklch(0.9 0.004 260);
-
-  --muted: oklch(0.55 0.012 260);
-  --accent: oklch(0.55 0.13 250);
-  --accent-foreground: oklch(0.99 0 0);
+  /* Semantic tokens — light */
+  --background: oklch(0.975 0.006 85);
+  --foreground: oklch(0.2 0.012 60);
+  --surface: oklch(0.955 0.01 82);
+  --surface-raised: oklch(0.99 0.004 85);
+  --border: oklch(0.89 0.012 80);
+  --muted: oklch(0.52 0.018 65);
+  --accent: oklch(0.58 0.058 58);
+  --accent-foreground: oklch(0.98 0.006 85);
 
   --header-height: 5rem;
   --gutter: 1.25rem;
@@ -25,16 +30,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: oklch(0.16 0.008 260);
-    --foreground: oklch(0.96 0.003 260);
-
-    --surface: oklch(0.2 0.01 260);
-    --surface-raised: oklch(0.24 0.012 260);
-    --border: oklch(0.31 0.012 260);
-
-    --muted: oklch(0.68 0.012 260);
-    --accent: oklch(0.7 0.13 250);
-    --accent-foreground: oklch(0.16 0.008 260);
+    --background: oklch(0.17 0.012 60);
+    --foreground: oklch(0.94 0.01 85);
+    --surface: oklch(0.21 0.014 62);
+    --surface-raised: oklch(0.25 0.016 62);
+    --border: oklch(0.3 0.016 65);
+    --muted: oklch(0.7 0.016 70);
+    --accent: oklch(0.72 0.062 62);
+    --accent-foreground: oklch(0.17 0.012 60);
   }
 }
 
@@ -48,9 +51,17 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
+  --color-limestone: var(--limestone);
+  --color-travertine: var(--travertine);
+  --color-verde: var(--verde);
+  --color-bronze: var(--bronze);
+  --color-midnight: var(--midnight);
+  --color-warm-black: var(--warm-black);
+  --color-ink: var(--ink);
+
   --font-sans: var(--font-sans-variable);
   --font-display: var(--font-display-variable);
-  --font-mono: var(--font-mono-variable);
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
   --spacing-header: var(--header-height);
   --spacing-gutter: var(--gutter);
@@ -72,6 +83,12 @@
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Cormorant Garamond is used at Light throughout; its 400 is too sturdy
+     for display sizes and its hairlines are the point. */
+  .font-display {
+    font-weight: 300;
   }
 
   ::selection {
@@ -112,6 +129,39 @@
     .container-gcb {
       padding-inline: calc(var(--gutter) * 2);
     }
+  }
+
+  /*
+   * Lifts hero type off the photograph. The wall behind the quote averages
+   * L=0.16, which alone gives off-white only ~4.9:1 — fine for the display
+   * line, marginal for the sub-line, and much worse over the wall's specular
+   * highlights. The radial pass darkens only where type sits; the linear pass
+   * seats the future header and the scroll cue.
+   */
+  .hero-scrim {
+    background:
+      radial-gradient(
+        72% 62% at 43.5% 42%,
+        color-mix(in oklab, var(--warm-black) 56%, transparent) 0%,
+        color-mix(in oklab, var(--warm-black) 34%, transparent) 55%,
+        color-mix(in oklab, var(--warm-black) 6%, transparent) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--warm-black) 30%, transparent) 0%,
+        transparent 24%,
+        transparent 76%,
+        color-mix(in oklab, var(--warm-black) 26%, transparent) 100%
+      );
+  }
+
+  /* Small wide-tracked label. Replaces the mono eyebrows of the scaffold. */
+  .label-gcb {
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
   }
 }
 
