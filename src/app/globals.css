@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
+/*
+ * Placeholder brand tokens. These are deliberately neutral — the palette,
+ * type scale and radii get replaced once the design direction is set.
+ * Change values here only; components reference the Tailwind utilities
+ * generated from the @theme block below.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.17 0.01 260);
+
+  --surface: oklch(0.97 0.002 260);
+  --surface-raised: oklch(1 0 0);
+  --border: oklch(0.9 0.004 260);
+
+  --muted: oklch(0.55 0.012 260);
+  --accent: oklch(0.55 0.13 250);
+  --accent-foreground: oklch(0.99 0 0);
+
+  --header-height: 5rem;
+  --gutter: 1.25rem;
+  --container-max: 90rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.16 0.008 260);
+    --foreground: oklch(0.96 0.003 260);
+
+    --surface: oklch(0.2 0.01 260);
+    --surface-raised: oklch(0.24 0.012 260);
+    --border: oklch(0.31 0.012 260);
+
+    --muted: oklch(0.68 0.012 260);
+    --accent: oklch(0.7 0.13 250);
+    --accent-foreground: oklch(0.16 0.008 260);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --font-sans: var(--font-sans-variable);
+  --font-display: var(--font-display-variable);
+  --font-mono: var(--font-mono-variable);
+
+  --spacing-header: var(--header-height);
+  --spacing-gutter: var(--gutter);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    /* Lenis drives scrolling; native smooth scroll would fight it. */
+    scroll-behavior: auto;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Lenis adds these classes to <html> once it takes over scrolling. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Horizontal page gutter + max width, used by every section wrapper. */
+  .container-gcb {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  @media (width >= 48rem) {
+    .container-gcb {
+      padding-inline: calc(var(--gutter) * 2);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
