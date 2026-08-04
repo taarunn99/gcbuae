@@ -2,6 +2,8 @@
 
 import { useActionState } from "react";
 
+import { GcbButton } from "@/components/ui/gcb-button";
+
 import { sendContactMessage, type ContactFormState } from "./actions";
 
 const initialState: ContactFormState = { status: "idle" };
@@ -92,13 +94,11 @@ export function ContactForm() {
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={pending}
-        className="label-gcb border-foreground/30 hover:bg-foreground hover:text-background justify-self-start border px-8 py-4 transition-colors disabled:opacity-50"
-      >
-        {pending ? "Sending…" : "Send message"}
-      </button>
+      <div className="justify-self-start">
+        <GcbButton type="submit" size="md" variant="light" disabled={pending}>
+          {pending ? "Sending…" : "Send message"}
+        </GcbButton>
+      </div>
     </form>
   );
 }

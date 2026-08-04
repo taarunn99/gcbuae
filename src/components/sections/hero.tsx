@@ -1,11 +1,9 @@
-import Link from "next/link";
-
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
+import { GcbButton } from "@/components/ui/gcb-button";
 import heroCopy from "@/config/hero-copy.json";
 
 import { HeroMedia } from "./hero-media";
-import { HeroScrollCue } from "./hero-scroll-cue";
 
 /**
  * The quote sits over the fluted wall, the one region of the photograph flat
@@ -50,18 +48,12 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.9} className="mt-10">
-            <Link
-              href={heroCopy.cta.href}
-              className="label-gcb text-ink border-ink/30 hover:border-ink/70 inline-flex items-center gap-3 border-b pb-2 transition-colors"
-            >
-              {heroCopy.cta.label}
-              <span aria-hidden>&rarr;</span>
-            </Link>
+            <GcbButton href={heroCopy.cta.href} size="md" variant="dark">
+              {heroCopy.cta.label}&ensp;&rarr;
+            </GcbButton>
           </Reveal>
         </div>
       </div>
-
-      <HeroScrollCue />
     </section>
   );
 }

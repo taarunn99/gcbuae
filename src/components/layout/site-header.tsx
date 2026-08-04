@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
 
 import { Logo } from "@/components/layout/logo";
+import { GcbButton } from "@/components/ui/gcb-button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -111,17 +112,15 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center justify-self-end">
-          <Link
-            href="/contact"
-            className={cn(
-              "label-gcb hidden border px-5 py-3 transition-colors sm:inline-block",
-              solid
-                ? "border-foreground/30 hover:bg-foreground hover:text-background"
-                : "border-ink/40 hover:bg-ink hover:text-warm-black",
-            )}
-          >
-            Contact Us
-          </Link>
+          <div className="hidden sm:block">
+            <GcbButton
+              href="/contact"
+              size="sm"
+              variant={solid ? "light" : "dark"}
+            >
+              Contact Us
+            </GcbButton>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -166,13 +165,10 @@ export function SiteHeader() {
                 ))}
               </ul>
             </li>
-            <li>
-              <Link
-                href="/contact"
-                className="label-gcb border-foreground/30 mt-5 inline-block border px-5 py-3"
-              >
+            <li className="mt-5">
+              <GcbButton href="/contact" size="sm" variant="light">
                 Contact Us
-              </Link>
+              </GcbButton>
             </li>
           </ul>
         </nav>
