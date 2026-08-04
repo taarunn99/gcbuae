@@ -70,7 +70,14 @@ export function FilmLoop() {
     >
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{
+          objectPosition: `${(chapter.focusX ?? 0.5) * 100}% 50%`,
+          // Anchor changes land mid-dissolve, so the reframe plays as a slow
+          // camera pan rather than a cut. Only visible where the viewport
+          // actually crops (phones); desktop shows the full frame width.
+          transition: "object-position 1.1s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
         muted
         playsInline
         loop

@@ -24,6 +24,13 @@ export type FilmChapter = {
   /** Chapter window in seconds of the stitched loop. */
   from: number;
   to: number;
+  /**
+   * Horizontal anchor (0–1) for the crop window on narrow screens, where
+   * object-fit: cover shows only ~26% of the frame's width. The video's
+   * object-position transitions between chapters, so a non-centred anchor
+   * plays as a slow camera pan during the dissolve. Default 0.5.
+   */
+  focusX?: number;
 };
 
 export const filmChapters: FilmChapter[] = [
@@ -46,13 +53,16 @@ export const filmChapters: FilmChapter[] = [
     to: 8.58,
   },
   {
-    id: "jaquar",
+    id: "bathware",
     eyebrow: "The Detail",
-    word: "JAQUAR",
+    word: "BATHWARE",
     quote: "“Luxury is the weight of a tap in your hand.”",
     align: "left",
     from: 8.58,
     to: 12.62,
+    // The tap fixture and its water stream sit right of centre (x ≈ 47–76%
+    // of the frame). Centred cropping on phones shows only the spout tip.
+    focusX: 0.61,
   },
   {
     id: "terrazzo",
