@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "assets:hero": "node scripts/build-hero-assets.mjs"
+    "assets:hero": "node scripts/build-hero-assets.mjs",
+    "assets:film": "bash scripts/build-film-loop.sh"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

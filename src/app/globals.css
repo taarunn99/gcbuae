@@ -102,16 +102,6 @@
     outline-offset: 2px;
   }
 
-  /* The scroll film pins the viewport; the header gets out of its way.
-     data-film-pinned is toggled by FilmSequence's ScrollTrigger. */
-  .site-header {
-    transition: transform 0.5s var(--ease-out-expo);
-  }
-
-  html[data-film-pinned] .site-header {
-    transform: translateY(-110%);
-  }
-
   /* Lenis adds these classes to <html> once it takes over scrolling. */
   html.lenis,
   html.lenis body {

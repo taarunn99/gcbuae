@@ -1,6 +1,6 @@
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
-import { FilmSequence } from "@/components/sections/film/film-sequence";
+import { FilmLoop } from "@/components/sections/film/film-loop";
 import { Hero } from "@/components/sections/hero";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
@@ -47,7 +47,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <FilmSequence />
+      <FilmLoop />
 
       <footer className="border-border border-t py-16">
         <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

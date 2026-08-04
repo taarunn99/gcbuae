@@ -1,31 +1,40 @@
 /**
- * The scroll-film sequence. Copy is final per the build spec — assured and
- * spare; never "premium quality", never "wide range".
+ * The ambient film: ONE continuous stitched loop (see
+ * scripts/build-film-loop.sh), not four separate clips. Chapter windows must
+ * match the crossfade offsets baked into that script — each boundary is the
+ * midpoint of a 1s dissolve.
  *
- * `align` alternates the overlay block left/right on desktop per shot.
- * Encoded files come from `npm run assets:film`.
+ * Copy is final per the build spec — assured and spare; never "premium
+ * quality", never "wide range". `align` alternates the overlay left/right on
+ * desktop as the chapters turn.
  */
-export type FilmShot = {
+export const filmLoop = {
+  mp4: "/film/film-loop.mp4",
+  webm: "/film/film-loop.webm",
+  poster: "/film/film-loop-poster.jpg",
+  duration: 17.12,
+} as const;
+
+export type FilmChapter = {
   id: string;
   eyebrow: string;
   word: string;
   quote: string;
   align: "left" | "right";
-  mp4: string;
-  webm: string;
-  poster: string;
+  /** Chapter window in seconds of the stitched loop. */
+  from: number;
+  to: number;
 };
 
-export const filmShots: FilmShot[] = [
+export const filmChapters: FilmChapter[] = [
   {
     id: "quartz",
     eyebrow: "The Surface",
     word: "QUARTZ",
     quote: "“Where the day begins, and the light stays.”",
     align: "left",
-    mp4: "/film/shot-1-quartz-web.mp4",
-    webm: "/film/shot-1-quartz-web.webm",
-    poster: "/film/shot-1-quartz-poster.jpg",
+    from: 0,
+    to: 4.54,
   },
   {
     id: "marble",
@@ -33,9 +42,8 @@ export const filmShots: FilmShot[] = [
     word: "MARBLE",
     quote: "“Some rooms are built. Others are composed.”",
     align: "right",
-    mp4: "/film/shot-2-marble-web.mp4",
-    webm: "/film/shot-2-marble-web.webm",
-    poster: "/film/shot-2-marble-poster.jpg",
+    from: 4.54,
+    to: 8.58,
   },
   {
     id: "jaquar",
@@ -43,9 +51,8 @@ export const filmShots: FilmShot[] = [
     word: "JAQUAR",
     quote: "“Luxury is the weight of a tap in your hand.”",
     align: "left",
-    mp4: "/film/shot-3-hardware-web.mp4",
-    webm: "/film/shot-3-hardware-web.webm",
-    poster: "/film/shot-3-hardware-poster.jpg",
+    from: 8.58,
+    to: 12.62,
   },
   {
     id: "terrazzo",
@@ -53,8 +60,7 @@ export const filmShots: FilmShot[] = [
     word: "TERRAZZO",
     quote: "“Made of fragments. Finished as one.”",
     align: "right",
-    mp4: "/film/shot-4-terrazzo-web.mp4",
-    webm: "/film/shot-4-terrazzo-web.webm",
-    poster: "/film/shot-4-terrazzo-poster.jpg",
+    from: 12.62,
+    to: 17.12,
   },
 ];
