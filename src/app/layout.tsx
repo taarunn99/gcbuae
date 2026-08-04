@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Fraunces, Manrope } from "next/font/google";
 
+import { SiteHeader } from "@/components/layout/site-header";
 import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
 import { siteConfig } from "@/config/site";
 import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider";
@@ -16,11 +17,22 @@ const sans = Manrope({
   display: "swap",
 });
 
-// Set at weight 300 in CSS. Manrope has no italic, so any italic belongs here.
+// Set at weight 300 in CSS. Manrope has no italic, so any italic belongs
+// here — the true italic is loaded because the film quotes use it.
 const display = Cormorant_Garamond({
   subsets: ["latin"],
+  style: ["normal", "italic"],
   variable: "--font-display-variable",
   display: "swap",
+});
+
+// Only for the huge material words in the scroll film — Cormorant's hairlines
+// don't hold up at 12vw over moving video. The opsz axis keeps it display-cut.
+const film = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-film-variable",
+  display: "swap",
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
@@ -67,10 +79,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${display.variable} antialiased`}
+      className={`${sans.variable} ${display.variable} ${film.variable} antialiased`}
     >
       <body className="bg-background text-foreground flex min-h-dvh flex-col">
         <OrganizationJsonLd />
+        <SiteHeader />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

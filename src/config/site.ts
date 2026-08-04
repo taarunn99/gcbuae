@@ -28,11 +28,53 @@ export const siteConfig = {
     instagram: "",
   },
   nav: [
-    { label: "About", href: "/about" },
+    { label: "Home", href: "/" },
     { label: "Products", href: "/products" },
-    { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
+    { label: "About", href: "/about" },
   ],
+  products: [
+    {
+      slug: "quartz",
+      label: "Quartz",
+      blurb: "Engineered quartz surfaces for counters, cladding and floors.",
+    },
+    {
+      slug: "naturally-engineered-marble",
+      label: "Naturally Engineered Marble",
+      blurb: "The depth of natural stone with engineered consistency.",
+    },
+    {
+      slug: "terrazzo",
+      label: "Terrazzo",
+      blurb: "Made of fragments, finished as one — floors and precast pieces.",
+    },
+    {
+      slug: "showers",
+      label: "Showers",
+      blurb: "Enclosures and shower systems, built to be used daily.",
+    },
+    {
+      slug: "taps",
+      label: "Taps",
+      blurb: "Brassware with weight in the hand.",
+    },
+    {
+      slug: "sanitaryware",
+      label: "Sanitaryware",
+      blurb: "Basins, WCs and fittings for considered bathrooms.",
+    },
+    {
+      slug: "shower-trays",
+      label: "Shower Trays",
+      blurb: "Low-profile stone-resin trays that stand up to standing on.",
+    },
+    {
+      slug: "sealers-cleaners",
+      label: "Sealers & Cleaners",
+      blurb: "Care systems that keep marble looking newly laid.",
+    },
+  ],
+  contactRecipient: "tarun.s@lapizblue.com",
 } as const;
 
 export type SiteConfig = typeof siteConfig;

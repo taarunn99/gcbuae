@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# film source masters (~15 MB) — re-download via scripts/build-film-assets.sh
+/assets/source/film/
+
 # vercel
 .vercel
 

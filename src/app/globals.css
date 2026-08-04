@@ -61,6 +61,7 @@
 
   --font-sans: var(--font-sans-variable);
   --font-display: var(--font-display-variable);
+  --font-film: var(--font-film-variable);
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
   --spacing-header: var(--header-height);
@@ -99,6 +100,16 @@
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
+  }
+
+  /* The scroll film pins the viewport; the header gets out of its way.
+     data-film-pinned is toggled by FilmSequence's ScrollTrigger. */
+  .site-header {
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+
+  html[data-film-pinned] .site-header {
+    transform: translateY(-110%);
   }
 
   /* Lenis adds these classes to <html> once it takes over scrolling. */
