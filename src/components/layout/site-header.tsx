@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { Logo } from "@/components/layout/logo";
 import { GcbButton } from "@/components/ui/gcb-button";
@@ -48,7 +48,22 @@ export function SiteHeader() {
     setSearchOpen(false);
   }
 
-  const solid = scrolled || menuOpen || searchOpen;
+  // The full-screen menu panel is dark, so the bar must NOT go light while
+  // it is open — transparent ink-on-dark reads correctly over the panel.
+  const solid = (scrolled || searchOpen) && !menuOpen;
+
+  // Lock page scroll behind the full-screen menu.
+  useEffect(() => {
+    document.documentElement.classList.toggle("overflow-hidden", menuOpen);
+    return () => document.documentElement.classList.remove("overflow-hidden");
+  }, [menuOpen]);
+
+  // The search panel stays mounted (its entrance is a CSS grid-rows
+  // transition), so focus is driven here instead of autoFocus.
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (searchOpen) searchInputRef.current?.focus();
+  }, [searchOpen]);
 
   return (
     <header
@@ -57,6 +72,7 @@ export function SiteHeader() {
         solid
           ? "bg-background/85 text-foreground border-b backdrop-blur-md"
           : "text-ink border-b border-transparent",
+        menuOpen && "text-ink",
       )}
     >
       <div className="container-gcb grid h-16 grid-cols-[1fr_auto_1fr] items-center sm:h-20">
@@ -117,7 +133,7 @@ export function SiteHeader() {
             which removes it from grid flow — without the explicit column this
             cluster auto-places into the middle and renders centred. */}
         <div className="col-start-3 flex items-center gap-1 justify-self-end sm:gap-3">
-          <div className="hidden sm:block">
+          <div>
             <GcbButton
               href="/contact"
               size="sm"
@@ -135,7 +151,7 @@ export function SiteHeader() {
             aria-expanded={searchOpen}
             aria-controls="site-search"
             onClick={() => setSearchOpen((open) => !open)}
-            className="p-2 transition-opacity hover:opacity-70"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-current/30 transition-colors hover:border-current/70"
           >
             <svg
               aria-hidden
@@ -179,29 +195,43 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Search overlay — placeholder until the catalogue ships */}
-      {searchOpen && (
-        <div
-          id="site-search"
-          className="bg-background text-foreground border-t shadow-xl"
-        >
-          <div className="container-gcb py-6">
+      {/* Search — drops from the top, expanding into the text box (CSS
+          grid-rows transition). Placeholder until the catalogue ships. */}
+      <div
+        id="site-search"
+        aria-hidden={!searchOpen}
+        className={cn(
+          "ease-in-out-quart grid transition-[grid-template-rows] duration-500",
+          searchOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+        )}
+      >
+        <div className="bg-background text-foreground min-h-0 overflow-hidden">
+          <div
+            className={cn(
+              "container-gcb border-t py-6 transition-all delay-100 duration-400",
+              searchOpen
+                ? "translate-y-0 opacity-100"
+                : "-translate-y-6 opacity-0",
+            )}
+          >
             <form
               role="search"
               onSubmit={(event) => event.preventDefault()}
               className="flex items-center gap-4"
             >
               <input
-                autoFocus
+                ref={searchInputRef}
                 type="search"
                 name="q"
                 placeholder="Search materials, finishes, care…"
                 aria-label="Search the site"
+                tabIndex={searchOpen ? 0 : -1}
                 className="placeholder:text-muted/70 focus:border-accent w-full border-b bg-transparent py-3 text-lg outline-none"
               />
               <button
                 type="button"
                 aria-label="Close search"
+                tabIndex={searchOpen ? 0 : -1}
                 onClick={() => setSearchOpen(false)}
                 className="label-gcb p-2 opacity-70 hover:opacity-100"
               >
@@ -213,46 +243,80 @@ export function SiteHeader() {
             </p>
           </div>
         </div>
-      )}
+      </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <nav
-          id="mobile-menu"
-          aria-label="Primary"
-          className="bg-background text-foreground border-t sm:hidden"
-        >
-          <ul className="container-gcb flex flex-col py-4">
-            {siteConfig.nav.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="label-gcb block py-4">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <p className="text-muted pt-4 pb-2 text-xs">Products</p>
-              <ul className="border-l pl-4">
-                {siteConfig.products.map((product) => (
-                  <li key={product.slug}>
-                    <Link
-                      href={`/products#${product.slug}`}
-                      className="block py-2.5 text-sm"
-                    >
-                      {product.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-            <li className="mt-5">
-              <GcbButton href="/contact" size="sm" variant="light">
-                Contact Us
-              </GcbButton>
-            </li>
+      {/* Mobile menu — full screen, slides in from the right (CSS transform
+          transition; stays mounted). Sits under the fixed bar z-wise so the
+          logo and the X stay on top of it. */}
+      <nav
+        id="mobile-menu"
+        aria-label="Primary"
+        aria-hidden={!menuOpen}
+        className={cn(
+          "bg-warm-black text-ink fixed inset-0 -z-10 overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] sm:hidden",
+          menuOpen ? "translate-x-0" : "pointer-events-none translate-x-full",
+        )}
+      >
+        <div className="container-gcb pt-24 pb-12">
+          <p
+            className={cn(
+              "label-gcb text-bronze transition-opacity duration-500",
+              menuOpen ? "opacity-100 delay-200" : "opacity-0 delay-0",
+            )}
+          >
+            Navigate
+          </p>
+
+          <ul className="mt-4">
+            {[...siteConfig.nav, { label: "Contact", href: "/contact" }].map(
+              (item, index) => (
+                <li
+                  key={item.href}
+                  className={cn(
+                    "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                    menuOpen
+                      ? "translate-x-0 opacity-100"
+                      : "translate-x-8 opacity-0",
+                  )}
+                  style={{
+                    transitionDelay: menuOpen ? `${240 + index * 60}ms` : "0ms",
+                  }}
+                >
+                  <Link
+                    href={item.href}
+                    tabIndex={menuOpen ? 0 : -1}
+                    className="font-display block py-3 text-4xl tracking-tight"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ),
+            )}
           </ul>
-        </nav>
-      )}
+
+          <div
+            className={cn(
+              "border-ink/15 mt-8 border-t pt-8 transition-opacity duration-500",
+              menuOpen ? "opacity-100 delay-500" : "opacity-0 delay-0",
+            )}
+          >
+            <p className="label-gcb text-bronze">Products</p>
+            <ul className="mt-4">
+              {siteConfig.products.map((product) => (
+                <li key={product.slug}>
+                  <Link
+                    href={`/products#${product.slug}`}
+                    tabIndex={menuOpen ? 0 : -1}
+                    className="text-ink/80 block py-2.5 text-base"
+                  >
+                    {product.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 }

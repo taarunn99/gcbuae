@@ -84,7 +84,7 @@ export function GcbButton({
         if (href && !event.defaultPrevented) router.push(href);
       }}
     >
-      <span className="label-gcb">{children}</span>
+      <span className="label-gcb whitespace-nowrap">{children}</span>
     </SpecularButton>
   );
 }

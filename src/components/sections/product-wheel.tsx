@@ -25,7 +25,9 @@ const STEP_DEG = 14;
 const RADIUS = 460;
 // Mobile fan: pivot below the arc, active name at 12 o'clock. Positive scroll
 // rotates anticlockwise (rotation decreases), reverse scroll clockwise.
-const STEP_DEG_MOBILE = 38;
+// Wide step + hard fade: only the active name and a ghost of its immediate
+// neighbours are visible, so long labels ("Bathroom Ware") never overlap.
+const STEP_DEG_MOBILE = 52;
 const RADIUS_MOBILE = 175;
 const COUNT = wheelProducts.length;
 
@@ -121,7 +123,7 @@ export function ProductWheel() {
           // fan's hub — so a plain rotate swings the name along the arc.
           el.style.transformOrigin = `50% ${RADIUS_MOBILE}px`;
           el.style.transform = `translateX(-50%) rotate(${angle}deg)`;
-          el.style.opacity = String(Math.max(0, 1 - distance * 0.4));
+          el.style.opacity = String(Math.max(0, 1 - distance * 0.65));
           el.style.pointerEvents = distance > 1.5 ? "none" : "";
         });
       };
@@ -238,7 +240,7 @@ export function ProductWheel() {
                   aria-selected={index === activeIndex}
                   onClick={() => select(index)}
                   className={cn(
-                    "font-display absolute top-0 left-1/2 text-2xl tracking-tight whitespace-nowrap transition-colors duration-500 lg:left-0 lg:origin-left lg:text-3xl xl:text-4xl",
+                    "font-display absolute top-0 left-1/2 text-xl tracking-tight whitespace-nowrap transition-colors duration-500 lg:left-0 lg:origin-left lg:text-3xl xl:text-4xl",
                     index === activeIndex
                       ? "text-ink"
                       : "text-ink/35 hover:text-ink/70",
