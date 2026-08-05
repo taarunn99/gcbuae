@@ -32,6 +32,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const overHero = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const scrolled = useSyncExternalStore(
     subscribeToScroll,
@@ -39,14 +40,15 @@ export function SiteHeader() {
     () => !overHero,
   );
 
-  // Close the mobile menu on navigation (state adjustment during render).
+  // Close menu and search on navigation (state adjustment during render).
   const [lastPathname, setLastPathname] = useState(pathname);
   if (pathname !== lastPathname) {
     setLastPathname(pathname);
     setMenuOpen(false);
+    setSearchOpen(false);
   }
 
-  const solid = scrolled || menuOpen;
+  const solid = scrolled || menuOpen || searchOpen;
 
   return (
     <header
@@ -111,7 +113,10 @@ export function SiteHeader() {
           )}
         </nav>
 
-        <div className="flex items-center justify-self-end">
+        {/* col-start-3 is load-bearing: the nav is display:none on phones,
+            which removes it from grid flow — without the explicit column this
+            cluster auto-places into the middle and renders centred. */}
+        <div className="col-start-3 flex items-center gap-1 justify-self-end sm:gap-3">
           <div className="hidden sm:block">
             <GcbButton
               href="/contact"
@@ -122,18 +127,93 @@ export function SiteHeader() {
             </GcbButton>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Search — the interface exists now, the engine arrives with the
+              product catalogue. Rightmost, beside Contact Us. */}
           <button
             type="button"
+            aria-label="Search"
+            aria-expanded={searchOpen}
+            aria-controls="site-search"
+            onClick={() => setSearchOpen((open) => !open)}
+            className="p-2 transition-opacity hover:opacity-70"
+          >
+            <svg
+              aria-hidden
+              width="17"
+              height="17"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            >
+              <circle cx="8.5" cy="8.5" r="6" />
+              <path d="m13 13 5 5" />
+            </svg>
+          </button>
+
+          {/* Mobile menu button — hamburger to X */}
+          <button
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             onClick={() => setMenuOpen((open) => !open)}
-            className="label-gcb -mr-2 p-2 sm:hidden"
+            className="-mr-1 flex h-9 w-9 flex-col items-center justify-center gap-[5px] sm:hidden"
           >
-            {menuOpen ? "Close" : "Menu"}
+            <span
+              aria-hidden
+              className={cn(
+                "block h-px w-5 bg-current transition-transform duration-300",
+                menuOpen && "translate-y-[3px] rotate-45",
+              )}
+            />
+            <span
+              aria-hidden
+              className={cn(
+                "block h-px w-5 bg-current transition-transform duration-300",
+                menuOpen && "-translate-y-[3px] -rotate-45",
+              )}
+            />
           </button>
         </div>
       </div>
+
+      {/* Search overlay — placeholder until the catalogue ships */}
+      {searchOpen && (
+        <div
+          id="site-search"
+          className="bg-background text-foreground border-t shadow-xl"
+        >
+          <div className="container-gcb py-6">
+            <form
+              role="search"
+              onSubmit={(event) => event.preventDefault()}
+              className="flex items-center gap-4"
+            >
+              <input
+                autoFocus
+                type="search"
+                name="q"
+                placeholder="Search materials, finishes, care…"
+                aria-label="Search the site"
+                className="placeholder:text-muted/70 focus:border-accent w-full border-b bg-transparent py-3 text-lg outline-none"
+              />
+              <button
+                type="button"
+                aria-label="Close search"
+                onClick={() => setSearchOpen(false)}
+                className="label-gcb p-2 opacity-70 hover:opacity-100"
+              >
+                Close
+              </button>
+            </form>
+            <p className="text-muted mt-3 text-xs">
+              Search goes live with the product catalogue.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Mobile menu */}
       {menuOpen && (

@@ -45,11 +45,4 @@ export const duration = {
   reveal: 1.6,
 } as const;
 
-export {
-  CustomEase,
-  gsap,
-  ScrollToPlugin,
-  ScrollTrigger,
-  SplitText,
-  useGSAP,
-};
+export { CustomEase, gsap, ScrollToPlugin, ScrollTrigger, SplitText, useGSAP };

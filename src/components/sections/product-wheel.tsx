@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import { useRef, useState } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 
 import { GcbButton } from "@/components/ui/gcb-button";
 import { wheelProducts } from "@/config/product-wheel";
@@ -23,7 +23,13 @@ import { cn } from "@/lib/utils";
 
 const STEP_DEG = 14;
 const RADIUS = 460;
+// Mobile fan: pivot below the arc, active name at 12 o'clock. Positive scroll
+// rotates anticlockwise (rotation decreases), reverse scroll clockwise.
+const STEP_DEG_MOBILE = 38;
+const RADIUS_MOBILE = 175;
 const COUNT = wheelProducts.length;
+
+const emptySubscribe = () => () => {};
 
 let audioContext: AudioContext | null = null;
 
@@ -69,6 +75,13 @@ export function ProductWheel() {
   const indexRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
+  // The mobile dial is JS-positioned; until hydration the server markup shows
+  // the chip fallback instead, so no-JS phones still get a working selector.
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
 
   const active = wheelProducts[activeIndex];
 
@@ -84,41 +97,85 @@ export function ProductWheel() {
       const section = sectionRef.current;
       if (!section) return;
 
-      const apply = (position: number) => {
+      // Desktop: names radiate from a pivot off the LEFT edge, active on the
+      // horizontal. Mobile: a fan with the pivot BELOW, active at 12 o'clock —
+      // scrolling forward turns it anticlockwise, scrolling back clockwise.
+      const applyDesktop = (position: number) => {
         itemRefs.current.forEach((el, i) => {
           if (!el) return;
           const angle = (i - position) * STEP_DEG;
           const distance = Math.abs(i - position);
+          el.style.transformOrigin = "left center";
           el.style.transform = `rotate(${angle}deg) translateX(${RADIUS}px)`;
           el.style.opacity = String(Math.max(0, 1 - distance * 0.22));
           el.style.pointerEvents = distance > 3.5 ? "none" : "";
         });
       };
 
+      const applyMobile = (position: number) => {
+        itemRefs.current.forEach((el, i) => {
+          if (!el) return;
+          const angle = (i - position) * STEP_DEG_MOBILE;
+          const distance = Math.abs(i - position);
+          // Origin sits RADIUS_MOBILE below the element's own centre — the
+          // fan's hub — so a plain rotate swings the name along the arc.
+          el.style.transformOrigin = `50% ${RADIUS_MOBILE}px`;
+          el.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+          el.style.opacity = String(Math.max(0, 1 - distance * 0.4));
+          el.style.pointerEvents = distance > 1.5 ? "none" : "";
+        });
+      };
+
+      // ScrollTrigger's built-in snap waits for native scroll-end, which
+      // Lenis's smoothing delays unreliably — so snap manually: when updates
+      // go quiet between detents, glide the scroll to the nearest one.
+      let snapTimer: ReturnType<typeof setTimeout> | undefined;
+      const queueSnap = (st: ScrollTrigger) => {
+        clearTimeout(snapTimer);
+        snapTimer = setTimeout(() => {
+          const position = st.progress * (COUNT - 1);
+          const nearest = Math.round(position);
+          if (Math.abs(position - nearest) < 0.02) return;
+          gsap.to(window, {
+            duration: 0.5,
+            ease: "power2.out",
+            scrollTo: st.start + (nearest / (COUNT - 1)) * (st.end - st.start),
+          });
+        }, 200);
+      };
+
+      const attach = (apply: (position: number) => void, perDetent: number) => {
+        const st = ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          end: `+=${(COUNT - 1) * perDetent}%`,
+          pin: true,
+          scrub: 0.5,
+          onUpdate: (self) => {
+            const position = self.progress * (COUNT - 1);
+            apply(position);
+            commitIndex(Math.round(position));
+            queueSnap(self);
+          },
+        });
+        triggerRef.current = st;
+        apply(st.progress * (COUNT - 1));
+
+        return () => {
+          clearTimeout(snapTimer);
+          triggerRef.current = null;
+          st.kill();
+        };
+      };
+
       const mm = gsap.matchMedia();
       mm.add(
         "(min-width: 64rem) and (prefers-reduced-motion: no-preference)",
-        () => {
-          const st = ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: `+=${(COUNT - 1) * 45}%`,
-            pin: true,
-            scrub: 0.5,
-            onUpdate: (self) => {
-              const position = self.progress * (COUNT - 1);
-              apply(position);
-              commitIndex(Math.round(position));
-            },
-          });
-          triggerRef.current = st;
-          apply(st.progress * (COUNT - 1));
-
-          return () => {
-            triggerRef.current = null;
-            st.kill();
-          };
-        },
+        () => attach(applyDesktop, 45),
+      );
+      mm.add(
+        "(max-width: 63.99rem) and (prefers-reduced-motion: no-preference)",
+        () => attach(applyMobile, 35),
       );
     },
     { scope: sectionRef },
@@ -154,16 +211,21 @@ export function ProductWheel() {
         </h2>
       </div>
 
-      <div className="container-gcb mt-12 grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
-        {/* Dial — desktop, rotated by the scroll */}
+      <div className="container-gcb mt-8 grid items-center gap-8 lg:mt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
+        {/* Dial — scroll-rotated. Desktop: pivot off the left edge, active on
+            the horizontal. Mobile: fan at the top, pivot below, active at 12
+            o'clock. Hidden on phones until hydration (chips cover no-JS). */}
         {showDial && (
           <div
-            className="relative hidden h-[26rem] lg:block"
+            className={cn(
+              "relative h-40 lg:h-[26rem]",
+              !mounted && "hidden lg:block",
+            )}
             role="listbox"
             aria-label="Product lines"
             aria-activedescendant={`wheel-${active.id}`}
           >
-            <div className="absolute top-1/2 left-[-360px]">
+            <div className="absolute inset-x-0 top-6 lg:inset-x-auto lg:top-1/2 lg:left-[-360px]">
               {wheelProducts.map((product, index) => (
                 <button
                   key={product.id}
@@ -176,19 +238,28 @@ export function ProductWheel() {
                   aria-selected={index === activeIndex}
                   onClick={() => select(index)}
                   className={cn(
-                    "font-display absolute top-0 left-0 origin-left text-3xl tracking-tight whitespace-nowrap transition-colors duration-500 xl:text-4xl",
+                    "font-display absolute top-0 left-1/2 text-2xl tracking-tight whitespace-nowrap transition-colors duration-500 lg:left-0 lg:origin-left lg:text-3xl xl:text-4xl",
                     index === activeIndex
                       ? "text-ink"
                       : "text-ink/35 hover:text-ink/70",
                   )}
-                  style={{
-                    transform: `rotate(${(index - activeIndex) * STEP_DEG}deg) translateX(${RADIUS}px)`,
-                  }}
+                  // The desktop pose ships as SSR inline style for no-JS
+                  // rendering only. Once mounted, the prop is withdrawn so
+                  // React re-renders can never clobber the transforms the
+                  // scroll code writes — with the prop present, every detent's
+                  // re-render reset phones to the desktop pose (off-screen).
+                  style={
+                    mounted
+                      ? undefined
+                      : {
+                          transform: `rotate(${(index - activeIndex) * STEP_DEG}deg) translateX(${RADIUS}px)`,
+                        }
+                  }
                 >
                   {index === activeIndex && (
                     <span
                       aria-hidden
-                      className="absolute top-1/2 -left-14 h-px w-10 transition-colors duration-500"
+                      className="absolute top-1/2 -left-14 hidden h-px w-10 transition-colors duration-500 lg:block"
                       style={{ backgroundColor: active.accent }}
                     />
                   )}
@@ -199,9 +270,12 @@ export function ProductWheel() {
           </div>
         )}
 
-        {/* Chip row — mobile / tablet / reduced motion */}
+        {/* Chip row — no-JS phones and reduced-motion fallback */}
         <div
-          className={cn("-mx-6 overflow-x-auto px-6", showDial && "lg:hidden")}
+          className={cn(
+            "-mx-6 overflow-x-auto px-6",
+            showDial && (mounted ? "hidden" : "lg:hidden"),
+          )}
         >
           <div className="flex w-max gap-3 pb-2">
             {wheelProducts.map((product, index) => (
@@ -227,8 +301,8 @@ export function ProductWheel() {
           </div>
         </div>
 
-        {/* Active line card */}
-        <div>
+        {/* Active line card — centered on phones, right column on desktop */}
+        <div className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
           <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
             <AnimatePresence mode="popLayout" initial={false}>
               <motion.div
@@ -257,7 +331,8 @@ export function ProductWheel() {
             />
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
+          {/* Phones: counter then button, both centered under the image. */}
+          <div className="mt-5 flex flex-col items-center gap-4 lg:mt-6 lg:flex-row lg:flex-wrap lg:justify-between lg:gap-6">
             <p
               className="label-gcb transition-colors duration-500"
               style={{ color: active.accent }}
