@@ -305,7 +305,7 @@ export function ProductWheel() {
 
         {/* Active line card — centered on phones, right column on desktop */}
         <div className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
             <AnimatePresence mode="popLayout" initial={false}>
               <motion.div
                 key={active.id}
@@ -317,7 +317,7 @@ export function ProductWheel() {
               >
                 <Image
                   src={active.image}
-                  alt={`${active.label} placeholder`}
+                  alt={active.alt}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"

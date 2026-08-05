@@ -81,7 +81,9 @@ export function SiteHeader() {
           aria-label={`${siteConfig.name} — home`}
           className="justify-self-start transition-opacity hover:opacity-70"
         >
-          <Logo className="h-12 w-12 sm:h-14 sm:w-14" />
+          {/* viewBox is cropped to the mark's content, so the logo renders at
+              roughly twice its old visual size inside the same bar. */}
+          <Logo className="h-12 w-auto sm:h-16" />
         </Link>
 
         {/* Desktop nav, centered */}
