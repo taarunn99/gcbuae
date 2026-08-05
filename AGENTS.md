@@ -6,6 +6,12 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # GCB-OE — project conventions
 
+**Read `GOVERNANCE.md` before building any page, component, or content.** It
+is the owner's binding ruleset — SEO strategy, Core Web Vitals budgets,
+rendering rules (SSR-first, animation islands only), content voice, and the
+mandatory notification rules. Where it conflicts with convenience, it wins;
+where it must be broken, stop and tell Tarun the reason and the cost.
+
 Marketing site for Global Classic Building Materials (GCB), a UAE building
 materials trading company.
 
@@ -32,6 +38,15 @@ GSAP (animation) · Motion (React animation) · Lenis (smooth scroll).
   Component.
 - Respect `prefers-reduced-motion`; `useReducedMotion` in `@/hooks` is the hook,
   and `globals.css` already neutralises CSS transitions.
+
+## Positioning (owner note, 2026-08-05)
+
+GCB currently sells **slabs only, wholesale B2B** — the target buyer is a
+company (contractors, developers, decor companies), not a homeowner. GCB
+does not make furniture; it supplies the companies that do. Do not state
+"slabs only" bluntly across the site — keep the lifestyle surface — but let
+copy, CTAs and SEO speak to specifiers and volume buyers (stock, specs,
+delivery), per GOVERNANCE.md's "marble slab supplier" target.
 
 ## Imagery
 

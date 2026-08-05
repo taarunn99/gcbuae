@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Products",
   description:
     "Quartz, naturally engineered marble, terrazzo, showers, taps, sanitaryware, shower trays, and marble care — supplied across the UAE.",
+  // Without this, the root layout's canonical ("/") is inherited and this
+  // page tells Google it is a copy of the homepage. GOVERNANCE §6.
+  alternates: { canonical: "/products" },
 };
 
 export default function ProductsPage() {

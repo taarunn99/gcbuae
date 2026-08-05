@@ -39,7 +39,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s — ${siteConfig.shortName}`,
+    // GOVERNANCE §6: "Primary Query — Global Classic UAE" pattern.
+    template: "%s — Global Classic UAE",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,

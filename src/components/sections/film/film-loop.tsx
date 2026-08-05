@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { filmChapters, filmLoop } from "@/config/film";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -18,16 +18,62 @@ import { cn } from "@/lib/utils";
  * battery; under prefers-reduced-motion it stays a still poster with the
  * first chapter's overlay.
  */
+type NetworkInformation = {
+  saveData?: boolean;
+  effectiveType?: string;
+  addEventListener?: (type: "change", listener: () => void) => void;
+  removeEventListener?: (type: "change", listener: () => void) => void;
+};
+
+/**
+ * GOVERNANCE §5 (poor-network first): visitors on Save-Data or 2G-class
+ * connections get the poster, not a multi-megabyte film.
+ */
+function getConnection(): NetworkInformation | undefined {
+  if (typeof navigator === "undefined") return undefined;
+  return (navigator as Navigator & { connection?: NetworkInformation })
+    .connection;
+}
+
+function subscribeToConnection(callback: () => void) {
+  const connection = getConnection();
+  connection?.addEventListener?.("change", callback);
+  return () => connection?.removeEventListener?.("change", callback);
+}
+
+function connectionWantsStills() {
+  const connection = getConnection();
+  if (!connection) return false;
+  return (
+    connection.saveData === true ||
+    connection.effectiveType === "2g" ||
+    connection.effectiveType === "slow-2g"
+  );
+}
+
 export function FilmLoop() {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const [chapterIndex, setChapterIndex] = useState(0);
+  // Tracks the Network Information API; false during SSR so the sources are
+  // in the HTML and only dropped once a constrained connection is confirmed.
+  const stillsOnly = useSyncExternalStore(
+    subscribeToConnection,
+    connectionWantsStills,
+    () => false,
+  );
+
+  // Once stills mode is decided, abort any in-flight media fetch: with the
+  // <source> elements gone, load() resets the element to poster-only.
+  useEffect(() => {
+    if (stillsOnly) videoRef.current?.load();
+  }, [stillsOnly]);
 
   useEffect(() => {
     const video = videoRef.current;
     const section = sectionRef.current;
-    if (!video || !section || prefersReducedMotion) return;
+    if (!video || !section || prefersReducedMotion || stillsOnly) return;
 
     const onTimeUpdate = () => {
       const t = video.currentTime;
@@ -58,7 +104,7 @@ export function FilmLoop() {
       observer.disconnect();
       video.pause();
     };
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, stillsOnly]);
 
   const chapter = filmChapters[chapterIndex];
 
@@ -84,7 +130,7 @@ export function FilmLoop() {
         preload="metadata"
         poster={filmLoop.poster}
       >
-        {!prefersReducedMotion && (
+        {!prefersReducedMotion && !stillsOnly && (
           <>
             <source src={filmLoop.webm} type="video/webm" />
             <source src={filmLoop.mp4} type="video/mp4" />

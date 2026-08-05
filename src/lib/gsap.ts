@@ -3,9 +3,6 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
-import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-import { Flip } from "gsap/Flip";
-import { Observer } from "gsap/Observer";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -13,15 +10,16 @@ import { SplitText } from "gsap/SplitText";
 // GSAP touches `document` when plugins register, so registration is guarded to
 // the browser. Every animated component must import gsap from this module
 // rather than from "gsap" directly, or its plugins will be unregistered.
+//
+// GOVERNANCE §4 (route-JS budget): only plugins actually in use are imported.
+// Add Flip/Observer/DrawSVG back here the day a component needs them — never
+// speculatively.
 if (typeof window !== "undefined") {
   gsap.registerPlugin(
     useGSAP,
     ScrollTrigger,
     ScrollToPlugin,
     SplitText,
-    Flip,
-    Observer,
-    DrawSVGPlugin,
     CustomEase,
   );
 
@@ -49,10 +47,7 @@ export const duration = {
 
 export {
   CustomEase,
-  DrawSVGPlugin,
-  Flip,
   gsap,
-  Observer,
   ScrollToPlugin,
   ScrollTrigger,
   SplitText,

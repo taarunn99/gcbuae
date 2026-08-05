@@ -10,6 +10,7 @@ import { ContactForm } from "./contact-form";
 export const metadata: Metadata = {
   title: "Contact",
   description: `Talk to ${siteConfig.name} about materials, specifications and supply across the UAE.`,
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

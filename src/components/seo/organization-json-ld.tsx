@@ -12,7 +12,9 @@ export function OrganizationJsonLd() {
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    // GOVERNANCE §6: Organization + LocalBusiness org-wide. Geo coordinates
+    // and opening hours get added when Tarun supplies the showroom details.
+    "@type": ["Organization", "LocalBusiness"],
     name: siteConfig.legalName,
     alternateName: siteConfig.shortName,
     url: siteConfig.url,
