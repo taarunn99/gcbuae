@@ -24,6 +24,10 @@ interface SoftAuroraProps {
   colorSpeed?: number;
   enableMouseInteraction?: boolean;
   mouseInfluence?: number;
+  /** 0 disables. While hovered, the glow pulses like a heartbeat (lub-dub). */
+  pulseStrength?: number;
+  /** Heartbeat cycles per second while hovered. ~1.1 ≈ 66 bpm. */
+  pulseRate?: number;
 }
 
 function hexToVec3(hex: string): [number, number, number] {
@@ -65,8 +69,20 @@ uniform float uColorSpeed;
 uniform vec2 uMouse;
 uniform float uMouseInfluence;
 uniform bool uEnableMouse;
+uniform float uPulse;
+uniform float uPulseStrength;
+uniform float uPulseRate;
 
 #define TAU 6.28318
+
+// Adapted from upstream: ECG-style lub-dub — a strong beat and a softer
+// echo per cycle, each a narrow gaussian on the cycle phase.
+float heartbeat(float t) {
+  float p = fract(t);
+  float lub = exp(-46.0 * pow(p - 0.14, 2.0));
+  float dub = 0.55 * exp(-46.0 * pow(p - 0.34, 2.0));
+  return lub + dub;
+}
 
 vec3 gradientHash(vec3 p) {
   p = vec3(
@@ -167,6 +183,12 @@ void main() {
   col += 0.99 * auroraGlow(t + uLayerOffset, shift) * cosineGradient(uv.x + uTime * uSpeed * 0.1 * uColorSpeed, vec3(0.5), vec3(0.5), vec3(1.0), vec3(0.55)) * uColor2;
 
   col *= uBrightness;
+
+  // Hover heartbeat: brightness surges with each beat, eased in and out by
+  // uPulse so entering and leaving the section never snaps.
+  float beat = heartbeat(uTime * uPulseRate);
+  col *= 1.0 + uPulse * uPulseStrength * beat;
+
   float alpha = clamp(length(col), 0.0, 1.0);
   gl_FragColor = vec4(col, alpha);
 }
@@ -187,6 +209,8 @@ export default function SoftAurora({
   colorSpeed = 1.0,
   enableMouseInteraction = true,
   mouseInfluence = 0.25,
+  pulseStrength = 0,
+  pulseRate = 1.1,
 }: SoftAuroraProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -199,6 +223,8 @@ export default function SoftAurora({
 
     const currentMouse = [0.5, 0.5];
     let targetMouse = [0.5, 0.5];
+    let targetPulse = 0;
+    let currentPulse = 0;
 
     function handleMouseMove(e: MouseEvent) {
       const rect = gl.canvas.getBoundingClientRect();
@@ -206,10 +232,12 @@ export default function SoftAurora({
         (e.clientX - rect.left) / rect.width,
         1.0 - (e.clientY - rect.top) / rect.height,
       ];
+      targetPulse = 1;
     }
 
     function handleMouseLeave() {
       targetMouse = [0.5, 0.5];
+      targetPulse = 0;
     }
 
     // Program is created before resize is ever called, so the uniform update
@@ -242,6 +270,9 @@ export default function SoftAurora({
         uMouse: { value: new Float32Array([0.5, 0.5]) },
         uMouseInfluence: { value: mouseInfluence },
         uEnableMouse: { value: enableMouseInteraction },
+        uPulse: { value: 0 },
+        uPulseStrength: { value: pulseStrength },
+        uPulseRate: { value: pulseRate },
       },
     });
 
@@ -280,6 +311,9 @@ export default function SoftAurora({
         program.uniforms.uMouse.value[1] = 0.5;
       }
 
+      currentPulse += 0.06 * (targetPulse - currentPulse);
+      program.uniforms.uPulse.value = currentPulse;
+
       renderer.render({ scene: mesh });
     }
     animationFrameId = requestAnimationFrame(update);
@@ -309,6 +343,8 @@ export default function SoftAurora({
     colorSpeed,
     enableMouseInteraction,
     mouseInfluence,
+    pulseStrength,
+    pulseRate,
   ]);
 
   return <div ref={containerRef} className="soft-aurora-container" />;

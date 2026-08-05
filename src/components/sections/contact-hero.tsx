@@ -21,7 +21,7 @@ export function ContactHero() {
       {!prefersReducedMotion && (
         <div aria-hidden className="absolute inset-0">
           <SoftAurora
-            speed={0.35}
+            speed={0.75}
             scale={1.3}
             brightness={0.85}
             color1="#f5efe4"
@@ -32,9 +32,12 @@ export function ContactHero() {
             bandSpread={1.1}
             octaveDecay={0.12}
             layerOffset={2.4}
-            colorSpeed={0.35}
+            colorSpeed={0.5}
             enableMouseInteraction
             mouseInfluence={0.38}
+            // While hovered, the glow beats like a heart — lub-dub at ~66bpm.
+            pulseStrength={0.85}
+            pulseRate={1.1}
           />
         </div>
       )}
