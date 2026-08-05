@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <main className="flex-1 pt-40 pb-32">
+    <main className="theme-forest bg-background text-foreground flex-1 pt-40 pb-32">
       <Container>
         <p className="label-gcb text-muted">Products</p>
         <SplitHeading

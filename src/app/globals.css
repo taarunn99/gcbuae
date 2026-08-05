@@ -41,6 +41,25 @@
   }
 }
 
+/*
+ * Brand-green scope (GOVERNANCE §4: forest #0E3B2C, bone, brass). The home
+ * page keeps the palette sampled from its photography; every other page
+ * wraps its content in .theme-forest, which re-maps the semantic tokens to
+ * deep green ground with bone text — inverted contrast relative to the old
+ * light pages. Components need no changes: they read the same variables.
+ */
+.theme-forest {
+  --background: oklch(0.16 0.028 168);
+  --foreground: oklch(0.96 0.006 100);
+  --surface: oklch(0.2 0.032 168);
+  --surface-raised: oklch(0.23 0.034 168);
+  --border: oklch(0.33 0.035 168);
+  --muted: oklch(0.73 0.025 150);
+  --accent: oklch(0.72 0.062 62);
+  --accent-foreground: oklch(0.16 0.028 168);
+  --warm-black: oklch(0.14 0.026 170);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

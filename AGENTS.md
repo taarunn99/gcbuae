@@ -85,6 +85,16 @@ delivery), per GOVERNANCE.md's "marble slab supplier" target.
   fetches suspend with no user activation) — video playback must be checked in
   a normal Chrome.
 
+## Theming (owner decision, 2026-08-05)
+
+The brand colour is FOREST GREEN (the logo's #01402e; GOVERNANCE §4). The
+HOME page alone keeps the warm palette sampled from its hero photography.
+Every other page wraps its `<main>` in `.theme-forest bg-background
+text-foreground` (see globals.css), which re-maps the semantic tokens to
+deep-green ground with bone text — inverted contrast. The header applies
+`.theme-forest` automatically off the home route. New pages must follow
+this pattern; do not hard-code colours to bypass it.
+
 ## Styling
 
 - Design tokens are CSS custom properties in `src/app/globals.css`, exposed to

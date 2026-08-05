@@ -69,6 +69,9 @@ export function SiteHeader() {
     <header
       className={cn(
         "site-header fixed inset-x-0 top-0 z-50",
+        // Off the home page the whole chrome follows the brand-green scope;
+        // the home page keeps the palette of its photography.
+        !overHero && "theme-forest",
         solid
           ? "bg-background/85 text-foreground border-b backdrop-blur-md"
           : "text-ink border-b border-transparent",

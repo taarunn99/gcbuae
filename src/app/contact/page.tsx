@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="flex-1">
+    <main className="theme-forest bg-background text-foreground flex-1">
       <ContactHero />
 
       <section className="py-20 sm:py-24">
