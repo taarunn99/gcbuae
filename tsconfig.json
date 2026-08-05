@@ -30,5 +30,13 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    // macOS drops "name 2.ts" duplicates into .next when the dev server and
+    // a build write concurrently; they shadow the real typegen files and
+    // fail tsc with duplicate-identifier noise.
+    ".next/**/* 2.ts",
+    ".next/**/* 3.ts",
+    ".next/**/* 4.ts"
+  ]
 }
