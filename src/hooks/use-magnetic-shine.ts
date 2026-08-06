@@ -27,7 +27,15 @@ export function useMagneticShineGroup<T extends HTMLElement>(
     );
     if (items.length === 0) return;
 
-    const state = items.map(() => ({ x: 0, y: 0, tx: 0, ty: 0, glow: 0 }));
+    const state = items.map(() => ({
+      x: 0,
+      y: 0,
+      tx: 0,
+      ty: 0,
+      glow: 0,
+      ang: 140,
+      tang: 140,
+    }));
     let raf = 0;
     let running = false;
 
@@ -37,9 +45,13 @@ export function useMagneticShineGroup<T extends HTMLElement>(
         const s = state[i];
         s.x += (s.tx - s.x) * 0.18;
         s.y += (s.ty - s.y) * 0.18;
+        // Shortest-path angle chase so the rim light swings, never snaps.
+        const diff = ((s.tang - s.ang + 540) % 360) - 180;
+        s.ang += diff * 0.18;
         if (
           Math.abs(s.tx - s.x) > 0.05 ||
           Math.abs(s.ty - s.y) > 0.05 ||
+          Math.abs(diff) > 0.5 ||
           s.tx !== 0 ||
           s.ty !== 0
         ) {
@@ -49,6 +61,7 @@ export function useMagneticShineGroup<T extends HTMLElement>(
           el.style.transform = "";
         }
         el.style.setProperty("--so", s.glow.toFixed(3));
+        el.style.setProperty("--ang", `${s.ang.toFixed(1)}deg`);
       });
       if (alive) raf = requestAnimationFrame(tick);
       else running = false;
@@ -69,14 +82,8 @@ export function useMagneticShineGroup<T extends HTMLElement>(
           s.tx = dx * strength * pull;
           s.ty = dy * strength * pull;
           s.glow = pull;
-          el.style.setProperty(
-            "--sx",
-            `${(((event.clientX - rect.left) / rect.width) * 100).toFixed(1)}%`,
-          );
-          el.style.setProperty(
-            "--sy",
-            `${(((event.clientY - rect.top) / rect.height) * 100).toFixed(1)}%`,
-          );
+          // CSS conic angle: 0deg is 12 o'clock, clockwise.
+          s.tang = (Math.atan2(dx, -dy) * 180) / Math.PI;
         } else {
           s.tx = 0;
           s.ty = 0;

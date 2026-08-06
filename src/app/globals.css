@@ -230,23 +230,41 @@
     overflow: hidden;
   }
 
+  /* Specular RIM light, matching the pill buttons: a bright arc on the very
+     edge that rotates to face the cursor (--ang from the magnetic loop),
+     with a fainter symmetric arc opposite — conic gradient masked into a
+     hairline ring. */
   [data-shine]::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    opacity: calc(var(--so, 0) * 0.35);
-    background: radial-gradient(
-      circle at var(--sx, 50%) var(--sy, 50%),
-      #f7f8f5 0%,
-      transparent 65%
+    opacity: var(--so, 0);
+    background: conic-gradient(
+      from calc(var(--ang, 140deg) - 55deg),
+      transparent 0deg,
+      #f7f8f5 55deg,
+      transparent 110deg,
+      transparent 160deg,
+      rgba(247, 248, 245, 0.4) 235deg,
+      transparent 310deg
     );
-    transition: opacity 0.15s ease;
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2.5px),
+      #000 calc(100% - 1px)
+    );
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2.5px),
+      #000 calc(100% - 1px)
+    );
+    transition: opacity 0.2s ease;
   }
 
   [data-shine]:hover::after {
-    opacity: max(calc(var(--so, 0) * 0.35), 0.22);
+    opacity: max(var(--so, 0), 0.7);
   }
 
   /* Stronger grain for flat-colour stages where 5% is imperceptible. */
