@@ -109,8 +109,12 @@ export function ProductWheel() {
           const distance = Math.abs(i - position);
           el.style.transformOrigin = "left center";
           el.style.transform = `rotate(${angle}deg) translateX(${RADIUS}px)`;
-          el.style.opacity = String(Math.max(0, 1 - distance * 0.22));
-          el.style.pointerEvents = distance > 3.5 ? "none" : "";
+          // Owner rule: five names visible — the active one plus two each
+          // side. Anything further is fully hidden so the dial can never
+          // overlap the section heading.
+          el.style.opacity =
+            distance > 2.2 ? "0" : String(Math.max(0, 1 - distance * 0.32));
+          el.style.pointerEvents = distance > 2.2 ? "none" : "";
         });
       };
 
@@ -123,8 +127,9 @@ export function ProductWheel() {
           // fan's hub — so a plain rotate swings the name along the arc.
           el.style.transformOrigin = `50% ${RADIUS_MOBILE}px`;
           el.style.transform = `translateX(-50%) rotate(${angle}deg)`;
-          el.style.opacity = String(Math.max(0, 1 - distance * 0.65));
-          el.style.pointerEvents = distance > 1.5 ? "none" : "";
+          el.style.opacity =
+            distance > 2.2 ? "0" : String(Math.max(0, 1 - distance * 0.42));
+          el.style.pointerEvents = distance > 2.2 ? "none" : "";
         });
       };
 
@@ -200,7 +205,7 @@ export function ProductWheel() {
     <section
       ref={sectionRef}
       aria-label="Product lines"
-      className="grain-gcb relative flex min-h-svh flex-col justify-center overflow-hidden py-24"
+      className="grain-gcb grain-strong relative flex min-h-svh flex-col justify-center overflow-hidden py-24"
       style={{
         backgroundColor: `color-mix(in oklab, #0c1510 66%, ${active.accent})`,
         transition: "background-color 700ms ease",

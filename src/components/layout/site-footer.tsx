@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/layout/logo";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
+import { useMagneticShineGroup } from "@/hooks/use-magnetic-shine";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 /**
@@ -80,100 +81,12 @@ const CONTACT_ICONS: {
   },
 ];
 
-/**
- * Magnetism + specular shine for the whole icon row on ONE window listener
- * and ONE rAF loop (no per-icon WebGL): each icon leans toward the cursor
- * within range, and a Porcelain radial highlight tracks the pointer via CSS
- * custom properties consumed by the shine overlay.
- */
-function useMagneticIconRow() {
-  const rowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const row = rowRef.current;
-    if (!row) return;
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const icons = Array.from(row.querySelectorAll<HTMLAnchorElement>("a"));
-    const state = icons.map(() => ({ x: 0, y: 0, tx: 0, ty: 0, glow: 0 }));
-    let raf = 0;
-    let running = false;
-
-    const tick = () => {
-      let alive = false;
-      icons.forEach((el, i) => {
-        const s = state[i];
-        s.x += (s.tx - s.x) * 0.18;
-        s.y += (s.ty - s.y) * 0.18;
-        if (
-          Math.abs(s.tx - s.x) > 0.05 ||
-          Math.abs(s.ty - s.y) > 0.05 ||
-          s.tx !== 0 ||
-          s.ty !== 0
-        ) {
-          alive = true;
-          el.style.transform = `translate(${s.x.toFixed(2)}px, ${s.y.toFixed(2)}px)`;
-        } else {
-          el.style.transform = "";
-        }
-        el.style.setProperty("--so", s.glow.toFixed(3));
-      });
-      if (alive) raf = requestAnimationFrame(tick);
-      else running = false;
-    };
-
-    const onMove = (event: PointerEvent) => {
-      icons.forEach((el, i) => {
-        const rect = el.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = event.clientX - cx;
-        const dy = event.clientY - cy;
-        const distance = Math.hypot(dx, dy);
-        const reach = rect.width / 2 + 60;
-        const s = state[i];
-        if (distance < reach) {
-          const pull = 1 - distance / reach;
-          s.tx = dx * 0.3 * pull;
-          s.ty = dy * 0.3 * pull;
-          s.glow = pull;
-          // Shine position inside the button, as percentages.
-          el.style.setProperty(
-            "--sx",
-            `${(((event.clientX - rect.left) / rect.width) * 100).toFixed(1)}%`,
-          );
-          el.style.setProperty(
-            "--sy",
-            `${(((event.clientY - rect.top) / rect.height) * 100).toFixed(1)}%`,
-          );
-        } else {
-          s.tx = 0;
-          s.ty = 0;
-          s.glow = 0;
-        }
-      });
-      if (!running) {
-        running = true;
-        raf = requestAnimationFrame(tick);
-      }
-    };
-
-    window.addEventListener("pointermove", onMove, { passive: true });
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  return rowRef;
-}
-
 export function SiteFooter() {
   const spacerRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
-  const iconRowRef = useMagneticIconRow();
+  const iconRowRef = useMagneticShineGroup<HTMLDivElement>();
+  const lapizRowRef = useMagneticShineGroup<HTMLDivElement>();
   const [height, setHeight] = useState(0);
 
   // The fixed footer occupies no flow space; the spacer mirrors its height
@@ -221,7 +134,12 @@ export function SiteFooter() {
 
   return (
     <>
-      <div ref={spacerRef} style={{ height }} aria-hidden />
+      <div
+        ref={spacerRef}
+        style={{ height }}
+        aria-hidden
+        className="pointer-events-none"
+      />
       <footer
         ref={footerRef}
         className="bg-warm-black text-ink grain-gcb fixed inset-x-0 bottom-0 -z-10 overflow-hidden"
@@ -242,19 +160,9 @@ export function SiteFooter() {
                     {...(icon.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="border-ink/25 hover:border-ink/70 relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border transition-colors will-change-transform"
+                    data-shine
+                    className="border-ink/25 hover:border-ink/70 relative flex h-11 w-11 items-center justify-center rounded-full border transition-colors will-change-transform"
                   >
-                    {/* Cursor-tracking specular shine (CSS vars set by the
-                        shared magnetic loop). */}
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 rounded-full transition-opacity duration-150"
-                      style={{
-                        opacity: "calc(var(--so, 0) * 0.35)",
-                        background:
-                          "radial-gradient(circle at var(--sx, 50%) var(--sy, 50%), #f7f8f5 0%, transparent 65%)",
-                      }}
-                    />
                     <svg
                       aria-hidden
                       width="19"
@@ -318,7 +226,10 @@ export function SiteFooter() {
             </div>
 
             {/* Lapiz Group affiliation — logo mask-tinted Porcelain */}
-            <div className="border-ink/15 mt-10 flex flex-wrap items-center gap-4 border-t pt-8">
+            <div
+              ref={lapizRowRef}
+              className="border-ink/15 mt-10 flex flex-wrap items-center gap-4 border-t pt-8"
+            >
               <span
                 role="img"
                 aria-label="Lapiz Blue"
@@ -341,12 +252,15 @@ export function SiteFooter() {
                 href="https://www.lapizblue.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-ink/70 hover:text-ink ml-auto inline-flex items-center gap-2 transition-colors"
+                aria-label="Visit lapizblue.com"
+                title="Visit lapizblue.com"
+                data-shine
+                className="border-ink/25 hover:border-ink/70 ml-auto flex h-11 w-11 items-center justify-center rounded-full border transition-colors will-change-transform"
               >
                 <svg
                   aria-hidden
-                  width="17"
-                  height="17"
+                  width="19"
+                  height="19"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -356,7 +270,6 @@ export function SiteFooter() {
                   <circle cx="12" cy="12" r="9" />
                   <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
                 </svg>
-                <span className="u-line text-sm">lapizblue.com</span>
               </a>
             </div>
 

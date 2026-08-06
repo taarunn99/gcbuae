@@ -43,11 +43,11 @@ export default function HomePage() {
                     hairline, owning the top of each column. */}
                 <span
                   aria-hidden
-                  className="font-display text-bronze block text-6xl leading-none"
+                  className="font-display text-ink block text-6xl leading-none"
                 >
                   {pad(index + 1)}
                 </span>
-                <span aria-hidden className="bg-bronze mt-5 block h-px w-12" />
+                <span aria-hidden className="bg-ink/40 mt-5 block h-px w-12" />
                 <h3 className="font-display text-ink mt-6 text-2xl">
                   {item.title}
                 </h3>

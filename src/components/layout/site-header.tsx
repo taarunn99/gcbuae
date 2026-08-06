@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { Logo } from "@/components/layout/logo";
+import { useMagneticShineGroup } from "@/hooks/use-magnetic-shine";
 import { GcbButton } from "@/components/ui/gcb-button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -33,6 +34,7 @@ export function SiteHeader() {
   const overHero = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const clusterRef = useMagneticShineGroup<HTMLDivElement>(0.25, 50);
 
   const scrolled = useSyncExternalStore(
     subscribeToScroll,
@@ -140,7 +142,10 @@ export function SiteHeader() {
         {/* col-start-3 is load-bearing: the nav is display:none on phones,
             which removes it from grid flow — without the explicit column this
             cluster auto-places into the middle and renders centred. */}
-        <div className="col-start-3 flex items-center gap-1 justify-self-end sm:gap-3">
+        <div
+          ref={clusterRef}
+          className="col-start-3 flex items-center gap-1 justify-self-end sm:gap-3"
+        >
           <div>
             <GcbButton
               href="/contact"
@@ -159,7 +164,8 @@ export function SiteHeader() {
             aria-expanded={searchOpen}
             aria-controls="site-search"
             onClick={() => setSearchOpen((open) => !open)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-current/30 transition-colors hover:border-current/70"
+            data-shine
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-current/30 transition-colors will-change-transform hover:border-current/70"
           >
             <svg
               aria-hidden
@@ -183,7 +189,8 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             onClick={() => setMenuOpen((open) => !open)}
-            className="-mr-1 flex h-9 w-9 flex-col items-center justify-center gap-[5px] sm:hidden"
+            data-shine
+            className="-mr-1 flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-full will-change-transform sm:hidden"
           >
             <span
               aria-hidden

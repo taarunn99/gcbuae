@@ -1,35 +1,29 @@
+/* eslint-disable @next/next/no-img-element */
+
 /**
- * Distribution-partner marquee. Logos render as single-tone silhouettes via
- * CSS mask-image so third-party brand colours never enter the strict
- * five-colour palette. Two copies of the track scroll seamlessly; the
- * global reduced-motion rule freezes it into a static row.
+ * Distribution-partner marquee. Logos render in their ORIGINAL brand colours
+ * — the owner (an authorised distributor of all three) requires unmodified
+ * third-party marks; recolouring someone else's trademark is not ours to do.
+ * This is the one sanctioned exception to the five-colour palette.
+ * Current KalingaStone/FILA files are interim; the owner supplies final art.
  */
 const BRANDS = [
-  { name: "KalingaStone", src: "/brands/kalingastone.png", width: 200 },
-  { name: "Jaquar", src: "/brands/jaquar.png", width: 120 },
-  { name: "FILA Surface Care", src: "/brands/fila.svg", width: 56 },
+  { name: "KalingaStone", src: "/brands/kalingastone.png", height: 34 },
+  { name: "Jaquar Group", src: "/brands/jaquar.png", height: 44 },
+  { name: "FILA Surface Care", src: "/brands/fila.svg", height: 48 },
 ];
 
 function Track() {
   return (
     <div className="flex shrink-0 items-center gap-24 pr-24">
       {BRANDS.map((brand) => (
-        <span
+        <img
           key={brand.name}
-          role="img"
-          aria-label={brand.name}
-          className="bg-verde block h-14 shrink-0 opacity-80"
-          style={{
-            width: brand.width,
-            maskImage: `url(${brand.src})`,
-            maskRepeat: "no-repeat",
-            maskPosition: "center",
-            maskSize: "contain",
-            WebkitMaskImage: `url(${brand.src})`,
-            WebkitMaskRepeat: "no-repeat",
-            WebkitMaskPosition: "center",
-            WebkitMaskSize: "contain",
-          }}
+          src={brand.src}
+          alt={brand.name}
+          style={{ height: brand.height }}
+          className="w-auto shrink-0"
+          loading="lazy"
         />
       ))}
     </div>

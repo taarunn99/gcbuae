@@ -220,6 +220,40 @@
     }
   }
 
+  /*
+   * Cursor-tracking specular shine for buttons, driven by --sx/--sy/--so
+   * from useMagneticShineGroup. The :hover rule is a no-JS fallback so a
+   * shine ALWAYS appears on hover, even before hydration.
+   */
+  [data-shine] {
+    position: relative;
+    overflow: hidden;
+  }
+
+  [data-shine]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: calc(var(--so, 0) * 0.35);
+    background: radial-gradient(
+      circle at var(--sx, 50%) var(--sy, 50%),
+      #f7f8f5 0%,
+      transparent 65%
+    );
+    transition: opacity 0.15s ease;
+  }
+
+  [data-shine]:hover::after {
+    opacity: max(calc(var(--so, 0) * 0.35), 0.22);
+  }
+
+  /* Stronger grain for flat-colour stages where 5% is imperceptible. */
+  .grain-strong::after {
+    opacity: 0.09;
+  }
+
   /* Small wide-tracked label. Replaces the mono eyebrows of the scaffold. */
   .label-gcb {
     font-size: 0.6875rem;
