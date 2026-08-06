@@ -215,16 +215,18 @@ export function SiteFooter() {
                 </ul>
               </div>
 
-              {/* ONE titled block; the list flows into two columns inside it,
-                  so it can never read as an untitled second category. */}
+              {/* ONE heading, ONE flowing line of links with separators —
+                  visually a single category, never two columns. */}
               <div>
                 <p className="label-gcb text-bronze">Products</p>
-                <ul className="mt-4 columns-2 gap-x-8">
-                  {siteConfig.products.map((product) => (
-                    <li
-                      key={product.slug}
-                      className="mb-2.5 break-inside-avoid"
-                    >
+                <ul className="mt-4 flex flex-wrap items-baseline gap-y-2.5">
+                  {siteConfig.products.map((product, index) => (
+                    <li key={product.slug} className="flex items-baseline">
+                      {index > 0 && (
+                        <span aria-hidden className="text-ink/30 mx-3">
+                          ·
+                        </span>
+                      )}
                       <Link
                         href={`/products#${product.slug}`}
                         className="u-line text-ink/80"

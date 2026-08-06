@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
@@ -54,6 +55,17 @@ export default function ProductsPage() {
                   </h2>
                   <p className="text-foreground/80 group-hover:text-ink/80 leading-relaxed transition-colors duration-500">
                     {product.blurb}
+                    {product.slug === "quartz" && (
+                      <>
+                        {" "}
+                        <Link
+                          href="/kalingastone/quartz"
+                          className="u-line whitespace-nowrap"
+                        >
+                          Explore the KalingaStone range →
+                        </Link>
+                      </>
+                    )}
                   </p>
                 </div>
               </article>

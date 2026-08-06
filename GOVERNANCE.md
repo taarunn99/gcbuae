@@ -54,6 +54,12 @@ Localization: every commercial page must carry UAE/Dubai/Abu Dhabi/Sharjah signa
 ### alqamaceramics.com / casamilanoitaly.com / glaze.ae
 - Not deep-audited this pass. Claude Code: before launch, run a metadata + sitemap + schema crawl of each and append findings to this file (titles, URL patterns, schema types, blog cadence, hreflang).
 
+### Audit appendix — 2026-08-06 (quartz-focused crawl)
+- **minamarbles.com: entire KalingaStone section is DEAD.** `/quartz-collection/`, `/kalingastone-marble/` and every `/product/collection/kalingastone-quartz/*` URL returns 404, and all KalingaStone URLs were removed from their sitemap (page-sitemap lastmod 2026-08-01). Google still lists the stale keyword-stuffed titles. Either they dropped the brand or botched a restructure — the "KalingaStone UAE" SERP is currently directories + dead links. **Ranking vacuum; ship our pages before it re-fills.** Their remaining strength: Rank Math LocalBusiness/Organization JSON-LD with full Sharjah NAP; still no Product/FAQPage schema, no spec tables, near-duplicate shade pages.
+- **alqamaceramics.com** (Al Qama General Trading, Al Quoz): tiles/sanitaryware/RAK dealer, **no quartz offering at all**, and the site appears hacked (injected casino spam). Not a quartz competitor.
+- **emiratesceramic.ae** (Al Jaber Group, Abu Dhabi): ceramic tiles/sanitaryware; products split onto verdeuae.com, no JSON-LD, no quartz. Not a quartz competitor.
+- Actual quartz-SERP incumbents to watch instead: archistoneuae.com (~3,500-word pillar, 60+ internal links, no schema), glaze.ae (400+ shade pages, thin), granitiuae.com (AED prices shown, ranks #1 "quartz slabs UAE"), tilesman.com, ronakintl.com. **Universal gaps we exploit: none has Product schema, FAQPage, spec tables, or B2B/wholesale copy; "quartz countertops Sharjah" SERP is spam blogs — easiest geo win.**
+
 ### Standing competitor rule
 Quarterly: re-crawl all five; diff their sitemaps; note new content clusters; report to Tarun.
 

@@ -31,7 +31,7 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/white-quartz-island-morning-espresso-uae.webp",
     alt: "White engineered quartz island with fine grey veining, morning espresso and a green glass carafe in a minimal kitchen",
     accent: "#f7f8f5",
-    href: "/products#quartz",
+    href: "/kalingastone/quartz",
   },
   {
     id: "terrazzo",
