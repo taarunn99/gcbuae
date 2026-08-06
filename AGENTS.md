@@ -124,3 +124,11 @@ colours only.
 ```bash
 npm run typecheck && npm run lint && npm run build
 ```
+
+**Non-negotiable (owner, 2026-08-06):** any change to shared chrome (header,
+footer, transitions, providers) must be verified on EVERY route (/,
+/products, /about, /contact, /privacy-policy, /terms) and at a mobile
+viewport before pushing — client-side navigation is a distinct code path
+from direct load and has broken the footer before. Checks alone do not
+catch stale ScrollTrigger measurements, z-order hit-testing, or
+pointer-event traps.
