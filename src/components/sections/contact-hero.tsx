@@ -24,8 +24,8 @@ export function ContactHero() {
             speed={0.75}
             scale={1.3}
             brightness={0.85}
-            color1="#f5efe4"
-            color2="#c9a36a"
+            color1="#f7f8f5"
+            color2="#6f8f78"
             noiseFrequency={2.2}
             noiseAmplitude={1.0}
             // Band rides high in the taller section so its wander (plus the
@@ -47,7 +47,7 @@ export function ContactHero() {
       {/* Seats the text against the aurora's brightest region. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/45 to-transparent"
+        className="from-warm-black/45 pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t to-transparent"
       />
 
       <div className="container-gcb relative z-10 text-center">

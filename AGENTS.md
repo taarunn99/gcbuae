@@ -85,15 +85,22 @@ delivery), per GOVERNANCE.md's "marble slab supplier" target.
   fetches suspend with no user activation) — video playback must be checked in
   a normal Chrome.
 
-## Theming (owner decision, 2026-08-05)
+## Theming (FINALIZED palette, owner decision 2026-08-06)
 
-The brand colour is FOREST GREEN (the logo's #01402e; GOVERNANCE §4). The
-HOME page alone keeps the warm palette sampled from its hero photography.
-Every other page wraps its `<main>` in `.theme-forest bg-background
-text-foreground` (see globals.css), which re-maps the semantic tokens to
-deep-green ground with bone text — inverted contrast. The header applies
-`.theme-forest` automatically off the home route. New pages must follow
-this pattern; do not hard-code colours to bypass it.
+The palette is five colours and NOTHING else may appear in the UI:
+Onyx `#0C1510` (dark ground) · Pine Teal `#355E4D` (primary green, text on
+light) · Dusty Olive `#6F8F78` (THE accent — replaced bronze) · Porcelain
+`#F7F8F5` (light ground, text on dark) · Dust Grey `#D2D4C8` (secondary
+surface/borders). Applies site-wide INCLUDING the home page UI; only the
+photographic/video assets carry other colours (asset regeneration is a
+separate owner-gated step). The `--bronze` token now carries Dusty Olive
+(name kept for compatibility). All colour flows through tokens in
+`src/app/globals.css`; pages needing the light inverted look wrap `<main>`
+in `.theme-forest bg-background text-foreground`; the header applies
+`.theme-forest` automatically off the home route. Never hard-code colour
+literals outside the five. (Supersedes GOVERNANCE §4's #0E3B2C/brass —
+conflict flagged to Tarun.) The wheel's 8 accents rotate through palette
+colours only.
 
 ## Styling
 

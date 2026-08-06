@@ -23,7 +23,7 @@ export const wheelProducts: WheelProduct[] = [
     image:
       "/products/naturally-engineered-marble-flooring-living-room-dubai.webp",
     alt: "Polished naturally engineered marble flooring in a double-height Dubai living room, cream boucle furniture and walnut stair",
-    accent: "#cdbba4",
+    accent: "#d2d4c8",
     href: "/products#naturally-engineered-marble",
   },
   {
@@ -31,7 +31,7 @@ export const wheelProducts: WheelProduct[] = [
     label: "Quartz",
     image: "/products/quartz-countertop-morning-espresso-kitchen-uae.webp",
     alt: "Veined engineered quartz kitchen countertop in morning sunlight with an espresso cup, fine crystalline veining detail",
-    accent: "#c9a36a",
+    accent: "#f7f8f5",
     href: "/products#quartz",
   },
   {
@@ -40,7 +40,7 @@ export const wheelProducts: WheelProduct[] = [
     image:
       "/products/terrazzo-flooring-breakfast-nook-morning-light-dubai.webp",
     alt: "Cream terrazzo flooring with multicoloured marble chips beneath a linen-draped breakfast table in soft morning light",
-    accent: "#d08a4e",
+    accent: "#6f8f78",
     href: "/products#terrazzo",
   },
   {
@@ -48,7 +48,7 @@ export const wheelProducts: WheelProduct[] = [
     label: "Sanitary Ware",
     image: "/products/luxury-sanitary-ware-twin-basins-spa-bathroom-uae.webp",
     alt: "Sculptural white ceramic twin basins on a travertine vanity in a steam-softened luxury spa bathroom",
-    accent: "#e6dfd2",
+    accent: "#d2d4c8",
     href: "/products#sanitaryware",
   },
   {
@@ -56,7 +56,7 @@ export const wheelProducts: WheelProduct[] = [
     label: "Bathroom Ware",
     image: "/products/brass-bathroom-tap-marble-basin-golden-hour-dubai.webp",
     alt: "Brushed brass bathroom mixer tap over a veined marble basin catching golden-hour reflections",
-    accent: "#a8875a",
+    accent: "#6f8f78",
     href: "/products#taps",
   },
   {
@@ -64,7 +64,7 @@ export const wheelProducts: WheelProduct[] = [
     label: "Showers",
     image: "/products/jaquar-rain-shower-glass-enclosure-dubai-skyline.webp",
     alt: "Jaquar rain shower running in a frameless glass enclosure against the Dubai skyline at dusk",
-    accent: "#8fa6b0",
+    accent: "#f7f8f5",
     href: "/products#showers",
   },
   {
@@ -72,7 +72,7 @@ export const wheelProducts: WheelProduct[] = [
     label: "Sealers",
     image: "/products/fila-mp90-penetrating-sealer-marble-application-uae.webp",
     alt: "FILA MP90 Eco Xtreme penetrating sealer beside a craftsman applying it to a polished marble slab, half showing deepened gloss",
-    accent: "#4e7a63",
+    accent: "#355e4d",
     href: "/products#sealers-cleaners",
   },
   {
@@ -80,7 +80,7 @@ export const wheelProducts: WheelProduct[] = [
     label: "Cleaners",
     image: "/products/fila-stone-cleaner-marble-countertop-care-uae.webp",
     alt: "FILA Cleaner Pro surface cleaner on a veined marble countertop being polished to a mirror shine with a linen cloth",
-    accent: "#7fa284",
+    accent: "#6f8f78",
     href: "/products#sealers-cleaners",
   },
 ];

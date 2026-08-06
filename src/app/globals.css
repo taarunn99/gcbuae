@@ -1,27 +1,31 @@
 @import "tailwindcss";
 
 /*
- * Brand constants, sampled from the hero photograph. These do not change
- * between light and dark — they are the materials themselves.
+ * FINALIZED palette (owner, 2026-08-06). ONLY these five colours may appear
+ * anywhere in the UI:
+ *   Onyx #0C1510 · Pine Teal #355E4D · Dusty Olive #6F8F78
+ *   Porcelain #F7F8F5 · Dust Grey #D2D4C8
+ * Legacy material token names are kept so components don't churn, but every
+ * value maps onto the five. --bronze carries Dusty Olive (THE accent).
  */
 :root {
-  --limestone: oklch(0.94 0.014 82); /* the fluted wall, cream marble */
-  --travertine: oklch(0.8 0.03 75); /* warm stone mid-tone */
-  --verde: oklch(0.26 0.032 165); /* the green marble vanity and floor */
-  --bronze: oklch(0.65 0.055 60); /* tapware and mirror rims */
-  --midnight: oklch(0.32 0.07 252); /* the city through the window */
-  --warm-black: oklch(0.16 0.012 58); /* shadow; also the scrim colour */
-  --ink: oklch(0.96 0.012 85); /* type over photography */
+  --limestone: #f7f8f5; /* Porcelain */
+  --travertine: #d2d4c8; /* Dust Grey */
+  --verde: #355e4d; /* Pine Teal */
+  --bronze: #6f8f78; /* Dusty Olive — the accent */
+  --midnight: #0c1510; /* Onyx */
+  --warm-black: #0c1510; /* Onyx — dark stages and scrims */
+  --ink: #f7f8f5; /* Porcelain — type over photography/dark */
 
-  /* Semantic tokens — light */
-  --background: oklch(0.975 0.006 85);
-  --foreground: oklch(0.2 0.012 60);
-  --surface: oklch(0.955 0.01 82);
-  --surface-raised: oklch(0.99 0.004 85);
-  --border: oklch(0.89 0.012 80);
-  --muted: oklch(0.52 0.018 65);
-  --accent: oklch(0.58 0.058 58);
-  --accent-foreground: oklch(0.98 0.006 85);
+  /* Semantic tokens — light ground: green text and lines on Porcelain */
+  --background: #f7f8f5;
+  --foreground: #355e4d;
+  --surface: #d2d4c8;
+  --surface-raised: #f7f8f5;
+  --border: #355e4d;
+  --muted: #6f8f78;
+  --accent: #6f8f78;
+  --accent-foreground: #f7f8f5;
 
   --header-height: 5rem;
   --gutter: 1.25rem;
@@ -30,34 +34,33 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: oklch(0.17 0.012 60);
-    --foreground: oklch(0.94 0.01 85);
-    --surface: oklch(0.21 0.014 62);
-    --surface-raised: oklch(0.25 0.016 62);
-    --border: oklch(0.3 0.016 65);
-    --muted: oklch(0.7 0.016 70);
-    --accent: oklch(0.72 0.062 62);
-    --accent-foreground: oklch(0.17 0.012 60);
+    --background: #0c1510;
+    --foreground: #f7f8f5;
+    --surface: #355e4d;
+    --surface-raised: #355e4d;
+    --border: #355e4d;
+    --muted: #d2d4c8;
+    --accent: #6f8f78;
+    --accent-foreground: #0c1510;
   }
 }
 
 /*
- * Brand-green scope (GOVERNANCE §4: forest #0E3B2C, bone, brass). The home
- * page keeps the palette sampled from its photography; every other page
- * wraps its content in .theme-forest, which re-maps the semantic tokens to
- * deep green ground with bone text — inverted contrast relative to the old
- * light pages. Components need no changes: they read the same variables.
+ * Light-ground scope. After the 2026-08-06 palette finalisation :root and
+ * this scope carry the SAME values — the scope remains so pages pinned to
+ * the light inverted look stay light even for dark-scheme visitors (the
+ * media block above would otherwise flip them).
  */
 .theme-forest {
-  --background: oklch(0.16 0.028 168);
-  --foreground: oklch(0.96 0.006 100);
-  --surface: oklch(0.2 0.032 168);
-  --surface-raised: oklch(0.23 0.034 168);
-  --border: oklch(0.33 0.035 168);
-  --muted: oklch(0.73 0.025 150);
-  --accent: oklch(0.72 0.062 62);
-  --accent-foreground: oklch(0.16 0.028 168);
-  --warm-black: oklch(0.14 0.026 170);
+  --background: #f7f8f5;
+  --foreground: #355e4d;
+  --surface: #d2d4c8;
+  --surface-raised: #f7f8f5;
+  --border: #355e4d;
+  --muted: #6f8f78;
+  --accent: #6f8f78;
+  --accent-foreground: #f7f8f5;
+  --warm-black: #0c1510;
 }
 
 @theme inline {

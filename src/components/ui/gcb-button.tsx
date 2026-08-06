@@ -18,17 +18,17 @@ import SpecularButton, {
  */
 const PALETTE = {
   dark: {
-    textColor: "#f5efe4", // --ink
-    lineColor: "#c9a36a", // --bronze, lifted for visibility on dark
-    baseColor: "#6e5c44",
-    tint: "#ffffff",
+    textColor: "#f7f8f5", // Porcelain (--ink)
+    lineColor: "#6f8f78", // Dusty Olive — the accent
+    baseColor: "#355e4d", // Pine Teal
+    tint: "#f7f8f5",
     tintOpacity: 0.05,
   },
   light: {
-    textColor: "#2b241c", // --foreground
-    lineColor: "#a8875a", // --bronze
-    baseColor: "#c8b694",
-    tint: "#1a150e",
+    textColor: "#355e4d", // Pine Teal (--foreground)
+    lineColor: "#6f8f78", // Dusty Olive
+    baseColor: "#d2d4c8", // Dust Grey
+    tint: "#0c1510", // Onyx
     tintOpacity: 0.04,
   },
 } as const;

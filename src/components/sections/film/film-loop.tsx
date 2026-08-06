@@ -141,7 +141,7 @@ export function FilmLoop() {
       {/* Guarantees overlay contrast on bright frames. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/55 to-transparent"
+        className="from-warm-black/55 pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t to-transparent"
       />
 
       <div

@@ -202,7 +202,7 @@ export function ProductWheel() {
       aria-label="Product lines"
       className="relative flex min-h-svh flex-col justify-center overflow-hidden py-24"
       style={{
-        backgroundColor: `color-mix(in oklab, #16110b 66%, ${active.accent})`,
+        backgroundColor: `color-mix(in oklab, #0c1510 66%, ${active.accent})`,
         transition: "background-color 700ms ease",
       }}
     >
@@ -335,10 +335,9 @@ export function ProductWheel() {
 
           {/* Phones: counter then button, both centered under the image. */}
           <div className="mt-5 flex flex-col items-center gap-4 lg:mt-6 lg:flex-row lg:flex-wrap lg:justify-between lg:gap-6">
-            <p
-              className="label-gcb transition-colors duration-500"
-              style={{ color: active.accent }}
-            >
+            {/* Always Porcelain: dark accents (Pine Teal) made an
+                accent-coloured counter unreadable on the Onyx-mix ground. */}
+            <p className="label-gcb text-ink/90">
               {String(activeIndex + 1).padStart(2, "0")} /{" "}
               {String(COUNT).padStart(2, "0")} — {active.label}
             </p>
