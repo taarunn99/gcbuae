@@ -6,7 +6,14 @@ import { siteConfig } from "@/config/site";
 // and shade page must be added here (or generated from its data source) the
 // moment it exists — no orphan URLs, nothing indexable left out.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/products", "/about", "/contact"];
+  const routes = [
+    "",
+    "/products",
+    "/about",
+    "/contact",
+    "/privacy-policy",
+    "/terms",
+  ];
   const lastModified = new Date();
 
   return routes.map((route) => ({
