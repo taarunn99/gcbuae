@@ -32,18 +32,12 @@
   --container-max: 90rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0c1510;
-    --foreground: #f7f8f5;
-    --surface: #355e4d;
-    --surface-raised: #355e4d;
-    --border: #355e4d;
-    --muted: #d2d4c8;
-    --accent: #6f8f78;
-    --accent-foreground: #0c1510;
-  }
-}
+/*
+ * No prefers-color-scheme block: the site is art-directed with fixed grounds
+ * per section (owner decision 2026-08-06 — OS dark mode was flipping the
+ * home capabilities section to Pine Teal). Dark stages are explicit
+ * (bg-warm-black, the wheel's Onyx mix, the film).
+ */
 
 /*
  * Light-ground scope. After the 2026-08-06 palette finalisation :root and

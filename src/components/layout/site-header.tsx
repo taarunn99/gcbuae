@@ -72,8 +72,11 @@ export function SiteHeader() {
         // Off the home page the whole chrome follows the brand-green scope;
         // the home page keeps the palette of its photography.
         !overHero && "theme-forest",
+        // Fully opaque: an 85%-alpha bar composited off-palette colours from
+        // whatever scrolled beneath it — a colour-picker must read exactly
+        // #F7F8F5 here (strict palette).
         solid
-          ? "bg-background/85 text-foreground border-b backdrop-blur-md"
+          ? "bg-background text-foreground border-b"
           : "text-ink border-b border-transparent",
         menuOpen && "text-ink",
       )}

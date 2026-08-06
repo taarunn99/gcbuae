@@ -27,9 +27,10 @@ export default function HomePage() {
     <main className="flex-1">
       <Hero />
 
-      <section className="border-border bg-surface border-t py-32">
+      {/* Onyx stage — the darkest green, per the owner's palette direction. */}
+      <section className="bg-warm-black py-32">
         <Container>
-          <SplitHeading className="font-display max-w-3xl text-3xl leading-tight tracking-tight text-balance sm:text-5xl">
+          <SplitHeading className="font-display text-ink max-w-3xl text-3xl leading-tight tracking-tight text-balance sm:text-5xl">
             A building materials partner for contractors, developers and
             consultants across the Emirates.
           </SplitHeading>
@@ -37,11 +38,13 @@ export default function HomePage() {
           <RevealGroup className="mt-20 grid gap-12 sm:grid-cols-3">
             {capabilities.map((item, index) => (
               <RevealItem key={item.title}>
-                <span className="label-gcb text-muted">
+                <span className="label-gcb text-bronze">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display mt-4 text-2xl">{item.title}</h3>
-                <p className="text-muted mt-3 leading-relaxed">{item.body}</p>
+                <h3 className="font-display text-ink mt-4 text-2xl">
+                  {item.title}
+                </h3>
+                <p className="text-ink/70 mt-3 leading-relaxed">{item.body}</p>
               </RevealItem>
             ))}
           </RevealGroup>

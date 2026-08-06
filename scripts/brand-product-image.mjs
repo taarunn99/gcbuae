@@ -36,8 +36,10 @@ if (!source || !seoName) {
   process.exit(1);
 }
 
-const INK = tone === "light" ? "#f5efe4" : "#2b241c";
-const RULE = "#a8875a"; // bronze, both tones
+// Finalized palette (2026-08-06): Porcelain on dark photos, Pine Teal on
+// bright ones, Dusty Olive rule in both.
+const INK = tone === "light" ? "#f7f8f5" : "#355e4d";
+const RULE = "#6f8f78";
 
 function outlineText(font, text, size, tracking) {
   const scale = size / font.unitsPerEm;
