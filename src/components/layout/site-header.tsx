@@ -102,7 +102,7 @@ export function SiteHeader() {
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className="label-gcb inline-flex items-center gap-1.5 py-2 transition-opacity hover:opacity-70"
+                  className="label-gcb u-line inline-flex items-center gap-1.5 py-2"
                 >
                   {item.label}
                   <span aria-hidden className="text-[0.55rem]">
@@ -129,7 +129,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="label-gcb py-2 transition-opacity hover:opacity-70"
+                className="label-gcb u-line py-2"
               >
                 {item.label}
               </Link>

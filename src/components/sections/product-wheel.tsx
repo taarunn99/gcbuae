@@ -200,7 +200,7 @@ export function ProductWheel() {
     <section
       ref={sectionRef}
       aria-label="Product lines"
-      className="relative flex min-h-svh flex-col justify-center overflow-hidden py-24"
+      className="grain-gcb relative flex min-h-svh flex-col justify-center overflow-hidden py-24"
       style={{
         backgroundColor: `color-mix(in oklab, #0c1510 66%, ${active.accent})`,
         transition: "background-color 700ms ease",

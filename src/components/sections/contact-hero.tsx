@@ -17,7 +17,7 @@ export function ContactHero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="bg-warm-black text-ink relative flex min-h-[92svh] items-end overflow-hidden pt-40 pb-20 sm:pb-28">
+    <section className="bg-warm-black text-ink grain-gcb relative flex min-h-[92svh] items-end overflow-hidden pt-40 pb-20 sm:pb-28">
       {!prefersReducedMotion && (
         <div aria-hidden className="absolute inset-0">
           <SoftAurora

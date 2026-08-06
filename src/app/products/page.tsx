@@ -30,16 +30,35 @@ export default function ProductsPage() {
         <div className="mt-24 divide-y border-y">
           {siteConfig.products.map((product, index) => (
             <Reveal key={product.slug}>
-              {/* scroll-mt clears the fixed header when arriving via #anchor */}
+              {/* scroll-mt clears the fixed header when arriving via #anchor.
+                  Hover: an Onyx rectangle sweeps in from the left and the
+                  type inverts to Porcelain — the owner's requested invert. */}
               <article
                 id={product.slug}
-                className="grid scroll-mt-28 gap-4 py-10 sm:grid-cols-[6rem_1fr_1.2fr] sm:items-baseline"
+                className="group relative scroll-mt-28 overflow-hidden"
               >
-                <span className="label-gcb text-muted">{pad(index + 1)}</span>
-                <h2 className="font-display text-2xl sm:text-3xl">
-                  {product.label}
-                </h2>
-                <p className="text-muted leading-relaxed">{product.blurb}</p>
+                <span
+                  aria-hidden
+                  className="bg-warm-black absolute inset-0 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-x-100"
+                />
+                {/* Oversized ghost numeral, inverting with the sweep. */}
+                <span
+                  aria-hidden
+                  className="font-display text-foreground/[0.07] group-hover:text-ink/10 pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 text-[6rem] leading-none transition-colors duration-500 select-none sm:text-[8rem]"
+                >
+                  {pad(index + 1)}
+                </span>
+                <div className="relative grid gap-4 px-4 py-12 sm:grid-cols-[7rem_1fr_1.2fr] sm:items-baseline sm:px-6">
+                  <span className="label-gcb text-foreground group-hover:text-bronze transition-colors duration-500">
+                    {pad(index + 1)}
+                  </span>
+                  <h2 className="font-display text-foreground group-hover:text-ink text-2xl transition-colors duration-500 sm:text-3xl">
+                    {product.label}
+                  </h2>
+                  <p className="text-foreground/80 group-hover:text-ink/80 leading-relaxed transition-colors duration-500">
+                    {product.blurb}
+                  </p>
+                </div>
               </article>
             </Reveal>
           ))}
@@ -49,10 +68,7 @@ export default function ProductsPage() {
           <p className="text-muted max-w-xl leading-relaxed">
             Detailed collections, finishes and technical sheets are being
             prepared. For specifications or availability today,{" "}
-            <a
-              href="/contact"
-              className="text-foreground underline underline-offset-4"
-            >
+            <a href="/contact" className="u-line text-foreground">
               talk to us
             </a>
             .

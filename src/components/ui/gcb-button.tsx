@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 import SpecularButton, {
   type SpecularButtonProps,
 } from "@/components/ui/specular-button/specular-button";
+import { useMagnetic } from "@/hooks/use-magnetic";
 
 /**
  * Brand skin over SpecularButton. The WebGL shader needs literal colours (it
@@ -60,31 +61,36 @@ export function GcbButton({
 }: GcbButtonProps) {
   const router = useRouter();
   const palette = PALETTE[variant];
+  // Magnetic pull on the wrapper so the WebGL rim canvas travels with the
+  // button instead of being clipped by a transformed inner element.
+  const magneticRef = useMagnetic<HTMLSpanElement>(0.25, 70);
 
   return (
-    <SpecularButton
-      size={size}
-      radius={999}
-      blur={10}
-      tint={palette.tint}
-      tintOpacity={palette.tintOpacity}
-      textColor={palette.textColor}
-      lineColor={accent ?? palette.lineColor}
-      baseColor={palette.baseColor}
-      intensity={1}
-      shineSize={12}
-      shineFade={45}
-      thickness={1.1}
-      proximity={220}
-      type={type}
-      disabled={disabled}
-      className={className}
-      onClick={(event) => {
-        onClick?.(event);
-        if (href && !event.defaultPrevented) router.push(href);
-      }}
-    >
-      <span className="label-gcb whitespace-nowrap">{children}</span>
-    </SpecularButton>
+    <span ref={magneticRef} className="inline-block will-change-transform">
+      <SpecularButton
+        size={size}
+        radius={999}
+        blur={10}
+        tint={palette.tint}
+        tintOpacity={palette.tintOpacity}
+        textColor={palette.textColor}
+        lineColor={accent ?? palette.lineColor}
+        baseColor={palette.baseColor}
+        intensity={1}
+        shineSize={12}
+        shineFade={45}
+        thickness={1.1}
+        proximity={220}
+        type={type}
+        disabled={disabled}
+        className={className}
+        onClick={(event) => {
+          onClick?.(event);
+          if (href && !event.defaultPrevented) router.push(href);
+        }}
+      >
+        <span className="label-gcb whitespace-nowrap">{children}</span>
+      </SpecularButton>
+    </span>
   );
 }

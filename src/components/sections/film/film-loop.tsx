@@ -112,7 +112,7 @@ export function FilmLoop() {
     <section
       ref={sectionRef}
       aria-label="Materials film"
-      className="bg-warm-black relative h-svh overflow-hidden"
+      className="bg-warm-black grain-gcb relative h-svh overflow-hidden"
     >
       <video
         ref={videoRef}

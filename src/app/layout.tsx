@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Fraunces, Manrope } from "next/font/google";
 
+import { RouteTransition } from "@/components/layout/route-transition";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
 import { siteConfig } from "@/config/site";
@@ -82,7 +84,11 @@ export default function RootLayout({
       <body className="bg-background text-foreground flex min-h-dvh flex-col">
         <OrganizationJsonLd />
         <SiteHeader />
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <SmoothScrollProvider>
+          {children}
+          <SiteFooter />
+        </SmoothScrollProvider>
+        <RouteTransition />
       </body>
     </html>
   );
