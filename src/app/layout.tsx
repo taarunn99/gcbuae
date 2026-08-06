@@ -87,7 +87,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           {/* Solid, stacked above the fixed footer so the page lifts away
               from it during the stacked-reveal. */}
-          <div className="bg-background relative z-10 shadow-[0_30px_60px_-20px_rgba(12,21,16,0.5)]">
+          <div className="bg-background relative z-20 shadow-[0_30px_60px_-20px_rgba(12,21,16,0.5)]">
             {children}
           </div>
           <SiteFooter />

@@ -142,7 +142,7 @@ export function SiteFooter() {
       />
       <footer
         ref={footerRef}
-        className="bg-warm-black text-ink grain-gcb fixed inset-x-0 bottom-0 -z-10 overflow-hidden"
+        className="bg-warm-black text-ink grain-gcb fixed inset-x-0 bottom-0 z-0 overflow-hidden"
         style={{ perspective: "1200px" }}
       >
         <div ref={innerRef} style={{ transformOrigin: "50% 0%" }}>
