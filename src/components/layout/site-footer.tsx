@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { Logo } from "@/components/layout/logo";
@@ -127,10 +128,21 @@ export function SiteFooter() {
     { scope: footerRef, dependencies: [height] },
   );
 
-  // ScrollTrigger measures against the spacer, whose height arrives late.
+  // ScrollTrigger measures against the spacer, whose document position
+  // changes with BOTH footer height and, crucially, every route change —
+  // page heights differ, and stale measurements leave the reveal stuck at
+  // its dim initial state on shorter pages. Re-measure after layout settles.
+  const pathname = usePathname();
   useEffect(() => {
-    ScrollTrigger.refresh();
-  }, [height]);
+    const raf1 = requestAnimationFrame(() => {
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    });
+    const late = setTimeout(() => ScrollTrigger.refresh(), 600);
+    return () => {
+      cancelAnimationFrame(raf1);
+      clearTimeout(late);
+    };
+  }, [height, pathname]);
 
   return (
     <>
