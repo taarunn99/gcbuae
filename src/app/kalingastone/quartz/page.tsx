@@ -895,9 +895,11 @@ export default function KalingaStoneQuartzPage() {
                 ].map(([prop, ...cells]) => (
                   <tr key={prop}>
                     <td className="text-muted py-3 pr-4">{prop}</td>
+                    {/* Keyed by column — cell text repeats across columns
+                        ("Every block differs" ×2), so it can't be the key. */}
                     {cells.map((c, i) => (
                       <td
-                        key={c}
+                        key={i}
                         className={
                           i === 0
                             ? "text-foreground py-3 pr-4"
