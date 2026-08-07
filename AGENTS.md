@@ -88,10 +88,11 @@ delivery), per GOVERNANCE.md's "marble slab supplier" target.
 ## Theming (FINALIZED palette, owner decision 2026-08-06)
 
 The palette is five colours and NOTHING else may appear in the UI:
-Onyx `#0C1510` (dark ground) · Pine Teal `#355E4D` (primary green, text on
-light) · Dusty Olive `#6F8F78` (THE accent — replaced bronze) · Porcelain
-`#F7F8F5` (light ground, text on dark) · Dust Grey `#D2D4C8` (secondary
-surface/borders). Applies site-wide INCLUDING the home page UI; only the
+Onyx `#0C1510` (dark ground AND all text on light — owner 2026-08-07:
+Pine Teal is NEVER a text colour) · Pine Teal `#355E4D` (lines, borders,
+line-work icons, backgrounds only) · Dusty Olive `#6F8F78` (THE accent —
+replaced bronze) · Porcelain `#F7F8F5` (light ground, text on dark) ·
+Dust Grey `#D2D4C8` (secondary surface/borders). Applies site-wide INCLUDING the home page UI; only the
 photographic/video assets carry other colours (asset regeneration is a
 separate owner-gated step). The `--bronze` token now carries Dusty Olive
 (name kept for compatibility). All colour flows through tokens in
