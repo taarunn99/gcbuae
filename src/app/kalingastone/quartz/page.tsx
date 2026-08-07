@@ -2,7 +2,18 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Flame, Layers, ShieldCheck, Utensils } from "lucide-react";
+
 import { Reveal } from "@/components/motion/reveal";
+import { Certificates } from "@/components/sections/quartz/certificates";
+import { EdgeProfiles } from "@/components/sections/quartz/edge-profiles";
+import { FaqAccordion } from "@/components/sections/quartz/faq-accordion";
+import { FinishExplorer } from "@/components/sections/quartz/finish-explorer";
+import { LifestyleCarousel } from "@/components/sections/quartz/lifestyle-carousel";
+import { SeriesLadder } from "@/components/sections/quartz/series-ladder";
+import { SlabScale } from "@/components/sections/quartz/slab-scale";
+import { SpectrumStrip } from "@/components/sections/quartz/spectrum-strip";
+import { TestBench } from "@/components/sections/quartz/test-bench";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { QuartzShadeExplorer } from "@/components/sections/quartz-shade-explorer";
 import { Container } from "@/components/ui/container";
@@ -24,87 +35,26 @@ export const metadata: Metadata = {
 
 /* ---------- data derived once at build ---------- */
 
-const seriesCounts = [
-  { series: "7", label: "Series 7 — premium veined", count: 7 },
-  { series: "6", label: "Series 6", count: 7 },
-  { series: "5", label: "Series 5", count: 8 },
-  { series: "4", label: "Series 4", count: 9 },
-  { series: "3", label: "Series 3", count: 21 },
-  { series: "2", label: "Series 2", count: 11 },
-  { series: "1 A", label: "Series 1 A", count: 1 },
-  { series: "1", label: "Series 1 — essentials", count: 5 },
-];
-const maxSeries = Math.max(...seriesCounts.map((s) => s.count));
-
-const familyCounts = [
-  { label: "Whites", count: 16, color: "#f7f8f5" },
-  { label: "Marble-look veined", count: 11, color: "#d2d4c8" },
-  { label: "Cream & beige", count: 16, color: "#6f8f78" },
-  { label: "Greys", count: 18, color: "#355e4d" },
-  { label: "Dark & black", count: 8, color: "#0c1510" },
-];
-const familyTotal = familyCounts.reduce((a, f) => a + f.count, 0);
-let acc = 0;
-const donutStops = familyCounts
-  .map((f) => {
-    const from = (acc / familyTotal) * 360;
-    acc += f.count;
-    const to = (acc / familyTotal) * 360;
-    return `${f.color} ${from.toFixed(1)}deg ${to.toFixed(1)}deg`;
-  })
-  .join(", ");
-
-const slabFormats = [
-  { w: 3150, h: 1450, label: "3150 × 1450 mm", note: "55 shades" },
-  { w: 3250, h: 1650, label: "3250 × 1650 mm", note: "13 shades" },
-  {
-    w: 3300,
-    h: 2000,
-    label: "3300 × 2000 mm",
-    note: "Superjumbo — Carrara Marmi",
-  },
-];
-
 const pillars = [
   {
     title: "Food safe",
     body: "Certified by NSF International as a safe and secure surface for food preparation.",
-    icon: (
-      <>
-        <path d="M12 3v18M5 8c0 4 3 7 7 7s7-3 7-7" />
-        <path d="M7 3v5M17 3v5" />
-      </>
-    ),
+    icon: Utensils,
   },
   {
     title: "Stain & scratch resistant",
     body: "Non-porous with water absorption under 0.05% — lower than natural granite — so stains never take hold.",
-    icon: (
-      <>
-        <path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z" />
-        <path d="m9 12 2 2 4-4" />
-      </>
-    ),
+    icon: ShieldCheck,
   },
   {
     title: "Impervious to heat",
     body: "Resistant to heat and cold alike — engineered for the working kitchen, not just the showroom.",
-    icon: (
-      <>
-        <path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-4 3-6 5-9Z" />
-        <path d="M12 21v-4" />
-      </>
-    ),
+    icon: Flame,
   },
   {
     title: "Homogeneous",
     body: "Benchmark consistency in shade, thickness and texture, slab after slab, batch after batch.",
-    icon: (
-      <>
-        <rect x="4" y="4" width="16" height="16" rx="2" />
-        <path d="M4 10h16M4 15h16" />
-      </>
-    ),
+    icon: Layers,
   },
 ];
 
@@ -130,17 +80,6 @@ const microbanBenefits = [
   "Unaffected by cleaning agents",
 ];
 
-const keySpecs = [
-  { value: "< 0.05%", label: "Water absorption", standard: "ASTM C 97" },
-  { value: "6.0–7.0", label: "Mohs surface hardness", standard: "EN 101" },
-  {
-    value: "150–250 MPa",
-    label: "Compressive strength",
-    standard: "ASTM C 170",
-  },
-  { value: "Class A", label: "Surface burning", standard: "ASTM E 84" },
-];
-
 const fullSpecs: [string, string, string][] = [
   ["Apparent density", "ASTM C 97 / EN14617-1", "> 2.1 kg/dm³"],
   ["Water absorption", "ASTM C 97 / EN14617-1", "< 0.05%"],
@@ -164,13 +103,6 @@ const fullSpecs: [string, string, string][] = [
   ["Glossiness reflection", "—", "55–70%"],
   ["Thermal conductivity", "EN 12664", "0.435–0.485 W/(m·K)"],
   ["Friction coefficient", "ASTM C 1028", "Dry 0.8 · Wet 0.6"],
-];
-
-const finishes = [
-  { name: "Distress", body: "Softly worn, matte-textured surface." },
-  { name: "Leather", body: "Tactile, lightly pebbled low-sheen surface." },
-  { name: "Honed", body: "Flat matte, non-reflective — R9 slip-rated." },
-  { name: "Nalico", body: "Deep-textured, heavily grained finish." },
 ];
 
 const faqs = [
@@ -265,6 +197,10 @@ const galleryPicks = [
   "crema-verona",
   "nero-diamante",
   "bianco-neve",
+  "calacatta-imperial",
+  "wizzard",
+  "tundra",
+  "classic-pearl",
 ];
 
 export default function KalingaStoneQuartzPage() {
@@ -368,20 +304,12 @@ export default function KalingaStoneQuartzPage() {
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p) => (
               <Reveal key={p.title}>
-                <svg
-                  aria-hidden
-                  width="34"
-                  height="34"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <p.icon
+                  size={32}
+                  strokeWidth={1.3}
                   className="text-bronze"
-                >
-                  {p.icon}
-                </svg>
+                  aria-hidden
+                />
                 <h3 className="font-display mt-5 text-xl">{p.title}</h3>
                 <p className="text-ink/70 mt-2 leading-relaxed">{p.body}</p>
               </Reveal>
@@ -413,95 +341,32 @@ export default function KalingaStoneQuartzPage() {
             Sixty-nine shades, seven series, three formats.
           </h2>
 
-          <div className="mt-14 grid gap-14 lg:grid-cols-2">
-            {/* Series bar chart */}
+          <div className="mt-14 space-y-20">
             <div>
               <h3 className="label-gcb text-muted">Shades per series</h3>
-              <p className="text-muted mt-2 text-sm">
+              <p className="text-muted mt-2 max-w-xl text-sm">
                 Series is the design tier — 7 carries the premium veined
-                Calacattas, 1 the essential particulates.
+                Calacattas, 1 the essential particulates. The stones themselves
+                do the counting.
               </p>
-              <ul className="mt-6 space-y-3">
-                {seriesCounts.map((s) => (
-                  <li key={s.series} className="flex items-center gap-4">
-                    <span className="font-display text-foreground w-10 shrink-0 text-right">
-                      {s.series}
-                    </span>
-                    <span className="bg-surface relative block h-7 flex-1 overflow-hidden rounded-full">
-                      <span
-                        className="bg-verde absolute inset-y-0 left-0 rounded-full"
-                        style={{ width: `${(s.count / maxSeries) * 100}%` }}
-                      />
-                    </span>
-                    <span className="text-muted w-8 shrink-0 text-sm tabular-nums">
-                      {s.count}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Colour-family donut */}
-            <div>
-              <h3 className="label-gcb text-muted">Colour families</h3>
-              <p className="text-muted mt-2 text-sm">
-                An editorial reading of the range for specification shortlists.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-10">
-                <div
-                  aria-hidden
-                  className="border-border/30 h-44 w-44 shrink-0 rounded-full border"
-                  style={{
-                    background: `conic-gradient(${donutStops})`,
-                    mask: "radial-gradient(farthest-side, transparent 55%, #000 56%)",
-                    WebkitMask:
-                      "radial-gradient(farthest-side, transparent 55%, #000 56%)",
-                  }}
-                />
-                <ul className="space-y-2.5">
-                  {familyCounts.map((f) => (
-                    <li key={f.label} className="flex items-center gap-3">
-                      <span
-                        aria-hidden
-                        className="border-border/40 h-3.5 w-3.5 rounded-full border"
-                        style={{ backgroundColor: f.color }}
-                      />
-                      <span className="text-sm">
-                        {f.label}
-                        <span className="text-muted"> — {f.count}</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="mt-8">
+                <SeriesLadder />
               </div>
             </div>
-          </div>
 
-          {/* Slab formats, drawn to scale */}
-          <div className="mt-16">
-            <h3 className="label-gcb text-muted">Slab formats, to scale</h3>
-            <div className="mt-6 grid gap-8 sm:grid-cols-3">
-              {slabFormats.map((f, i) => (
-                <div key={f.label}>
-                  <div
-                    className={`border-verde/50 bg-surface/40 rounded-md border ${
-                      i === 2 ? "border-verde border-2" : ""
-                    }`}
-                    style={{
-                      width: `${(f.w / 3300) * 100}%`,
-                      aspectRatio: `${f.w} / ${f.h}`,
-                    }}
-                  />
-                  <p className="font-display mt-3">{f.label}</p>
-                  <p className="text-muted text-sm">{f.note} · 20 mm thick</p>
-                </div>
-              ))}
+            <div>
+              <h3 className="label-gcb text-muted">The colour spectrum</h3>
+              <div className="mt-6">
+                <SpectrumStrip />
+              </div>
             </div>
-            <p className="text-muted mt-6 max-w-2xl text-sm">
-              The 3300 × 2000 mm superjumbo — a direct product of the fully
-              automated line — covers a full kitchen island or a double-height
-              lift-lobby panel with a single joint-free slab.
-            </p>
+
+            <div>
+              <h3 className="label-gcb text-muted">Slab formats, to scale</h3>
+              <div className="mt-8">
+                <SlabScale />
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -572,24 +437,8 @@ export default function KalingaStoneQuartzPage() {
             The same stone, living different lives.
           </h2>
         </Container>
-        <div className="mt-12 flex gap-6 overflow-x-auto px-6 pb-4 lg:px-[6vw]">
-          {galleryShades.map((s) => (
-            <figure key={s.slug} className="w-[78vw] shrink-0 sm:w-[420px]">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                <Image
-                  src={`/kalingastone/quartz/lifestyle/${s.slug}.webp`}
-                  alt={`KalingaStone Quartz ${s.name} installed in an interior`}
-                  fill
-                  sizes="(min-width: 640px) 420px, 78vw"
-                  className="object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <figcaption className="label-gcb text-ink/70 mt-3">
-                {s.name} · Series {s.series}
-              </figcaption>
-            </figure>
-          ))}
+        <div className="mt-12">
+          <LifestyleCarousel shades={galleryShades} />
         </div>
       </section>
 
@@ -600,7 +449,8 @@ export default function KalingaStoneQuartzPage() {
             <div>
               <p className="label-gcb text-muted">Microban® antibacterial</p>
               <h2 className="font-display mt-4 text-3xl leading-tight sm:text-4xl">
-                Up to <span className="text-foreground font-semibold">99.99%</span>{" "}
+                Up to{" "}
+                <span className="text-foreground font-semibold">99.99%</span>{" "}
                 less bacterial growth. For life.
               </h2>
               <p className="mt-6 max-w-xl leading-relaxed">
@@ -638,6 +488,16 @@ export default function KalingaStoneQuartzPage() {
             </div>
 
             <div>
+              <figure className="relative mb-10 aspect-[3/2] overflow-hidden rounded-xl">
+                <Image
+                  src="/kalingastone/quartz/microban-clean.webp"
+                  alt="Wiping a white KalingaStone quartz island clean with a linen cloth — Microban protection works between cleans"
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </figure>
               <h3 className="label-gcb text-muted">How it works</h3>
               <ol className="border-border/40 mt-6 space-y-0 border-l">
                 {[
@@ -702,21 +562,22 @@ export default function KalingaStoneQuartzPage() {
             Technical specifications.
           </h2>
 
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-xl lg:grid-cols-4">
-            {keySpecs.map((s) => (
-              <div key={s.label} className="bg-ink/5 px-6 py-6">
-                <p className="font-display text-bronze text-2xl sm:text-3xl">
-                  {s.value}
-                </p>
-                <p className="mt-1 text-sm">{s.label}</p>
-                <p className="text-ink/50 mt-0.5 text-xs">{s.standard}</p>
-              </div>
-            ))}
+          <div className="mt-14">
+            <TestBench />
+          </div>
+
+          <div className="mt-24">
+            <h3 className="label-gcb text-bronze">
+              The full record — 22 properties, five certificates
+            </h3>
+            <div className="mt-8">
+              <Certificates />
+            </div>
           </div>
 
           <details className="border-ink/15 group mt-8 rounded-xl border">
             <summary className="label-gcb flex cursor-pointer items-center justify-between px-6 py-4">
-              Full test table — 22 properties
+              View as a single table
               <span
                 aria-hidden
                 className="transition-transform group-open:rotate-45"
@@ -753,32 +614,23 @@ export default function KalingaStoneQuartzPage() {
             </div>
           </details>
 
-          {/* Finishes + edges */}
-          <div className="mt-16 grid gap-12 lg:grid-cols-2">
-            <div>
-              <h3 className="label-gcb text-bronze">Four finishes</h3>
-              <ul className="mt-5 space-y-4">
-                {finishes.map((f) => (
-                  <li key={f.name} className="flex items-baseline gap-4">
-                    <span className="font-display w-24 shrink-0 text-lg">
-                      {f.name}
-                    </span>
-                    <span className="text-ink/70 text-sm">{f.body}</span>
-                  </li>
-                ))}
-              </ul>
+          {/* Finishes — macro photography */}
+          <div className="mt-24">
+            <h3 className="label-gcb text-bronze">Four finishes, up close</h3>
+            <div className="mt-8">
+              <FinishExplorer />
             </div>
-            <div>
-              <h3 className="label-gcb text-bronze">
-                Twenty-one edge profiles
-              </h3>
-              <p className="text-ink/70 mt-5 text-sm leading-relaxed">
-                Straight eased · Chamfer eased · Pencil round · Double pencil
-                round · Radius · Double radius · Chamfer · Double chamfer ·
-                Stair tread · Waterfall · Platner · Laminated · Full bullnose ·
-                Half bullnose · Demi bullnose · Ogee · Ogee roundover · Dupont ·
-                Cove · Cove ogee · Cove dupont
-              </p>
+          </div>
+
+          {/* Edge profiles — drawn cross-sections */}
+          <div className="mt-24">
+            <h3 className="label-gcb text-bronze">Twenty-one edge profiles</h3>
+            <p className="text-ink/60 mt-3 max-w-xl text-sm leading-relaxed">
+              The slab edge, seen end-on — every profile the line can cut, from
+              a straight ease to a cove dupont.
+            </p>
+            <div className="mt-8">
+              <EdgeProfiles />
             </div>
           </div>
         </Container>
@@ -968,13 +820,8 @@ export default function KalingaStoneQuartzPage() {
           <h2 className="font-display mt-4 text-3xl leading-tight sm:text-4xl">
             KalingaStone Quartz, in plain terms.
           </h2>
-          <div className="mt-12 max-w-3xl space-y-10">
-            {faqs.map((f) => (
-              <div key={f.q}>
-                <h3 className="font-display text-xl">{f.q}</h3>
-                <p className="text-muted mt-3 leading-relaxed">{f.a}</p>
-              </div>
-            ))}
+          <div className="mt-12 max-w-3xl">
+            <FaqAccordion items={faqs} />
           </div>
         </Container>
       </section>

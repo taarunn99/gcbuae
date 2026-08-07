@@ -1,75 +1,92 @@
 "use client";
 
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
-import { quartzShades } from "@/config/kalingastone-quartz";
+import {
+  quartzFamilies,
+  quartzShades,
+  shadesOfFamily,
+} from "@/config/kalingastone-quartz";
 import { cn } from "@/lib/utils";
 
 /**
- * The 69-shade explorer. Every card is server-rendered into the HTML (the
- * filters only hide, never mount), so the complete range is visible to
- * crawlers — GOVERNANCE's view-source test. Filtering is by series tier,
- * colour family, and the Microban / NEW flags.
+ * The 69-shade catalogue, organised instead of dumped: grouped under
+ * sticky colour-family headers with jump chips, each family collapsed to
+ * its first rows with a "show all" expander. Every card is server-
+ * rendered and stays in the DOM when collapsed or filtered (CSS hide
+ * only) — GOVERNANCE's view-source test — and every card links to the
+ * shade's own indexed page.
  */
 
-const FAMILIES = [
-  { id: "all", label: "All shades" },
-  { id: "white", label: "Whites" },
-  { id: "veined", label: "Marble-look veined" },
-  { id: "beige", label: "Cream & beige" },
-  { id: "grey", label: "Greys" },
-  { id: "dark", label: "Dark & black" },
-] as const;
+const COLLAPSED_COUNT = 10;
 
-const SERIES = ["all", "7", "6", "5", "4", "3", "2", "1 A", "1"] as const;
+function ShadeCard({
+  shade,
+  hidden,
+}: {
+  shade: (typeof quartzShades)[number];
+  hidden: boolean;
+}) {
+  return (
+    <li className={cn(hidden && "hidden")} id={`shade-${shade.slug}`}>
+      <Link href={`/kalingastone/quartz/${shade.slug}`} className="group block">
+        <span className="border-border/30 relative block aspect-[4/3] overflow-hidden rounded-lg border">
+          <Image
+            src={`/kalingastone/quartz/swatches/${shade.slug}.webp`}
+            alt={`KalingaStone Quartz ${shade.name} — Series ${shade.series} engineered quartz slab, ${shade.size} mm`}
+            fill
+            sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 45vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          {shade.microban && (
+            <span className="label-gcb bg-warm-black/80 text-ink absolute top-2 left-2 rounded-full px-2.5 py-1 text-[0.55rem]">
+              Microban®
+            </span>
+          )}
+          {shade.isNew && (
+            <span className="label-gcb bg-verde/90 text-ink absolute top-2 right-2 rounded-full px-2.5 py-1 text-[0.55rem]">
+              New
+            </span>
+          )}
+        </span>
+        <span className="mt-2.5 block">
+          <span className="font-display text-foreground group-hover:text-bronze block leading-tight transition-colors">
+            {shade.name}
+          </span>
+          <span className="text-muted mt-0.5 block text-[0.7rem]">
+            Series {shade.series} · {shade.size} mm
+          </span>
+        </span>
+      </Link>
+    </li>
+  );
+}
 
 export function QuartzShadeExplorer() {
-  const [family, setFamily] = useState<string>("all");
-  const [series, setSeries] = useState<string>("all");
   const [microbanOnly, setMicrobanOnly] = useState(false);
-
-  const visible = useMemo(
-    () =>
-      new Set(
-        quartzShades
-          .filter(
-            (s) =>
-              (family === "all" || s.family === family) &&
-              (series === "all" || s.series === series) &&
-              (!microbanOnly || s.microban),
-          )
-          .map((s) => s.slug),
-      ),
-    [family, series, microbanOnly],
-  );
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   return (
     <div>
-      {/* Filters */}
+      {/* Jump chips + Microban filter */}
       <div className="flex flex-wrap items-center gap-2">
-        {FAMILIES.map((f) => (
-          <button
+        {quartzFamilies.map((f) => (
+          <a
             key={f.id}
-            type="button"
-            onClick={() => setFamily(f.id)}
-            aria-pressed={family === f.id}
-            className={cn(
-              "label-gcb rounded-full border px-4 py-2.5 transition-colors",
-              family === f.id
-                ? "bg-foreground text-background border-transparent"
-                : "border-border/50 text-foreground hover:border-border",
-            )}
+            href={`#family-${f.id}`}
+            className="border-border/50 hover:border-border rounded-full border px-4 py-2 text-sm transition-colors"
           >
             {f.label}
-          </button>
+            <span className="text-muted ml-2 text-xs">
+              {shadesOfFamily(f.id).length}
+            </span>
+          </a>
         ))}
-        <span
-          aria-hidden
-          className="bg-border/50 mx-2 hidden h-6 w-px sm:block"
-        />
-        <label className="label-gcb text-foreground flex cursor-pointer items-center gap-2">
+        <label className="label-gcb text-foreground ml-auto flex cursor-pointer items-center gap-2">
           <input
             type="checkbox"
             checked={microbanOnly}
@@ -80,70 +97,63 @@ export function QuartzShadeExplorer() {
         </label>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="label-gcb text-muted mr-1">Series</span>
-        {SERIES.map((s) => (
-          <button
-            key={s}
-            type="button"
-            onClick={() => setSeries(s)}
-            aria-pressed={series === s}
-            className={cn(
-              "font-display min-w-10 rounded-full border px-3 py-1.5 text-sm transition-colors",
-              series === s
-                ? "bg-foreground text-background border-transparent"
-                : "border-border/50 text-foreground hover:border-border",
-            )}
-          >
-            {s === "all" ? "All" : s}
-          </button>
-        ))}
-        <span className="text-muted ml-auto text-sm" aria-live="polite">
-          {visible.size} of {quartzShades.length}
-        </span>
-      </div>
+      {/* Family groups */}
+      <div className="mt-6 space-y-14">
+        {quartzFamilies.map((f) => {
+          const all = shadesOfFamily(f.id);
+          const members = all.filter((s) => !microbanOnly || s.microban);
+          const isExpanded = Boolean(expanded[f.id]) || microbanOnly;
+          const overflow = all.length - COLLAPSED_COUNT;
+          if (microbanOnly && members.length === 0) return null;
 
-      {/* Grid — all 69 in the DOM, filters only hide */}
-      <ul className="mt-10 grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
-        {quartzShades.map((shade) => (
-          <li
-            key={shade.slug}
-            id={`shade-${shade.slug}`}
-            className={cn(!visible.has(shade.slug) && "hidden")}
-          >
-            {/* Every card links to the shade's own indexed page — 69
-                crawlable in-content links from the pillar (GOVERNANCE §8). */}
-            <Link
-              href={`/kalingastone/quartz/${shade.slug}`}
-              className="group block"
-            >
-              <span className="border-border/30 relative block aspect-[4/3] overflow-hidden rounded-lg border">
-                <Image
-                  src={`/kalingastone/quartz/swatches/${shade.slug}.webp`}
-                  alt={`KalingaStone Quartz ${shade.name} — Series ${shade.series} engineered quartz slab, ${shade.size} mm`}
-                  fill
-                  sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                {shade.microban && (
-                  <span className="label-gcb bg-warm-black/80 text-ink absolute top-2 left-2 rounded-full px-2.5 py-1 text-[0.55rem]">
-                    Microban®
+          return (
+            <section key={f.id} id={`family-${f.id}`} className="scroll-mt-28">
+              {/* Sticky group header */}
+              <div className="bg-background/95 border-border/30 sticky top-20 z-10 flex items-baseline justify-between gap-4 border-b py-3 backdrop-blur-sm">
+                <h3 className="font-display text-xl sm:text-2xl">
+                  {f.label}
+                  <span className="text-muted ml-3 text-sm font-normal">
+                    {members.length} shade{members.length === 1 ? "" : "s"}
                   </span>
-                )}
-              </span>
-              <span className="mt-3 block">
-                <span className="font-display text-foreground group-hover:text-bronze block text-lg leading-tight transition-colors">
-                  {shade.name}
-                </span>
-                <span className="text-muted mt-0.5 block text-xs">
-                  Series {shade.series} · {shade.size} mm
-                </span>
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+                </h3>
+                <Link
+                  href={`/kalingastone/quartz/colours/${f.slug}`}
+                  className="text-muted hover:text-foreground flex shrink-0 items-center gap-1 text-sm transition-colors"
+                >
+                  Range page
+                  <ArrowUpRight size={14} strokeWidth={1.5} aria-hidden />
+                </Link>
+              </div>
+
+              <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-5">
+                {all.map((shade, i) => (
+                  <ShadeCard
+                    key={shade.slug}
+                    shade={shade}
+                    hidden={
+                      (microbanOnly && !shade.microban) ||
+                      (!isExpanded && i >= COLLAPSED_COUNT)
+                    }
+                  />
+                ))}
+              </ul>
+
+              {!isExpanded && overflow > 0 && (
+                <button
+                  type="button"
+                  onClick={() =>
+                    setExpanded((prev) => ({ ...prev, [f.id]: true }))
+                  }
+                  className="border-border/50 hover:border-border mt-7 flex w-full items-center justify-center gap-2 rounded-full border py-3 text-sm transition-colors"
+                >
+                  Show all {all.length} {f.label.toLowerCase()} shades
+                  <ChevronDown size={15} strokeWidth={1.5} aria-hidden />
+                </button>
+              )}
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 }
