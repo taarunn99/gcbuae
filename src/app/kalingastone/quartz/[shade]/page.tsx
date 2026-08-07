@@ -294,7 +294,7 @@ export default async function QuartzShadePage({ params }: Props) {
               className="group py-8 pr-6"
             >
               <span className="label-gcb text-muted">← Previous shade</span>
-              <span className="font-display group-hover:text-verde mt-2 block text-xl transition-colors">
+              <span className="font-display group-hover:text-bronze mt-2 block text-xl transition-colors">
                 {prev.name}
               </span>
             </Link>
@@ -308,7 +308,7 @@ export default async function QuartzShadePage({ params }: Props) {
               className="group py-8 text-right sm:pl-6"
             >
               <span className="label-gcb text-muted">Next shade →</span>
-              <span className="font-display group-hover:text-verde mt-2 block text-xl transition-colors">
+              <span className="font-display group-hover:text-bronze mt-2 block text-xl transition-colors">
                 {next.name}
               </span>
             </Link>

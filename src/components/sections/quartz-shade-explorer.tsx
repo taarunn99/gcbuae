@@ -133,7 +133,7 @@ export function QuartzShadeExplorer() {
                 )}
               </span>
               <span className="mt-3 block">
-                <span className="font-display text-foreground group-hover:text-verde block text-lg leading-tight transition-colors">
+                <span className="font-display text-foreground group-hover:text-bronze block text-lg leading-tight transition-colors">
                   {shade.name}
                 </span>
                 <span className="text-muted mt-0.5 block text-xs">

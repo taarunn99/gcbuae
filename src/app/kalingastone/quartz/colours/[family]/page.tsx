@@ -163,7 +163,7 @@ export default async function QuartzFamilyPage({ params }: Props) {
                       </span>
                     )}
                   </span>
-                  <span className="font-display group-hover:text-verde mt-3 block text-lg leading-tight transition-colors">
+                  <span className="font-display group-hover:text-bronze mt-3 block text-lg leading-tight transition-colors">
                     {s.name}
                   </span>
                   <span className="text-muted mt-0.5 block text-xs">

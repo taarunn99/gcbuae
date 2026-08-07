@@ -38,7 +38,7 @@ if (!source || !seoName) {
 
 // Finalized palette (2026-08-06): Porcelain on dark photos, Pine Teal on
 // bright ones, Dusty Olive rule in both.
-const INK = tone === "light" ? "#f7f8f5" : "#355e4d";
+const INK = tone === "light" ? "#f7f8f5" : "#0c1510"; // Pine Teal is never text
 const RULE = "#6f8f78";
 
 function outlineText(font, text, size, tracking) {

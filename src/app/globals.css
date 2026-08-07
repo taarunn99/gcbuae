@@ -17,9 +17,10 @@
   --warm-black: #0c1510; /* Onyx — dark stages and scrims */
   --ink: #f7f8f5; /* Porcelain — type over photography/dark */
 
-  /* Semantic tokens — light ground: green text and lines on Porcelain */
+  /* Semantic tokens — light ground: Onyx text, Pine Teal lines on
+     Porcelain. Pine Teal is NEVER a text colour (owner, 2026-08-07). */
   --background: #f7f8f5;
-  --foreground: #355e4d;
+  --foreground: #0c1510;
   --surface: #d2d4c8;
   --surface-raised: #f7f8f5;
   --border: #355e4d;
@@ -47,7 +48,7 @@
  */
 .theme-forest {
   --background: #f7f8f5;
-  --foreground: #355e4d;
+  --foreground: #0c1510;
   --surface: #d2d4c8;
   --surface-raised: #f7f8f5;
   --border: #355e4d;

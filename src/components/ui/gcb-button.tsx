@@ -26,7 +26,7 @@ const PALETTE = {
     tintOpacity: 0.05,
   },
   light: {
-    textColor: "#355e4d", // Pine Teal (--foreground)
+    textColor: "#0c1510", // Onyx (--foreground; Pine Teal is never text)
     lineColor: "#6f8f78", // Dusty Olive
     baseColor: "#d2d4c8", // Dust Grey
     tint: "#0c1510", // Onyx

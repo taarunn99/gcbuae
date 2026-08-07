@@ -330,7 +330,7 @@ export default function KalingaStoneQuartzPage() {
                 <div key={label} className="bg-surface/40 px-6 py-6">
                   <dt className="sr-only">{label}</dt>
                   <dd>
-                    <span className="font-display text-verde block text-3xl sm:text-4xl">
+                    <span className="font-display text-foreground block text-3xl sm:text-4xl">
                       {value}
                     </span>
                     <span className="text-muted mt-1 block text-sm">
@@ -424,7 +424,7 @@ export default function KalingaStoneQuartzPage() {
               <ul className="mt-6 space-y-3">
                 {seriesCounts.map((s) => (
                   <li key={s.series} className="flex items-center gap-4">
-                    <span className="font-display text-verde w-10 shrink-0 text-right">
+                    <span className="font-display text-foreground w-10 shrink-0 text-right">
                       {s.series}
                     </span>
                     <span className="bg-surface relative block h-7 flex-1 overflow-hidden rounded-full">
@@ -533,7 +533,7 @@ export default function KalingaStoneQuartzPage() {
                         loading="lazy"
                       />
                     </span>
-                    <span className="font-display group-hover:text-verde mt-3 block text-lg leading-tight transition-colors">
+                    <span className="font-display group-hover:text-bronze mt-3 block text-lg leading-tight transition-colors">
                       {f.label}
                     </span>
                     <span className="text-muted mt-0.5 block text-xs">
@@ -600,7 +600,7 @@ export default function KalingaStoneQuartzPage() {
             <div>
               <p className="label-gcb text-muted">Microban® antibacterial</p>
               <h2 className="font-display mt-4 text-3xl leading-tight sm:text-4xl">
-                Up to <span className="text-verde font-medium">99.99%</span>{" "}
+                Up to <span className="text-foreground font-semibold">99.99%</span>{" "}
                 less bacterial growth. For life.
               </h2>
               <p className="mt-6 max-w-xl leading-relaxed">
