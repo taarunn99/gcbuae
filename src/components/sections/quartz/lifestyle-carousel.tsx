@@ -1,6 +1,7 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,10 +16,10 @@ import type { QuartzShade } from "@/config/kalingastone-quartz";
  * server-side — Embla only adds transforms.
  */
 export function LifestyleCarousel({ shades }: { shades: QuartzShade[] }) {
-  const [emblaRef, embla] = useEmblaCarousel({
-    align: "start",
-    skipSnaps: false,
-  });
+  const [emblaRef, embla] = useEmblaCarousel(
+    { align: "start", skipSnaps: false },
+    [WheelGesturesPlugin()],
+  );
   const snapshot = useSyncExternalStore(
     useCallback(
       (onChange: () => void) => {

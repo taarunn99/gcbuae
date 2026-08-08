@@ -74,18 +74,30 @@ export function QuartzShadeExplorer() {
     <div>
       {/* Jump chips + Microban filter */}
       <div className="flex flex-wrap items-center gap-2">
-        {quartzFamilies.map((f) => (
-          <a
-            key={f.id}
-            href={`#family-${f.id}`}
-            className="border-border/50 hover:border-border rounded-full border px-4 py-2 text-sm transition-colors"
-          >
-            {f.label}
-            <span className="text-muted ml-2 text-xs">
-              {shadesOfFamily(f.id).length}
-            </span>
-          </a>
-        ))}
+        {quartzFamilies.map((f) => {
+          const cover = shadesOfFamily(f.id)[0];
+          return (
+            <a
+              key={f.id}
+              href={`#family-${f.id}`}
+              className="chip-gcb border-border/50 flex items-center gap-2.5 rounded-full border px-4 py-2 text-sm"
+            >
+              <span className="border-border/30 relative size-4 overflow-hidden rounded-full border">
+                <Image
+                  src={`/kalingastone/quartz/swatches/${cover.slug}.webp`}
+                  alt=""
+                  fill
+                  sizes="16px"
+                  className="object-cover"
+                />
+              </span>
+              {f.label}
+              <span className="text-muted text-xs">
+                {shadesOfFamily(f.id).length}
+              </span>
+            </a>
+          );
+        })}
         <label className="label-gcb text-foreground ml-auto flex cursor-pointer items-center gap-2">
           <input
             type="checkbox"
@@ -144,7 +156,7 @@ export function QuartzShadeExplorer() {
                   onClick={() =>
                     setExpanded((prev) => ({ ...prev, [f.id]: true }))
                   }
-                  className="border-border/50 hover:border-border mt-7 flex w-full items-center justify-center gap-2 rounded-full border py-3 text-sm transition-colors"
+                  className="chip-gcb border-border/50 mt-7 flex w-full items-center justify-center gap-2 rounded-full border py-3 text-sm"
                 >
                   Show all {all.length} {f.label.toLowerCase()} shades
                   <ChevronDown size={15} strokeWidth={1.5} aria-hidden />

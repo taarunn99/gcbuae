@@ -92,7 +92,12 @@ Onyx `#0C1510` (dark ground AND all text on light — owner 2026-08-07:
 Pine Teal is NEVER a text colour) · Pine Teal `#355E4D` (lines, borders,
 line-work icons, backgrounds only) · Dusty Olive `#6F8F78` (THE accent —
 replaced bronze) · Porcelain `#F7F8F5` (light ground, text on dark) ·
-Dust Grey `#D2D4C8` (secondary surface/borders). Applies site-wide INCLUDING the home page UI; only the
+Dust Grey `#D2D4C8` (secondary surface/borders).
+**Owner's spoken nicknames (2026-08-08), use these to interpret requests:**
+"Onyx Green" = #0C1510 · "Pine Green" = #355E4D · "Pastel Green" =
+#6F8F78 (the `--bronze` token) · "Marble White" = #F7F8F5 · "Dusty
+Olive" = #D2D4C8 (⚠ renamed — no longer means #6F8F78). Every pill
+chip/button hovers to Onyx Green bg + Marble White text (`.chip-gcb`). Applies site-wide INCLUDING the home page UI; only the
 photographic/video assets carry other colours (asset regeneration is a
 separate owner-gated step). The `--bronze` token now carries Dusty Olive
 (name kept for compatibility). All colour flows through tokens in

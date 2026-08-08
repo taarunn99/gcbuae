@@ -44,15 +44,8 @@ function Row({
 
   return (
     <li className="flex items-center gap-4 sm:gap-6">
-      <span className="w-14 shrink-0 text-right sm:w-20">
-        <span className="font-display text-foreground block text-xl leading-none sm:text-2xl">
-          {series}
-        </span>
-        {note && (
-          <span className="text-muted hidden text-[0.65rem] tracking-wide uppercase sm:block">
-            {note}
-          </span>
-        )}
+      <span className="font-display text-foreground w-10 shrink-0 text-center text-xl leading-none sm:w-14 sm:text-2xl">
+        {series}
       </span>
 
       <span className="flex min-w-0 flex-1 items-center">
@@ -80,6 +73,11 @@ function Row({
         )}
       </span>
 
+      {note && (
+        <span className="label-gcb text-bronze mr-1 hidden shrink-0 md:block">
+          {note}
+        </span>
+      )}
       <span className="font-display text-foreground w-10 shrink-0 text-right text-2xl sm:text-3xl">
         <span className="sr-only">{members.length} shades</span>
         <NumberFlow
@@ -113,7 +111,7 @@ export function SeriesLadder() {
   );
 
   return (
-    <ul ref={scope} className="space-y-4">
+    <ul ref={scope} className="max-w-3xl space-y-4">
       {TIERS.map((t) => (
         <Row key={t.series} {...t} started={started} />
       ))}

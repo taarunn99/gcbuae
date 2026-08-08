@@ -177,7 +177,7 @@ export default async function QuartzShadePage({ params }: Props) {
                 </span>
                 <Link
                   href={`/kalingastone/quartz/colours/${family.slug}`}
-                  className="border-border/50 hover:border-border rounded-full border px-3.5 py-1.5 text-sm transition-colors"
+                  className="chip-gcb border-border/50 rounded-full border px-3.5 py-1.5 text-sm"
                 >
                   {family.label}
                 </Link>

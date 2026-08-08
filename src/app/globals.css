@@ -58,6 +58,36 @@
   --warm-black: #0c1510;
 }
 
+/* Every pill chip/button inverts to Onyx Green with Marble White text
+   on hover (owner, 2026-08-08) — applies on top of the Tailwind base. */
+.chip-gcb {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+.chip-gcb:hover {
+  background-color: var(--warm-black);
+  border-color: var(--warm-black);
+  color: var(--ink);
+}
+.chip-gcb:hover :where(span) {
+  color: inherit;
+}
+
+/* Microban timeline: dots light up as the scroll passes them. */
+.tl-dot {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease;
+}
+.tl-on .tl-dot {
+  background-color: var(--verde);
+  border-color: var(--verde);
+  color: var(--ink);
+}
+
 /* Line-drawn diagram: strokes draw in when the element (re)mounts.
    pathLength=1 on every path normalises the dash math. */
 .quartz-diagram path {

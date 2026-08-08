@@ -1,6 +1,7 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useSyncExternalStore } from "react";
 
@@ -67,10 +68,10 @@ const CLUSTERS: Cluster[] = [
 ];
 
 export function Certificates() {
-  const [emblaRef, embla] = useEmblaCarousel({
-    align: "start",
-    containScroll: "trimSnaps",
-  });
+  const [emblaRef, embla] = useEmblaCarousel(
+    { align: "start", containScroll: "trimSnaps" },
+    [WheelGesturesPlugin()],
+  );
   const snapshot = useSyncExternalStore(
     useCallback(
       (onChange: () => void) => {

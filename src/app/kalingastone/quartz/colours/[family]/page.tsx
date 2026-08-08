@@ -185,7 +185,7 @@ export default async function QuartzFamilyPage({ params }: Props) {
               <li key={f.slug}>
                 <Link
                   href={`/kalingastone/quartz/colours/${f.slug}`}
-                  className="border-border/50 hover:border-border rounded-full border px-5 py-2.5 text-sm transition-colors"
+                  className="chip-gcb border-border/50 rounded-full border px-5 py-2.5 text-sm"
                 >
                   {f.label}
                   <span className="text-muted ml-2">

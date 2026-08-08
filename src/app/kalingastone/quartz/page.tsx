@@ -10,6 +10,8 @@ import { EdgeProfiles } from "@/components/sections/quartz/edge-profiles";
 import { FaqAccordion } from "@/components/sections/quartz/faq-accordion";
 import { FinishExplorer } from "@/components/sections/quartz/finish-explorer";
 import { LifestyleCarousel } from "@/components/sections/quartz/lifestyle-carousel";
+import { MicrobanTimeline } from "@/components/sections/quartz/microban-timeline";
+import { RuleIn } from "@/components/sections/quartz/rule-in";
 import { SeriesLadder } from "@/components/sections/quartz/series-ladder";
 import { SlabScale } from "@/components/sections/quartz/slab-scale";
 import { SpectrumStrip } from "@/components/sections/quartz/spectrum-strip";
@@ -307,7 +309,7 @@ export default function KalingaStoneQuartzPage() {
                 <p.icon
                   size={32}
                   strokeWidth={1.3}
-                  className="text-bronze"
+                  className="text-ink"
                   aria-hidden
                 />
                 <h3 className="font-display mt-5 text-xl">{p.title}</h3>
@@ -318,15 +320,15 @@ export default function KalingaStoneQuartzPage() {
           <p className="label-gcb text-bronze mt-16">
             Versatility of application
           </p>
-          <ul className="mt-4 flex max-w-3xl flex-wrap gap-y-2">
+          <ul className="mt-6 grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-5">
             {applications.map((a, i) => (
-              <li key={a} className="text-ink/80 flex items-baseline text-sm">
-                {i > 0 && (
-                  <span aria-hidden className="text-ink/30 mx-2">
-                    ·
-                  </span>
-                )}
-                {a}
+              <li key={a} className="border-ink/15 border-t pt-3">
+                <span className="text-bronze font-mono text-[0.6rem] tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-ink/85 mt-1 block text-sm leading-snug">
+                  {a}
+                </span>
               </li>
             ))}
           </ul>
@@ -340,11 +342,12 @@ export default function KalingaStoneQuartzPage() {
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
             Sixty-nine shades, seven series, three formats.
           </h2>
+          <RuleIn className="mt-8 w-full max-w-3xl" />
 
           <div className="mt-14 space-y-20">
             <div>
-              <h3 className="label-gcb text-muted">Shades per series</h3>
-              <p className="text-muted mt-2 max-w-xl text-sm">
+              <h3 className="font-display text-2xl">Shades per series</h3>
+              <p className="text-muted mt-3 max-w-xl text-sm">
                 Series is the design tier — 7 carries the premium veined
                 Calacattas, 1 the essential particulates. The stones themselves
                 do the counting.
@@ -355,14 +358,14 @@ export default function KalingaStoneQuartzPage() {
             </div>
 
             <div>
-              <h3 className="label-gcb text-muted">The colour spectrum</h3>
+              <h3 className="font-display text-2xl">The colour spectrum</h3>
               <div className="mt-6">
                 <SpectrumStrip />
               </div>
             </div>
 
             <div>
-              <h3 className="label-gcb text-muted">Slab formats, to scale</h3>
+              <h3 className="font-display text-2xl">Slab formats, to scale</h3>
               <div className="mt-8">
                 <SlabScale />
               </div>
@@ -485,6 +488,16 @@ export default function KalingaStoneQuartzPage() {
                 Microban® technology is not available for products sold in the
                 United States of America.
               </p>
+              <figure className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl">
+                <Image
+                  src="/kalingastone/quartz/microban-field.webp"
+                  alt="Artistic macro of a quartz slab edge repelling glowing microbes — the Microban protective layer visualised"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </figure>
             </div>
 
             <div>
@@ -499,39 +512,9 @@ export default function KalingaStoneQuartzPage() {
                 />
               </figure>
               <h3 className="label-gcb text-muted">How it works</h3>
-              <ol className="border-border/40 mt-6 space-y-0 border-l">
-                {[
-                  [
-                    "Technology integration",
-                    "The antibacterial agent is built into the slab during manufacture.",
-                  ],
-                  [
-                    "Surface contamination",
-                    "Bacteria land on the counter in daily use.",
-                  ],
-                  [
-                    "Technology at work",
-                    "The integrated agent disrupts bacterial growth continuously.",
-                  ],
-                  [
-                    "A cleaner surface",
-                    "The surface stays cleaner between cleans — for the product's lifetime.",
-                  ],
-                ].map(([t, b], i) => (
-                  <li key={t} className="relative pb-8 pl-8">
-                    <span
-                      aria-hidden
-                      className="bg-verde text-background font-display absolute top-0 -left-4 flex h-8 w-8 items-center justify-center rounded-full text-sm"
-                    >
-                      {i + 1}
-                    </span>
-                    <h4 className="font-display text-lg">{t}</h4>
-                    <p className="text-muted mt-1 text-sm leading-relaxed">
-                      {b}
-                    </p>
-                  </li>
-                ))}
-              </ol>
+              <div className="mt-6">
+                <MicrobanTimeline />
+              </div>
               <h3 className="label-gcb text-muted mt-8">
                 The eight protected shades
               </h3>
@@ -542,7 +525,7 @@ export default function KalingaStoneQuartzPage() {
                     <li key={s.slug}>
                       <Link
                         href={`/kalingastone/quartz/${s.slug}`}
-                        className="border-border/50 hover:border-border rounded-full border px-3.5 py-1.5 text-sm transition-colors"
+                        className="chip-gcb border-border/50 rounded-full border px-3.5 py-1.5 text-sm"
                       >
                         {s.name}
                       </Link>

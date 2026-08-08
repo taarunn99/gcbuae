@@ -215,18 +215,22 @@ export function SiteFooter() {
                 </ul>
               </div>
 
-              {/* ONE heading, ONE flowing line of links with separators —
-                  visually a single category, never two columns. */}
+              {/* ONE numbered ordered list flowing across two aligned
+                  columns — reads as a single systematic category. */}
               <div>
                 <p className="label-gcb text-bronze">Products</p>
-                <ul className="mt-4 flex flex-wrap items-baseline gap-y-2.5">
+                <ol className="mt-4 grid grid-cols-2 gap-x-10 gap-y-3">
                   {siteConfig.products.map((product, index) => (
-                    <li key={product.slug} className="flex items-baseline">
-                      {index > 0 && (
-                        <span aria-hidden className="text-ink/30 mx-3">
-                          ·
-                        </span>
-                      )}
+                    <li
+                      key={product.slug}
+                      className="flex items-baseline gap-3"
+                    >
+                      <span
+                        aria-hidden
+                        className="text-bronze/80 font-mono text-[0.6rem] tabular-nums"
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
                       <Link
                         href={`/products#${product.slug}`}
                         className="u-line text-ink/80"
@@ -235,7 +239,7 @@ export function SiteFooter() {
                       </Link>
                     </li>
                   ))}
-                </ul>
+                </ol>
               </div>
             </div>
 
