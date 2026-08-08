@@ -121,11 +121,11 @@ export function SlabScale() {
                   <span
                     data-measure-v
                     aria-hidden
-                    className="border-warm-black absolute top-0 -right-4 bottom-0 border-r"
+                    className="border-verde absolute top-0 -right-4 bottom-0 border-r"
                   />
                   <span
                     aria-hidden
-                    className="label-gcb text-foreground/70 absolute top-1/2 -right-5 -translate-y-1/2 rotate-90 text-[0.6rem] whitespace-nowrap"
+                    className="label-gcb text-verde absolute top-1/2 -right-5 -translate-y-1/2 rotate-90 text-[0.6rem] whitespace-nowrap"
                   >
                     2000 mm
                   </span>
@@ -137,7 +137,7 @@ export function SlabScale() {
               <span
                 data-measure
                 aria-hidden
-                className="border-warm-black mt-3 block border-t"
+                className="border-verde mt-3 block border-t"
               />
               <figcaption className="mt-2">
                 <span className="font-display text-foreground block text-lg">
