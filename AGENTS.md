@@ -12,6 +12,11 @@ rendering rules (SSR-first, animation islands only), content voice, and the
 mandatory notification rules. Where it conflicts with convenience, it wins;
 where it must be broken, stop and tell Tarun the reason and the cost.
 
+**Before building any product-line pillar page (marble, terrazzo, Jaquar,
+FILA…), read `PILLAR-PLAYBOOK.md`** — the full process, component
+inventory, owner design rulings, imagery pipeline, and the mistakes
+ledger from the KalingaStone Quartz build.
+
 Marketing site for Global Classic Building Materials (GCB), a UAE building
 materials trading company.
 
