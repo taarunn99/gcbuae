@@ -185,7 +185,7 @@ export function TestBench() {
       </div>
 
       {/* The tests — full content, server-rendered */}
-      <div className="space-y-6 lg:space-y-[38vh] lg:py-[12vh]">
+      <div className="space-y-6 lg:space-y-24 lg:py-10">
         {TESTS.map((t, i) => (
           <div
             key={t.id}
@@ -194,7 +194,7 @@ export function TestBench() {
             }}
             className={cn(
               "border-ink/15 rounded-xl border p-7 transition-all duration-500 sm:p-9",
-              i === active ? "lg:border-ink/30 lg:bg-ink/5" : "lg:opacity-45",
+              i === active ? "lg:border-ink/30 lg:bg-ink/5" : "lg:opacity-60",
             )}
           >
             <div className="flex items-baseline justify-between gap-4">
