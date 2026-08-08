@@ -537,8 +537,11 @@ export default function KalingaStoneQuartzPage() {
         </Container>
       </section>
 
-      {/* ---------- Technical specifications ---------- */}
-      <section className="bg-warm-black text-ink grain-gcb relative overflow-hidden py-24">
+      {/* ---------- Technical specifications ----------
+          NO overflow-hidden here: it silently disables position:sticky in
+          every descendant, which kills the pinned test bench. The grain
+          pseudo-element is inset:0 so nothing leaks without it. */}
+      <section className="bg-warm-black text-ink grain-gcb relative py-24">
         <Container className="relative z-10">
           <p className="label-gcb text-bronze">Tested, not promised</p>
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
