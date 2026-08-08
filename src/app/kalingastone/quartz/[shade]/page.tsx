@@ -218,7 +218,7 @@ export default async function QuartzShadePage({ params }: Props) {
             </div>
 
             <div className="space-y-5">
-              <figure className="border-border/30 relative aspect-[4/3] overflow-hidden rounded-xl border">
+              <figure className="border-warm-black/40 relative aspect-[4/3] overflow-hidden rounded-xl border">
                 <Image
                   src={swatch}
                   alt={`KalingaStone Quartz ${shade.name} — Series ${shade.series} engineered quartz slab surface, ${shade.size} mm`}
@@ -229,7 +229,7 @@ export default async function QuartzShadePage({ params }: Props) {
                 />
               </figure>
               {lifestyle && (
-                <figure className="border-border/30 relative aspect-[16/10] overflow-hidden rounded-xl border">
+                <figure className="border-warm-black/40 relative aspect-[16/10] overflow-hidden rounded-xl border">
                   <Image
                     src={lifestyle}
                     alt={`${shade.name} quartz installed — KalingaStone catalogue application photograph`}
@@ -260,7 +260,7 @@ export default async function QuartzShadePage({ params }: Props) {
                     href={`/kalingastone/quartz/${s.slug}`}
                     className="group block"
                   >
-                    <span className="border-border/30 relative block aspect-[4/3] overflow-hidden rounded-lg border">
+                    <span className="border-warm-black/40 relative block aspect-[4/3] overflow-hidden rounded-lg border">
                       <Image
                         src={`/kalingastone/quartz/swatches/${s.slug}.webp`}
                         alt={`KalingaStone Quartz ${s.name} swatch`}
