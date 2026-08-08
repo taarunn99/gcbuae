@@ -23,7 +23,7 @@
   --foreground: #0c1510;
   --surface: #d2d4c8;
   --surface-raised: #f7f8f5;
-  --border: #355e4d;
+  --border: #0c1510; /* Onyx Green — contrast trial (owner 2026-08-08) */
   --muted: #6f8f78;
   --accent: #6f8f78;
   --accent-foreground: #f7f8f5;
@@ -51,7 +51,7 @@
   --foreground: #0c1510;
   --surface: #d2d4c8;
   --surface-raised: #f7f8f5;
-  --border: #355e4d;
+  --border: #0c1510; /* Onyx Green — contrast trial (owner 2026-08-08) */
   --muted: #6f8f78;
   --accent: #6f8f78;
   --accent-foreground: #f7f8f5;
