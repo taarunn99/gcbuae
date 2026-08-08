@@ -43,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated-image 4K masters (re-downloadable from Higgsfield gallery)
+/assets/source/terrazzo/

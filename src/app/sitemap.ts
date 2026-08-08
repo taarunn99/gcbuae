@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 
 import { quartzFamilies, quartzShades } from "@/config/kalingastone-quartz";
+import {
+  terrazzoCollections,
+  terrazzoShades,
+} from "@/config/kalingastone-terrazzo";
 import { siteConfig } from "@/config/site";
 
 // GOVERNANCE §6: auto-generated sitemap. Every future collection, brand-hub
@@ -13,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/products",
     "/kalingastone/quartz",
+    "/kalingastone/terrazzo",
+    "/kalingastone/terrazzo/fluting",
     "/about",
     "/contact",
     "/privacy-policy",
@@ -40,5 +46,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...core, ...families, ...shades];
+  const terrazzoCollectionUrls: MetadataRoute.Sitemap = terrazzoCollections.map(
+    (c) => ({
+      url: `${siteConfig.url}/kalingastone/terrazzo/collections/${c.slug}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }),
+  );
+
+  const terrazzoShadeUrls: MetadataRoute.Sitemap = terrazzoShades.map((s) => ({
+    url: `${siteConfig.url}/kalingastone/terrazzo/${s.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [
+    ...core,
+    ...families,
+    ...shades,
+    ...terrazzoCollectionUrls,
+    ...terrazzoShadeUrls,
+  ];
 }

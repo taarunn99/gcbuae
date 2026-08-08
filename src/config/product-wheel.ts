@@ -39,7 +39,7 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/white-terrazzo-flooring-green-chips-daybed-dubai.webp",
     alt: "White-base terrazzo flooring with grey and green marble chips beside a linen daybed in bright daylight",
     accent: "#6f8f78",
-    href: "/products#terrazzo",
+    href: "/kalingastone/terrazzo",
   },
   {
     id: "sanitaryware",

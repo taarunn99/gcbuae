@@ -795,7 +795,14 @@ export default function KalingaStoneQuartzPage() {
             </table>
           </div>
           <p className="text-muted mt-6 max-w-2xl text-sm leading-relaxed">
-            Where natural stone is the right answer, we supply that too — see{" "}
+            Needs the A1 fire class or an exterior facade instead? See the{" "}
+            <Link
+              href="/kalingastone/terrazzo"
+              className="u-line text-foreground"
+            >
+              KalingaStone Terrazzo range
+            </Link>{" "}
+            — or browse{" "}
             <Link href="/products" className="u-line text-foreground">
               all product lines
             </Link>
