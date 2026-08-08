@@ -420,7 +420,7 @@ export default function KalingaStoneQuartzPage() {
                     href={`/kalingastone/quartz/colours/${f.slug}`}
                     className="group block"
                   >
-                    <span className="border-warm-black/40 relative block aspect-[4/5] overflow-hidden rounded-lg border">
+                    <span className="border-warm-black relative block aspect-[4/5] overflow-hidden rounded-lg border">
                       <Image
                         src={`/kalingastone/quartz/swatches/${cover.slug}.webp`}
                         alt={`${f.label} — KalingaStone quartz colour range`}

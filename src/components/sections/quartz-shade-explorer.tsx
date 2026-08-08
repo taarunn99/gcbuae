@@ -33,7 +33,7 @@ function ShadeCard({
   return (
     <li className={cn(hidden && "hidden")} id={`shade-${shade.slug}`}>
       <Link href={`/kalingastone/quartz/${shade.slug}`} className="group block">
-        <span className="border-warm-black/40 relative block aspect-[4/3] overflow-hidden rounded-lg border">
+        <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
           <Image
             src={`/kalingastone/quartz/swatches/${shade.slug}.webp`}
             alt={`KalingaStone Quartz ${shade.name} — Series ${shade.series} engineered quartz slab, ${shade.size} mm`}
@@ -121,7 +121,7 @@ export function QuartzShadeExplorer() {
           return (
             <section key={f.id} id={`family-${f.id}`} className="scroll-mt-28">
               {/* Sticky group header */}
-              <div className="bg-background/95 border-warm-black/40 sticky top-20 z-10 flex items-baseline justify-between gap-4 border-b py-3 backdrop-blur-sm">
+              <div className="bg-background/95 border-warm-black sticky top-20 z-10 flex items-baseline justify-between gap-4 border-b py-3 backdrop-blur-sm">
                 <h3 className="font-display text-xl sm:text-2xl">
                   {f.label}
                   <span className="text-muted ml-3 text-sm font-normal">

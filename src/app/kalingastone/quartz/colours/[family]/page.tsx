@@ -148,7 +148,7 @@ export default async function QuartzFamilyPage({ params }: Props) {
                   href={`/kalingastone/quartz/${s.slug}`}
                   className="group block"
                 >
-                  <span className="border-warm-black/40 relative block aspect-[4/3] overflow-hidden rounded-lg border">
+                  <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
                     <Image
                       src={`/kalingastone/quartz/swatches/${s.slug}.webp`}
                       alt={`KalingaStone Quartz ${s.name} — Series ${s.series} ${family.label.toLowerCase()} slab`}
