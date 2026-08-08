@@ -264,6 +264,7 @@ export default function KalingaStoneQuartzPage() {
                   src="/kalingastone/quartz/decor/vase-olive.webp"
                   alt="Sage-green ceramic vase with an olive branch standing on a white KalingaStone quartz plinth"
                   fill
+                  quality={90}
                   sizes="320px"
                   className="object-cover"
                   loading="eager"
@@ -305,6 +306,7 @@ export default function KalingaStoneQuartzPage() {
             src={heroImage}
             alt="Veined KalingaStone engineered quartz slabs standing upright on steel A-frame racks in a UAE stone warehouse"
             sizes="100vw"
+            quality={90}
             className="h-auto w-full"
             placeholder="blur"
             preload
@@ -375,6 +377,7 @@ export default function KalingaStoneQuartzPage() {
                     src="/kalingastone/quartz/decor/sample-stack.webp"
                     alt="Stack of white and grey KalingaStone quartz sample tiles tied with sage-green linen"
                     fill
+                    quality={90}
                     sizes="300px"
                     className="object-cover"
                     loading="lazy"
@@ -519,6 +522,7 @@ export default function KalingaStoneQuartzPage() {
                   src="/kalingastone/quartz/microban-field.webp"
                   alt="Artistic macro of a quartz slab edge repelling glowing microbes — the Microban protective layer visualised"
                   fill
+                  quality={90}
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                   loading="lazy"
@@ -532,6 +536,7 @@ export default function KalingaStoneQuartzPage() {
                   src="/kalingastone/quartz/microban-clean.webp"
                   alt="Wiping a white KalingaStone quartz island clean with a linen cloth — Microban protection works between cleans"
                   fill
+                  quality={90}
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
                   loading="lazy"
@@ -656,6 +661,7 @@ export default function KalingaStoneQuartzPage() {
               src="/kalingastone/quartz/decor/production-line.webp"
               alt="A white KalingaStone quartz slab moving through the automated production line, sage-green machinery either side"
               fill
+              quality={90}
               sizes="(min-width: 1536px) 1400px, 100vw"
               className="object-cover"
               loading="lazy"
@@ -851,6 +857,7 @@ export default function KalingaStoneQuartzPage() {
                 src="/kalingastone/quartz/decor/architects-desk.webp"
                 alt="White veined quartz sample beside a sage-green notebook on an architect's desk"
                 fill
+                quality={90}
                 sizes="300px"
                 className="object-cover"
                 loading="lazy"
