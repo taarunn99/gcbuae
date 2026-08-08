@@ -94,6 +94,24 @@ Packages already installed: `embla-carousel-react`, `embla-carousel-wheel-gestur
 `@number-flow/react`, `lucide-react` (strokeWidth 1.3). Aceternity/ReactBits
 patterns get rebuilt natively on Motion + GSAP — no new animation runtimes.
 
+## 5b. Signature elements — every hub gets ONE exclusive interaction
+
+Owner rule (2026-08-08): each product-line pillar carries one bespoke
+interactive element no other hub has. Registry so none is duplicated:
+
+| Hub | Element | Component |
+|---|---|---|
+| Quartz | Compare any two shades — drag divider over one slab | `quartz/shade-compare.tsx` |
+| Terrazzo | Raking-light slider sweeping the fluted panel | `terrazzo/fluting-light-play.tsx` |
+| Marble | The specifier's loupe — magnifier over the vein panel | `marble/marble-loupe.tsx` |
+| Jaquar | (unassigned — invent on build) | |
+| FILA | (unassigned — invent on build) | |
+
+Pick the element from the material's own selling gesture (quartz =
+shortlisting, terrazzo = light play, marble = vein inspection). Keep it
+input-driven (no autoplay), palette-safe, keyboard-operable where it can
+be, and content-free (the SEO copy never lives inside it).
+
 ## 6. Design rules the owner has personally set (do not re-learn these)
 
 - **Colour nicknames (his words):** Onyx Green `#0C1510` · Pine Green
@@ -173,6 +191,21 @@ patterns get rebuilt natively on Motion + GSAP — no new animation runtimes.
 15. **Verify the actual output** — a `grep -c` that returns 0 exits
     non-zero and silently skips chained verification; don't push blind
     (it happened once; the build was fine by luck).
+
+## 8b. Marble catalogue landmines (2026-08-08 build)
+
+- ENGINEERED marble — CMC makes natural marble separately; never conflate.
+- Microban is an OPTION on 8 shades ("also available without"), never an
+  intrinsic attribute — filter and badges say "Microban® option".
+- NO NSF / food-safe / kitchen-worktop claims on marble (mark absent,
+  kitchen absent from the applications list) — kitchens belong to quartz.
+- Series-5 = 5A (Amelia) + 5B (Bianco Thassos), never collapsed.
+- Wins: > 85% gloss (highest of three) + REPOLISHABLE (unique) — marble
+  is "the most refined surface, not the toughest".
+- Spellings: Artic White, Mellissa, Dallia, Camelia, Grigio Billiame,
+  Emperador (not Emperor).
+- Lifestyle photos carry printed captions — crop the bottom ~8% before
+  publishing (done in the conversion step).
 
 ## 9. Pre-push checklist (per line page, on top of GOVERNANCE §9)
 

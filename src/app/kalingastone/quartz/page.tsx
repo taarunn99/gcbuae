@@ -12,6 +12,7 @@ import { FinishExplorer } from "@/components/sections/quartz/finish-explorer";
 import { LifestyleCarousel } from "@/components/sections/quartz/lifestyle-carousel";
 import { MicrobanTimeline } from "@/components/sections/quartz/microban-timeline";
 import { RuleIn } from "@/components/sections/quartz/rule-in";
+import { QuartzShadeCompare } from "@/components/sections/quartz/shade-compare";
 import { SeriesLadder } from "@/components/sections/quartz/series-ladder";
 import { SlabScale } from "@/components/sections/quartz/slab-scale";
 import { SpectrumStrip } from "@/components/sections/quartz/spectrum-strip";
@@ -457,6 +458,22 @@ export default function KalingaStoneQuartzPage() {
           </p>
           <div className="mt-12">
             <QuartzShadeExplorer />
+          </div>
+        </Container>
+      </section>
+
+      {/* ---------- Side by side — quartz's signature element ---------- */}
+      <section className="border-border/30 border-t py-24">
+        <Container>
+          <p className="label-gcb text-muted">Side by side</p>
+          <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
+            Shortlist like a specifier — compare any two shades.
+          </h2>
+          <p className="text-muted mt-4 max-w-2xl leading-relaxed">
+            Pick a shade for each side and drag the divider across one slab.
+          </p>
+          <div className="mt-10">
+            <QuartzShadeCompare />
           </div>
         </Container>
       </section>

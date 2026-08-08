@@ -23,8 +23,14 @@ export type CarouselItem = {
 
 export function TerrazzoLifestyleCarousel({
   items,
+  cardClass = "w-[78vw] sm:w-[420px]",
+  aspectClass = "aspect-[16/15]",
 }: {
   items: CarouselItem[];
+  /** Card width classes — portrait media wants a narrower card. */
+  cardClass?: string;
+  /** Aspect of the media frame. */
+  aspectClass?: string;
 }) {
   const [emblaRef, embla] = useEmblaCarousel(
     { align: "start", skipSnaps: false },
@@ -78,9 +84,11 @@ export function TerrazzoLifestyleCarousel({
             <Link
               key={item.src}
               href={item.href}
-              className="group w-[78vw] shrink-0 sm:w-[420px]"
+              className={`group shrink-0 ${cardClass}`}
             >
-              <span className="relative block aspect-[16/15] overflow-hidden rounded-xl">
+              <span
+                className={`relative block overflow-hidden rounded-xl ${aspectClass}`}
+              >
                 <Image
                   src={item.src}
                   alt={item.alt}

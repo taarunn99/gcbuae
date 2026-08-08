@@ -46,3 +46,5 @@ next-env.d.ts
 
 # Generated-image 4K masters (re-downloadable from Higgsfield gallery)
 /assets/source/terrazzo/
+
+/assets/source/marble/

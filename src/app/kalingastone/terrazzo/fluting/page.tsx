@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
+import { FlutingLightPlay } from "@/components/sections/terrazzo/fluting-light-play";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -115,20 +116,17 @@ export default function FlutingPage() {
         </Container>
       </section>
 
-      {/* ---------- Feature image ---------- */}
-      <section aria-label="Fluted terrazzo wall" className="pb-4">
-        <div className="relative overflow-hidden">
-          <Image
+      {/* ---------- The light, in your hand — terrazzo's signature ---------- */}
+      <section
+        aria-label="Fluted terrazzo wall — interactive light"
+        className="pb-4"
+      >
+        <Container>
+          <FlutingLightPlay
             src="/kalingastone/terrazzo/fluting-feature.webp"
             alt="Fluted KalingaStone terrazzo wall panel — raking light across machined grooves"
-            width={2560}
-            height={1086}
-            sizes="100vw"
-            quality={90}
-            className="h-auto w-full"
-            preload
           />
-        </div>
+        </Container>
       </section>
 
       {/* ---------- The nine samples ---------- */}

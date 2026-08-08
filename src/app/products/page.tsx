@@ -55,6 +55,17 @@ export default function ProductsPage() {
                   </h2>
                   <p className="text-foreground/80 group-hover:text-ink/80 leading-relaxed transition-colors duration-500">
                     {product.blurb}
+                    {product.slug === "naturally-engineered-marble" && (
+                      <>
+                        {" "}
+                        <Link
+                          href="/kalingastone/marble"
+                          className="u-line whitespace-nowrap"
+                        >
+                          Explore the KalingaStone range →
+                        </Link>
+                      </>
+                    )}
                     {product.slug === "terrazzo" && (
                       <>
                         {" "}

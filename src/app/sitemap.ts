@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { quartzFamilies, quartzShades } from "@/config/kalingastone-quartz";
+import { marbleFamilies, marbleShades } from "@/config/kalingastone-marble";
 import {
   terrazzoCollections,
   terrazzoShades,
@@ -17,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/products",
     "/kalingastone/quartz",
+    "/kalingastone/marble",
     "/kalingastone/terrazzo",
     "/kalingastone/terrazzo/fluting",
     "/about",
@@ -62,11 +64,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
+  const marbleFamilyUrls: MetadataRoute.Sitemap = marbleFamilies.map((f) => ({
+    url: `${siteConfig.url}/kalingastone/marble/colours/${f.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  const marbleShadeUrls: MetadataRoute.Sitemap = marbleShades.map((s) => ({
+    url: `${siteConfig.url}/kalingastone/marble/${s.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
   return [
     ...core,
     ...families,
     ...shades,
     ...terrazzoCollectionUrls,
     ...terrazzoShadeUrls,
+    ...marbleFamilyUrls,
+    ...marbleShadeUrls,
   ];
 }

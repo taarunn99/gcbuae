@@ -23,7 +23,7 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/white-engineered-marble-floor-gallery-hall-uae.webp",
     alt: "Polished white engineered marble floor in a bright gallery hall with sheer curtains and a pine-green vase with olive branches",
     accent: "#d2d4c8",
-    href: "/products#naturally-engineered-marble",
+    href: "/kalingastone/marble",
   },
   {
     id: "quartz",
