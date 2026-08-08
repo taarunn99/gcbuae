@@ -236,25 +236,41 @@ export default function KalingaStoneQuartzPage() {
             <span className="text-foreground">Quartz</span>
           </nav>
 
-          <SplitHeading
-            as="h1"
-            className="font-display mt-8 max-w-4xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl"
-          >
-            KalingaStone Quartz slabs, stocked in the UAE.
-          </SplitHeading>
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_minmax(0,320px)] lg:items-end">
+            <div>
+              <SplitHeading
+                as="h1"
+                className="font-display max-w-4xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl"
+              >
+                KalingaStone Quartz slabs, stocked in the UAE.
+              </SplitHeading>
 
-          {/* Answer-first paragraph for search and AI overviews */}
-          <Reveal className="mt-8 max-w-2xl">
-            <p className="text-lg leading-relaxed">
-              KalingaStone Quartz is an engineered quartz surface made by
-              Classic Marble Company and distributed across the Emirates by
-              Global Classic. The range spans <strong>69 shades</strong> in
-              seven series — from uniform particulate essentials to Calacatta
-              veined statements — in 20 mm slabs up to the superjumbo{" "}
-              <strong>3300 × 2000 mm</strong>, NSF-certified food safe, with
-              Microban® antibacterial options.
-            </p>
-          </Reveal>
+              {/* Answer-first paragraph for search and AI overviews */}
+              <Reveal className="mt-8 max-w-2xl">
+                <p className="text-lg leading-relaxed">
+                  KalingaStone Quartz is an engineered quartz surface made by
+                  Classic Marble Company and distributed across the Emirates by
+                  Global Classic. The range spans <strong>69 shades</strong> in
+                  seven series — from uniform particulate essentials to
+                  Calacatta veined statements — in 20 mm slabs up to the
+                  superjumbo <strong>3300 × 2000 mm</strong>, NSF-certified food
+                  safe, with Microban® antibacterial options.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={0.1} className="hidden lg:block">
+              <figure className="relative aspect-[3/4] overflow-hidden rounded-xl">
+                <Image
+                  src="/kalingastone/quartz/decor/vase-olive.webp"
+                  alt="Sage-green ceramic vase with an olive branch standing on a white KalingaStone quartz plinth"
+                  fill
+                  sizes="320px"
+                  className="object-cover"
+                  loading="eager"
+                />
+              </figure>
+            </Reveal>
+          </div>
 
           {/* Stat strip */}
           <Reveal delay={0.15}>
@@ -352,8 +368,18 @@ export default function KalingaStoneQuartzPage() {
                 Calacattas, 1 the essential particulates. The stones themselves
                 do the counting.
               </p>
-              <div className="mt-8">
+              <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)] lg:items-center">
                 <SeriesLadder />
+                <figure className="relative hidden aspect-[3/4] overflow-hidden rounded-xl lg:block">
+                  <Image
+                    src="/kalingastone/quartz/decor/sample-stack.webp"
+                    alt="Stack of white and grey KalingaStone quartz sample tiles tied with sage-green linen"
+                    fill
+                    sizes="300px"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                </figure>
               </div>
             </div>
 
@@ -625,6 +651,16 @@ export default function KalingaStoneQuartzPage() {
       {/* ---------- Provenance / sustainability / references ---------- */}
       <section className="py-24">
         <Container>
+          <figure className="relative mb-14 aspect-[21/9] overflow-hidden rounded-xl">
+            <Image
+              src="/kalingastone/quartz/decor/production-line.webp"
+              alt="A white KalingaStone quartz slab moving through the automated production line, sage-green machinery either side"
+              fill
+              sizes="(min-width: 1536px) 1400px, 100vw"
+              className="object-cover"
+              loading="lazy"
+            />
+          </figure>
           <div className="grid gap-14 lg:grid-cols-3">
             <div>
               <p className="label-gcb text-muted">Manufacture</p>
@@ -806,8 +842,20 @@ export default function KalingaStoneQuartzPage() {
           <h2 className="font-display mt-4 text-3xl leading-tight sm:text-4xl">
             KalingaStone Quartz, in plain terms.
           </h2>
-          <div className="mt-12 max-w-3xl">
-            <FaqAccordion items={faqs} />
+          <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,300px)] lg:items-start">
+            <div className="max-w-3xl">
+              <FaqAccordion items={faqs} />
+            </div>
+            <figure className="relative hidden aspect-[3/4] overflow-hidden rounded-xl lg:sticky lg:top-32 lg:block">
+              <Image
+                src="/kalingastone/quartz/decor/architects-desk.webp"
+                alt="White veined quartz sample beside a sage-green notebook on an architect's desk"
+                fill
+                sizes="300px"
+                className="object-cover"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </Container>
       </section>
