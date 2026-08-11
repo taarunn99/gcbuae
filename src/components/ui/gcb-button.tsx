@@ -34,7 +34,7 @@ const PALETTE = {
   },
   porcelain: {
     textColor: "#0c1510", // Onyx text
-    lineColor: "#6f8f78", // Pastel Green line
+    lineColor: "#0c1510", // Onyx Green shine line (owner)
     baseColor: "#f7f8f5", // Marble White rim base
     // The FILL is tint at tintOpacity — solid Marble White, not glass.
     tint: "#f7f8f5",
