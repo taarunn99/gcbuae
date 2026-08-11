@@ -8,7 +8,11 @@ import { IssueOpener } from "@/components/sections/products/issue-opener";
 import { IssueStats } from "@/components/sections/products/issue-stats";
 import { MaterialsTicker } from "@/components/sections/products/materials-ticker";
 import { ProductsVideoHero } from "@/components/sections/products-video-hero";
+import { AuthorizedDistributor } from "@/components/sections/products/authorized-distributor";
 import { ProfileBook } from "@/components/sections/products/profile-book";
+import { ReachUs } from "@/components/sections/products/reach-us";
+import { WhatsAppPlugin } from "@/components/sections/products/whatsapp-plugin";
+import { ContactForm } from "@/app/contact/contact-form";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
@@ -78,6 +82,36 @@ export default function ProductsPage() {
               .
             </p>
           </Reveal>
+        </Container>
+      </section>
+
+      {/* ---------- Certified reseller ---------- */}
+      <AuthorizedDistributor />
+
+      {/* ---------- WhatsApp — the lead line ---------- */}
+      <WhatsAppPlugin />
+
+      {/* ---------- Reach us ---------- */}
+      <ReachUs />
+
+      {/* ---------- Prefer it in writing ---------- */}
+      <section className="border-warm-black border-t py-24 sm:py-28">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.618fr] lg:gap-20">
+            <div>
+              <p className="label-gcb text-muted">Prefer it in writing?</p>
+              <h2 className="font-display text-phi-3 mt-5 max-w-md tracking-tight text-balance">
+                Send the enquiry — it lands on the desk.
+              </h2>
+              <p className="text-muted mt-6 max-w-md leading-relaxed">
+                Specifications, BOQs, availability checks — straight to
+                info@gcbuae.com, answered usually within one working day.
+              </p>
+            </div>
+            <div>
+              <ContactForm />
+            </div>
+          </div>
         </Container>
       </section>
 

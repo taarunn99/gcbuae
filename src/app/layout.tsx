@@ -47,7 +47,10 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { en: "/", "x-default": "/" },
+  },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
