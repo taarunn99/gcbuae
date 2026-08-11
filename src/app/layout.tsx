@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Fraunces, Manrope } from "next/font/google";
 
 import { RouteTransition } from "@/components/layout/route-transition";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { SiteHeader } from "@/components/layout/site-header";
 import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
 import { siteConfig } from "@/config/site";
@@ -84,6 +85,7 @@ export default function RootLayout({
       <body className="bg-background text-foreground flex min-h-dvh flex-col">
         <OrganizationJsonLd />
         <SiteHeader />
+        <WhatsAppFab />
         <SmoothScrollProvider>
           {/* Solid, stacked above the fixed footer so the page lifts away
               from it during the stacked-reveal. */}

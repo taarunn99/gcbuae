@@ -8,6 +8,7 @@ import { IssueOpener } from "@/components/sections/products/issue-opener";
 import { IssueStats } from "@/components/sections/products/issue-stats";
 import { MaterialsTicker } from "@/components/sections/products/materials-ticker";
 import { ProductsVideoHero } from "@/components/sections/products-video-hero";
+import { ProfileBook } from "@/components/sections/products/profile-book";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <main className="theme-forest bg-background text-foreground flex-1 pb-32">
+    <main className="theme-forest bg-background text-foreground flex-1 pb-0">
       {/* SEO heading for the video hero (the visible word lives in the mask) */}
       <h1 className="sr-only">
         Products — KalingaStone quartz, marble and terrazzo slabs, showers,
@@ -79,6 +80,9 @@ export default function ProductsPage() {
           </Reveal>
         </Container>
       </section>
+
+      {/* ---------- The company profile, as a book ---------- */}
+      <ProfileBook />
     </main>
   );
 }

@@ -74,7 +74,7 @@ export const siteConfig = {
       blurb: "Care systems that keep marble looking newly laid.",
     },
   ],
-  contactRecipient: "tarun.s@lapizblue.com",
+  contactRecipient: "info@gcbuae.com",
 } as const;
 
 export type SiteConfig = typeof siteConfig;

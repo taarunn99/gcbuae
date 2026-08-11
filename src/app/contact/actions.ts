@@ -36,15 +36,6 @@ export async function sendContactMessage(
     };
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error("contact form: RESEND_API_KEY is not configured");
-    return {
-      status: "error",
-      message: `The form is not connected yet — please email ${siteConfig.contact.email} directly.`,
-    };
-  }
-
   const body = [
     `Name: ${name}`,
     company && `Company: ${company}`,
@@ -55,6 +46,51 @@ export async function sendContactMessage(
   ]
     .filter(Boolean)
     .join("\n");
+
+  const apiKey = process.env.RESEND_API_KEY;
+
+  // No Resend key configured (e.g. before env setup): deliver through
+  // FormSubmit instead — keyless, posts straight to the inbox. NOTE:
+  // the FIRST submission triggers a one-time activation email to
+  // info@gcbuae.com that must be clicked once; after that, delivery is
+  // automatic.
+  if (!apiKey) {
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${siteConfig.contactRecipient}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `Website enquiry — ${name}${company ? `, ${company}` : ""}`,
+            _template: "box",
+            name,
+            email,
+            phone,
+            company,
+            message: body,
+          }),
+        },
+      );
+      if (!response.ok) {
+        console.error("contact form: formsubmit error", await response.text());
+        return {
+          status: "error",
+          message: `Something went wrong sending your message — please email ${siteConfig.contact.email}.`,
+        };
+      }
+      return { status: "sent" };
+    } catch (error) {
+      console.error("contact form: formsubmit network error", error);
+      return {
+        status: "error",
+        message: `Something went wrong sending your message — please email ${siteConfig.contact.email}.`,
+      };
+    }
+  }
 
   try {
     const response = await fetch("https://api.resend.com/emails", {

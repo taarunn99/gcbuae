@@ -56,7 +56,7 @@ export function ContactHero() {
         </Reveal>
         <SplitHeading
           as="h1"
-          className="font-display mx-auto mt-6 max-w-3xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl"
+          className="font-display text-phi-4 mx-auto mt-6 max-w-3xl tracking-tight text-balance"
         >
           Tell us what you are building.
         </SplitHeading>

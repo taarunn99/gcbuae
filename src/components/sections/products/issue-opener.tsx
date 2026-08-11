@@ -30,8 +30,8 @@ export function IssueOpener() {
               {/* Staggered magazine break: the second line indents by 1/phi */}
               <h2 className="font-display text-phi-4 tracking-tight text-balance">
                 <span className="block">Eight ways a room</span>
-                <span className="block pl-[19%] italic">
-                  becomes permanent.
+                <span className="block">
+                  becomes <em className="italic">permanent.</em>
                 </span>
               </h2>
             </Reveal>

@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { MapPin } from "lucide-react";
 
 import { Logo } from "@/components/layout/logo";
+import { SiteSearch } from "@/components/layout/site-search";
 import { useMagneticShineGroup } from "@/hooks/use-magnetic-shine";
 import { GcbButton } from "@/components/ui/gcb-button";
 import { siteConfig } from "@/config/site";
@@ -34,6 +37,18 @@ export function SiteHeader() {
   const overHero = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openProducts = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setProductsOpen(true);
+  };
+  const closeProducts = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    // Hover-intent: a short grace period so diagonal travel into the
+    // panel doesn't slam it shut — but leaving really closes it.
+    closeTimer.current = setTimeout(() => setProductsOpen(false), 150);
+  };
   const clusterRef = useMagneticShineGroup<HTMLDivElement>(0.25, 50);
 
   const scrolled = useSyncExternalStore(
@@ -48,6 +63,7 @@ export function SiteHeader() {
     setLastPathname(pathname);
     setMenuOpen(false);
     setSearchOpen(false);
+    setProductsOpen(false);
   }
 
   // The full-screen menu panel is dark, so the bar must NOT go light while
@@ -62,10 +78,17 @@ export function SiteHeader() {
 
   // The search panel stays mounted (its entrance is a CSS grid-rows
   // transition), so focus is driven here instead of autoFocus.
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  // Escape closes whichever overlay is up.
   useEffect(() => {
-    if (searchOpen) searchInputRef.current?.focus();
-  }, [searchOpen]);
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSearchOpen(false);
+        setProductsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <header
@@ -101,30 +124,145 @@ export function SiteHeader() {
         >
           {siteConfig.nav.map((item) =>
             item.label === "Products" ? (
-              <div key={item.href} className="group relative">
+              <div
+                key={item.href}
+                className="relative"
+                onPointerEnter={openProducts}
+                onPointerLeave={closeProducts}
+              >
+                {/* A real link: tap/click ALWAYS navigates to /products.
+                    The panel is hover-intent only — JS-controlled, so it
+                    can never stick open after a click (the old
+                    focus-within bug). */}
                 <Link
                   href={item.href}
+                  onFocus={openProducts}
                   className="label-gcb u-line inline-flex items-center gap-1.5 py-2"
                 >
                   {item.label}
-                  <span aria-hidden className="text-[0.55rem]">
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "text-[0.55rem] transition-transform duration-200",
+                      productsOpen && "rotate-180",
+                    )}
+                  >
                     ▾
                   </span>
                 </Link>
-                {/* Hover/focus dropdown */}
-                <div className="invisible absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  <ul className="bg-background text-foreground w-64 border py-2 shadow-xl">
-                    {siteConfig.products.map((product) => (
-                      <li key={product.slug}>
-                        <Link
-                          href={`/products#${product.slug}`}
-                          className="hover:bg-surface block px-5 py-2.5 text-sm transition-colors"
-                        >
-                          {product.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+
+                {/* Mega panel */}
+                <div
+                  aria-hidden={!productsOpen}
+                  className={cn(
+                    "absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200",
+                    productsOpen
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-1 opacity-0",
+                  )}
+                >
+                  <div className="bg-background text-foreground border-warm-black w-[560px] border shadow-2xl">
+                    <div className="grid grid-cols-[1.618fr_1fr]">
+                      {/* The three stone hubs, with real swatches */}
+                      <div className="border-warm-black/15 border-r p-5">
+                        <p className="label-gcb text-bronze">KalingaStone</p>
+                        <ul className="mt-3 space-y-1">
+                          {[
+                            {
+                              href: "/kalingastone/quartz",
+                              label: "Quartz",
+                              sub: "69 shades",
+                              thumb:
+                                "/kalingastone/quartz/swatches/calacatta-lazza.webp",
+                            },
+                            {
+                              href: "/kalingastone/marble",
+                              label: "Marble",
+                              sub: "35 shades",
+                              thumb:
+                                "/kalingastone/marble/swatches/bianco-thassos.webp",
+                            },
+                            {
+                              href: "/kalingastone/terrazzo",
+                              label: "Terrazzo",
+                              sub: "24 shades",
+                              thumb:
+                                "/kalingastone/terrazzo/swatches/elio.webp",
+                            },
+                          ].map((hub) => (
+                            <li key={hub.href}>
+                              <Link
+                                href={hub.href}
+                                tabIndex={productsOpen ? 0 : -1}
+                                className="group/hub hover:bg-surface/60 flex items-center gap-3 rounded-lg p-2 transition-colors"
+                              >
+                                <span className="border-warm-black relative block h-10 w-14 shrink-0 overflow-hidden rounded-md border">
+                                  <Image
+                                    src={hub.thumb}
+                                    alt=""
+                                    fill
+                                    sizes="56px"
+                                    className="object-cover"
+                                  />
+                                </span>
+                                <span className="min-w-0">
+                                  <span className="font-display block leading-tight">
+                                    {hub.label}
+                                  </span>
+                                  <span className="text-muted text-xs">
+                                    {hub.sub}
+                                  </span>
+                                </span>
+                              </Link>
+                            </li>
+                          ))}
+                          <li>
+                            <Link
+                              href="/kalingastone/terrazzo/fluting"
+                              tabIndex={productsOpen ? 0 : -1}
+                              className="text-muted hover:text-foreground block px-2 pt-1 text-xs transition-colors"
+                            >
+                              + Fluted terrazzo panels
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+
+                      {/* The other lines */}
+                      <div className="p-5">
+                        <p className="label-gcb text-bronze">Also supplied</p>
+                        <ul className="mt-3 space-y-0.5">
+                          {siteConfig.products
+                            .filter(
+                              (product) =>
+                                ![
+                                  "quartz",
+                                  "naturally-engineered-marble",
+                                  "terrazzo",
+                                ].includes(product.slug),
+                            )
+                            .map((product) => (
+                              <li key={product.slug}>
+                                <Link
+                                  href={`/products#${product.slug}`}
+                                  tabIndex={productsOpen ? 0 : -1}
+                                  className="hover:bg-surface/60 block rounded-md px-2 py-1.5 text-sm transition-colors"
+                                >
+                                  {product.label}
+                                </Link>
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <Link
+                      href="/products"
+                      tabIndex={productsOpen ? 0 : -1}
+                      className="label-gcb border-warm-black/15 hover:bg-surface/60 block border-t px-5 py-3 transition-colors"
+                    >
+                      All product lines →
+                    </Link>
+                  </div>
                 </div>
               </div>
             ) : (
@@ -156,8 +294,44 @@ export function SiteHeader() {
             </GcbButton>
           </div>
 
-          {/* Search — the interface exists now, the engine arrives with the
-              product catalogue. Rightmost, beside Contact Us. */}
+          {/* Location — directions to the Al Sajaa warehouse */}
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=9M62%2B45M%20Al%20Sajaa%20Al%20Jlail%20Sharjah"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Directions to our Sharjah warehouse"
+            data-shine
+            className="hidden h-9 w-9 items-center justify-center rounded-full border border-current/30 transition-colors will-change-transform hover:border-current/70 sm:flex"
+          >
+            <MapPin size={16} strokeWidth={1.5} aria-hidden />
+          </a>
+
+          {/* WhatsApp — the lead line */}
+          <a
+            href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20—%20I%27d%20like%20to%20enquire%20about%20materials."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp — +971 52 992 7827"
+            data-shine
+            className="hidden h-9 w-9 items-center justify-center rounded-full border border-current/30 transition-colors will-change-transform hover:border-current/70 sm:flex"
+          >
+            <svg
+              aria-hidden
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" />
+              <path d="M8.8 8.6c.2-.5.5-.5.7-.5h.6c.2 0 .4 0 .5.4.2.5.6 1.6.6 1.7.1.1.1.3 0 .4l-.4.6c-.1.2-.2.3 0 .6.2.3.8 1.1 1.6 1.7.9.7 1.5.9 1.8 1 .3.1.4 0 .5-.1l.6-.7c.2-.2.3-.2.6-.1l1.5.7c.3.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3 1-1.8 1-.5.1-1.2.1-3-.6-2.4-1-4-3.4-4.1-3.6-.1-.2-1-1.3-1-2.6 0-1.2.6-1.8.8-2.1Z" />
+            </svg>
+          </a>
+
+          {/* Search — live: the whole catalogue is indexed. */}
           <button
             type="button"
             aria-label="Search"
@@ -229,33 +403,10 @@ export function SiteHeader() {
                 : "-translate-y-6 opacity-0",
             )}
           >
-            <form
-              role="search"
-              onSubmit={(event) => event.preventDefault()}
-              className="flex items-center gap-4"
-            >
-              <input
-                ref={searchInputRef}
-                type="search"
-                name="q"
-                placeholder="Search materials, finishes, care…"
-                aria-label="Search the site"
-                tabIndex={searchOpen ? 0 : -1}
-                className="placeholder:text-muted/70 focus:border-accent w-full border-b bg-transparent py-3 text-lg outline-none"
-              />
-              <button
-                type="button"
-                aria-label="Close search"
-                tabIndex={searchOpen ? 0 : -1}
-                onClick={() => setSearchOpen(false)}
-                className="label-gcb p-2 opacity-70 hover:opacity-100"
-              >
-                Close
-              </button>
-            </form>
-            <p className="text-muted mt-3 text-xs">
-              Search goes live with the product catalogue.
-            </p>
+            <SiteSearch
+              open={searchOpen}
+              onClose={() => setSearchOpen(false)}
+            />
           </div>
         </div>
       </div>

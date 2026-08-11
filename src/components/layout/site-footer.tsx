@@ -305,6 +305,13 @@ export function SiteFooter() {
                 <Link href="/terms" className="label-gcb u-line text-ink/50">
                   Terms &amp; Conditions
                 </Link>
+                <a
+                  href="/profile/global-classic-profile.pdf"
+                  download="Global-Classic-Company-Profile.pdf"
+                  className="label-gcb u-line text-ink/50"
+                >
+                  Company Profile (PDF)
+                </a>
               </div>
             </div>
           </Container>
