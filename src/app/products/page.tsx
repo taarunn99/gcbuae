@@ -95,20 +95,49 @@ export default function ProductsPage() {
       <ReachUs />
 
       {/* ---------- Prefer it in writing ---------- */}
-      <section className="border-warm-black border-t py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.618fr] lg:gap-20">
-            <div>
-              <p className="label-gcb text-muted">Prefer it in writing?</p>
-              <h2 className="font-display text-phi-3 mt-5 max-w-md tracking-tight text-balance">
-                Send the enquiry — it lands on the desk.
-              </h2>
-              <p className="text-muted mt-6 max-w-md leading-relaxed">
-                Specifications, BOQs, availability checks — straight to
-                info@gcbuae.com, answered usually within one working day.
-              </p>
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.618fr] lg:gap-10">
+            {/* The desk — a dark card carrying the promise */}
+            <div className="bg-warm-black text-ink grain-gcb relative overflow-hidden rounded-2xl p-8 sm:p-10">
+              <div className="relative z-10">
+                <p className="label-gcb text-bronze">Prefer it in writing?</p>
+                <h2 className="font-display text-phi-3 mt-5 max-w-md tracking-tight text-balance">
+                  Send the enquiry — it lands on the desk.
+                </h2>
+                <p className="text-ink/70 mt-6 max-w-md leading-relaxed">
+                  Specifications, BOQs, availability checks — answered usually
+                  within one working day.
+                </p>
+                <ul className="mt-10 space-y-3">
+                  <li>
+                    <a
+                      href="mailto:info@gcbuae.com"
+                      className="chip-gcb border-ink/40 inline-block rounded-full border px-5 py-2.5 text-sm"
+                    >
+                      info@gcbuae.com
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="tel:+97165312015"
+                      className="chip-gcb border-ink/40 inline-block rounded-full border px-5 py-2.5 text-sm"
+                    >
+                      +971 6 531 2015
+                    </a>
+                  </li>
+                </ul>
+                <p
+                  aria-hidden
+                  className="font-display text-ink/10 pointer-events-none absolute -right-2 -bottom-8 text-[9rem] leading-none italic select-none"
+                >
+                  &amp;
+                </p>
+              </div>
             </div>
-            <div>
+
+            {/* The form — on a Dust Grey sheet */}
+            <div className="bg-surface/60 border-warm-black rounded-2xl border p-8 sm:p-10">
               <ContactForm />
             </div>
           </div>

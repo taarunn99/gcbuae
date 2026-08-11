@@ -16,8 +16,8 @@ const DIRECTIONS =
 
 export function ReachUs() {
   return (
-    <section className="border-warm-black border-t py-24 sm:py-28">
-      <Container>
+    <section className="bg-verde text-ink grain-gcb relative overflow-hidden py-24 sm:py-28">
+      <Container className="relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.618fr] lg:gap-20">
           {/* The map card */}
           <Reveal>
@@ -26,7 +26,7 @@ export function ReachUs() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open directions to the Global Classic warehouse in Google Maps"
-              className="group border-warm-black relative block overflow-hidden rounded-xl border shadow-xl"
+              className="group border-warm-black relative block overflow-hidden rounded-xl border-2 shadow-2xl"
             >
               <Image
                 src="/products/editorial/warehouse-map.webp"
@@ -53,23 +53,23 @@ export function ReachUs() {
           </Reveal>
 
           <div>
-            <p className="label-gcb text-muted">Reach us</p>
+            <p className="label-gcb text-travertine">Reach us</p>
             <h2 className="font-display text-phi-3 mt-5 max-w-xl tracking-tight text-balance">
               One warehouse. Every emirate.
             </h2>
 
             {/* The plus code, set like chart coordinates */}
             <Reveal delay={0.1}>
-              <p className="font-display text-phi-2 text-muted mt-8 tracking-wide">
+              <p className="font-display text-phi-2 text-ink/70 mt-8 tracking-wide">
                 9M62+45M
-                <span className="text-foreground ml-4 text-base tracking-normal">
+                <span className="text-ink ml-4 text-base tracking-normal">
                   Al Sajaa · Al Jlail · Sharjah
                 </span>
               </p>
             </Reveal>
 
             <Reveal delay={0.16}>
-              <p className="text-muted mt-6 max-w-xl leading-relaxed">
+              <p className="text-ink/80 mt-6 max-w-xl leading-relaxed">
                 Slabs on the racks, samples at the desk, coffee if you&rsquo;re
                 staying. Come see the stone in person — or send the site address
                 and we&rsquo;ll bring the stone to you.
@@ -83,7 +83,7 @@ export function ReachUs() {
                     href={DIRECTIONS}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="chip-gcb border-border/50 rounded-full border px-5 py-2.5 text-sm"
+                    className="chip-gcb border-ink/40 rounded-full border px-5 py-2.5 text-sm"
                   >
                     Directions
                   </a>
@@ -91,7 +91,7 @@ export function ReachUs() {
                 <li>
                   <a
                     href="tel:+97165312015"
-                    className="chip-gcb border-border/50 rounded-full border px-5 py-2.5 text-sm"
+                    className="chip-gcb border-ink/40 rounded-full border px-5 py-2.5 text-sm"
                   >
                     06 531 2015
                   </a>
@@ -101,7 +101,7 @@ export function ReachUs() {
                     href="https://wa.me/971529927827"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="chip-gcb border-border/50 rounded-full border px-5 py-2.5 text-sm"
+                    className="chip-gcb border-ink/40 rounded-full border px-5 py-2.5 text-sm"
                   >
                     WhatsApp — 052 992 7827
                   </a>
