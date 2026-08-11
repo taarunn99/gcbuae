@@ -31,7 +31,10 @@ export function IssueOpener() {
               <h2 className="font-display text-phi-4 tracking-tight text-balance">
                 <span className="block">Eight ways a room</span>
                 <span className="block">
-                  becomes <em className="italic">permanent.</em>
+                  becomes{" "}
+                  <em className="text-transparent italic [-webkit-text-stroke:1.5px_var(--bronze)]">
+                    permanent.
+                  </em>
                 </span>
               </h2>
             </Reveal>
