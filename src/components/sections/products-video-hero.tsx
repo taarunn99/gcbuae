@@ -10,23 +10,21 @@ import { cn } from "@/lib/utils";
 /**
  * Products hero in the castedluxe register, scroll-driven: the slab film
  * loops seamlessly full-bleed beneath an Onyx layer with the headline
- * word and a rectangle window knocked out. Scrolling zooms INTO the
- * type — the letters grow until the stone swallows the frame, the layer
+ * word and a rectangle window knocked out. Scrolling grows the
+ * rectangle window until the stone swallows the frame, the layer
  * dissolves, and the page releases into the product lines. Reduced
  * motion gets the still composition with no pin.
  */
 export function ProductsVideoHero() {
   const reduced = useReducedMotion();
   const wrapRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<SVGTextElement>(null);
   const overlayRef = useRef<SVGRectElement>(null);
+  const windowRef = useRef<SVGRectElement>(null);
   const chromeRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       if (reduced) return;
-      const text = textRef.current;
-      if (!text) return;
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -37,14 +35,14 @@ export function ProductsVideoHero() {
         },
       });
 
-      // The word grows around its anchor until the knockout swallows the
-      // viewport, drifting to the vertical centre on the way.
+      // The rectangle window grows until the stone swallows the frame —
+      // the type never moves (tweening its clamp() font-size was the bug:
+      // GSAP can't parse clamp as a start value, so it snapped).
       tl.to(
-        text,
+        windowRef.current,
         {
-          fontSize: () => `${window.innerWidth * 2.4}px`,
-          attr: { y: "50%" },
-          ease: "power2.in",
+          attr: { x: "0%", y: "0%", width: "100%", height: "100%", rx: 0 },
+          ease: "power2.inOut",
         },
         0,
       )
@@ -53,8 +51,8 @@ export function ProductsVideoHero() {
         // Guarantee the full reveal at the end, whatever the viewport
         .to(
           overlayRef.current,
-          { attr: { "fill-opacity": 0 }, ease: "none", duration: 0.2 },
-          0.8,
+          { attr: { "fill-opacity": 0 }, ease: "none", duration: 0.15 },
+          0.85,
         );
     },
     { scope: wrapRef, dependencies: [reduced] },
@@ -103,7 +101,6 @@ export function ProductsVideoHero() {
               <rect width="100%" height="100%" fill="#fff" />
               {/* The headline word — stone flows through the letters */}
               <text
-                ref={textRef}
                 x="50%"
                 y="34%"
                 textAnchor="middle"
@@ -117,8 +114,9 @@ export function ProductsVideoHero() {
               >
                 Products
               </text>
-              {/* The window */}
+              {/* The window — scroll grows THIS until it fills the frame */}
               <rect
+                ref={windowRef}
                 x="8%"
                 y="52%"
                 width="84%"
