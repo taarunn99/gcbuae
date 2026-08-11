@@ -47,7 +47,7 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/white-twin-basins-limestone-vanity-spa-uae.webp",
     alt: "Sculptural white ceramic twin basins on a pale limestone vanity with a eucalyptus sprig in a pine-green bud vase",
     accent: "#d2d4c8",
-    href: "/products#sanitaryware",
+    href: "/jaquar/sanitary-ware",
   },
   {
     id: "bathware",
@@ -55,7 +55,7 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/brushed-steel-tap-white-marble-basin-uae.webp",
     alt: "Brushed steel bathroom mixer tap over a white marble basin with a folded sage linen towel",
     accent: "#6f8f78",
-    href: "/products#taps",
+    href: "/jaquar/faucets",
   },
   {
     id: "showers",
@@ -63,7 +63,7 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/jaquar-rain-shower-white-stone-wet-room-uae.webp",
     alt: "Jaquar rain shower running in a bright white stone wet room with frameless glass and a fern on the ledge",
     accent: "#f7f8f5",
-    href: "/products#showers",
+    href: "/jaquar/showers",
   },
   {
     id: "sealers",

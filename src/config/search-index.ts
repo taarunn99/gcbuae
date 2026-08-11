@@ -1,3 +1,4 @@
+import { jaquarCategories } from "@/config/jaquar";
 import { marbleFamilies, marbleShades } from "@/config/kalingastone-marble";
 import { quartzFamilies, quartzShades } from "@/config/kalingastone-quartz";
 import {
@@ -15,7 +16,7 @@ export type SearchEntry = {
   label: string;
   sub: string;
   href: string;
-  group: "Pages" | "Quartz" | "Marble" | "Terrazzo";
+  group: "Pages" | "Quartz" | "Marble" | "Terrazzo" | "Jaquar";
   /** Lower-cased haystack, prebuilt once. */
   keywords: string;
 };
@@ -143,7 +144,35 @@ const shades: SearchEntry[] = [
   ),
 ];
 
-export const searchIndex: SearchEntry[] = [...pages, ...shades];
+const jaquar: SearchEntry[] = [
+  entry(
+    "Jaquar",
+    "Authorized dealer - the full bathware range",
+    "/jaquar",
+    "Jaquar",
+    "bathroom fittings dealer brand hub",
+  ),
+  ...jaquarCategories.flatMap((c) => [
+    entry(
+      `Jaquar ${c.label}`,
+      c.query,
+      `/jaquar/${c.slug}`,
+      "Jaquar" as const,
+      "bathroom category",
+    ),
+    ...c.collections.map((col) =>
+      entry(
+        `${col.name} (${c.label})`,
+        `Jaquar ${c.label.toLowerCase()} collection`,
+        `/jaquar/${c.slug}/${col.slug}`,
+        "Jaquar" as const,
+        "collection range",
+      ),
+    ),
+  ]),
+];
+
+export const searchIndex: SearchEntry[] = [...pages, ...jaquar, ...shades];
 
 /** Rank: prefix label match > label match > keyword match. */
 export function searchSite(query: string, limit = 9): SearchEntry[] {

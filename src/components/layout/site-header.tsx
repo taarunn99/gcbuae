@@ -229,7 +229,13 @@ export function SiteHeader() {
 
                       {/* The other lines */}
                       <div className="p-5">
-                        <p className="label-gcb text-bronze">Also supplied</p>
+                        <Link
+                          href="/jaquar"
+                          tabIndex={productsOpen ? 0 : -1}
+                          className="label-gcb text-bronze hover:text-foreground transition-colors"
+                        >
+                          Jaquar & more →
+                        </Link>
                         <ul className="mt-3 space-y-0.5">
                           {siteConfig.products
                             .filter(
@@ -243,7 +249,18 @@ export function SiteHeader() {
                             .map((product) => (
                               <li key={product.slug}>
                                 <Link
-                                  href={`/products#${product.slug}`}
+                                  href={
+                                    (
+                                      {
+                                        showers: "/jaquar/showers",
+                                        taps: "/jaquar/faucets",
+                                        sanitaryware: "/jaquar/sanitary-ware",
+                                        "shower-trays":
+                                          "/jaquar/shower-enclosures",
+                                      } as Record<string, string>
+                                    )[product.slug] ??
+                                    `/products#${product.slug}`
+                                  }
                                   tabIndex={productsOpen ? 0 : -1}
                                   className="hover:bg-surface/60 block rounded-md px-2 py-1.5 text-sm transition-colors"
                                 >

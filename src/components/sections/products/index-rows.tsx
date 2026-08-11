@@ -21,6 +21,10 @@ const HUBS: Record<string, string> = {
   quartz: "/kalingastone/quartz",
   "naturally-engineered-marble": "/kalingastone/marble",
   terrazzo: "/kalingastone/terrazzo",
+  showers: "/jaquar/showers",
+  taps: "/jaquar/faucets",
+  sanitaryware: "/jaquar/sanitary-ware",
+  "shower-trays": "/jaquar/shower-enclosures",
 };
 
 const PREVIEWS: Record<string, string> = {

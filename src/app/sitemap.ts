@@ -6,6 +6,7 @@ import {
   terrazzoCollections,
   terrazzoShades,
 } from "@/config/kalingastone-terrazzo";
+import { jaquarCategories } from "@/config/jaquar";
 import { siteConfig } from "@/config/site";
 
 // GOVERNANCE §6: auto-generated sitemap. Every future collection, brand-hub
@@ -21,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kalingastone/marble",
     "/kalingastone/terrazzo",
     "/kalingastone/terrazzo/fluting",
+    "/jaquar",
     "/about",
     "/contact",
     "/privacy-policy",
@@ -78,8 +80,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
+  const jaquarUrls: MetadataRoute.Sitemap = jaquarCategories.flatMap((c) => [
+    {
+      url: `${siteConfig.url}/jaquar/${c.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    ...c.collections.map((col) => ({
+      url: `${siteConfig.url}/jaquar/${c.slug}/${col.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
+  ]);
+
   return [
     ...core,
+    ...jaquarUrls,
     ...families,
     ...shades,
     ...terrazzoCollectionUrls,
