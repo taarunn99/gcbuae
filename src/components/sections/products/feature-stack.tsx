@@ -59,8 +59,8 @@ const FEATURES: Feature[] = [
     title: "Kept like new",
     quote: "A surface is a promise — care is how it's kept.",
     body: "FILA sealers and cleaners, matched to every stone we sell. The right chemistry at handover and a maintenance regime after it are the difference between a floor that ages and a floor that merely gets old.",
-    image: "/products/editorial/care-feature.webp",
-    alt: "A sage-gloved hand polishing a glossy dark stone slab with a white cloth",
+    image: "/products/editorial/care-feature-fila.webp",
+    alt: "A sage-gloved hand polishing a glossy dark stone slab beside the FILA MP90 ECO XTREME sealer jug",
     links: [{ label: "Sealers & cleaners", href: "/contact" }],
   },
 ];

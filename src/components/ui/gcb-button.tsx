@@ -32,6 +32,13 @@ const PALETTE = {
     tint: "#0c1510", // Onyx
     tintOpacity: 0.04,
   },
+  porcelain: {
+    textColor: "#0c1510", // Onyx text
+    lineColor: "#6f8f78", // Pastel Green line
+    baseColor: "#f7f8f5", // Marble White ground
+    tint: "#0c1510",
+    tintOpacity: 0.05,
+  },
 } as const;
 
 export type GcbButtonProps = {

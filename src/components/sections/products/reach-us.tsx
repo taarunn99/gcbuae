@@ -41,10 +41,14 @@ export function ReachUs() {
               {/* The pulse — pure CSS, sits on the pin */}
               <span
                 aria-hidden
-                className="absolute top-[48%] left-[61%] block size-3"
+                className="absolute top-[48%] left-[61%] block size-5 -translate-x-1/2 -translate-y-1/2"
               >
-                <span className="bg-bronze absolute inset-0 animate-ping rounded-full opacity-60" />
-                <span className="bg-bronze absolute inset-0 rounded-full" />
+                <span className="bg-ink absolute -inset-3 animate-ping rounded-full opacity-40" />
+                <span
+                  className="bg-bronze absolute -inset-1 animate-ping rounded-full opacity-70"
+                  style={{ animationDelay: "0.35s" }}
+                />
+                <span className="bg-bronze border-ink absolute inset-0 animate-pulse rounded-full border-2" />
               </span>
               <span className="label-gcb text-ink absolute bottom-4 left-5 rounded-full bg-black/35 px-3.5 py-1.5 backdrop-blur-sm">
                 Open directions →

@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/reveal";
+import { GcbButton } from "@/components/ui/gcb-button";
 import { Container } from "@/components/ui/container";
 
 /**
@@ -40,17 +41,16 @@ export function WhatsAppPlugin() {
               pricing and delivery slots, in one thread you can forward to your
               client.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <GcbButton
                 href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20—%20I%27d%20like%20to%20enquire%20about%20materials."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="chip-gcb border-border/50 rounded-full border px-6 py-3 text-sm"
+                size="md"
+                variant="porcelain"
               >
-                Start the chat — +971 52 992 7827
-              </a>
-              <span className="label-gcb text-muted">
-                Sat–Thu · 8:00–18:00 GST
+                Start the chat
+              </GcbButton>
+              <span className="text-foreground text-base font-medium">
+                Mon–Sat · 8:00–18:00
               </span>
             </div>
           </div>

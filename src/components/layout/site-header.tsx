@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { MapPin } from "lucide-react";
 
 import { Logo } from "@/components/layout/logo";
 import { SiteSearch } from "@/components/layout/site-search";
@@ -293,43 +292,6 @@ export function SiteHeader() {
               Contact Us
             </GcbButton>
           </div>
-
-          {/* Location — directions to the Al Sajaa warehouse */}
-          <a
-            href="https://www.google.com/maps/dir/?api=1&destination=9M62%2B45M%20Al%20Sajaa%20Al%20Jlail%20Sharjah"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Directions to our Sharjah warehouse"
-            data-shine
-            className="hidden h-9 w-9 items-center justify-center rounded-full border border-current/30 transition-colors will-change-transform hover:border-current/70 sm:flex"
-          >
-            <MapPin size={16} strokeWidth={1.5} aria-hidden />
-          </a>
-
-          {/* WhatsApp — the lead line */}
-          <a
-            href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20—%20I%27d%20like%20to%20enquire%20about%20materials."
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp — +971 52 992 7827"
-            data-shine
-            className="hidden h-9 w-9 items-center justify-center rounded-full border border-current/30 transition-colors will-change-transform hover:border-current/70 sm:flex"
-          >
-            <svg
-              aria-hidden
-              width="17"
-              height="17"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" />
-              <path d="M8.8 8.6c.2-.5.5-.5.7-.5h.6c.2 0 .4 0 .5.4.2.5.6 1.6.6 1.7.1.1.1.3 0 .4l-.4.6c-.1.2-.2.3 0 .6.2.3.8 1.1 1.6 1.7.9.7 1.5.9 1.8 1 .3.1.4 0 .5-.1l.6-.7c.2-.2.3-.2.6-.1l1.5.7c.3.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3 1-1.8 1-.5.1-1.2.1-3-.6-2.4-1-4-3.4-4.1-3.6-.1-.2-1-1.3-1-2.6 0-1.2.6-1.8.8-2.1Z" />
-            </svg>
-          </a>
 
           {/* Search — live: the whole catalogue is indexed. */}
           <button

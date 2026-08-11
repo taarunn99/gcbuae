@@ -2,10 +2,9 @@
 
 /**
  * The WhatsApp floating button — the site's primary lead line, present
- * on every route, bottom-right. Onyx Green disc, Marble White glyph
- * (the brand's WhatsApp green is off-palette and stays off), label
- * bubble on hover. z-50 clears the fixed-footer stack (footer z-0,
- * content z-20).
+ * on every route, bottom-right, sized to be unmissable. Onyx Green
+ * disc, Marble White glyph (the brand's WhatsApp green is off-palette
+ * and stays off). One tap opens the chat — no hover reveal.
  */
 export function WhatsAppFab() {
   return (
@@ -16,16 +15,11 @@ export function WhatsAppFab() {
       aria-label="Chat on WhatsApp — +971 52 992 7827"
       className="group fixed right-5 bottom-5 z-50 flex items-center gap-0 sm:right-7 sm:bottom-7"
     >
-      {/* Label bubble — slides out on hover/focus */}
-      <span className="bg-warm-black text-ink pointer-events-none mr-3 hidden max-w-0 items-center overflow-hidden rounded-full text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:max-w-56 group-hover:px-4 group-hover:py-2.5 group-hover:opacity-100 group-focus-visible:max-w-56 group-focus-visible:px-4 group-focus-visible:py-2.5 group-focus-visible:opacity-100 sm:flex">
-        WhatsApp us — +971 52 992 7827
-      </span>
-
-      <span className="bg-warm-black text-ink flex size-14 items-center justify-center rounded-full shadow-xl transition-transform duration-300 group-hover:scale-105">
+      <span className="bg-warm-black text-ink flex size-20 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-105 sm:size-28">
         <svg
           aria-hidden
-          width="26"
-          height="26"
+          width="44"
+          height="44"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
