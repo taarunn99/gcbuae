@@ -8,7 +8,7 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
 
 /**
- * The ambient film — one continuous stitched loop, playing on repeat like a
+ * The ambient film - one continuous stitched loop, playing on repeat like a
  * window into the life the materials build. Nothing is pinned and nothing is
  * driven by scroll: the film keeps its own time, the material words turn with
  * its chapters, and the visitor scrolls past whenever they choose. Because it
@@ -174,7 +174,7 @@ export function FilmLoop() {
         </AnimatePresence>
       </div>
 
-      {/* Chapter marks — a quiet sign the film is alive and has structure. */}
+      {/* Chapter marks - a quiet sign the film is alive and has structure. */}
       <div className="absolute inset-x-0 bottom-6 flex justify-center gap-3">
         {filmChapters.map((c, i) => (
           <span

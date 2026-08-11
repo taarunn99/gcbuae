@@ -12,7 +12,7 @@ import { ease, gsap, useGSAP } from "@/lib/gsap";
  * The hero photograph, its scrim, and the two transforms applied to it.
  *
  * The intro settle and the scroll parallax live on separate wrapper elements
- * because both drive `scale` — sharing one element would let the scrubbed
+ * because both drive `scale` - sharing one element would let the scrubbed
  * ScrollTrigger overwrite the intro tween mid-flight.
  */
 export function HeroMedia() {
@@ -25,7 +25,7 @@ export function HeroMedia() {
     () => {
       if (prefersReducedMotion) return;
 
-      // Transform only — never fade the LCP element in. An opacity tween
+      // Transform only - never fade the LCP element in. An opacity tween
       // delays the largest contentful paint by its full duration; a transform
       // costs nothing because the pixels are already painted.
       gsap.fromTo(

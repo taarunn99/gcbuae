@@ -7,8 +7,8 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 /**
- * The single marble format at true scale — 304 × 125 cm faced with
- * Bianco Thassos, the brilliant white at the top of the range — measured
+ * The single marble format at true scale - 304 × 125 cm faced with
+ * Bianco Thassos, the brilliant white at the top of the range - measured
  * out beside a 1.70 m figure. One size for the whole range is the
  * catalogue's fact; no thickness is printed, so none is shown.
  */
@@ -60,7 +60,7 @@ export function MarbleSlabScale() {
           />
           <figcaption className="mt-2">
             <span className="font-display text-foreground block text-lg">
-              304 × 125 cm — one format, every shade
+              304 × 125 cm - one format, every shade
             </span>
             <span className="text-muted block text-sm">
               Faced here in Bianco Thassos, Series-5B
@@ -87,7 +87,7 @@ export function MarbleSlabScale() {
       </div>
 
       <p className="text-muted mt-8 max-w-xl text-sm leading-relaxed">
-        Drawn to scale — a single 3.04 m slab runs the length of a vanity or
+        Drawn to scale - a single 3.04 m slab runs the length of a vanity or
         lift-lobby wall panel, and the engineered block keeps shade, thickness
         and texture consistent slab after slab.
       </p>

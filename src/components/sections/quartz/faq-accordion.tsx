@@ -6,7 +6,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * FAQ as an accordion — one answer open at a time (the first by default)
+ * FAQ as an accordion - one answer open at a time (the first by default)
  * so the section reads as a conversation, not a wall of text. Answers are
  * always in the DOM (CSS grid-rows collapse, never unmounted): the
  * FAQPage JSON-LD and the view-source test stay honest.

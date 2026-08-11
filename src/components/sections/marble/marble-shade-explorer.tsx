@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
  * headers with jump chips and per-family expanders. Every card is
  * server-rendered and stays in the DOM when collapsed or filtered;
  * every card links to its shade page. The Microban filter reads
- * "option" — on marble it is an available treatment, never an
+ * "option" - on marble it is an available treatment, never an
  * intrinsic attribute.
  */
 
@@ -36,7 +36,7 @@ function ShadeCard({
         <span className="border-warm-black relative block aspect-[5/2] overflow-hidden rounded-lg border">
           <Image
             src={`/kalingastone/marble/swatches/${shade.slug}.webp`}
-            alt={`KalingaStone Marble ${shade.name} — Series-${shade.series} engineered marble slab, 304 × 125 cm`}
+            alt={`KalingaStone Marble ${shade.name} - Series-${shade.series} engineered marble slab, 304 × 125 cm`}
             fill
             sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -163,7 +163,7 @@ export function MarbleShadeExplorer() {
 
       {/* The catalogue's own colour disclaimer, mirrored */}
       <p className="text-muted mt-10 text-xs leading-relaxed">
-        Representation of colours may vary from the actual product — please view
+        Representation of colours may vary from the actual product - please view
         the actual slab prior to selection.
       </p>
     </div>

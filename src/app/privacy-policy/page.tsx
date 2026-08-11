@@ -13,7 +13,7 @@ export const metadata: Metadata = {
  * Written to satisfy Google AdSense / Ads programme policies from day one:
  * explicit third-party-advertising and cookie disclosure (including the
  * Google advertising-cookie language and opt-out links), what we collect,
- * why, and user rights. Server-rendered prose — no client code.
+ * why, and user rights. Server-rendered prose - no client code.
  */
 export default function PrivacyPolicyPage() {
   return (

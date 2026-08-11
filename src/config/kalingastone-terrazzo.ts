@@ -1,17 +1,17 @@
 /**
- * KalingaStone Terrazzo — complete 24-shade range from the manufacturer's
- * 2023 catalogue extraction. NEVER invent or "correct" shade names —
+ * KalingaStone Terrazzo - complete 24-shade range from the manufacturer's
+ * 2023 catalogue extraction. NEVER invent or "correct" shade names -
  * Savvanna (double v), Ceppo, Elio, Riva, Colosseo, Deserto, Amara Light
  * and Mateo White are the brand's spellings. Catalogue truths that BIND
  * the site copy:
  * - Collection attribution is PAIR-LEVEL only (Roma & Cafe / Palladiana &
- *   Venetian / Elite) — the catalogue never splits a pair per shade.
+ *   Venetian / Elite) - the catalogue never splits a pair per shade.
  * - ONE slab size for the whole range: 304 × 125 cm. NO thickness is
- *   printed anywhere — never state one.
+ *   printed anywhere - never state one.
  * - Forms: Tiles / Slabs / CTS (cut-to-size).
  * - Microban mechanism wording is CONTESTED in the source (treated vs
- *   built-in) — claim protection + performance, never the mechanism.
- * - "Gold Dust" exists only on the fluting page — not a catalogued shade.
+ *   built-in) - claim protection + performance, never the mechanism.
+ * - "Gold Dust" exists only on the fluting page - not a catalogued shade.
  */
 
 export type TerrazzoShade = {
@@ -248,7 +248,7 @@ export const terrazzoShades: TerrazzoShade[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Collection pairs — the catalogue's own grouping, one page each.     */
+/* Collection pairs - the catalogue's own grouping, one page each.     */
 /* ------------------------------------------------------------------ */
 
 export type TerrazzoCollection = {
@@ -257,7 +257,7 @@ export type TerrazzoCollection = {
   series: TerrazzoShade["series"];
   /** The one primary query this page owns. */
   query: string;
-  /** Answer-first opening paragraph (40–80 words). */
+  /** Answer-first opening paragraph (40-80 words). */
   intro: string;
   /** The two (or one) design languages, from the catalogue's own copy. */
   languages: { name: string; body: string }[];
@@ -274,11 +274,11 @@ export const terrazzoCollections: TerrazzoCollection[] = [
     languages: [
       {
         name: "Roma",
-        body: "Classic monochromatic shades of black and white — age-old glory in new-age designs, elegance that makes a statement like no other.",
+        body: "Classic monochromatic shades of black and white - age-old glory in new-age designs, elegance that makes a statement like no other.",
       },
       {
         name: "Cafe",
-        body: "The beauty of earthy beiges and browns — rich, subtle and classy pastel shades telling a new tale of nostalgia.",
+        body: "The beauty of earthy beiges and browns - rich, subtle and classy pastel shades telling a new tale of nostalgia.",
       },
     ],
   },
@@ -288,15 +288,15 @@ export const terrazzoCollections: TerrazzoCollection[] = [
     series: "7",
     query: "palladiana terrazzo UAE",
     intro:
-      "Palladiana & Venetian is the Series 7 tier of KalingaStone Terrazzo. Palladiana re-interprets the ancient Roman Opus Incertum technique popularised by Andrea Palladio — tightly composed mosaic fragments — while Venetian carries free-flowing chip patterns. Six shades in the 304 × 125 cm slab, supplied UAE-wide from Sharjah stock.",
+      "Palladiana & Venetian is the Series 7 tier of KalingaStone Terrazzo. Palladiana re-interprets the ancient Roman Opus Incertum technique popularised by Andrea Palladio - tightly composed mosaic fragments - while Venetian carries free-flowing chip patterns. Six shades in the 304 × 125 cm slab, supplied UAE-wide from Sharjah stock.",
     languages: [
       {
         name: "Palladiana",
-        body: "A re-interpretation of the ancient Roman Opus Incertum construction technique of the 16th century — smaller, tightly composed mosaic patterns with the architect Andrea Palladio's name on them.",
+        body: "A re-interpretation of the ancient Roman Opus Incertum construction technique of the 16th century - smaller, tightly composed mosaic patterns with the architect Andrea Palladio's name on them.",
       },
       {
         name: "Venetian",
-        body: "Timeless creativity in free-flowing chip patterns — a combination of art, colour and pattern that makes every design truly timeless.",
+        body: "Timeless creativity in free-flowing chip patterns - a combination of art, colour and pattern that makes every design truly timeless.",
       },
     ],
   },
@@ -306,11 +306,11 @@ export const terrazzoCollections: TerrazzoCollection[] = [
     series: "8",
     query: "statement terrazzo slabs UAE",
     intro:
-      "Elite is the Series 8 tier of KalingaStone Terrazzo — eleven shades mixing big and small mosaic patterns into a statement art piece per slab, from gallery whites to Exotic Green and Jade. All in the 304 × 125 cm format, stocked in Sharjah and supplied across the UAE as tiles, slabs or cut-to-size.",
+      "Elite is the Series 8 tier of KalingaStone Terrazzo - eleven shades mixing big and small mosaic patterns into a statement art piece per slab, from gallery whites to Exotic Green and Jade. All in the 304 × 125 cm format, stocked in Sharjah and supplied across the UAE as tiles, slabs or cut-to-size.",
     languages: [
       {
         name: "Elite",
-        body: "Anything but ordinary — a class mix of big and small mosaic patterns creating a perfect art piece in each slab, made for exquisite taste.",
+        body: "Anything but ordinary - a class mix of big and small mosaic patterns creating a perfect art piece in each slab, made for exquisite taste.",
       },
     ],
   },
@@ -330,13 +330,13 @@ export const terrazzoShadeBySlug = new Map(
 export const shadesOfTerrazzoCollection = (series: TerrazzoShade["series"]) =>
   terrazzoShades.filter((s) => s.series === series);
 
-/** Catalogue order — the axis for prev/next pagination. */
+/** Catalogue order - the axis for prev/next pagination. */
 export const terrazzoShadeIndex = new Map(
   terrazzoShades.map((s, i) => [s.slug, i]),
 );
 
 /* ------------------------------------------------------------------ */
-/* Fluting — Terrazzo-only signature feature (own page).               */
+/* Fluting - Terrazzo-only signature feature (own page).               */
 /* ------------------------------------------------------------------ */
 
 export type FlutingSample = {
@@ -348,29 +348,29 @@ export type FlutingSample = {
 };
 
 export const flutingSamples: FlutingSample[] = [
-  { label: "Ceppo — Fluting I", slug: "ceppo-fluting-1", baseSlug: "ceppo" },
-  { label: "Ceppo — Fluting II", slug: "ceppo-fluting-2", baseSlug: "ceppo" },
-  { label: "Ceppo — Fluting III", slug: "ceppo-fluting-3", baseSlug: "ceppo" },
-  { label: "Forum — Fluting", slug: "forum-fluting", baseSlug: "forum" },
+  { label: "Ceppo - Fluting I", slug: "ceppo-fluting-1", baseSlug: "ceppo" },
+  { label: "Ceppo - Fluting II", slug: "ceppo-fluting-2", baseSlug: "ceppo" },
+  { label: "Ceppo - Fluting III", slug: "ceppo-fluting-3", baseSlug: "ceppo" },
+  { label: "Forum - Fluting", slug: "forum-fluting", baseSlug: "forum" },
   {
-    label: "Imperiale — Fluting",
+    label: "Imperiale - Fluting",
     slug: "imperiale-fluting",
     baseSlug: "imperiale",
   },
   {
-    label: "Docks Grey — Fluting",
+    label: "Docks Grey - Fluting",
     slug: "docks-grey-fluting",
     baseSlug: "docks-grey",
   },
   {
-    label: "Deluxe White — Fluting",
+    label: "Deluxe White - Fluting",
     slug: "deluxe-white-fluting",
     baseSlug: "new-deluxe-white",
   },
   {
-    label: "Exotic Green — Fluting",
+    label: "Exotic Green - Fluting",
     slug: "exotic-green-fluting",
     baseSlug: "exotic-green",
   },
-  { label: "Gold Dust — Fluting", slug: "gold-dust-fluting", baseSlug: null },
+  { label: "Gold Dust - Fluting", slug: "gold-dust-fluting", baseSlug: null },
 ];

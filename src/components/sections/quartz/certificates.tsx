@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useSyncExternalStore } from "react";
 
 /**
- * The 22-property test table regrouped into five themed "certificates" —
+ * The 22-property test table regrouped into five themed "certificates" -
  * stamped-card styling, horizontal snap scroll. The classic single table
  * remains available below (inside <details>) for spec-hunters; both carry
  * the same server-rendered data.
@@ -29,11 +29,11 @@ const CLUSTERS: Cluster[] = [
   {
     title: "Strength & wear",
     rows: [
-      ["Compressive strength", "ASTM C 170 / EN14617-15", "150–250 MPa"],
-      ["Flexural strength", "ASTM C 880 / EN14617-2", "40–60 MPa"],
-      ["Modulus of rupture", "ASTM C 99", "55–65 MPa"],
-      ["Impact resistance", "EN14617-9", "5–14.5 J"],
-      ["Surface hardness", "EN 101 (Mohs)", "6.0–7.0"],
+      ["Compressive strength", "ASTM C 170 / EN14617-15", "150-250 MPa"],
+      ["Flexural strength", "ASTM C 880 / EN14617-2", "40-60 MPa"],
+      ["Modulus of rupture", "ASTM C 99", "55-65 MPa"],
+      ["Impact resistance", "EN14617-9", "5-14.5 J"],
+      ["Surface hardness", "EN 101 (Mohs)", "6.0-7.0"],
       ["Abrasion resistance", "ASTM C 241", "Min 25.0"],
     ],
   },
@@ -43,14 +43,14 @@ const CLUSTERS: Cluster[] = [
       ["Fire classification*", "EN 13501-1", "Wall B-s1-d0 · Floor B-fl-S1"],
       ["Thermal shock", "EN14617-6", "No defects, 20 cycles"],
       ["Frost resistance", "DIN 52104", "Complies"],
-      ["Freeze–thaw", "ASTM C 1026 / EN14617-5", "No damage, 20–25 cycles"],
-      ["Thermal conductivity", "EN 12664", "0.435–0.485 W/(m·K)"],
+      ["Freeze-thaw", "ASTM C 1026 / EN14617-5", "No damage, 20-25 cycles"],
+      ["Thermal conductivity", "EN 12664", "0.435-0.485 W/(m·K)"],
     ],
   },
   {
     title: "Slip & chemical safety",
     rows: [
-      ["Slip resistance", "EN 14231", "Wet 13–21 · Dry 43–53 SRV"],
+      ["Slip resistance", "EN 14231", "Wet 13-21 · Dry 43-53 SRV"],
       ["Slip resistance, honed", "DIN 51130", "R9"],
       ["Friction coefficient", "ASTM C 1028", "Dry 0.8 · Wet 0.6"],
       ["Stain resistance", "ANSI Z 124.6", "Pass"],
@@ -62,7 +62,7 @@ const CLUSTERS: Cluster[] = [
     title: "Stability & optics",
     rows: [
       ["Dimensional stability", "EN14617-12", "Class A"],
-      ["Glossiness reflection", "—", "55–70%"],
+      ["Glossiness reflection", "-", "55-70%"],
     ],
   },
 ];

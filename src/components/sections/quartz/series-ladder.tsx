@@ -58,7 +58,7 @@ function Row({
           >
             <Image
               src={`/kalingastone/quartz/swatches/${s.slug}.webp`}
-              alt={`${s.name} — Series ${series}`}
+              alt={`${s.name} - Series ${series}`}
               fill
               sizes="48px"
               className="object-cover"

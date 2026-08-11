@@ -32,7 +32,7 @@ export function SiteSearch({
   }, [open]);
 
   const close = () => {
-    // Reset happens on the way out (event handler, not an effect —
+    // Reset happens on the way out (event handler, not an effect -
     // the lint rule about setState-in-effect stands).
     setQuery("");
     setHighlight(0);
@@ -136,7 +136,7 @@ export function SiteSearch({
           </ul>
         ) : (
           <p className="text-muted mt-4 text-sm">
-            Nothing found for &ldquo;{query.trim()}&rdquo; — try a shade name, a
+            Nothing found for &ldquo;{query.trim()}&rdquo; - try a shade name, a
             material, or a colour.
           </p>
         )

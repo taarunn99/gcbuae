@@ -7,8 +7,8 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 /**
- * The single terrazzo format at true scale — 304 × 125 cm faced with a
- * real shade, measured out beside a 1.70 m figure — with the three
+ * The single terrazzo format at true scale - 304 × 125 cm faced with a
+ * real shade, measured out beside a 1.70 m figure - with the three
  * product forms stated. One size for the whole range is the catalogue's
  * own fact; no thickness is printed, so none is shown.
  */
@@ -60,7 +60,7 @@ export function TerrazzoSlabScale() {
           />
           <figcaption className="mt-2">
             <span className="font-display text-foreground block text-lg">
-              304 × 125 cm — one format, every shade
+              304 × 125 cm - one format, every shade
             </span>
             <span className="text-muted block text-sm">
               Supplied as tiles, full slabs, or cut-to-size (CTS)
@@ -87,7 +87,7 @@ export function TerrazzoSlabScale() {
       </div>
 
       <p className="text-muted mt-8 max-w-xl text-sm leading-relaxed">
-        Drawn to scale — a single 3.04 m slab runs the full length of a vanity
+        Drawn to scale - a single 3.04 m slab runs the full length of a vanity
         or lift-lobby wall panel, and the block-form manufacture is what keeps
         water absorption under 0.2%.
       </p>

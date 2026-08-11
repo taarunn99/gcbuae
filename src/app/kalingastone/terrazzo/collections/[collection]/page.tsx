@@ -13,7 +13,7 @@ import {
 import { siteConfig } from "@/config/site";
 
 /**
- * Collection-pair pages — the catalogue's own grouping (it never splits
+ * Collection-pair pages - the catalogue's own grouping (it never splits
  * a pair per shade, so neither do we). Each page owns one query per
  * GOVERNANCE §1 and links pillar ⇄ collection ⇄ shade both ways.
  */
@@ -33,9 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const count = shadesOfTerrazzoCollection(collection.series).length;
   return {
     title: {
-      absolute: `${collection.label} Terrazzo UAE — ${count} KalingaStone Shades`,
+      absolute: `${collection.label} Terrazzo UAE - ${count} KalingaStone Shades`,
     },
-    description: `${collection.label} — Series ${collection.series} of the KalingaStone terrazzo range: ${count} shades in 304 × 125 cm slabs, A1 fire class, stocked in Sharjah and supplied across the UAE as tiles, slabs or cut-to-size.`,
+    description: `${collection.label} - Series ${collection.series} of the KalingaStone terrazzo range: ${count} shades in 304 × 125 cm slabs, A1 fire class, stocked in Sharjah and supplied across the UAE as tiles, slabs or cut-to-size.`,
     alternates: {
       canonical: `/kalingastone/terrazzo/collections/${collection.slug}`,
     },
@@ -78,7 +78,7 @@ export default async function TerrazzoCollectionPage({ params }: Props) {
       },
       {
         "@type": "CollectionPage",
-        name: `KalingaStone Terrazzo ${collection.label} — UAE`,
+        name: `KalingaStone Terrazzo ${collection.label} - UAE`,
         url: `${siteConfig.url}/kalingastone/terrazzo/collections/${collection.slug}`,
         mainEntity: {
           "@type": "ItemList",
@@ -163,7 +163,7 @@ export default async function TerrazzoCollectionPage({ params }: Props) {
                   <span className="border-warm-black relative block aspect-[2/1] overflow-hidden rounded-lg border">
                     <Image
                       src={`/kalingastone/terrazzo/swatches/${s.slug}.webp`}
-                      alt={`KalingaStone Terrazzo ${s.name} — Series ${s.series} ${collection.label} terrazzo slab`}
+                      alt={`KalingaStone Terrazzo ${s.name} - Series ${s.series} ${collection.label} terrazzo slab`}
                       fill
                       sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -226,7 +226,7 @@ export default async function TerrazzoCollectionPage({ params }: Props) {
               Specifying {collection.label} terrazzo?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

@@ -11,7 +11,7 @@ import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider";
 
 import "./globals.css";
 
-// Both are variable fonts — passing an explicit `weight` would downgrade them
+// Both are variable fonts - passing an explicit `weight` would downgrade them
 // to static instances and cost an extra request per weight. globals.css maps
 // these CSS variables onto Tailwind's font utilities.
 const sans = Manrope({
@@ -21,7 +21,7 @@ const sans = Manrope({
 });
 
 // Set at weight 300 in CSS. Manrope has no italic, so any italic belongs
-// here — the true italic is loaded because the film quotes use it.
+// here - the true italic is loaded because the film quotes use it.
 const display = Cormorant_Garamond({
   subsets: ["latin"],
   style: ["normal", "italic"],
@@ -29,7 +29,7 @@ const display = Cormorant_Garamond({
   display: "swap",
 });
 
-// Only for the huge material words in the scroll film — Cormorant's hairlines
+// Only for the huge material words in the scroll film - Cormorant's hairlines
 // don't hold up at 12vw over moving video. The opsz axis keeps it display-cut.
 const film = Fraunces({
   subsets: ["latin"],
@@ -41,9 +41,9 @@ const film = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    // GOVERNANCE §6: "Primary Query — Global Classic UAE" pattern.
-    template: "%s — Global Classic UAE",
+    default: `${siteConfig.name} - ${siteConfig.tagline}`,
+    // GOVERNANCE §6: "Primary Query - Global Classic UAE" pattern.
+    template: "%s - Global Classic UAE",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
@@ -56,12 +56,12 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
   robots: {

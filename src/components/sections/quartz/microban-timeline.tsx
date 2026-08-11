@@ -24,7 +24,7 @@ const STEPS: [title: string, body: string][] = [
   ],
   [
     "A cleaner surface",
-    "The surface stays cleaner between cleans — for the product's lifetime.",
+    "The surface stays cleaner between cleans - for the product's lifetime.",
   ],
 ];
 

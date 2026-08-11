@@ -28,7 +28,7 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "KalingaStone Marble Slabs UAE — 35 Shades" },
+  title: { absolute: "KalingaStone Marble Slabs UAE - 35 Shades" },
   description:
     "The complete KalingaStone engineered marble range in the UAE: 35 shades across 5 series, 304 × 125 cm slabs, > 85% gloss, repolishable surfaces. Stocked and supplied by Global Classic, Sharjah.",
   alternates: { canonical: "/kalingastone/marble" },
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
 const properties = [
   {
     title: "Homogeneous",
-    body: "Benchmark consistency in shade, thickness and texture — the engineered block guarantees what quarries cannot.",
+    body: "Benchmark consistency in shade, thickness and texture - the engineered block guarantees what quarries cannot.",
     icon: Layers,
   },
   {
     title: "Resistant to stain",
-    body: "Non-porous, with lower absorption than natural granite — immune to everyday stains.",
+    body: "Non-porous, with lower absorption than natural granite - immune to everyday stains.",
     icon: Sparkles,
   },
   {
     title: "Repolishable",
-    body: "The surface revives its original elegance in situ — high-traffic floors are restored, not replaced.",
+    body: "The surface revives its original elegance in situ - high-traffic floors are restored, not replaced.",
     icon: RefreshCcw,
   },
   {
@@ -84,15 +84,15 @@ const microbanBenefits = [
 const faqs = [
   {
     q: "What is KalingaStone Marble?",
-    a: "KalingaStone Marble is an engineered marble made by Classic Marble Company at its 200,000 m² Silvassa plant — a range of 35 shades across five series in 304 × 125 cm slabs, polished past 85% gloss on SIMEC (Italy) lines. It is distributed in the UAE by Global Classic Building Material LLC from Sharjah. It is the engineered line — CMC produces natural marble separately at the same plant.",
+    a: "KalingaStone Marble is an engineered marble made by Classic Marble Company at its 200,000 m² Silvassa plant - a range of 35 shades across five series in 304 × 125 cm slabs, polished past 85% gloss on SIMEC (Italy) lines. It is distributed in the UAE by Global Classic Building Material LLC from Sharjah. It is the engineered line - CMC produces natural marble separately at the same plant.",
   },
   {
     q: "Is engineered marble the same as natural marble?",
-    a: "No. Engineered marble is made in block form from marble aggregate and resin, which is why every KalingaStone slab is consistent in shade, thickness and texture, non-porous with absorption under 0.1%, and repolishable. Natural marble varies block to block and needs sealing. CMC manufactures both — this range is the engineered one.",
+    a: "No. Engineered marble is made in block form from marble aggregate and resin, which is why every KalingaStone slab is consistent in shade, thickness and texture, non-porous with absorption under 0.1%, and repolishable. Natural marble varies block to block and needs sealing. CMC manufactures both - this range is the engineered one.",
   },
   {
     q: "What does repolishable mean?",
-    a: "The surface can be mechanically repolished in situ, restoring its original gloss instead of replacing the floor — a genuine lifecycle advantage for hotel lobbies, lift lobbies and high-traffic commercial floors, and unique to the marble range among KalingaStone's three materials.",
+    a: "The surface can be mechanically repolished in situ, restoring its original gloss instead of replacing the floor - a genuine lifecycle advantage for hotel lobbies, lift lobbies and high-traffic commercial floors, and unique to the marble range among KalingaStone's three materials.",
   },
   {
     q: "What size do marble slabs come in?",
@@ -100,15 +100,15 @@ const faqs = [
   },
   {
     q: "Is KalingaStone Marble food-safe certified?",
-    a: "The marble catalogue does not carry the NSF food-contact certification — that belongs to the KalingaStone Quartz range, which is the material Global Classic recommends for kitchen worktops. Marble's territory is floors, walls, vanities and stairs, where its gloss and repolishability lead.",
+    a: "The marble catalogue does not carry the NSF food-contact certification - that belongs to the KalingaStone Quartz range, which is the material Global Classic recommends for kitchen worktops. Marble's territory is floors, walls, vanities and stairs, where its gloss and repolishability lead.",
   },
   {
     q: "Can I get Microban® on marble?",
-    a: "Eight shades — Cristallo, Raffaele, Bianco Venus, Minta Flurry, Ottoman Beige, Althea, Dantea and Amelia — are offered with the option of Microban® antibacterial protection, reducing up to 99.99% of bacterial growth. The same shades are also available without it. (Microban is not available for products sold in the USA.)",
+    a: "Eight shades - Cristallo, Raffaele, Bianco Venus, Minta Flurry, Ottoman Beige, Althea, Dantea and Amelia - are offered with the option of Microban® antibacterial protection, reducing up to 99.99% of bacterial growth. The same shades are also available without it. (Microban is not available for products sold in the USA.)",
   },
   {
     q: "Do you deliver marble across the UAE?",
-    a: "Yes — delivery is across the whole of the UAE. Slabs are held at Global Classic's Sharjah warehouse in Al Sajaa and delivered to every emirate, from Dubai and Abu Dhabi to the Northern Emirates. Supply is wholesale, to contractors, developers, fabricators and decor companies, with availability confirmed against live stock.",
+    a: "Yes - delivery is across the whole of the UAE. Slabs are held at Global Classic's Sharjah warehouse in Al Sajaa and delivered to every emirate, from Dubai and Abu Dhabi to the Northern Emirates. Supply is wholesale, to contractors, developers, fabricators and decor companies, with availability confirmed against live stock.",
   },
 ];
 
@@ -219,7 +219,7 @@ export default function KalingaStoneMarblePage() {
                   KalingaStone Marble is an engineered marble made by Classic
                   Marble Company and distributed across the Emirates by Global
                   Classic. The range spans <strong>35 shades</strong> in five
-                  series — Candy White to Bianco Thassos — in a single{" "}
+                  series - Candy White to Bianco Thassos - in a single{" "}
                   <strong>304 × 125 cm</strong> slab, polished past 85% gloss
                   and repolishable in situ for the life of the floor.
                 </p>
@@ -245,7 +245,7 @@ export default function KalingaStoneMarblePage() {
             <dl className="border-border/40 mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border sm:grid-cols-4">
               {[
                 ["35", "shades across five series"],
-                [">85%", "gloss — highest of the three ranges"],
+                [">85%", "gloss - highest of the three ranges"],
                 ["304 × 125 cm", "one slab format, every shade"],
                 ["Repolishable", "restored in situ, not replaced"],
               ].map(([value, label]) => (
@@ -320,12 +320,12 @@ export default function KalingaStoneMarblePage() {
         </Container>
       </section>
 
-      {/* ---------- The loupe — marble's signature element ---------- */}
+      {/* ---------- The loupe - marble's signature element ---------- */}
       <section className="py-24">
         <Container>
           <p className="label-gcb text-muted">Under the loupe</p>
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
-            Marble is bought at arm&rsquo;s length — and chosen up close.
+            Marble is bought at arm&rsquo;s length - and chosen up close.
           </h2>
           <p className="text-muted mt-4 max-w-2xl leading-relaxed">
             Move across the slab and read the vein the way a specifier would at
@@ -353,7 +353,7 @@ export default function KalingaStoneMarblePage() {
             <div>
               <h3 className="font-display text-2xl">Shades per series</h3>
               <p className="text-muted mt-3 max-w-xl text-sm">
-                Ascending tiers, Series-1 to Series-5 — with Series-5 split into
+                Ascending tiers, Series-1 to Series-5 - with Series-5 split into
                 5A and 5B, one pinnacle shade each. The stones themselves do the
                 counting.
               </p>
@@ -380,7 +380,7 @@ export default function KalingaStoneMarblePage() {
             Four colour ranges, each with its own page.
           </h2>
           <p className="text-muted mt-4 max-w-2xl text-sm leading-relaxed">
-            A light, warm range by design — there is no black marble in the
+            A light, warm range by design - there is no black marble in the
             collection; for dark statements, see the quartz and terrazzo ranges.
           </p>
           <div className="mt-12 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -396,7 +396,7 @@ export default function KalingaStoneMarblePage() {
                   <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
                     <Image
                       src={`/kalingastone/marble/swatches/${cover.slug}.webp`}
-                      alt={`${f.label} — KalingaStone marble colour range`}
+                      alt={`${f.label} - KalingaStone marble colour range`}
                       fill
                       sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -424,7 +424,7 @@ export default function KalingaStoneMarblePage() {
             Every shade in the catalogue.
           </h2>
           <p className="text-muted mt-4 max-w-2xl leading-relaxed">
-            The complete printed range — nothing added, nothing renamed. Grouped
+            The complete printed range - nothing added, nothing renamed. Grouped
             by colour, filterable by the Microban® option.
           </p>
           <div className="mt-12">
@@ -461,7 +461,7 @@ export default function KalingaStoneMarblePage() {
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed">
                 Every polished floor dulls under traffic. Natural stone gets
-                replaced; KalingaStone Marble gets repolished — the surface is
+                replaced; KalingaStone Marble gets repolished - the surface is
                 mechanically restored in situ to its original gloss, again and
                 again, for the life of the building. For hotel lobbies, malls
                 and lift lobbies, that is the difference between a maintenance
@@ -509,11 +509,11 @@ export default function KalingaStoneMarblePage() {
               <h2 className="font-display mt-4 text-3xl leading-tight sm:text-4xl">
                 Up to{" "}
                 <span className="text-foreground font-semibold">99.99%</span>{" "}
-                less bacterial growth — as an option.
+                less bacterial growth - as an option.
               </h2>
               <p className="mt-6 max-w-xl leading-relaxed">
-                Eight marble shades are offered with Microban® protection — a
-                first for marble in India — and, uniquely in the KalingaStone
+                Eight marble shades are offered with Microban® protection - a
+                first for marble in India - and, uniquely in the KalingaStone
                 catalogue, every one of them is also available without it.
                 Specify the treatment where hygiene leads (clinics, vanities,
                 washrooms) and the plain slab where it doesn&rsquo;t.
@@ -566,7 +566,7 @@ export default function KalingaStoneMarblePage() {
               <figure className="relative mb-10 aspect-[4/3] overflow-hidden rounded-xl">
                 <Image
                   src="/kalingastone/quartz/microban-field.webp"
-                  alt="Artistic macro of a stone slab edge repelling glowing microbes — the Microban protective layer visualised"
+                  alt="Artistic macro of a stone slab edge repelling glowing microbes - the Microban protective layer visualised"
                   fill
                   quality={90}
                   sizes="(min-width: 1024px) 45vw, 100vw"
@@ -599,18 +599,18 @@ export default function KalingaStoneMarblePage() {
 
           <div className="mt-24">
             <h3 className="label-gcb text-bronze">
-              The full record — 25 properties, five certificates
+              The full record - 25 properties, five certificates
             </h3>
             <div className="mt-8">
               <MarbleCertificates />
             </div>
           </div>
 
-          {/* Finishes — macro photography */}
+          {/* Finishes - macro photography */}
           <div className="mt-24">
             <h3 className="label-gcb text-bronze">Five finishes, up close</h3>
             <p className="text-ink/60 mt-3 max-w-xl text-sm leading-relaxed">
-              Graffiato and Silken are marble-only — no other KalingaStone range
+              Graffiato and Silken are marble-only - no other KalingaStone range
               cuts them.
             </p>
             <div className="mt-8">
@@ -625,11 +625,11 @@ export default function KalingaStoneMarblePage() {
         <Container>
           <p className="label-gcb text-muted">Choosing a surface</p>
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
-            Marble, quartz or terrazzo — an honest reading.
+            Marble, quartz or terrazzo - an honest reading.
           </h2>
           {/* Answer-first, per the catalogue's own comparison */}
           <p className="mt-6 max-w-2xl text-lg leading-relaxed">
-            Marble sits between the other two on nearly every strength metric —
+            Marble sits between the other two on nearly every strength metric -
             and above both on refinement. Its wins are the highest gloss of the
             three ranges, the repolishable surface, and a warm palette that
             photographs as luxury. Quartz keeps hardness, stain and food-safe
@@ -648,9 +648,9 @@ export default function KalingaStoneMarblePage() {
               </thead>
               <tbody className="divide-border/30 divide-y">
                 {[
-                  ["Polished gloss", "> 85%", "> 75%", "55–70%"],
-                  ["Repolishable", "Yes — in situ", "Not stated", "Not stated"],
-                  ["Surface hardness (Mohs)", "4.0–5.0", "3.0–4.0", "6.0–7.0"],
+                  ["Polished gloss", "> 85%", "> 75%", "55-70%"],
+                  ["Repolishable", "Yes - in situ", "Not stated", "Not stated"],
+                  ["Surface hardness (Mohs)", "4.0-5.0", "3.0-4.0", "6.0-7.0"],
                   ["Water absorption", "< 0.1%", "< 0.2%", "< 0.05%"],
                   [
                     "Fire classification (EN)",
@@ -658,7 +658,7 @@ export default function KalingaStoneMarblePage() {
                     "Class A1",
                     "Class B",
                   ],
-                  ["Food-safe certification", "—", "NSF mark", "NSF certified"],
+                  ["Food-safe certification", "-", "NSF mark", "NSF certified"],
                   ["Shades", "35", "24", "69"],
                 ].map(([prop, a, b, c]) => (
                   <tr key={prop}>
@@ -701,7 +701,7 @@ export default function KalingaStoneMarblePage() {
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
             <p className="text-ink/80 max-w-2xl text-lg leading-relaxed">
               Global Classic is the KalingaStone marble supplier holding stock
-              in Sharjah — at the Al Sajaa warehouse — with delivery across the
+              in Sharjah - at the Al Sajaa warehouse - with delivery across the
               whole of the UAE: Dubai, Abu Dhabi, Sharjah, Ajman, Umm Al Quwain,
               Ras Al Khaimah and Fujairah. Supply is wholesale: contractors,
               developers, fabricators and decor companies buy by the project,
@@ -709,7 +709,7 @@ export default function KalingaStoneMarblePage() {
             </p>
             <ul className="space-y-3">
               {[
-                "Ex-stock slabs — no import lead time on stocked shades",
+                "Ex-stock slabs - no import lead time on stocked shades",
                 "One 304 × 125 cm format across all 35 shades",
                 "Samples for specification and client approval",
                 "Delivery coordinated to site or fabrication workshop",
@@ -761,7 +761,7 @@ export default function KalingaStoneMarblePage() {
               Specifying marble for a project?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

@@ -1,6 +1,6 @@
 /**
  * The product wheel on the home page. Images are placeholders (stills pulled
- * from the film and hero) until final photography arrives — swap the files in
+ * from the film and hero) until final photography arrives - swap the files in
  * /public/products and keep the names.
  *
  * `accent` retints the whole section and the CTA's specular line when that
@@ -10,7 +10,7 @@ export type WheelProduct = {
   id: string;
   label: string;
   image: string;
-  /** Descriptive alt for image SEO — describe the stone/product, not "image of room". */
+  /** Descriptive alt for image SEO - describe the stone/product, not "image of room". */
   alt: string;
   accent: string;
   href: string;

@@ -12,12 +12,12 @@
   --limestone: #f7f8f5; /* Porcelain */
   --travertine: #d2d4c8; /* Dust Grey */
   --verde: #355e4d; /* Pine Teal */
-  --bronze: #6f8f78; /* Dusty Olive — the accent */
+  --bronze: #6f8f78; /* Dusty Olive - the accent */
   --midnight: #0c1510; /* Onyx */
-  --warm-black: #0c1510; /* Onyx — dark stages and scrims */
-  --ink: #f7f8f5; /* Porcelain — type over photography/dark */
+  --warm-black: #0c1510; /* Onyx - dark stages and scrims */
+  --ink: #f7f8f5; /* Porcelain - type over photography/dark */
 
-  /* Semantic tokens — light ground: Onyx text, Pine Teal lines on
+  /* Semantic tokens - light ground: Onyx text, Pine Teal lines on
      Porcelain. Pine Teal is NEVER a text colour (owner, 2026-08-07). */
   --background: #f7f8f5;
   --foreground: #0c1510;
@@ -35,14 +35,14 @@
 
 /*
  * No prefers-color-scheme block: the site is art-directed with fixed grounds
- * per section (owner decision 2026-08-06 — OS dark mode was flipping the
+ * per section (owner decision 2026-08-06 - OS dark mode was flipping the
  * home capabilities section to Pine Teal). Dark stages are explicit
  * (bg-warm-black, the wheel's Onyx mix, the film).
  */
 
 /*
  * Light-ground scope. After the 2026-08-06 palette finalisation :root and
- * this scope carry the SAME values — the scope remains so pages pinned to
+ * this scope carry the SAME values - the scope remains so pages pinned to
  * the light inverted look stay light even for dark-scheme visitors (the
  * media block above would otherwise flip them).
  */
@@ -59,7 +59,7 @@
 }
 
 /* Every pill chip/button inverts to Onyx Green with Marble White text
-   on hover (owner, 2026-08-08) — applies on top of the Tailwind base. */
+   on hover (owner, 2026-08-08) - applies on top of the Tailwind base. */
 .chip-gcb {
   transition:
     background-color 0.3s ease,
@@ -88,7 +88,7 @@
   color: var(--ink);
 }
 
-/* Golden-ratio (phi = 1.618) modular type scale — the editorial system
+/* Golden-ratio (phi = 1.618) modular type scale - the editorial system
    for magazine-style pages. phi^4 clamps down fluidly on small screens. */
 .text-phi-0 {
   font-size: 1rem;
@@ -111,7 +111,7 @@
   line-height: 0.95;
 }
 
-/* Magazine drop cap — first letter of an editorial paragraph. */
+/* Magazine drop cap - first letter of an editorial paragraph. */
 .dropcap::first-letter {
   font-family: var(--font-display-variable);
   font-size: 4.236em;
@@ -121,7 +121,7 @@
   padding-top: 0.06em;
 }
 
-/* Outlined display type for tickers — Onyx stroke, hollow fill. */
+/* Outlined display type for tickers - Onyx stroke, hollow fill. */
 .text-outline-gcb {
   -webkit-text-stroke: 1.5px var(--warm-black);
   color: transparent;
@@ -233,7 +233,7 @@
 
   /*
    * Lifts hero type off the photograph. The wall behind the quote averages
-   * L=0.16, which alone gives off-white only ~4.9:1 — fine for the display
+   * L=0.16, which alone gives off-white only ~4.9:1 - fine for the display
    * line, marginal for the sub-line, and much worse over the wall's specular
    * highlights. The radial pass darkens only where type sits; the linear pass
    * seats the future header and the scroll cue.
@@ -256,7 +256,7 @@
   }
 
   /*
-   * Fine photographic grain for Onyx stages — kills digital flatness. Pure
+   * Fine photographic grain for Onyx stages - kills digital flatness. Pure
    * CSS (inline SVG turbulence), no request, no JS. Apply to a relatively
    * positioned section; content needs its own stacking (relative/z) above.
    */
@@ -315,7 +315,7 @@
 
   /* Specular RIM light, matching the pill buttons: a bright arc on the very
      edge that rotates to face the cursor (--ang from the magnetic loop),
-     with a fainter symmetric arc opposite — conic gradient masked into a
+     with a fainter symmetric arc opposite - conic gradient masked into a
      hairline ring. */
   [data-shine]::after {
     content: "";

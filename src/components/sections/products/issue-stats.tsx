@@ -5,7 +5,7 @@ import { useInView } from "motion/react";
 import { useRef } from "react";
 
 /**
- * The issue's numbers, ticking up on entry — phi-cubed numerals on the
+ * The issue's numbers, ticking up on entry - phi-cubed numerals on the
  * dark stage. Real values live in sr-only spans so crawlers never
  * depend on the animation.
  */

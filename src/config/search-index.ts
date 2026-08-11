@@ -6,7 +6,7 @@ import {
 } from "@/config/kalingastone-terrazzo";
 
 /**
- * The site search index — generated from the same data files that build
+ * The site search index - generated from the same data files that build
  * the pages, so a catalogue update can never leave search stale. Small
  * enough (~150 entries) to filter client-side on every keystroke.
  */
@@ -37,7 +37,7 @@ const entry = (
 const pages: SearchEntry[] = [
   entry(
     "Products",
-    "All eight lines — The Materials Issue",
+    "All eight lines - The Materials Issue",
     "/products",
     "Pages",
     "catalogue lines slabs",
@@ -65,7 +65,7 @@ const pages: SearchEntry[] = [
   ),
   entry(
     "Fluting",
-    "Fluted terrazzo panels — the signature",
+    "Fluted terrazzo panels - the signature",
     "/kalingastone/terrazzo/fluting",
     "Pages",
     "fluted grooves texture wall",
@@ -87,7 +87,7 @@ const pages: SearchEntry[] = [
   ...quartzFamilies.map((f) =>
     entry(
       f.label,
-      `Quartz colour range — ${f.query}`,
+      `Quartz colour range - ${f.query}`,
       `/kalingastone/quartz/colours/${f.slug}`,
       "Pages",
       "colour family",
@@ -96,7 +96,7 @@ const pages: SearchEntry[] = [
   ...marbleFamilies.map((f) =>
     entry(
       f.label,
-      `Marble colour range — ${f.query}`,
+      `Marble colour range - ${f.query}`,
       `/kalingastone/marble/colours/${f.slug}`,
       "Pages",
       "colour family",
@@ -105,7 +105,7 @@ const pages: SearchEntry[] = [
   ...terrazzoCollections.map((c) =>
     entry(
       `${c.label} (Terrazzo)`,
-      `Series ${c.series} collection — ${c.query}`,
+      `Series ${c.series} collection - ${c.query}`,
       `/kalingastone/terrazzo/collections/${c.slug}`,
       "Pages",
       "collection",

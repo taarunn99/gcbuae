@@ -123,6 +123,13 @@ colours only.
 - Use the `.container-gcb` utility (or the `Container` component) for page
   gutters rather than re-declaring max-widths.
 
+## Copy rule: NO long dashes (owner, 2026-08-11)
+
+Never use em dashes or en dashes anywhere in site copy, titles, metadata,
+alt text or JSON-LD. Use a plain hyphen "-" (spaced " - " where an em
+dash would have been). This applies to ALL future writing. Ranges too:
+"150-250 MPa", "Mon-Sat", never "150-250" with a long dash.
+
 ## Conventions
 
 - Path alias `@/*` maps to `src/*`.

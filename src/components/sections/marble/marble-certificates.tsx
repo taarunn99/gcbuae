@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useSyncExternalStore } from "react";
 
 /**
- * The 25-property marble test table as five themed certificates —
+ * The 25-property marble test table as five themed certificates -
  * horizontal snap scroll with drag/wheel/swipe. The classic table stays
  * below in <details>; both carry the same server-rendered data.
  */
@@ -20,8 +20,8 @@ const CLUSTERS: Cluster[] = [
   {
     title: "Density & water",
     rows: [
-      ["Apparent density", "ASTM C 97", "2.40–2.55 kg/dm³"],
-      ["Apparent density", "EN14617-1", "2.40–2.55 kg/dm³"],
+      ["Apparent density", "ASTM C 97", "2.40-2.55 kg/dm³"],
+      ["Apparent density", "EN14617-1", "2.40-2.55 kg/dm³"],
       ["Water absorption", "ASTM C 97", "< 0.1%"],
       ["Water absorption", "EN14617-1", "< 0.1%"],
     ],
@@ -29,13 +29,13 @@ const CLUSTERS: Cluster[] = [
   {
     title: "Strength & wear",
     rows: [
-      ["Compressive strength", "ASTM C 170", "105–160 MPa"],
-      ["Compressive strength", "EN14617-15", "110–150 MPa"],
-      ["Flexural strength", "ASTM C 880", "20–40 MPa"],
-      ["Flexural strength", "EN14617-2", "25–35 MPa"],
-      ["Impact resistance", "EN14617-9", "1.5–3.5 J"],
-      ["Surface hardness", "EN 101 (Mohs)", "4.0–5.0"],
-      ["Abrasion resistance", "EN14617-4", "Groove 30–40 mm"],
+      ["Compressive strength", "ASTM C 170", "105-160 MPa"],
+      ["Compressive strength", "EN14617-15", "110-150 MPa"],
+      ["Flexural strength", "ASTM C 880", "20-40 MPa"],
+      ["Flexural strength", "EN14617-2", "25-35 MPa"],
+      ["Impact resistance", "EN14617-9", "1.5-3.5 J"],
+      ["Surface hardness", "EN 101 (Mohs)", "4.0-5.0"],
+      ["Abrasion resistance", "EN14617-4", "Groove 30-40 mm"],
       ["Abrasion resistance", "ASTM C 241", "Min 10"],
     ],
   },
@@ -45,8 +45,8 @@ const CLUSTERS: Cluster[] = [
       ["Fire classification", "EN 13501-1", "Wall B-S1-d0 · Floor B-fl-S1"],
       ["Surface burning", "ASTM E 84", "Class A"],
       ["Thermal shock", "EN14617-6", "No defects, 20 cycles"],
-      ["Freeze–thaw", "EN14617-5", "No defect, 25 cycles"],
-      ["Linear thermal expansion", "EN14617-11", "15–20 × 10⁻⁶ /°C"],
+      ["Freeze-thaw", "EN14617-5", "No defect, 25 cycles"],
+      ["Linear thermal expansion", "EN14617-11", "15-20 × 10⁻⁶ /°C"],
       ["Frost resistance", "DIN 52104", "Complies"],
     ],
   },
@@ -64,7 +64,7 @@ const CLUSTERS: Cluster[] = [
     title: "Stability & optics",
     rows: [
       ["Dimensional stability", "EN14617-12", "Class A"],
-      ["Glossiness reflection", "—", "> 85%"],
+      ["Glossiness reflection", "-", "> 85%"],
     ],
   },
 ];

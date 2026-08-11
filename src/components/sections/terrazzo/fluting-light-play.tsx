@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 /**
- * THE TERRAZZO HUB'S SIGNATURE ELEMENT — fluting exists to play with
+ * THE TERRAZZO HUB'S SIGNATURE ELEMENT - fluting exists to play with
  * light, so here the light is yours to move: drag the slider and a
  * raking highlight sweeps across the fluted panel, shadows swinging the
  * opposite way. Pure CSS gradients driven by one input.

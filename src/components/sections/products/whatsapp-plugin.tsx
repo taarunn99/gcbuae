@@ -3,7 +3,7 @@ import { GcbButton } from "@/components/ui/gcb-button";
 import { Container } from "@/components/ui/container";
 
 /**
- * The WhatsApp section — the conversation, previewed. A palette-safe
+ * The WhatsApp section - the conversation, previewed. A palette-safe
  * chat card (no WhatsApp green; Onyx and Porcelain bubbles) plays out
  * the exchange a buyer actually has with us, message by message on
  * scroll, ending in the real thing: one tap opens the chat. Golden
@@ -14,7 +14,7 @@ const THREAD: { from: "buyer" | "gcb"; text: string }[] = [
   { from: "buyer", text: "Do you have Calacatta Lazza ex-stock?" },
   {
     from: "gcb",
-    text: "Yes — Sharjah warehouse. Slab count and photos on request, availability confirmed against live stock.",
+    text: "Yes - Sharjah warehouse. Slab count and photos on request, availability confirmed against live stock.",
   },
   { from: "buyer", text: "Delivery to Abu Dhabi, ~40 slabs?" },
   {
@@ -37,25 +37,25 @@ export function WhatsAppPlugin() {
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed">
               No portals, no hold music. Message the warehouse directly on
-              WhatsApp — availability, photos of the actual slabs, volume
+              WhatsApp - availability, photos of the actual slabs, volume
               pricing and delivery slots, in one thread you can forward to your
               client.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <GcbButton
-                href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20—%20I%27d%20like%20to%20enquire%20about%20materials."
+                href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20-%20I%27d%20like%20to%20enquire%20about%20materials."
                 size="md"
                 variant="porcelain"
               >
                 Start the chat
               </GcbButton>
               <span className="text-foreground text-base font-medium">
-                Mon–Sat · 8:00–18:00
+                Mon-Sat · 8:00-18:00
               </span>
             </div>
           </div>
 
-          {/* The conversation card — riding on a Pine Green block */}
+          {/* The conversation card - riding on a Pine Green block */}
           <div className="relative mx-auto w-full max-w-[360px]">
             <span
               aria-hidden
@@ -108,7 +108,7 @@ export function WhatsAppPlugin() {
 
               {/* Composer */}
               <a
-                href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20—%20I%27d%20like%20to%20enquire%20about%20materials."
+                href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20-%20I%27d%20like%20to%20enquire%20about%20materials."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-warm-black/20 text-muted hover:text-foreground flex items-center justify-between border-t px-5 py-4 text-sm transition-colors"

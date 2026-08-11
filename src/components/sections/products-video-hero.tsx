@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
  * Products hero in the castedluxe register, scroll-driven: the slab film
  * loops seamlessly full-bleed beneath an Onyx layer with the headline
  * word and a rectangle window knocked out. Scrolling grows the
- * rectangle window until the stone swallows the frame — then, over the
+ * rectangle window until the stone swallows the frame - then, over the
  * full-bleed film, the three ranges introduce themselves in sequence
  * (Quartz 69 · Marble 35 · Terrazzo 24, each a tappable chapter) before
  * the signature closes the overture and the page releases into the
@@ -39,8 +39,8 @@ export function ProductsVideoHero() {
         },
       });
 
-      // Phase 1 (0–0.4): the rectangle window grows until the stone
-      // swallows the frame — the type never moves (tweening its clamp()
+      // Phase 1 (0-0.4): the rectangle window grows until the stone
+      // swallows the frame - the type never moves (tweening its clamp()
       // font-size was the original bug: GSAP can't parse clamp).
       tl.to(
         windowRef.current,
@@ -58,7 +58,7 @@ export function ProductsVideoHero() {
           0.32,
         );
 
-      // Phase 2 (0.42–1): the ranges introduce themselves over the film,
+      // Phase 2 (0.42-1): the ranges introduce themselves over the film,
       // then the signature closes the overture.
       const chapters = gsap.utils.toArray<HTMLElement>("[data-chapter]");
       const slot = 0.58 / (chapters.length + 0.6);
@@ -91,7 +91,7 @@ export function ProductsVideoHero() {
           !reduced && "sticky top-0 h-svh",
         )}
       >
-        {/* The film — crossfaded seamless loop */}
+        {/* The film - crossfaded seamless loop */}
         {reduced ? (
           <Image
             src="/products/hero/slab-procession-poster.webp"
@@ -124,7 +124,7 @@ export function ProductsVideoHero() {
           <defs>
             <mask id="products-hero-mask">
               <rect width="100%" height="100%" fill="#fff" />
-              {/* The headline word — stone flows through the letters */}
+              {/* The headline word - stone flows through the letters */}
               <text
                 x="50%"
                 y="34%"
@@ -139,7 +139,7 @@ export function ProductsVideoHero() {
               >
                 Products
               </text>
-              {/* The window — scroll grows THIS until it fills the frame */}
+              {/* The window - scroll grows THIS until it fills the frame */}
               <rect
                 ref={windowRef}
                 x="8%"
@@ -161,7 +161,7 @@ export function ProductsVideoHero() {
           />
         </svg>
 
-        {/* The chapter overture — plays over the full-bleed film */}
+        {/* The chapter overture - plays over the full-bleed film */}
         <div ref={chaptersRef} aria-hidden={false}>
           {[
             {
@@ -206,7 +206,7 @@ export function ProductsVideoHero() {
               </span>
             </Link>
           ))}
-          {/* The closing signature — stays until release */}
+          {/* The closing signature - stays until release */}
           <div
             data-chapter
             className="pointer-events-none invisible absolute inset-0 z-10 flex flex-col items-center justify-center text-center opacity-0"

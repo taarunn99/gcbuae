@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
  * Organization structured data for search results.
  *
  * Unfilled siteConfig fields resolve to `undefined` so JSON.stringify drops
- * them — Google treats empty-string values as malformed rather than absent.
+ * them - Google treats empty-string values as malformed rather than absent.
  */
 export function OrganizationJsonLd() {
   const { address, contact, social } = siteConfig;

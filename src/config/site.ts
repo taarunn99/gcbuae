@@ -8,7 +8,7 @@ export const siteConfig = {
   legalName: "Global Classic Building Materials LLC",
   tagline: "Surfaces for enduring interiors",
   description:
-    "Global Classic Building Materials supplies natural stone, marble, terrazzo and finishing materials across the UAE — for contractors, developers and consultants building interiors meant to last.",
+    "Global Classic Building Materials supplies natural stone, marble, terrazzo and finishing materials across the UAE - for contractors, developers and consultants building interiors meant to last.",
   url: "https://www.gcbuae.com",
   locale: "en_AE",
   contact: {
@@ -46,7 +46,7 @@ export const siteConfig = {
     {
       slug: "terrazzo",
       label: "Terrazzo",
-      blurb: "Made of fragments, finished as one — floors and precast pieces.",
+      blurb: "Made of fragments, finished as one - floors and precast pieces.",
     },
     {
       slug: "showers",

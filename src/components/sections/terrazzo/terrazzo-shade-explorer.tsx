@@ -38,7 +38,7 @@ function ShadeCard({
         <span className="border-warm-black relative block aspect-[2/1] overflow-hidden rounded-lg border">
           <Image
             src={`/kalingastone/terrazzo/swatches/${shade.slug}.webp`}
-            alt={`KalingaStone Terrazzo ${shade.name} — Series ${shade.series} terrazzo slab, 304 × 125 cm`}
+            alt={`KalingaStone Terrazzo ${shade.name} - Series ${shade.series} terrazzo slab, 304 × 125 cm`}
             fill
             sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -171,7 +171,7 @@ export function TerrazzoShadeExplorer() {
       {/* The catalogue's own colour disclaimer, mirrored as instructed */}
       <p className="text-muted mt-10 text-xs leading-relaxed">
         Printed and on-screen representation of colours may vary from the actual
-        product — please view the actual slab prior to selection.
+        product - please view the actual slab prior to selection.
       </p>
     </div>
   );

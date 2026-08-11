@@ -1,7 +1,7 @@
 /**
- * KalingaStone Quartz — complete 69-shade range, extracted from the
+ * KalingaStone Quartz - complete 69-shade range, extracted from the
  * manufacturer's 2023 catalogue (see docs in the owner's brief). NEVER
- * invent, extend or "correct" shade names — Wizzard, Bianco Gioa,
+ * invent, extend or "correct" shade names - Wizzard, Bianco Gioa,
  * Bermingham, Nisley, Ush, Repen, Grey Fjordo and Chandan are the brand's
  * own spellings. Series = price/design tier (7 premium veined → 1 simplest
  * particulate); family = editorial colour facet for filtering.
@@ -713,7 +713,7 @@ export const quartzShades: QuartzShade[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Colour-family category pages — each owns ONE search query           */
+/* Colour-family category pages - each owns ONE search query           */
 /* (GOVERNANCE §1: one page, one primary query, no cannibalization).   */
 /* ------------------------------------------------------------------ */
 
@@ -724,7 +724,7 @@ export type QuartzFamily = {
   label: string;
   /** The one primary query this category page owns. */
   query: string;
-  /** Answer-first opening paragraph (40–80 words, GOVERNANCE §7). */
+  /** Answer-first opening paragraph (40-80 words, GOVERNANCE §7). */
   intro: string;
 };
 
@@ -743,7 +743,7 @@ export const quartzFamilies: QuartzFamily[] = [
     label: "Marble-Look Quartz",
     query: "calacatta and marble-look quartz UAE",
     intro:
-      "Marble-look quartz gives the drama of Calacatta and Carrara veining with none of natural marble's porosity. These are KalingaStone's premium Series 6–7 designs — Calacatta Imperial, Calacatta Lazza, Bianco Oro and their siblings — engineered at 20 mm for kitchen islands, cladding and vanities, supplied UAE-wide from Sharjah stock.",
+      "Marble-look quartz gives the drama of Calacatta and Carrara veining with none of natural marble's porosity. These are KalingaStone's premium Series 6-7 designs - Calacatta Imperial, Calacatta Lazza, Bianco Oro and their siblings - engineered at 20 mm for kitchen islands, cladding and vanities, supplied UAE-wide from Sharjah stock.",
   },
   {
     id: "beige",
@@ -751,7 +751,7 @@ export const quartzFamilies: QuartzFamily[] = [
     label: "Beige & Cream Quartz",
     query: "beige and cream quartz UAE",
     intro:
-      "Cream and beige quartz carries the warm palette Gulf interiors are built on — sand, travertine and crema tones that pair with brass, walnut and warm plaster. KalingaStone's beige range spans economical Series 1 particulates to layered Series 5 designs, all 20 mm, stain-proof and heat resistant, stocked in Sharjah.",
+      "Cream and beige quartz carries the warm palette Gulf interiors are built on - sand, travertine and crema tones that pair with brass, walnut and warm plaster. KalingaStone's beige range spans economical Series 1 particulates to layered Series 5 designs, all 20 mm, stain-proof and heat resistant, stocked in Sharjah.",
   },
   {
     id: "grey",
@@ -759,7 +759,7 @@ export const quartzFamilies: QuartzFamily[] = [
     label: "Grey Quartz",
     query: "grey quartz slabs UAE",
     intro:
-      "Grey is the working palette of contemporary UAE architecture — concrete, fjord and pietra tones that read equally well in matt and polished schemes. The KalingaStone grey range is the widest single colour family in the collection, from pale silver particulates to deep charcoal designs, every slab 20 mm and non-porous.",
+      "Grey is the working palette of contemporary UAE architecture - concrete, fjord and pietra tones that read equally well in matt and polished schemes. The KalingaStone grey range is the widest single colour family in the collection, from pale silver particulates to deep charcoal designs, every slab 20 mm and non-porous.",
   },
   {
     id: "dark",
@@ -767,7 +767,7 @@ export const quartzFamilies: QuartzFamily[] = [
     label: "Black & Dark Quartz",
     query: "black quartz slabs UAE",
     intro:
-      "Black quartz makes the strongest single statement a countertop can: deep nero grounds, sparkling galaxy particulates and dramatic dark veining. KalingaStone's dark range is engineered like the rest of the collection — 20 mm, water absorption under 0.05%, impervious to heat — and supplied across the UAE from Global Classic's Sharjah stock.",
+      "Black quartz makes the strongest single statement a countertop can: deep nero grounds, sparkling galaxy particulates and dramatic dark veining. KalingaStone's dark range is engineered like the rest of the collection - 20 mm, water absorption under 0.05%, impervious to heat - and supplied across the UAE from Global Classic's Sharjah stock.",
   },
 ];
 
@@ -779,5 +779,5 @@ export const shadeBySlug = new Map(quartzShades.map((s) => [s.slug, s]));
 export const shadesOfFamily = (id: QuartzShade["family"]) =>
   quartzShades.filter((s) => s.family === id);
 
-/** Catalogue order (Series 7 → 1) — the axis for prev/next pagination. */
+/** Catalogue order (Series 7 → 1) - the axis for prev/next pagination. */
 export const shadeIndex = new Map(quartzShades.map((s, i) => [s.slug, i]));

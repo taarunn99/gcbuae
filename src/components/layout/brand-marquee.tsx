@@ -2,7 +2,7 @@
 
 /**
  * Distribution-partner marquee. Logos render in their ORIGINAL brand colours
- * — the owner (an authorised distributor of all three) requires unmodified
+ * - the owner (an authorised distributor of all three) requires unmodified
  * third-party marks; recolouring someone else's trademark is not ours to do.
  * This is the one sanctioned exception to the five-colour palette.
  * Current KalingaStone/FILA files are interim; the owner supplies final art.
@@ -37,7 +37,7 @@ export function BrandMarquee() {
       className="border-border/40 overflow-hidden border-y py-10"
     >
       <p className="label-gcb text-muted mb-8 text-center">
-        Authorised distribution — UAE
+        Authorised distribution - UAE
       </p>
       <div className="marquee-gcb flex w-max">
         <Track />

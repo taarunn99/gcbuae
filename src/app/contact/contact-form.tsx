@@ -22,7 +22,7 @@ export function ContactForm() {
       <div className="border p-10">
         <p className="font-display text-2xl">Thank you.</p>
         <p className="text-muted mt-3 leading-relaxed">
-          Your message is on its way — we will come back to you within one
+          Your message is on its way - we will come back to you within one
           working day.
         </p>
       </div>
@@ -31,7 +31,7 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="grid gap-8">
-      {/* Honeypot — hidden from people, attractive to bots. */}
+      {/* Honeypot - hidden from people, attractive to bots. */}
       <input
         type="text"
         name="website"

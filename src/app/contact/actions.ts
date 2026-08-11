@@ -12,7 +12,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 /**
  * Emails the enquiry to siteConfig.contactRecipient via the Resend API.
  * Needs RESEND_API_KEY in the environment (free tier is enough). Without it,
- * the form reports failure and points the visitor at the direct address —
+ * the form reports failure and points the visitor at the direct address -
  * enquiries must never silently vanish.
  */
 export async function sendContactMessage(
@@ -50,7 +50,7 @@ export async function sendContactMessage(
   const apiKey = process.env.RESEND_API_KEY;
 
   // No Resend key configured (e.g. before env setup): deliver through
-  // FormSubmit instead — keyless, posts straight to the inbox. NOTE:
+  // FormSubmit instead - keyless, posts straight to the inbox. NOTE:
   // the FIRST submission triggers a one-time activation email to
   // info@gcbuae.com that must be clicked once; after that, delivery is
   // automatic.
@@ -65,7 +65,7 @@ export async function sendContactMessage(
             Accept: "application/json",
           },
           body: JSON.stringify({
-            _subject: `Website enquiry — ${name}${company ? `, ${company}` : ""}`,
+            _subject: `Website enquiry - ${name}${company ? `, ${company}` : ""}`,
             _template: "box",
             name,
             email,
@@ -79,7 +79,7 @@ export async function sendContactMessage(
         console.error("contact form: formsubmit error", await response.text());
         return {
           status: "error",
-          message: `Something went wrong sending your message — please email ${siteConfig.contact.email}.`,
+          message: `Something went wrong sending your message - please email ${siteConfig.contact.email}.`,
         };
       }
       return { status: "sent" };
@@ -87,7 +87,7 @@ export async function sendContactMessage(
       console.error("contact form: formsubmit network error", error);
       return {
         status: "error",
-        message: `Something went wrong sending your message — please email ${siteConfig.contact.email}.`,
+        message: `Something went wrong sending your message - please email ${siteConfig.contact.email}.`,
       };
     }
   }
@@ -105,7 +105,7 @@ export async function sendContactMessage(
         from: process.env.CONTACT_FROM ?? "GCB Website <onboarding@resend.dev>",
         to: [siteConfig.contactRecipient],
         reply_to: email,
-        subject: `Website enquiry — ${name}${company ? `, ${company}` : ""}`,
+        subject: `Website enquiry - ${name}${company ? `, ${company}` : ""}`,
         text: body,
       }),
     });
@@ -114,7 +114,7 @@ export async function sendContactMessage(
       console.error("contact form: resend error", await response.text());
       return {
         status: "error",
-        message: `Something went wrong sending your message — please email ${siteConfig.contact.email}.`,
+        message: `Something went wrong sending your message - please email ${siteConfig.contact.email}.`,
       };
     }
 
@@ -123,7 +123,7 @@ export async function sendContactMessage(
     console.error("contact form: network error", error);
     return {
       status: "error",
-      message: `Something went wrong sending your message — please email ${siteConfig.contact.email}.`,
+      message: `Something went wrong sending your message - please email ${siteConfig.contact.email}.`,
     };
   }
 }

@@ -1,30 +1,30 @@
 /**
- * KalingaStone Marble — complete 35-shade range from the manufacturer's
- * 2023 catalogue extraction. NEVER invent or "correct" shade names —
+ * KalingaStone Marble - complete 35-shade range from the manufacturer's
+ * 2023 catalogue extraction. NEVER invent or "correct" shade names -
  * Artic White (not "Arctic"), Mellissa (double l), Dallia (not "Dahlia"),
  * Grigio Billiame, Minta Flurry, Camelia (single l), Emperador Chiara /
  * Scuro (not "Emperor") are the brand's spellings. Catalogue truths that
  * BIND the site copy:
- * - This is the ENGINEERED marble line — CMC makes natural marble in a
+ * - This is the ENGINEERED marble line - CMC makes natural marble in a
  *   separate factory at the same plant; never conflate the two.
- * - ONE slab size: 304 × 125 cm. NO thickness printed — never state one.
+ * - ONE slab size: 304 × 125 cm. NO thickness printed - never state one.
  * - Microban is an OPTION on eight shades, not a fixed property ("also
  *   available without microban protection" is printed on every shade
- *   page). Mechanism wording is contested — claim protection and
+ *   page). Mechanism wording is contested - claim protection and
  *   performance only.
- * - NO NSF mark, kitchen countertops absent from the application list —
+ * - NO NSF mark, kitchen countertops absent from the application list -
  *   never carry the food-safe claim to marble.
- * - Series-5 splits into 5A (Amelia) and 5B (Bianco Thassos) — two
+ * - Series-5 splits into 5A (Amelia) and 5B (Bianco Thassos) - two
  *   distinct sub-tiers, never collapsed.
  * - The wins: > 85% gloss (highest of the three ranges) and the
- *   REPOLISHABLE surface — unique to this catalogue.
+ *   REPOLISHABLE surface - unique to this catalogue.
  */
 
 export type MarbleShade = {
   name: string;
   slug: string;
   series: "1" | "2" | "3" | "4" | "5A" | "5B";
-  /** Microban is OFFERED on these shades — an option, not an attribute. */
+  /** Microban is OFFERED on these shades - an option, not an attribute. */
   microbanOption: boolean;
   /** Consolidated colour facet for the four category pages. */
   family: "white" | "cream" | "grey" | "warm";
@@ -353,7 +353,7 @@ export const marbleShades: MarbleShade[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Colour-category pages — consolidated from the extraction's families */
+/* Colour-category pages - consolidated from the extraction's families */
 /* so no page is thin (the range has no black at all).                 */
 /* ------------------------------------------------------------------ */
 
@@ -372,7 +372,7 @@ export const marbleFamilies: MarbleFamily[] = [
     label: "White Marble",
     query: "white engineered marble slabs UAE",
     intro:
-      "White is where the KalingaStone Marble range concentrates its finest work — from Candy White through Cristallo and Gardenia to Amelia and Bianco Thassos, the brilliant white at the top of the range. Ten shades, all engineered in 304 × 125 cm slabs with the collection's signature > 85% gloss, stocked in Sharjah by Global Classic.",
+      "White is where the KalingaStone Marble range concentrates its finest work - from Candy White through Cristallo and Gardenia to Amelia and Bianco Thassos, the brilliant white at the top of the range. Ten shades, all engineered in 304 × 125 cm slabs with the collection's signature > 85% gloss, stocked in Sharjah by Global Classic.",
   },
   {
     id: "cream",
@@ -380,7 +380,7 @@ export const marbleFamilies: MarbleFamily[] = [
     label: "Cream & Beige Marble",
     query: "cream and beige marble slabs UAE",
     intro:
-      "Cream, pearl and beige carry the warm register Gulf interiors are built on — thirteen shades from Classic Crystal and Crema Nova to Tiberio and Ottoman Beige. Engineered marble holds these tones consistently slab after slab, repolishable in situ, in a single 304 × 125 cm format supplied UAE-wide from Sharjah stock.",
+      "Cream, pearl and beige carry the warm register Gulf interiors are built on - thirteen shades from Classic Crystal and Crema Nova to Tiberio and Ottoman Beige. Engineered marble holds these tones consistently slab after slab, repolishable in situ, in a single 304 × 125 cm format supplied UAE-wide from Sharjah stock.",
   },
   {
     id: "grey",
@@ -388,7 +388,7 @@ export const marbleFamilies: MarbleFamily[] = [
     label: "Grey Marble",
     query: "grey marble slabs UAE",
     intro:
-      "Grey and stone tones for contemporary schemes — Palladio Grey, Grigio Classico, Majestic Grey, the concrete-inspired Sleek Concrete and more. Eight engineered marble shades in 304 × 125 cm slabs, with the range's > 85% polished gloss and a repolishable surface built for high-traffic floors.",
+      "Grey and stone tones for contemporary schemes - Palladio Grey, Grigio Classico, Majestic Grey, the concrete-inspired Sleek Concrete and more. Eight engineered marble shades in 304 × 125 cm slabs, with the range's > 85% polished gloss and a repolishable surface built for high-traffic floors.",
   },
   {
     id: "warm",
@@ -396,7 +396,7 @@ export const marbleFamilies: MarbleFamily[] = [
     label: "Gold & Emperador Marble",
     query: "emperador brown marble UAE",
     intro:
-      "The range's deepest tones: warm gold Arcadio and Valente, and the two Emperador designs — Chiara and Scuro — carrying the classic brown-marble language in an engineered slab. Four shades, 304 × 125 cm, repolishable, stocked in Sharjah and supplied across the UAE.",
+      "The range's deepest tones: warm gold Arcadio and Valente, and the two Emperador designs - Chiara and Scuro - carrying the classic brown-marble language in an engineered slab. Four shades, 304 × 125 cm, repolishable, stocked in Sharjah and supplied across the UAE.",
   },
 ];
 
@@ -410,7 +410,7 @@ export const marbleShadeBySlug = new Map(marbleShades.map((s) => [s.slug, s]));
 export const shadesOfMarbleFamily = (id: MarbleShade["family"]) =>
   marbleShades.filter((s) => s.family === id);
 
-/** Catalogue (ascending-series) order — the prev/next pagination axis. */
+/** Catalogue (ascending-series) order - the prev/next pagination axis. */
 export const marbleShadeIndex = new Map(
   marbleShades.map((s, i) => [s.slug, i]),
 );

@@ -64,7 +64,7 @@ export function CollectionLadder() {
                 >
                   <Image
                     src={`/kalingastone/terrazzo/swatches/${s.slug}.webp`}
-                    alt={`${s.name} — Series ${s.series}`}
+                    alt={`${s.name} - Series ${s.series}`}
                     fill
                     sizes="64px"
                     className="object-cover"

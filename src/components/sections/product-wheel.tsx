@@ -11,14 +11,14 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 /**
- * The product wheel — scroll-driven. On desktop the section pins and the dial
+ * The product wheel - scroll-driven. On desktop the section pins and the dial
  * of product names rotates with the scroll, one detent per line; the section
  * retints in the active line's accent and the placeholder card turns with it.
  * Clicking a name glides the scroll to that detent. On phones (and under
  * reduced motion) the dial becomes a tappable chip row with no pinning.
  *
  * Images are deliberate placeholder blocks (accent-tinted, crossed frame)
- * until real product photography arrives — swap files in /public/products.
+ * until real product photography arrives - swap files in /public/products.
  */
 
 const STEP_DEG = 14;
@@ -36,7 +36,7 @@ const emptySubscribe = () => () => {};
 let audioContext: AudioContext | null = null;
 
 /**
- * A quiet, tactile detent — closer to a haptic than a click: a tiny damped
+ * A quiet, tactile detent - closer to a haptic than a click: a tiny damped
  * "tock" with a low knuckle under it, kept far below speech volume.
  */
 function playTick() {
@@ -66,7 +66,7 @@ function playTick() {
     sub.start(t);
     sub.stop(t + 0.055);
   } catch {
-    // No audio available — the wheel works silently.
+    // No audio available - the wheel works silently.
   }
 }
 
@@ -100,7 +100,7 @@ export function ProductWheel() {
       if (!section) return;
 
       // Desktop: names radiate from a pivot off the LEFT edge, active on the
-      // horizontal. Mobile: a fan with the pivot BELOW, active at 12 o'clock —
+      // horizontal. Mobile: a fan with the pivot BELOW, active at 12 o'clock -
       // scrolling forward turns it anticlockwise, scrolling back clockwise.
       const applyDesktop = (position: number) => {
         itemRefs.current.forEach((el, i) => {
@@ -109,7 +109,7 @@ export function ProductWheel() {
           const distance = Math.abs(i - position);
           el.style.transformOrigin = "left center";
           el.style.transform = `rotate(${angle}deg) translateX(${RADIUS}px)`;
-          // Owner rule: five names visible — the active one plus two each
+          // Owner rule: five names visible - the active one plus two each
           // side. Anything further is fully hidden so the dial can never
           // overlap the section heading.
           el.style.opacity =
@@ -123,8 +123,8 @@ export function ProductWheel() {
           if (!el) return;
           const angle = (i - position) * STEP_DEG_MOBILE;
           const distance = Math.abs(i - position);
-          // Origin sits RADIUS_MOBILE below the element's own centre — the
-          // fan's hub — so a plain rotate swings the name along the arc.
+          // Origin sits RADIUS_MOBILE below the element's own centre - the
+          // fan's hub - so a plain rotate swings the name along the arc.
           el.style.transformOrigin = `50% ${RADIUS_MOBILE}px`;
           el.style.transform = `translateX(-50%) rotate(${angle}deg)`;
           el.style.opacity =
@@ -134,7 +134,7 @@ export function ProductWheel() {
       };
 
       // ScrollTrigger's built-in snap waits for native scroll-end, which
-      // Lenis's smoothing delays unreliably — so snap manually: when updates
+      // Lenis's smoothing delays unreliably - so snap manually: when updates
       // go quiet between detents, glide the scroll to the nearest one.
       let snapTimer: ReturnType<typeof setTimeout> | undefined;
       const queueSnap = (st: ScrollTrigger) => {
@@ -219,7 +219,7 @@ export function ProductWheel() {
       </div>
 
       <div className="container-gcb mt-8 grid items-center gap-8 lg:mt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
-        {/* Dial — scroll-rotated. Desktop: pivot off the left edge, active on
+        {/* Dial - scroll-rotated. Desktop: pivot off the left edge, active on
             the horizontal. Mobile: fan at the top, pivot below, active at 12
             o'clock. Hidden on phones until hydration (chips cover no-JS). */}
         {showDial && (
@@ -253,7 +253,7 @@ export function ProductWheel() {
                   // The desktop pose ships as SSR inline style for no-JS
                   // rendering only. Once mounted, the prop is withdrawn so
                   // React re-renders can never clobber the transforms the
-                  // scroll code writes — with the prop present, every detent's
+                  // scroll code writes - with the prop present, every detent's
                   // re-render reset phones to the desktop pose (off-screen).
                   style={
                     mounted
@@ -277,7 +277,7 @@ export function ProductWheel() {
           </div>
         )}
 
-        {/* Chip row — no-JS phones and reduced-motion fallback */}
+        {/* Chip row - no-JS phones and reduced-motion fallback */}
         <div
           className={cn(
             "-mx-6 overflow-x-auto px-6",
@@ -308,7 +308,7 @@ export function ProductWheel() {
           </div>
         </div>
 
-        {/* Active line card — centered on phones, right column on desktop */}
+        {/* Active line card - centered on phones, right column on desktop */}
         <div className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
             <AnimatePresence mode="popLayout" initial={false}>
@@ -344,7 +344,7 @@ export function ProductWheel() {
                 accent-coloured counter unreadable on the Onyx-mix ground. */}
             <p className="label-gcb text-ink/90">
               {String(activeIndex + 1).padStart(2, "0")} /{" "}
-              {String(COUNT).padStart(2, "0")} — {active.label}
+              {String(COUNT).padStart(2, "0")} - {active.label}
             </p>
             <GcbButton
               href={active.href}

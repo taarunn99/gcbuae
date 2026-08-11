@@ -5,11 +5,11 @@ import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * THE MARBLE HUB'S SIGNATURE ELEMENT — the specifier's loupe. Move the
+ * THE MARBLE HUB'S SIGNATURE ELEMENT - the specifier's loupe. Move the
  * pointer (or drag a finger) across the vein panel and a circular loupe
  * magnifies the stone beneath it, ringed in Pastel Green. Marble is
  * bought by reading its veining up close; this is that gesture, on the
- * page. Pure CSS background math — no extra requests, no canvas.
+ * page. Pure CSS background math - no extra requests, no canvas.
  */
 export function MarbleLoupe({
   src,
@@ -45,7 +45,7 @@ export function MarbleLoupe({
       onPointerLeave={() => setActive(false)}
       onPointerMove={(e) => move(e.clientX, e.clientY)}
     >
-      {/* The slab — plain img via CSS background keeps the loupe math exact */}
+      {/* The slab - plain img via CSS background keeps the loupe math exact */}
       <div
         aria-label={alt}
         role="img"

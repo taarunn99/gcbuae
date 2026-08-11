@@ -17,7 +17,7 @@ type SplitHeadingProps = {
  * Reveals text line by line from behind a mask, re-splitting on resize.
  *
  * The split is deferred until `document.fonts.ready` because SplitText measures
- * line breaks from rendered glyphs — splitting against a fallback font produces
+ * line breaks from rendered glyphs - splitting against a fallback font produces
  * lines that jump once the webfont swaps in.
  */
 export function SplitHeading({

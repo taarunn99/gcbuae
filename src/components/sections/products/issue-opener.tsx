@@ -5,7 +5,7 @@ import { RuleIn } from "@/components/sections/quartz/rule-in";
 import { Container } from "@/components/ui/container";
 
 /**
- * The magazine masthead spread — golden-section grid (1.618fr / 1fr),
+ * The magazine masthead spread - golden-section grid (1.618fr / 1fr),
  * phi-scale display type in a staggered break, drop-cap standfirst,
  * the issue-cover photograph with a rotated folio caption. Server
  * component; every word in the HTML.
@@ -17,7 +17,7 @@ export function IssueOpener() {
         <Reveal>
           <div className="flex flex-wrap items-baseline justify-between gap-4">
             <p className="label-gcb text-muted">
-              GCB · The Materials Issue — Vol. 01
+              GCB · The Materials Issue - Vol. 01
             </p>
             <p className="label-gcb text-muted">Sharjah, UAE</p>
           </div>
@@ -40,7 +40,7 @@ export function IssueOpener() {
               <p className="dropcap text-phi-1 mt-12 max-w-2xl leading-relaxed font-light">
                 Materials are the only part of a building the owner touches
                 every day. This issue is the whole Global Classic range read
-                cover to cover — three KalingaStone catalogues of stone, the
+                cover to cover - three KalingaStone catalogues of stone, the
                 water lines that serve them, and the care that keeps every
                 surface at opening-day gloss.
               </p>
@@ -50,7 +50,7 @@ export function IssueOpener() {
               <p className="text-muted mt-10 max-w-xl leading-relaxed">
                 128 shades of engineered stone across quartz, marble and
                 terrazzo · Jaquar showers, taps and sanitaryware · FILA sealers
-                and cleaners — stocked in Sharjah, delivered across the whole of
+                and cleaners - stocked in Sharjah, delivered across the whole of
                 the UAE, wholesale.
               </p>
             </Reveal>
@@ -60,7 +60,7 @@ export function IssueOpener() {
             <figure className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-xl border">
               <Image
                 src="/products/editorial/issue-cover.webp"
-                alt="A stack of stone sample slabs — marble, quartz and terrazzo — with a sage linen bookmark, styled like a stack of magazines"
+                alt="A stack of stone sample slabs - marble, quartz and terrazzo - with a sage linen bookmark, styled like a stack of magazines"
                 fill
                 quality={90}
                 sizes="(min-width: 1024px) 36vw, 100vw"
@@ -73,7 +73,7 @@ export function IssueOpener() {
               aria-hidden
               className="label-gcb text-muted absolute top-1/2 -right-6 hidden origin-center -translate-y-1/2 rotate-90 whitespace-nowrap lg:block"
             >
-              The collection, in print — Vol. 01
+              The collection, in print - Vol. 01
             </span>
           </Reveal>
         </div>

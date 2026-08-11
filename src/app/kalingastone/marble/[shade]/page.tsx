@@ -15,7 +15,7 @@ import { siteConfig } from "@/config/site";
 import { marbleBody, marbleIntro } from "@/lib/marble-copy";
 
 /**
- * One indexed URL per marble shade — the same long-tail play as the
+ * One indexed URL per marble shade - the same long-tail play as the
  * quartz and terrazzo hubs. All 35 pages statically generated.
  */
 
@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!shade) return {};
   const family = marbleFamilyById.get(shade.family)!;
   return {
-    title: `${shade.name} — KalingaStone Marble`,
-    description: `${shade.name}: KalingaStone engineered marble, Series-${shade.series}, 304 × 125 cm slab${shade.microbanOption ? ", Microban® option available" : ""}. ${family.label} range — slab availability and volume pricing from Sharjah stock.`,
+    title: `${shade.name} - KalingaStone Marble`,
+    description: `${shade.name}: KalingaStone engineered marble, Series-${shade.series}, 304 × 125 cm slab${shade.microbanOption ? ", Microban® option available" : ""}. ${family.label} range - slab availability and volume pricing from Sharjah stock.`,
     alternates: { canonical: `/kalingastone/marble/${shade.slug}` },
     openGraph: {
       images: [
@@ -218,7 +218,7 @@ export default async function MarbleShadePage({ params }: Props) {
               >
                 <Image
                   src={swatch}
-                  alt={`KalingaStone Marble ${shade.name} — Series-${shade.series} engineered marble slab surface, 304 × 125 cm`}
+                  alt={`KalingaStone Marble ${shade.name} - Series-${shade.series} engineered marble slab surface, 304 × 125 cm`}
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
@@ -229,7 +229,7 @@ export default async function MarbleShadePage({ params }: Props) {
                 <figure className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-xl border">
                   <Image
                     src={lifestyle}
-                    alt={`${shade.name} marble installed — KalingaStone catalogue application photograph`}
+                    alt={`${shade.name} marble installed - KalingaStone catalogue application photograph`}
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
@@ -242,7 +242,7 @@ export default async function MarbleShadePage({ params }: Props) {
         </Container>
       </section>
 
-      {/* Related shades — same colour family */}
+      {/* Related shades - same colour family */}
       {related.length > 0 && (
         <section className="border-border/30 border-t py-20">
           <Container>
@@ -323,7 +323,7 @@ export default async function MarbleShadePage({ params }: Props) {
               Need {shade.name} for a project?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

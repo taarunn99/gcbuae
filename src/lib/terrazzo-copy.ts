@@ -9,25 +9,25 @@ import {
  * strictly from catalogue facts. Bound by the source's own limits: pair-
  * level collection attribution, one slab size, NO published thickness,
  * NO Microban mechanism claims (the catalogue contradicts itself on
- * treated-vs-integrated — we claim protection and performance only).
+ * treated-vs-integrated - we claim protection and performance only).
  */
 
 const FAMILY_CHARACTER: Record<TerrazzoShade["family"], string> = {
-  mono: "a monochrome design in the Roma register — black-and-white chips composing the classic terrazzo statement",
+  mono: "a monochrome design in the Roma register - black-and-white chips composing the classic terrazzo statement",
   white:
-    "a light-ground design — pale terrazzo in the register UAE lobbies, bathrooms and retail floors are most often specified around",
-  grey: "a grey design — the working palette of contemporary architecture, holding its own against concrete, steel and pale timber",
+    "a light-ground design - pale terrazzo in the register UAE lobbies, bathrooms and retail floors are most often specified around",
+  grey: "a grey design - the working palette of contemporary architecture, holding its own against concrete, steel and pale timber",
   beige:
-    "a warm neutral design — the sand and cream register Gulf interiors are built on, with the chips supplying the movement",
+    "a warm neutral design - the sand and cream register Gulf interiors are built on, with the chips supplying the movement",
   brown:
-    "an earth-toned design — deep, warm and grounded, with the mosaic chips carrying the drama",
+    "an earth-toned design - deep, warm and grounded, with the mosaic chips carrying the drama",
   accent:
-    "one of the collection's colour statements — terrazzo used as the room's centrepiece rather than its background",
+    "one of the collection's colour statements - terrazzo used as the room's centrepiece rather than its background",
 };
 
 export function terrazzoIntro(shade: TerrazzoShade): string {
   const collection = terrazzoCollectionBySeries.get(shade.series)!;
-  return `${shade.name} is ${FAMILY_CHARACTER[shade.family]}. It is a KalingaStone Terrazzo design from the ${collection.label} collections (Series ${shade.series}), produced as a 304 × 125 cm slab and supplied in the UAE by Global Classic Building Material LLC from stock in Sharjah — as tiles, full slabs or cut-to-size.`;
+  return `${shade.name} is ${FAMILY_CHARACTER[shade.family]}. It is a KalingaStone Terrazzo design from the ${collection.label} collections (Series ${shade.series}), produced as a 304 × 125 cm slab and supplied in the UAE by Global Classic Building Material LLC from stock in Sharjah - as tiles, full slabs or cut-to-size.`;
 }
 
 export function terrazzoBody(shade: TerrazzoShade): string[] {
@@ -41,7 +41,7 @@ export function terrazzoBody(shade: TerrazzoShade): string[] {
   );
 
   paragraphs.push(
-    `KalingaStone Terrazzo is made in block form, which keeps water absorption below 0.2% and suits it to bathrooms, counters and vanity tops; its structured finish is stated by the manufacturer as ideal for exterior cladding and outdoors. It carries an A1 fire classification (EN 13501-1) for wall cladding and flooring — the top non-combustible class, and a genuine specification advantage for UAE lift lobbies and commercial fit-out.`,
+    `KalingaStone Terrazzo is made in block form, which keeps water absorption below 0.2% and suits it to bathrooms, counters and vanity tops; its structured finish is stated by the manufacturer as ideal for exterior cladding and outdoors. It carries an A1 fire classification (EN 13501-1) for wall cladding and flooring - the top non-combustible class, and a genuine specification advantage for UAE lift lobbies and commercial fit-out.`,
   );
 
   if (shade.microban) {
@@ -52,7 +52,7 @@ export function terrazzoBody(shade: TerrazzoShade): string[] {
 
   if (flutingSamples.some((f) => f.baseSlug === shade.slug)) {
     paragraphs.push(
-      `${shade.name} is also shown in the catalogue's fluted programme — shallow machined grooves that run the surface and play with light. See the fluting page for the sample gallery.`,
+      `${shade.name} is also shown in the catalogue's fluted programme - shallow machined grooves that run the surface and play with light. See the fluting page for the sample gallery.`,
     );
   }
 

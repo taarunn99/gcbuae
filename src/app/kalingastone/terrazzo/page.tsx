@@ -26,7 +26,7 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "KalingaStone Terrazzo Slabs UAE — 24 Shades" },
+  title: { absolute: "KalingaStone Terrazzo Slabs UAE - 24 Shades" },
   description:
     "The complete KalingaStone terrazzo range in the UAE: 24 shades across 5 collections, 304 × 125 cm slabs, A1 fire class, exterior-ready, fluting programme. Stocked and supplied by Global Classic, Sharjah.",
   alternates: { canonical: "/kalingastone/terrazzo" },
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
 const properties = [
   {
     title: "Hygienic surface",
-    body: "A dense, block-form surface that cleans easily — with Microban® antibacterial protection on four shades.",
+    body: "A dense, block-form surface that cleans easily - with Microban® antibacterial protection on four shades.",
     icon: Sparkles,
   },
   {
     title: "High strength",
-    body: "95–110 MPa compressive strength — around three times structural concrete — for floors, treads and cladding.",
+    body: "95-110 MPa compressive strength - around three times structural concrete - for floors, treads and cladding.",
     icon: ShieldCheck,
   },
   {
@@ -52,7 +52,7 @@ const properties = [
   },
   {
     title: "Fire resistant",
-    body: "Class A1 to EN 13501-1 for wall cladding and flooring — the top non-combustible classification.",
+    body: "Class A1 to EN 13501-1 for wall cladding and flooring - the top non-combustible classification.",
     icon: Flame,
   },
 ];
@@ -75,23 +75,23 @@ const microbanBenefits = [
 ];
 
 const fullSpecs: [string, string, string][] = [
-  ["Apparent density", "EN14617-1", "2.40–2.6 kg/dm³"],
+  ["Apparent density", "EN14617-1", "2.40-2.6 kg/dm³"],
   ["Water absorption", "EN14617-1", "< 0.2%"],
-  ["Flexural strength", "EN14617-2", "10–18 MPa"],
+  ["Flexural strength", "EN14617-2", "10-18 MPa"],
   ["Dimensional stability", "EN14617-12", "Class A"],
-  ["Impact resistance", "EN14617-9", "1.5–3.0 J"],
-  ["Compressive strength", "EN14617-15", "95–110 MPa"],
-  ["Abrasion resistance", "EN14617-4", "Groove length 30–40 mm"],
+  ["Impact resistance", "EN14617-9", "1.5-3.0 J"],
+  ["Compressive strength", "EN14617-15", "95-110 MPa"],
+  ["Abrasion resistance", "EN14617-4", "Groove length 30-40 mm"],
   ["Frost resistance", "DIN 52104", "Complies"],
-  ["Surface hardness", "EN 101 (Mohs)", "3.0–4.0"],
+  ["Surface hardness", "EN 101 (Mohs)", "3.0-4.0"],
   ["Chemical resistance", "EN14617-10", "Class C1"],
-  ["Linear thermal expansion", "EN14617-11", "10–15 × 10⁻⁶ /°C"],
+  ["Linear thermal expansion", "EN14617-11", "10-15 × 10⁻⁶ /°C"],
   ["Fire classification", "EN 13501-1", "Wall A1-S1-d0 · Floor A1-fl-S1"],
   ["Slip resistance", "EN 14231", "Wet > 3 · Dry > 35 SRV"],
   ["Radiation", "GB 6566-2010", "Complies"],
   ["Thermal shock", "EN14617-6", "No defects after 20 cycles"],
-  ["Freeze–thaw", "EN14617-5", "No defect after 25 cycles"],
-  ["Glossiness reflection", "—", "> 75%"],
+  ["Freeze-thaw", "EN14617-5", "No defect after 25 cycles"],
+  ["Glossiness reflection", "-", "> 75%"],
   ["Slip resistance, Honed 400", "DIN 51130", "R9"],
   ["Friction coefficient", "ASTM C 1028", "Dry 0.8 · Wet 0.6"],
 ];
@@ -99,15 +99,15 @@ const fullSpecs: [string, string, string][] = [
 const faqs = [
   {
     q: "What is KalingaStone Terrazzo?",
-    a: "KalingaStone Terrazzo is an engineered terrazzo made in block form by Classic Marble Company — marble chips composed into 304 × 125 cm slabs across 24 shades and five collections (Roma, Cafe, Palladiana, Venetian and Elite). It is distributed in the UAE by Global Classic Building Material LLC from Sharjah, as tiles, full slabs or cut-to-size.",
+    a: "KalingaStone Terrazzo is an engineered terrazzo made in block form by Classic Marble Company - marble chips composed into 304 × 125 cm slabs across 24 shades and five collections (Roma, Cafe, Palladiana, Venetian and Elite). It is distributed in the UAE by Global Classic Building Material LLC from Sharjah, as tiles, full slabs or cut-to-size.",
   },
   {
     q: "Can terrazzo be used outdoors in the UAE?",
-    a: "Yes. The manufacturer positions its structured finishes as ideal for exterior cladding and outdoor use, water absorption is below 0.2%, and the range passes frost and 25-cycle freeze–thaw testing. Combined with the A1 fire classification, that makes terrazzo the range Global Classic recommends for facades and outdoor surfaces.",
+    a: "Yes. The manufacturer positions its structured finishes as ideal for exterior cladding and outdoor use, water absorption is below 0.2%, and the range passes frost and 25-cycle freeze-thaw testing. Combined with the A1 fire classification, that makes terrazzo the range Global Classic recommends for facades and outdoor surfaces.",
   },
   {
     q: "What fire rating does KalingaStone Terrazzo carry?",
-    a: "Class A1 to EN 13501-1 — A1-S1-d0 for wall cladding and A1-fl-S1 for flooring and stairs. A1 is the top non-combustible classification, frequently mandated in UAE commercial fit-out, lift lobbies and cladding — and a class above engineered quartz, which rates B.",
+    a: "Class A1 to EN 13501-1 - A1-S1-d0 for wall cladding and A1-fl-S1 for flooring and stairs. A1 is the top non-combustible classification, frequently mandated in UAE commercial fit-out, lift lobbies and cladding - and a class above engineered quartz, which rates B.",
   },
   {
     q: "What size do terrazzo slabs come in?",
@@ -115,15 +115,15 @@ const faqs = [
   },
   {
     q: "What is fluting on terrazzo?",
-    a: "Fluting is KalingaStone's signature terrazzo treatment: shallow grooves machined across the surface that create a rhythmic play of light. The catalogue shows nine fluted samples on bases including Ceppo, Forum, Imperiale, Docks Grey and Exotic Green — see the fluting page for the full gallery.",
+    a: "Fluting is KalingaStone's signature terrazzo treatment: shallow grooves machined across the surface that create a rhythmic play of light. The catalogue shows nine fluted samples on bases including Ceppo, Forum, Imperiale, Docks Grey and Exotic Green - see the fluting page for the full gallery.",
   },
   {
     q: "How does terrazzo compare with quartz?",
-    a: "They win different jobs. Quartz is harder (Mohs 6–7 vs 3–4), more stain-proof and NSF food-safe — the worktop material. Terrazzo answers with the A1 fire class (quartz is B), higher gloss (>75%), exterior suitability and its mosaic aesthetic — the floor, wall and facade material. Global Classic stocks both, so specification is a conversation, not a compromise.",
+    a: "They win different jobs. Quartz is harder (Mohs 6-7 vs 3-4), more stain-proof and NSF food-safe - the worktop material. Terrazzo answers with the A1 fire class (quartz is B), higher gloss (>75%), exterior suitability and its mosaic aesthetic - the floor, wall and facade material. Global Classic stocks both, so specification is a conversation, not a compromise.",
   },
   {
     q: "Do you deliver terrazzo across the UAE?",
-    a: "Yes — delivery is across the whole of the UAE. Slabs are held at Global Classic's Sharjah warehouse in Al Sajaa and delivered to every emirate, from Dubai and Abu Dhabi to the Northern Emirates. Supply is wholesale, to contractors, developers, fabricators and decor companies, with availability confirmed against live stock.",
+    a: "Yes - delivery is across the whole of the UAE. Slabs are held at Global Classic's Sharjah warehouse in Al Sajaa and delivered to every emirate, from Dubai and Abu Dhabi to the Northern Emirates. Supply is wholesale, to contractors, developers, fabricators and decor companies, with availability confirmed against live stock.",
   },
 ];
 
@@ -236,8 +236,8 @@ export default function KalingaStoneTerrazzoPage() {
                   KalingaStone Terrazzo is an engineered terrazzo made in block
                   form by Classic Marble Company and distributed across the
                   Emirates by Global Classic. The range spans{" "}
-                  <strong>24 shades</strong> in five collections — Roma, Cafe,
-                  Palladiana, Venetian and Elite — in a single{" "}
+                  <strong>24 shades</strong> in five collections - Roma, Cafe,
+                  Palladiana, Venetian and Elite - in a single{" "}
                   <strong>304 × 125 cm</strong> slab, with an A1 fire
                   classification, exterior-ready finishes and a signature
                   fluting programme.
@@ -264,7 +264,7 @@ export default function KalingaStoneTerrazzoPage() {
             <dl className="border-border/40 mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border sm:grid-cols-4">
               {[
                 ["24", "shades across five collections"],
-                ["Class A1", "fire rating — wall & floor"],
+                ["Class A1", "fire rating - wall & floor"],
                 ["304 × 125 cm", "one slab format, every shade"],
                 [">75%", "gloss on polished slabs"],
               ].map(([value, label]) => (
@@ -308,7 +308,7 @@ export default function KalingaStoneTerrazzoPage() {
         <Container className="relative z-10">
           <p className="label-gcb text-bronze">Why specifiers choose it</p>
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
-            Colour your world — with a fire certificate.
+            Colour your world - with a fire certificate.
           </h2>
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {properties.map((p) => (
@@ -400,7 +400,7 @@ export default function KalingaStoneTerrazzoPage() {
                   <span className="border-warm-black relative block aspect-[3/2] overflow-hidden rounded-lg border">
                     <Image
                       src={`/kalingastone/terrazzo/swatches/${cover.slug}.webp`}
-                      alt={`${c.label} — KalingaStone terrazzo collection`}
+                      alt={`${c.label} - KalingaStone terrazzo collection`}
                       fill
                       sizes="(min-width: 640px) 30vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -428,7 +428,7 @@ export default function KalingaStoneTerrazzoPage() {
             Every shade in the catalogue.
           </h2>
           <p className="text-muted mt-4 max-w-2xl leading-relaxed">
-            The complete printed range — nothing added, nothing renamed. Grouped
+            The complete printed range - nothing added, nothing renamed. Grouped
             by collection, filterable by Microban® protection.
           </p>
           <div className="mt-12">
@@ -457,12 +457,12 @@ export default function KalingaStoneTerrazzoPage() {
             <div>
               <p className="label-gcb text-muted">The signature</p>
               <h2 className="font-display mt-4 text-3xl leading-tight sm:text-4xl">
-                Fluting — grooves that play with light.
+                Fluting - grooves that play with light.
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed">
                 Shallow machined grooves run across the terrazzo surface,
                 turning every wall into a rhythm of light and shadow. Fluting is
-                unique to the terrazzo range — nine catalogued samples on bases
+                unique to the terrazzo range - nine catalogued samples on bases
                 from Ceppo to Exotic Green.
               </p>
               <div className="mt-8 flex items-center gap-4">
@@ -501,7 +501,7 @@ export default function KalingaStoneTerrazzoPage() {
                 less bacterial growth.
               </h2>
               <p className="mt-6 max-w-xl leading-relaxed">
-                Four terrazzo shades carry Microban® protection — a first for
+                Four terrazzo shades carry Microban® protection - a first for
                 terrazzo in India. Bacteria on a counter can double every twenty
                 minutes; on a Microban-protected surface, growth is disrupted
                 around the clock.
@@ -554,7 +554,7 @@ export default function KalingaStoneTerrazzoPage() {
               <figure className="relative mb-10 aspect-[4/3] overflow-hidden rounded-xl">
                 <Image
                   src="/kalingastone/quartz/microban-field.webp"
-                  alt="Artistic macro of a stone slab edge repelling glowing microbes — the Microban protective layer visualised"
+                  alt="Artistic macro of a stone slab edge repelling glowing microbes - the Microban protective layer visualised"
                   fill
                   quality={90}
                   sizes="(min-width: 1024px) 45vw, 100vw"
@@ -587,7 +587,7 @@ export default function KalingaStoneTerrazzoPage() {
 
           <div className="mt-24">
             <h3 className="label-gcb text-bronze">
-              The full record — 19 properties, five certificates
+              The full record - 19 properties, five certificates
             </h3>
             <div className="mt-8">
               <TerrazzoCertificates />
@@ -631,7 +631,7 @@ export default function KalingaStoneTerrazzoPage() {
             </div>
           </details>
 
-          {/* Finishes — macro photography */}
+          {/* Finishes - macro photography */}
           <div className="mt-24">
             <h3 className="label-gcb text-bronze">Five finishes, up close</h3>
             <div className="mt-8">
@@ -646,14 +646,14 @@ export default function KalingaStoneTerrazzoPage() {
         <Container>
           <p className="label-gcb text-muted">Choosing a surface</p>
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
-            Terrazzo or quartz — which does your project need?
+            Terrazzo or quartz - which does your project need?
           </h2>
           {/* Answer-first, honest per the catalogue's own comparison */}
           <p className="mt-6 max-w-2xl text-lg leading-relaxed">
             They win different jobs. Quartz is harder, more stain-resistant and
-            NSF food-safe — the worktop material. Terrazzo answers with the A1
+            NSF food-safe - the worktop material. Terrazzo answers with the A1
             fire classification quartz cannot reach, a higher polished gloss,
-            exterior suitability, and the mosaic aesthetic — the floor, wall and
+            exterior suitability, and the mosaic aesthetic - the floor, wall and
             facade material. Global Classic stocks both ranges in Sharjah.
           </p>
 
@@ -670,7 +670,7 @@ export default function KalingaStoneTerrazzoPage() {
                 {[
                   [
                     "Fire classification",
-                    "Class A1 — non-combustible",
+                    "Class A1 - non-combustible",
                     "Class B",
                   ],
                   [
@@ -678,10 +678,10 @@ export default function KalingaStoneTerrazzoPage() {
                     "Stated by the manufacturer",
                     "Confirm per application",
                   ],
-                  ["Polished gloss", "> 75%", "55–70%"],
-                  ["Surface hardness (Mohs)", "3.0–4.0", "6.0–7.0"],
+                  ["Polished gloss", "> 75%", "55-70%"],
+                  ["Surface hardness (Mohs)", "3.0-4.0", "6.0-7.0"],
                   ["Water absorption", "< 0.2%", "< 0.05%"],
-                  ["Food-safe certification", "—", "NSF certified"],
+                  ["Food-safe certification", "-", "NSF certified"],
                   ["Slab format", "304 × 125 cm", "Up to 330 × 200 cm"],
                 ].map(([prop, a, b]) => (
                   <tr key={prop}>
@@ -701,7 +701,7 @@ export default function KalingaStoneTerrazzoPage() {
             >
               KalingaStone Quartz range
             </Link>{" "}
-            — or the repolishable, high-gloss{" "}
+            - or the repolishable, high-gloss{" "}
             <Link
               href="/kalingastone/marble"
               className="u-line text-foreground"
@@ -723,7 +723,7 @@ export default function KalingaStoneTerrazzoPage() {
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
             <p className="text-ink/80 max-w-2xl text-lg leading-relaxed">
               Global Classic is the KalingaStone terrazzo supplier holding stock
-              in Sharjah — at the Al Sajaa warehouse — with delivery across the
+              in Sharjah - at the Al Sajaa warehouse - with delivery across the
               whole of the UAE: Dubai, Abu Dhabi, Sharjah, Ajman, Umm Al Quwain,
               Ras Al Khaimah and Fujairah. Supply is wholesale: contractors,
               developers, fabricators and decor companies buy by the project, as
@@ -732,7 +732,7 @@ export default function KalingaStoneTerrazzoPage() {
             </p>
             <ul className="space-y-3">
               {[
-                "Ex-stock slabs — no import lead time on stocked shades",
+                "Ex-stock slabs - no import lead time on stocked shades",
                 "Tiles, full slabs or CTS from the same 304 × 125 cm format",
                 "Samples for specification and client approval",
                 "Delivery coordinated to site or fabrication workshop",
@@ -784,7 +784,7 @@ export default function KalingaStoneTerrazzoPage() {
               Specifying terrazzo for a project?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

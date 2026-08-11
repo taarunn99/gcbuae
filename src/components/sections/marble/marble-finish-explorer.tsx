@@ -7,34 +7,34 @@ import { cn } from "@/lib/utils";
 
 /**
  * The five marble finishes as a macro viewer. Graffiato and Silken are
- * unique to the marble range — the catalogue's own note.
+ * unique to the marble range - the catalogue's own note.
  */
 
 const FINISHES = [
   {
     slug: "honed",
     name: "Honed",
-    body: "Flat matte, non-reflective — R9 slip-rated, the reference finish for floors.",
+    body: "Flat matte, non-reflective - R9 slip-rated, the reference finish for floors.",
   },
   {
     slug: "graffiato",
     name: "Graffiato",
-    body: "Finely scored linear texture — marble-only, the range's quiet answer to fluting.",
+    body: "Finely scored linear texture - marble-only, the range's quiet answer to fluting.",
   },
   {
     slug: "leather",
     name: "Leather",
-    body: "Smooth low-sheen tactile surface — warmth under the hand.",
+    body: "Smooth low-sheen tactile surface - warmth under the hand.",
   },
   {
     slug: "distress",
     name: "Distress",
-    body: "Softly worn matte with visible grain — marble that has already lived a little.",
+    body: "Softly worn matte with visible grain - marble that has already lived a little.",
   },
   {
     slug: "silken",
     name: "Silken",
-    body: "A fine soft-sheen surface, marble-only — silk in stone.",
+    body: "A fine soft-sheen surface, marble-only - silk in stone.",
   },
 ];
 
@@ -81,7 +81,7 @@ export function MarbleFinishExplorer() {
           ))}
         </div>
         <p className="text-ink/50 mt-5 text-sm">
-          Polished is standard — above 85% gloss; Honed 400 carries the R9 slip
+          Polished is standard - above 85% gloss; Honed 400 carries the R9 slip
           rating (DIN 51130).
         </p>
       </div>
@@ -91,7 +91,7 @@ export function MarbleFinishExplorer() {
           <Image
             key={f.slug}
             src={`/kalingastone/marble/finishes/${f.slug}.webp`}
-            alt={`KalingaStone marble ${f.name} finish — macro surface texture`}
+            alt={`KalingaStone marble ${f.name} finish - macro surface texture`}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className={cn(

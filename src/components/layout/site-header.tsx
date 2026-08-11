@@ -13,7 +13,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Fixed header. Over the hero it is invisible as a bar — only the buttons show
+ * Fixed header. Over the hero it is invisible as a bar - only the buttons show
  * (ink text, no background). Once scrolled past ~85vh it gains a blurred
  * limestone background and switches to foreground text. While the scroll film
  * is pinned, `html[data-film-pinned]` slides the whole thing out of frame
@@ -45,7 +45,7 @@ export function SiteHeader() {
   const closeProducts = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     // Hover-intent: a short grace period so diagonal travel into the
-    // panel doesn't slam it shut — but leaving really closes it.
+    // panel doesn't slam it shut - but leaving really closes it.
     closeTimer.current = setTimeout(() => setProductsOpen(false), 150);
   };
   const clusterRef = useMagneticShineGroup<HTMLDivElement>(0.25, 50);
@@ -66,7 +66,7 @@ export function SiteHeader() {
   }
 
   // The full-screen menu panel is dark, so the bar must NOT go light while
-  // it is open — transparent ink-on-dark reads correctly over the panel.
+  // it is open - transparent ink-on-dark reads correctly over the panel.
   const solid = (scrolled || searchOpen) && !menuOpen;
 
   // Lock page scroll behind the full-screen menu.
@@ -97,7 +97,7 @@ export function SiteHeader() {
         // the home page keeps the palette of its photography.
         !overHero && "theme-forest",
         // Fully opaque: an 85%-alpha bar composited off-palette colours from
-        // whatever scrolled beneath it — a colour-picker must read exactly
+        // whatever scrolled beneath it - a colour-picker must read exactly
         // #F7F8F5 here (strict palette).
         solid
           ? "bg-background text-foreground border-b"
@@ -108,7 +108,7 @@ export function SiteHeader() {
       <div className="container-gcb grid h-16 grid-cols-[1fr_auto_1fr] items-center sm:h-20">
         <Link
           href="/"
-          aria-label={`${siteConfig.name} — home`}
+          aria-label={`${siteConfig.name} - home`}
           className="justify-self-start transition-opacity hover:opacity-70"
         >
           {/* viewBox is cropped to the mark's content, so the logo renders at
@@ -130,7 +130,7 @@ export function SiteHeader() {
                 onPointerLeave={closeProducts}
               >
                 {/* A real link: tap/click ALWAYS navigates to /products.
-                    The panel is hover-intent only — JS-controlled, so it
+                    The panel is hover-intent only - JS-controlled, so it
                     can never stick open after a click (the old
                     focus-within bug). */}
                 <Link
@@ -277,7 +277,7 @@ export function SiteHeader() {
         </nav>
 
         {/* col-start-3 is load-bearing: the nav is display:none on phones,
-            which removes it from grid flow — without the explicit column this
+            which removes it from grid flow - without the explicit column this
             cluster auto-places into the middle and renders centred. */}
         <div
           ref={clusterRef}
@@ -293,7 +293,7 @@ export function SiteHeader() {
             </GcbButton>
           </div>
 
-          {/* Search — live: the whole catalogue is indexed. */}
+          {/* Search - live: the whole catalogue is indexed. */}
           <button
             type="button"
             aria-label="Search"
@@ -318,7 +318,7 @@ export function SiteHeader() {
             </svg>
           </button>
 
-          {/* Mobile menu button — hamburger to X */}
+          {/* Mobile menu button - hamburger to X */}
           <button
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -346,7 +346,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Search — drops from the top, expanding into the text box (CSS
+      {/* Search - drops from the top, expanding into the text box (CSS
           grid-rows transition). Placeholder until the catalogue ships. */}
       <div
         id="site-search"
@@ -373,7 +373,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile menu — full screen, slides in from the right (CSS transform
+      {/* Mobile menu - full screen, slides in from the right (CSS transform
           transition; stays mounted). Sits under the fixed bar z-wise so the
           logo and the X stay on top of it. */}
       <nav

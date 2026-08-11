@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 /**
  * The four headline tests as a PINNED scroll sequence (desktop): the
  * section holds in the viewport while scroll drives the cards up/down on
- * the right — the left instrument stays put, its value rolling and its
+ * the right - the left instrument stays put, its value rolling and its
  * line-drawn diagram redrawing at every switch. On mobile (and under
  * reduced motion) the cards simply stack. Every value and sentence is
  * server-rendered text in the DOM regardless of state.
@@ -40,7 +40,7 @@ const TESTS: Test[] = [
     suffix: "%",
     label: "Water absorption",
     standard: "ASTM C 97",
-    body: "Lower than natural granite. Water, oil, coffee and pigment sit on the surface instead of soaking in — which is why a KalingaStone slab is never sealed, not once, not annually.",
+    body: "Lower than natural granite. Water, oil, coffee and pigment sit on the surface instead of soaking in - which is why a KalingaStone slab is never sealed, not once, not annually.",
     diagram: (
       <>
         <path
@@ -56,10 +56,10 @@ const TESTS: Test[] = [
     id: "hardness",
     value: 7,
     format: { minimumFractionDigits: 1 },
-    prefix: "6.0–",
+    prefix: "6.0-",
     label: "Mohs hardness",
     standard: "EN 101",
-    body: "A steel knife blade sits near 5.5 on the Mohs scale — the slab is harder than what the kitchen throws at it. Scratches stay on the tools, not the counter.",
+    body: "A steel knife blade sits near 5.5 on the Mohs scale - the slab is harder than what the kitchen throws at it. Scratches stay on the tools, not the counter.",
     diagram: (
       <>
         <path pathLength={1} d="M10 44h44" />
@@ -72,11 +72,11 @@ const TESTS: Test[] = [
   {
     id: "strength",
     value: 250,
-    prefix: "150–",
+    prefix: "150-",
     suffix: " MPa",
     label: "Compressive strength",
     standard: "ASTM C 170",
-    body: "Structural concrete works at roughly 30–40 MPa. The slab bears several times that before distress — worktops, floors and treads carry loads without complaint.",
+    body: "Structural concrete works at roughly 30-40 MPa. The slab bears several times that before distress - worktops, floors and treads carry loads without complaint.",
     diagram: (
       <>
         <path pathLength={1} d="M12 40h40v10H12Z" />
@@ -152,7 +152,7 @@ export function TestBench() {
         )}
       >
         <div className="grid w-full gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
-          {/* The instrument — stays put while the cards exchange */}
+          {/* The instrument - stays put while the cards exchange */}
           <div className="hidden lg:block">
             <svg
               key={current.id}
@@ -199,7 +199,7 @@ export function TestBench() {
             </div>
           </div>
 
-          {/* The cards — scroll slides them through the frame on desktop,
+          {/* The cards - scroll slides them through the frame on desktop,
               plain stack on mobile. All four stay in the DOM. */}
           <div
             className={cn(

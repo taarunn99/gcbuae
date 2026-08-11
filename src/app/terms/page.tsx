@@ -44,7 +44,7 @@ export default function TermsPage() {
 
           <section>
             <h2 className="font-display text-2xl">
-              3. Product information — no offer
+              3. Product information - no offer
             </h2>
             <p className="mt-3">
               Content on this site (including images, descriptions,
@@ -63,8 +63,8 @@ export default function TermsPage() {
               The Global Classic name, logo, site design, text and imagery are
               owned by {siteConfig.legalName} or used under licence, and may not
               be reproduced without our written permission. Third-party names
-              and logos shown on this site — including KalingaStone, Jaquar and
-              FILA — are trademarks of their respective owners, used solely to
+              and logos shown on this site - including KalingaStone, Jaquar and
+              FILA - are trademarks of their respective owners, used solely to
               describe genuine products we distribute; no affiliation beyond
               that distribution relationship is implied.
             </p>

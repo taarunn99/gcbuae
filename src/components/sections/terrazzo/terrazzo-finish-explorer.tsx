@@ -6,7 +6,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * The five terrazzo finishes as a macro viewer — tab a finish, the
+ * The five terrazzo finishes as a macro viewer - tab a finish, the
  * texture crossfades. All five images and descriptions stay in the DOM;
  * tabs only toggle opacity.
  */
@@ -15,27 +15,27 @@ const FINISHES = [
   {
     slug: "distress",
     name: "Distress",
-    body: "Dark, softly worn matte surface — terrazzo that has already lived a little.",
+    body: "Dark, softly worn matte surface - terrazzo that has already lived a little.",
   },
   {
     slug: "honed",
     name: "Honed",
-    body: "Flat matte, non-reflective — R9 slip-rated, the reference finish for floors.",
+    body: "Flat matte, non-reflective - R9 slip-rated, the reference finish for floors.",
   },
   {
     slug: "river-wash",
     name: "River Wash",
-    body: "Water-worn texture with the aggregate raised in relief — a riverbed in stone.",
+    body: "Water-worn texture with the aggregate raised in relief - a riverbed in stone.",
   },
   {
     slug: "urban",
     name: "Urban",
-    body: "Coarse matte with pronounced aggregate relief — raw, industrial, exterior-ready.",
+    body: "Coarse matte with pronounced aggregate relief - raw, industrial, exterior-ready.",
   },
   {
     slug: "leather",
     name: "Leather",
-    body: "Tactile low-sheen surface with fine pebbling — warmth under the hand.",
+    body: "Tactile low-sheen surface with fine pebbling - warmth under the hand.",
   },
 ];
 
@@ -92,7 +92,7 @@ export function TerrazzoFinishExplorer() {
           <Image
             key={f.slug}
             src={`/kalingastone/terrazzo/finishes/${f.slug}.webp`}
-            alt={`KalingaStone terrazzo ${f.name} finish — macro surface texture`}
+            alt={`KalingaStone terrazzo ${f.name} finish - macro surface texture`}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className={cn(

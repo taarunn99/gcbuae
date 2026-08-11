@@ -32,9 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const count = shadesOfMarbleFamily(family.id).length;
   return {
     title: {
-      absolute: `${family.label} Slabs UAE — ${count} KalingaStone Shades`,
+      absolute: `${family.label} Slabs UAE - ${count} KalingaStone Shades`,
     },
-    description: `${count} ${family.label.toLowerCase()} shades from the KalingaStone engineered marble collection — 304 × 125 cm slabs, > 85% gloss, repolishable, stocked in Sharjah and supplied across the UAE.`,
+    description: `${count} ${family.label.toLowerCase()} shades from the KalingaStone engineered marble collection - 304 × 125 cm slabs, > 85% gloss, repolishable, stocked in Sharjah and supplied across the UAE.`,
     alternates: { canonical: `/kalingastone/marble/colours/${family.slug}` },
   };
 }
@@ -75,7 +75,7 @@ export default async function MarbleFamilyPage({ params }: Props) {
       },
       {
         "@type": "CollectionPage",
-        name: `KalingaStone ${family.label} — UAE`,
+        name: `KalingaStone ${family.label} - UAE`,
         url: `${siteConfig.url}/kalingastone/marble/colours/${family.slug}`,
         mainEntity: {
           "@type": "ItemList",
@@ -150,7 +150,7 @@ export default async function MarbleFamilyPage({ params }: Props) {
                   <span className="border-warm-black relative block aspect-[5/2] overflow-hidden rounded-lg border">
                     <Image
                       src={`/kalingastone/marble/swatches/${s.slug}.webp`}
-                      alt={`KalingaStone Marble ${s.name} — Series-${s.series} ${family.label.toLowerCase()} slab`}
+                      alt={`KalingaStone Marble ${s.name} - Series-${s.series} ${family.label.toLowerCase()} slab`}
                       fill
                       sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -205,7 +205,7 @@ export default async function MarbleFamilyPage({ params }: Props) {
               Specifying {family.label.toLowerCase()}?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

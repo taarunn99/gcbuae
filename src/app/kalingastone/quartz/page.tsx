@@ -30,7 +30,7 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "KalingaStone Quartz Slabs UAE — 69 Shades",
+  title: "KalingaStone Quartz Slabs UAE - 69 Shades",
   description:
     "The complete KalingaStone engineered quartz range in the UAE: 69 shades across 7 series, NSF food-safe, Microban® options, slabs up to 3300×2000 mm. Stocked and supplied by Global Classic, Sharjah.",
   alternates: { canonical: "/kalingastone/quartz" },
@@ -46,12 +46,12 @@ const pillars = [
   },
   {
     title: "Stain & scratch resistant",
-    body: "Non-porous with water absorption under 0.05% — lower than natural granite — so stains never take hold.",
+    body: "Non-porous with water absorption under 0.05% - lower than natural granite - so stains never take hold.",
     icon: ShieldCheck,
   },
   {
     title: "Impervious to heat",
-    body: "Resistant to heat and cold alike — engineered for the working kitchen, not just the showroom.",
+    body: "Resistant to heat and cold alike - engineered for the working kitchen, not just the showroom.",
     icon: Flame,
   },
   {
@@ -79,32 +79,32 @@ const microbanBenefits = [
   "Cleaner for longer, active 24/7",
   "Minimises cross-contamination risk",
   "Reduces stains and odours",
-  "Built in at manufacture — never washes off",
+  "Built in at manufacture - never washes off",
   "Unaffected by cleaning agents",
 ];
 
 const fullSpecs: [string, string, string][] = [
   ["Apparent density", "ASTM C 97 / EN14617-1", "> 2.1 kg/dm³"],
   ["Water absorption", "ASTM C 97 / EN14617-1", "< 0.05%"],
-  ["Modulus of rupture", "ASTM C 99", "55–65 MPa (dry/wet)"],
+  ["Modulus of rupture", "ASTM C 99", "55-65 MPa (dry/wet)"],
   ["Dimensional stability", "EN14617-12", "Class A"],
-  ["Flexural strength", "ASTM C 880 / EN14617-2", "40–60 / 50–60 MPa"],
-  ["Impact resistance", "EN14617-9", "5–14.5 J"],
-  ["Compressive strength", "ASTM C 170 / EN14617-15", "150–250 / 170–240 MPa"],
+  ["Flexural strength", "ASTM C 880 / EN14617-2", "40-60 / 50-60 MPa"],
+  ["Impact resistance", "EN14617-9", "5-14.5 J"],
+  ["Compressive strength", "ASTM C 170 / EN14617-15", "150-250 / 170-240 MPa"],
   ["Frost resistance", "DIN 52104", "Complies"],
-  ["Surface hardness", "EN 101 (Mohs)", "6.0–7.0"],
+  ["Surface hardness", "EN 101 (Mohs)", "6.0-7.0"],
   ["Abrasion resistance", "ASTM C 241", "Min 25.0"],
   ["Stain resistance", "ANSI Z 124.6", "Pass"],
   ["Resistance to acids", "ASTM C 650", "Not affected"],
   ["Chemical resistance", "EN14617-10", "Class C4"],
   ["Boiling water / high temp", "NEMA LD3-3.5 / 3.6", "Pass, no effect"],
   ["Fire classification*", "EN 13501-1", "Wall B-s1-d0 · Floor B-fl-S1"],
-  ["Slip resistance", "EN 14231", "Wet 13–21 · Dry 43–53 SRV"],
+  ["Slip resistance", "EN 14231", "Wet 13-21 · Dry 43-53 SRV"],
   ["Slip resistance, honed", "DIN 51130", "R9"],
   ["Thermal shock", "EN14617-6", "No defects after 20 cycles"],
-  ["Freeze–thaw", "ASTM C 1026 / EN14617-5", "No damage, 20–25 cycles"],
-  ["Glossiness reflection", "—", "55–70%"],
-  ["Thermal conductivity", "EN 12664", "0.435–0.485 W/(m·K)"],
+  ["Freeze-thaw", "ASTM C 1026 / EN14617-5", "No damage, 20-25 cycles"],
+  ["Glossiness reflection", "-", "55-70%"],
+  ["Thermal conductivity", "EN 12664", "0.435-0.485 W/(m·K)"],
   ["Friction coefficient", "ASTM C 1028", "Dry 0.8 · Wet 0.6"],
 ];
 
@@ -115,7 +115,7 @@ const faqs = [
   },
   {
     q: "Is KalingaStone Quartz food safe?",
-    a: "Yes. KalingaStone Quartz is certified by NSF International as a safe surface for food contact. Its water absorption is below 0.05% — lower than natural granite — so bacteria, oils and pigments cannot penetrate the surface, and everyday cleaning keeps it hygienic.",
+    a: "Yes. KalingaStone Quartz is certified by NSF International as a safe surface for food contact. Its water absorption is below 0.05% - lower than natural granite - so bacteria, oils and pigments cannot penetrate the surface, and everyday cleaning keeps it hygienic.",
   },
   {
     q: "What slab sizes does KalingaStone Quartz come in?",
@@ -127,19 +127,19 @@ const faqs = [
   },
   {
     q: "Can quartz slabs be used outdoors or in wet areas?",
-    a: "KalingaStone Quartz passes frost, freeze–thaw and boiling-water tests, carries an R9 honed slip rating, and resists acids and household chemicals. It is specified for bathrooms, wet-area cladding and commercial floors; for exterior use, confirm the application with our technical team first.",
+    a: "KalingaStone Quartz passes frost, freeze-thaw and boiling-water tests, carries an R9 honed slip rating, and resists acids and household chemicals. It is specified for bathrooms, wet-area cladding and commercial floors; for exterior use, confirm the application with our technical team first.",
   },
   {
     q: "How much do quartz slabs cost in the UAE?",
-    a: "Quartz slab pricing in the UAE depends on three things: the design tier (KalingaStone's Series 1 essentials are the most economical, Series 7 premium veined designs the highest), the slab format, and order volume. Global Classic supplies wholesale from Sharjah stock, so trade and project pricing is quoted per enquiry — usually within one working day.",
+    a: "Quartz slab pricing in the UAE depends on three things: the design tier (KalingaStone's Series 1 essentials are the most economical, Series 7 premium veined designs the highest), the slab format, and order volume. Global Classic supplies wholesale from Sharjah stock, so trade and project pricing is quoted per enquiry - usually within one working day.",
   },
   {
     q: "How does KalingaStone compare with Caesarstone or Silestone?",
-    a: "All three are engineered quartz surfaces built on the same principle: crushed quartz bound in resin, non-porous and harder-wearing than natural stone. KalingaStone, made by Classic Marble Company, differentiates on range economics — 69 shades tiered across seven series so a project can mix premium veined islands with essential-tier utility surfaces, plus Microban® antibacterial options on eight shades and a 3300 × 2000 mm superjumbo format.",
+    a: "All three are engineered quartz surfaces built on the same principle: crushed quartz bound in resin, non-porous and harder-wearing than natural stone. KalingaStone, made by Classic Marble Company, differentiates on range economics - 69 shades tiered across seven series so a project can mix premium veined islands with essential-tier utility surfaces, plus Microban® antibacterial options on eight shades and a 3300 × 2000 mm superjumbo format.",
   },
   {
     q: "Do you deliver quartz slabs to Dubai and Abu Dhabi?",
-    a: "Yes — delivery is across the whole of the UAE. Slabs are held in stock at Global Classic's Sharjah warehouse in Al Sajaa and delivered to every emirate, from Dubai and Abu Dhabi to the Northern Emirates. Supply is wholesale, to contractors, developers, fabricators and decor companies, with availability confirmed against live stock.",
+    a: "Yes - delivery is across the whole of the UAE. Slabs are held in stock at Global Classic's Sharjah warehouse in Al Sajaa and delivered to every emirate, from Dubai and Abu Dhabi to the Northern Emirates. Supply is wholesale, to contractors, developers, fabricators and decor companies, with availability confirmed against live stock.",
   },
 ];
 
@@ -252,8 +252,8 @@ export default function KalingaStoneQuartzPage() {
                   KalingaStone Quartz is an engineered quartz surface made by
                   Classic Marble Company and distributed across the Emirates by
                   Global Classic. The range spans <strong>69 shades</strong> in
-                  seven series — from uniform particulate essentials to
-                  Calacatta veined statements — in 20 mm slabs up to the
+                  seven series - from uniform particulate essentials to
+                  Calacatta veined statements - in 20 mm slabs up to the
                   superjumbo <strong>3300 × 2000 mm</strong>, NSF-certified food
                   safe, with Microban® antibacterial options.
                 </p>
@@ -367,7 +367,7 @@ export default function KalingaStoneQuartzPage() {
             <div>
               <h3 className="font-display text-2xl">Shades per series</h3>
               <p className="text-muted mt-3 max-w-xl text-sm">
-                Series is the design tier — 7 carries the premium veined
+                Series is the design tier - 7 carries the premium veined
                 Calacattas, 1 the essential particulates. The stones themselves
                 do the counting.
               </p>
@@ -424,7 +424,7 @@ export default function KalingaStoneQuartzPage() {
                     <span className="border-warm-black relative block aspect-[4/5] overflow-hidden rounded-lg border">
                       <Image
                         src={`/kalingastone/quartz/swatches/${cover.slug}.webp`}
-                        alt={`${f.label} — KalingaStone quartz colour range`}
+                        alt={`${f.label} - KalingaStone quartz colour range`}
                         fill
                         sizes="(min-width: 1024px) 18vw, (min-width: 640px) 45vw, 100vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -453,7 +453,7 @@ export default function KalingaStoneQuartzPage() {
             Every shade in the catalogue.
           </h2>
           <p className="text-muted mt-4 max-w-2xl leading-relaxed">
-            The complete printed range — nothing added, nothing renamed. Filter
+            The complete printed range - nothing added, nothing renamed. Filter
             by colour family, series tier, or Microban® protection.
           </p>
           <div className="mt-12">
@@ -462,12 +462,12 @@ export default function KalingaStoneQuartzPage() {
         </Container>
       </section>
 
-      {/* ---------- Side by side — quartz's signature element ---------- */}
+      {/* ---------- Side by side - quartz's signature element ---------- */}
       <section className="border-border/30 border-t py-24">
         <Container>
           <p className="label-gcb text-muted">Side by side</p>
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
-            Shortlist like a specifier — compare any two shades.
+            Shortlist like a specifier - compare any two shades.
           </h2>
           <p className="text-muted mt-4 max-w-2xl leading-relaxed">
             Pick a shade for each side and drag the divider across one slab.
@@ -504,7 +504,7 @@ export default function KalingaStoneQuartzPage() {
               </h2>
               <p className="mt-6 max-w-xl leading-relaxed">
                 Eight shades carry Microban® protection, integrated during
-                manufacture — a first for quartz in India. Bacteria on a kitchen
+                manufacture - a first for quartz in India. Bacteria on a kitchen
                 counter can double every twenty minutes; on a Microban-protected
                 surface, growth is disrupted around the clock, for the lifetime
                 of the slab.
@@ -537,7 +537,7 @@ export default function KalingaStoneQuartzPage() {
               <figure className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl">
                 <Image
                   src="/kalingastone/quartz/microban-field.webp"
-                  alt="Artistic macro of a quartz slab edge repelling glowing microbes — the Microban protective layer visualised"
+                  alt="Artistic macro of a quartz slab edge repelling glowing microbes - the Microban protective layer visualised"
                   fill
                   quality={90}
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -551,7 +551,7 @@ export default function KalingaStoneQuartzPage() {
               <figure className="relative mb-10 aspect-[3/2] overflow-hidden rounded-xl">
                 <Image
                   src="/kalingastone/quartz/microban-clean.webp"
-                  alt="Wiping a white KalingaStone quartz island clean with a linen cloth — Microban protection works between cleans"
+                  alt="Wiping a white KalingaStone quartz island clean with a linen cloth - Microban protection works between cleans"
                   fill
                   quality={90}
                   sizes="(min-width: 1024px) 45vw, 100vw"
@@ -602,7 +602,7 @@ export default function KalingaStoneQuartzPage() {
 
           <div className="mt-24">
             <h3 className="label-gcb text-bronze">
-              The full record — 22 properties, five certificates
+              The full record - 22 properties, five certificates
             </h3>
             <div className="mt-8">
               <Certificates />
@@ -648,7 +648,7 @@ export default function KalingaStoneQuartzPage() {
             </div>
           </details>
 
-          {/* Finishes — macro photography */}
+          {/* Finishes - macro photography */}
           <div className="mt-24">
             <h3 className="label-gcb text-bronze">Four finishes, up close</h3>
             <div className="mt-8">
@@ -656,11 +656,11 @@ export default function KalingaStoneQuartzPage() {
             </div>
           </div>
 
-          {/* Edge profiles — drawn cross-sections */}
+          {/* Edge profiles - drawn cross-sections */}
           <div className="mt-24">
             <h3 className="label-gcb text-bronze">Twenty-one edge profiles</h3>
             <p className="text-ink/60 mt-3 max-w-xl text-sm leading-relaxed">
-              The slab edge, seen end-on — every profile the line can cut, from
+              The slab edge, seen end-on - every profile the line can cut, from
               a straight ease to a cove dupont.
             </p>
             <div className="mt-8">
@@ -692,7 +692,7 @@ export default function KalingaStoneQuartzPage() {
               </h3>
               <p className="text-muted mt-3 leading-relaxed">
                 From raw-material feed to finished-slab stacking, KalingaStone
-                Quartz is produced untouched by hand at 80,000 m² per month —
+                Quartz is produced untouched by hand at 80,000 m² per month -
                 the consistency behind the homogeneity promise. ISO 9001, ISO
                 14001 and BS OHSAS 45001 certified.
               </p>
@@ -704,7 +704,7 @@ export default function KalingaStoneQuartzPage() {
               </h3>
               <p className="text-muted mt-3 leading-relaxed">
                 The Go Green programme runs on recycled raw material and
-                continuous water re-use across processes — engineered stone with
+                continuous water re-use across processes - engineered stone with
                 a lighter footprint than quarrying it.
               </p>
             </div>
@@ -716,7 +716,7 @@ export default function KalingaStoneQuartzPage() {
               <p className="text-muted mt-3 leading-relaxed">
                 KalingaStone surfaces stand in Dubai&rsquo;s Burj Khalifa
                 International and Il Villaggio, Doha&rsquo;s Pullman twin
-                towers, and hotels from Bahrain to Kuwait — among references
+                towers, and hotels from Bahrain to Kuwait - among references
                 across 66 countries.
               </p>
             </div>
@@ -731,10 +731,10 @@ export default function KalingaStoneQuartzPage() {
           <h2 className="font-display mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
             How does quartz compare with granite, marble and porcelain?
           </h2>
-          {/* Answer-first, 40–80 words, per GOVERNANCE §7 */}
+          {/* Answer-first, 40-80 words, per GOVERNANCE §7 */}
           <p className="mt-6 max-w-2xl text-lg leading-relaxed">
             Engineered quartz is non-porous, never needs sealing, and holds a
-            consistent shade from slab to slab — the three things natural stone
+            consistent shade from slab to slab - the three things natural stone
             cannot promise. Granite must be re-sealed periodically, marble
             etches under acids, and porcelain, while durable, is a thin-bodied
             product rather than a 20 mm solid surface that can be profiled,
@@ -756,9 +756,9 @@ export default function KalingaStoneQuartzPage() {
                 {[
                   [
                     "Porosity & sealing",
-                    "Non-porous — never sealed",
-                    "Porous — periodic sealing",
-                    "Porous — regular sealing",
+                    "Non-porous - never sealed",
+                    "Porous - periodic sealing",
+                    "Porous - regular sealing",
                     "Non-porous",
                   ],
                   [
@@ -773,14 +773,14 @@ export default function KalingaStoneQuartzPage() {
                     "Homogeneous, slab after slab",
                     "Every block differs",
                     "Every block differs",
-                    "Printed — repeats visibly",
+                    "Printed - repeats visibly",
                   ],
                   [
                     "Thickness & repair",
                     "20 mm solid, profilable, repairable",
-                    "20–30 mm solid",
-                    "20–30 mm solid",
-                    "6–12 mm thin body",
+                    "20-30 mm solid",
+                    "20-30 mm solid",
+                    "6-12 mm thin body",
                   ],
                   [
                     "Food safety",
@@ -792,7 +792,7 @@ export default function KalingaStoneQuartzPage() {
                 ].map(([prop, ...cells]) => (
                   <tr key={prop}>
                     <td className="text-muted py-3 pr-4">{prop}</td>
-                    {/* Keyed by column — cell text repeats across columns
+                    {/* Keyed by column - cell text repeats across columns
                         ("Every block differs" ×2), so it can't be the key. */}
                     {cells.map((c, i) => (
                       <td
@@ -819,7 +819,7 @@ export default function KalingaStoneQuartzPage() {
             >
               KalingaStone Terrazzo range
             </Link>{" "}
-            — or browse{" "}
+            - or browse{" "}
             <Link href="/products" className="u-line text-foreground">
               all product lines
             </Link>
@@ -838,7 +838,7 @@ export default function KalingaStoneQuartzPage() {
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
             <p className="text-ink/80 max-w-2xl text-lg leading-relaxed">
               Global Classic is the KalingaStone quartz slab supplier holding
-              stock in Sharjah — at the Al Sajaa warehouse — with delivery
+              stock in Sharjah - at the Al Sajaa warehouse - with delivery
               across the whole of the UAE: Dubai, Abu Dhabi, Sharjah, Ajman, Umm
               Al Quwain, Ras Al Khaimah and Fujairah. Supply is wholesale:
               contractors, developers, fabricators and decor companies buy slabs
@@ -847,7 +847,7 @@ export default function KalingaStoneQuartzPage() {
             </p>
             <ul className="space-y-3">
               {[
-                "Ex-stock slabs — no import lead time on stocked shades",
+                "Ex-stock slabs - no import lead time on stocked shades",
                 "Volume and project pricing for trade buyers",
                 "Samples for specification and client approval",
                 "Delivery coordinated to site or fabrication workshop",
@@ -899,7 +899,7 @@ export default function KalingaStoneQuartzPage() {
               Specifying quartz for a project?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

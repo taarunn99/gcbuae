@@ -35,7 +35,7 @@ type RevealGroupProps = {
 
 /**
  * Cascades the entrance of direct `RevealItem` children. Children must be
- * `RevealItem` (or any motion element using the `fadeUp` variants) — a plain
+ * `RevealItem` (or any motion element using the `fadeUp` variants) - a plain
  * element will render immediately and break the cascade.
  */
 export function RevealGroup({

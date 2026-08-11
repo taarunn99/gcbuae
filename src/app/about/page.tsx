@@ -21,7 +21,7 @@ export default function AboutPage() {
         <Reveal>
           <div className="flex flex-wrap items-baseline justify-between gap-4">
             <p className="label-gcb text-muted">About · Global Classic</p>
-            <p className="label-gcb text-muted">Est. 2024 — Sharjah, UAE</p>
+            <p className="label-gcb text-muted">Est. 2024 - Sharjah, UAE</p>
           </div>
           <RuleIn className="mt-4 w-full" />
         </Reveal>
@@ -46,7 +46,7 @@ export default function AboutPage() {
                 Global Classic Building Material LLC is a sister company of the
                 Lapiz Group of Companies, holding stock at the Al Sajaa
                 warehouse in Sharjah and supplying wholesale across the whole of
-                the UAE — contractors, developers, fabricators and decor
+                the UAE - contractors, developers, fabricators and decor
                 companies. Three partners define the shelf: KalingaStone
                 engineered stone by Classic Marble Company, Jaquar bathware, and
                 FILA surface care.
@@ -74,11 +74,11 @@ export default function AboutPage() {
               {[
                 [
                   "Stock",
-                  "Al Sajaa, Sharjah — ex-stock slabs, UAE-wide delivery",
+                  "Al Sajaa, Sharjah - ex-stock slabs, UAE-wide delivery",
                 ],
                 [
                   "Stone",
-                  "KalingaStone quartz · marble · terrazzo — 128 shades",
+                  "KalingaStone quartz · marble · terrazzo - 128 shades",
                 ],
                 ["Water", "Jaquar showers, taps, sanitaryware, trays"],
                 ["Care", "FILA sealers & cleaners, matched to every stone"],

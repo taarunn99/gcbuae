@@ -15,7 +15,7 @@ import { siteConfig } from "@/config/site";
 import { shadeBody, shadeIntro } from "@/lib/quartz-copy";
 
 /**
- * One indexed URL per shade — the long-tail play no UAE KalingaStone
+ * One indexed URL per shade - the long-tail play no UAE KalingaStone
  * distributor executes properly (GOVERNANCE §2: Mina has no per-shade
  * URLs at all; Marmo Classic has them but noindexes its own homepage).
  * All 69 pages are statically generated from the catalogue data.
@@ -35,8 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!shade) return {};
   const family = familyById.get(shade.family)!;
   return {
-    title: `${shade.name} — KalingaStone Quartz`,
-    description: `${shade.name}: KalingaStone engineered quartz, Series ${shade.series}, ${shade.size} mm${shade.microban ? ", Microban® protected" : ""}. ${family.label} range — slab availability and volume pricing from Sharjah stock.`,
+    title: `${shade.name} - KalingaStone Quartz`,
+    description: `${shade.name}: KalingaStone engineered quartz, Series ${shade.series}, ${shade.size} mm${shade.microban ? ", Microban® protected" : ""}. ${family.label} range - slab availability and volume pricing from Sharjah stock.`,
     alternates: { canonical: `/kalingastone/quartz/${shade.slug}` },
     openGraph: {
       images: [
@@ -221,7 +221,7 @@ export default async function QuartzShadePage({ params }: Props) {
               <figure className="border-warm-black relative aspect-[4/3] overflow-hidden rounded-xl border">
                 <Image
                   src={swatch}
-                  alt={`KalingaStone Quartz ${shade.name} — Series ${shade.series} engineered quartz slab surface, ${shade.size} mm`}
+                  alt={`KalingaStone Quartz ${shade.name} - Series ${shade.series} engineered quartz slab surface, ${shade.size} mm`}
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
@@ -232,7 +232,7 @@ export default async function QuartzShadePage({ params }: Props) {
                 <figure className="border-warm-black relative aspect-[16/10] overflow-hidden rounded-xl border">
                   <Image
                     src={lifestyle}
-                    alt={`${shade.name} quartz installed — KalingaStone catalogue application photograph`}
+                    alt={`${shade.name} quartz installed - KalingaStone catalogue application photograph`}
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
@@ -245,7 +245,7 @@ export default async function QuartzShadePage({ params }: Props) {
         </Container>
       </section>
 
-      {/* Related shades — same colour family */}
+      {/* Related shades - same colour family */}
       {related.length > 0 && (
         <section className="border-border/30 border-t py-20">
           <Container>
@@ -326,7 +326,7 @@ export default async function QuartzShadePage({ params }: Props) {
               Need {shade.name} for a project?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

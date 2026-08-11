@@ -7,8 +7,8 @@ import { siteConfig } from "@/config/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 /**
- * Contact page hero: a slow aurora in the brand's own light — limestone and
- * bronze bands drifting over warm black — that leans toward the cursor. The
+ * Contact page hero: a slow aurora in the brand's own light - limestone and
+ * bronze bands drifting over warm black - that leans toward the cursor. The
  * playfulness is the interaction: the light follows whoever is about to say
  * hello. Under prefers-reduced-motion the canvas never mounts and the section
  * stands on its gradient alone.
@@ -37,7 +37,7 @@ export function ContactHero() {
             colorSpeed={0.5}
             enableMouseInteraction
             mouseInfluence={0.3}
-            // While hovered, the glow beats like a heart — lub-dub at ~66bpm.
+            // While hovered, the glow beats like a heart - lub-dub at ~66bpm.
             pulseStrength={0.85}
             pulseRate={1.1}
           />
@@ -62,7 +62,7 @@ export function ContactHero() {
         </SplitHeading>
         <Reveal delay={0.2} className="mt-6">
           <p className="text-ink/75 mx-auto max-w-md leading-relaxed">
-            Specifications, availability, samples — or just the shape of an
+            Specifications, availability, samples - or just the shape of an
             idea. We reply within one working day.
           </p>
         </Reveal>

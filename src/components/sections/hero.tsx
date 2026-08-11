@@ -15,7 +15,7 @@ import { HeroMedia } from "./hero-media";
  * left of the middle. 46.5% splits the difference and still leaves clearance
  * before the glass frame. Dead centre (50%) would crowd it.
  *
- * On phones `object-position: 43.5%` crops to x 30.6–56.4%, which sits inside
+ * On phones `object-position: 43.5%` crops to x 30.6-56.4%, which sits inside
  * the same safe zone, so a single landscape asset covers every breakpoint.
  */
 export function Hero() {

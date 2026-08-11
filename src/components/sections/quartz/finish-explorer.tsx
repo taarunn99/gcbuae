@@ -15,22 +15,22 @@ const FINISHES = [
   {
     slug: "distress",
     name: "Distress",
-    body: "Softly worn, matte-textured — the surface of a stone that has already lived a little.",
+    body: "Softly worn, matte-textured - the surface of a stone that has already lived a little.",
   },
   {
     slug: "leather",
     name: "Leather",
-    body: "Tactile and lightly pebbled, low-sheen — reads as warmth under the hand.",
+    body: "Tactile and lightly pebbled, low-sheen - reads as warmth under the hand.",
   },
   {
     slug: "honed",
     name: "Honed",
-    body: "Flat matte, non-reflective, R9 slip-rated — the specifier's choice for floors.",
+    body: "Flat matte, non-reflective, R9 slip-rated - the specifier's choice for floors.",
   },
   {
     slug: "nalico",
     name: "Nalico",
-    body: "Deep-textured and heavily grained — the most dramatic relief in the range.",
+    body: "Deep-textured and heavily grained - the most dramatic relief in the range.",
   },
 ];
 
@@ -86,7 +86,7 @@ export function FinishExplorer() {
           <Image
             key={f.slug}
             src={`/kalingastone/quartz/finishes/${f.slug}.webp`}
-            alt={`KalingaStone quartz ${f.name} finish — macro surface texture`}
+            alt={`KalingaStone quartz ${f.name} finish - macro surface texture`}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className={cn(

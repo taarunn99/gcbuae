@@ -28,7 +28,7 @@ export default function HomePage() {
     <main className="flex-1">
       <Hero />
 
-      {/* Onyx stage — the darkest green, per the owner's palette direction. */}
+      {/* Onyx stage - the darkest green, per the owner's palette direction. */}
       <section className="bg-warm-black grain-gcb relative overflow-hidden py-32">
         <Container className="relative z-10">
           <SplitHeading className="font-display text-ink max-w-3xl text-3xl leading-tight tracking-tight text-balance sm:text-5xl">

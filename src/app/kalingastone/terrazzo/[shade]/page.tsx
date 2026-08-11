@@ -15,7 +15,7 @@ import { siteConfig } from "@/config/site";
 import { terrazzoBody, terrazzoIntro } from "@/lib/terrazzo-copy";
 
 /**
- * One indexed URL per terrazzo shade — the same long-tail play as the
+ * One indexed URL per terrazzo shade - the same long-tail play as the
  * quartz hub. All 24 pages statically generated from the catalogue data.
  */
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!shade) return {};
   const collection = terrazzoCollectionBySeries.get(shade.series)!;
   return {
-    title: `${shade.name} — KalingaStone Terrazzo`,
+    title: `${shade.name} - KalingaStone Terrazzo`,
     description: `${shade.name}: KalingaStone terrazzo, ${collection.label} (Series ${shade.series}), 304 × 125 cm slab${shade.microban ? ", Microban® protected" : ""}. Tiles, slabs or cut-to-size from Sharjah stock, UAE-wide.`,
     alternates: { canonical: `/kalingastone/terrazzo/${shade.slug}` },
     openGraph: {
@@ -217,7 +217,7 @@ export default async function TerrazzoShadePage({ params }: Props) {
               >
                 <Image
                   src={swatch}
-                  alt={`KalingaStone Terrazzo ${shade.name} — Series ${shade.series} terrazzo slab surface, 304 × 125 cm`}
+                  alt={`KalingaStone Terrazzo ${shade.name} - Series ${shade.series} terrazzo slab surface, 304 × 125 cm`}
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
@@ -227,7 +227,7 @@ export default async function TerrazzoShadePage({ params }: Props) {
               <figure className="border-warm-black relative aspect-[16/15] overflow-hidden rounded-xl border">
                 <Image
                   src={lifestyle}
-                  alt={`${shade.name} terrazzo installed — KalingaStone catalogue application photograph`}
+                  alt={`${shade.name} terrazzo installed - KalingaStone catalogue application photograph`}
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
@@ -239,7 +239,7 @@ export default async function TerrazzoShadePage({ params }: Props) {
         </Container>
       </section>
 
-      {/* Related shades — same collection pair */}
+      {/* Related shades - same collection pair */}
       {related.length > 0 && (
         <section className="border-border/30 border-t py-20">
           <Container>
@@ -320,7 +320,7 @@ export default async function TerrazzoShadePage({ params }: Props) {
               Need {shade.name} for a project?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

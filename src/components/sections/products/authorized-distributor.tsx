@@ -5,7 +5,7 @@ import { RuleIn } from "@/components/sections/quartz/rule-in";
 import { Container } from "@/components/ui/container";
 
 /**
- * The authorization — Global Classic is a certified KalingaStone
+ * The authorization - Global Classic is a certified KalingaStone
  * reseller, and the letter proves it. Golden split: the claim on the
  * 1.618 column, the framed letter on the other, presented like a
  * certificate on a wall (subtle lift on hover, viewable as PDF).
@@ -30,21 +30,21 @@ export function AuthorizedDistributor() {
           <div>
             <Reveal>
               <h2 className="font-display text-phi-3 max-w-xl tracking-tight text-balance">
-                An authorized KalingaStone reseller — in writing.
+                An authorized KalingaStone reseller - in writing.
               </h2>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="text-ink/80 mt-8 max-w-xl text-lg leading-relaxed">
                 Global Classic Building Material Trading LLC is certified by
                 Grani Marmo Classic LLC as an authorized reseller of
-                KalingaStone products for the Northern Emirates, UAE — appointed
+                KalingaStone products for the Northern Emirates, UAE - appointed
                 to promote, supply and distribute the range within the region.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-ink/60 mt-6 max-w-xl text-sm leading-relaxed">
                 Every slab we quote traces to the manufacturer&rsquo;s own
-                channel — no grey imports, no substituted material. Ask for the
+                channel - no grey imports, no substituted material. Ask for the
                 letter with any quotation; it travels with our paperwork.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -75,7 +75,7 @@ export function AuthorizedDistributor() {
               <span className="border-ink/20 bg-ink/5 block rotate-[-1.5deg] rounded-lg border p-3 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.02] group-hover:rotate-0">
                 <Image
                   src="/certificates/authorized-reseller-letter.webp"
-                  alt="Authorized Reseller letter — Grani Marmo Classic LLC certifies Global Classic Building Material Trading LLC as a reseller of Kalingastone products in the Northern Emirates, UAE"
+                  alt="Authorized Reseller letter - Grani Marmo Classic LLC certifies Global Classic Building Material Trading LLC as a reseller of Kalingastone products in the Northern Emirates, UAE"
                   width={900}
                   height={1273}
                   quality={90}
@@ -85,7 +85,7 @@ export function AuthorizedDistributor() {
                 />
               </span>
               <span className="label-gcb text-ink/60 mt-4 block text-center">
-                The original — click to read
+                The original - click to read
               </span>
             </a>
           </Reveal>

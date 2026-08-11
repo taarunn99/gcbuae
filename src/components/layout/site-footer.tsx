@@ -13,7 +13,7 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 /**
  * Editorial footer, revealed from UNDER the page: the footer is fixed behind
  * the content (a measured spacer holds its place in the flow), so the page
- * lifts away like a sheet and the footer rises to meet it — with a subtle 3D
+ * lifts away like a sheet and the footer rises to meet it - with a subtle 3D
  * settle (perspective tilt + scale) scrubbed to the reveal.
  *
  * Contact is icon-first per the owner: landline, mobile, mail, Instagram and
@@ -58,7 +58,7 @@ const CONTACT_ICONS: {
     ),
   },
   {
-    label: "Instagram — globalclassic.bmt",
+    label: "Instagram - globalclassic.bmt",
     href: "https://www.instagram.com/globalclassic.bmt/",
     external: true,
     path: (
@@ -129,7 +129,7 @@ export function SiteFooter() {
   );
 
   // ScrollTrigger measures against the spacer, whose document position
-  // changes with BOTH footer height and, crucially, every route change —
+  // changes with BOTH footer height and, crucially, every route change -
   // page heights differ, and stale measurements leave the reveal stuck at
   // its dim initial state on shorter pages. Re-measure after layout settles.
   const pathname = usePathname();
@@ -216,7 +216,7 @@ export function SiteFooter() {
               </div>
 
               {/* ONE numbered ordered list flowing across two aligned
-                  columns — reads as a single systematic category. */}
+                  columns - reads as a single systematic category. */}
               <div>
                 <p className="label-gcb text-bronze">Products</p>
                 <ol className="mt-4 grid grid-cols-2 gap-x-10 gap-y-3">
@@ -243,7 +243,7 @@ export function SiteFooter() {
               </div>
             </div>
 
-            {/* Lapiz Group affiliation — logo mask-tinted Porcelain */}
+            {/* Lapiz Group affiliation - logo mask-tinted Porcelain */}
             <div
               ref={lapizRowRef}
               className="border-ink/15 mt-10 flex flex-wrap items-center gap-4 border-t pt-8"

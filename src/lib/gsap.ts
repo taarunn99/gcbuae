@@ -12,7 +12,7 @@ import { SplitText } from "gsap/SplitText";
 // rather than from "gsap" directly, or its plugins will be unregistered.
 //
 // GOVERNANCE §4 (route-JS budget): only plugins actually in use are imported.
-// Add Flip/Observer/DrawSVG back here the day a component needs them — never
+// Add Flip/Observer/DrawSVG back here the day a component needs them - never
 // speculatively.
 if (typeof window !== "undefined") {
   gsap.registerPlugin(

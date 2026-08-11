@@ -48,7 +48,7 @@ export function ProfileBook() {
       className="group/section relative mt-24"
       aria-label="Company profile"
     >
-      {/* The rising fill — Pine Green, bottom to top */}
+      {/* The rising fill - Pine Green, bottom to top */}
       <span
         data-fill
         aria-hidden
@@ -62,10 +62,10 @@ export function ProfileBook() {
               The company, in print
             </p>
             <h2 className="font-display text-phi-3 mt-5 max-w-xl tracking-tight text-balance">
-              Crafting dreams into reality — the profile.
+              Crafting dreams into reality - the profile.
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed opacity-90">
-              Who we are, what we stock, and the partners behind the shelf — the
+              Who we are, what we stock, and the partners behind the shelf - the
               complete Global Classic company profile, designed to be read and
               passed on. Open the book, or take it with you.
             </p>
@@ -90,7 +90,7 @@ export function ProfileBook() {
             style={{ perspective: "1600px" }}
           >
             <span className="relative block" style={{ perspective: "1600px" }}>
-              {/* Inner page — revealed as the cover opens */}
+              {/* Inner page - revealed as the cover opens */}
               <span className="bg-warm-black text-ink border-ink/15 absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-l-sm rounded-r-md border p-6 text-center">
                 <Logo className="h-16 w-auto" />
                 <span className="font-display text-xl">Global Classic</span>
@@ -99,14 +99,14 @@ export function ProfileBook() {
                 </span>
               </span>
 
-              {/* The cover — hinges open on hover/focus */}
+              {/* The cover - hinges open on hover/focus */}
               <span
                 className="border-warm-black relative block origin-left overflow-hidden rounded-l-sm rounded-r-md border shadow-2xl transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/book:[transform:rotateY(-52deg)] group-focus-visible/book:[transform:rotateY(-52deg)] motion-reduce:transition-none motion-reduce:group-hover/book:[transform:none]"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <Image
                   src="/profile/profile-cover.webp"
-                  alt="Global Classic company profile cover — Crafting Dreams into Reality"
+                  alt="Global Classic company profile cover - Crafting Dreams into Reality"
                   width={900}
                   height={1273}
                   quality={90}

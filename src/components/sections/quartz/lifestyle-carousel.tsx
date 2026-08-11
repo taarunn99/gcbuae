@@ -13,7 +13,7 @@ import type { QuartzShade } from "@/config/kalingastone-quartz";
  * Lifestyle gallery as a proper carousel (Embla): draggable, snap-per-card,
  * arrow controls, and a thin accent progress line instead of the browser
  * scrollbar. Cards link to their shade pages. All slides are in the DOM
- * server-side — Embla only adds transforms.
+ * server-side - Embla only adds transforms.
  */
 export function LifestyleCarousel({ shades }: { shades: QuartzShade[] }) {
   const [emblaRef, embla] = useEmblaCarousel(
@@ -45,7 +45,7 @@ export function LifestyleCarousel({ shades }: { shades: QuartzShade[] }) {
 
   useEffect(() => {
     if (!embla) return;
-    // Style-only mutation — no React state involved.
+    // Style-only mutation - no React state involved.
     const onScroll = () => {
       if (progressRef.current) {
         progressRef.current.style.transform = `scaleX(${Math.max(

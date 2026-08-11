@@ -33,9 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const count = shadesOfFamily(family.id).length;
   return {
     title: {
-      absolute: `${family.label} Slabs UAE — ${count} KalingaStone Shades`,
+      absolute: `${family.label} Slabs UAE - ${count} KalingaStone Shades`,
     },
-    description: `${count} ${family.label.toLowerCase()} shades from the KalingaStone engineered quartz collection — 20 mm slabs, NSF food safe, stocked in Sharjah and supplied across the UAE. Browse every shade with specs.`,
+    description: `${count} ${family.label.toLowerCase()} shades from the KalingaStone engineered quartz collection - 20 mm slabs, NSF food safe, stocked in Sharjah and supplied across the UAE. Browse every shade with specs.`,
     alternates: { canonical: `/kalingastone/quartz/colours/${family.slug}` },
   };
 }
@@ -76,7 +76,7 @@ export default async function QuartzFamilyPage({ params }: Props) {
       },
       {
         "@type": "CollectionPage",
-        name: `KalingaStone ${family.label} — UAE`,
+        name: `KalingaStone ${family.label} - UAE`,
         url: `${siteConfig.url}/kalingastone/quartz/colours/${family.slug}`,
         mainEntity: {
           "@type": "ItemList",
@@ -151,7 +151,7 @@ export default async function QuartzFamilyPage({ params }: Props) {
                   <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
                     <Image
                       src={`/kalingastone/quartz/swatches/${s.slug}.webp`}
-                      alt={`KalingaStone Quartz ${s.name} — Series ${s.series} ${family.label.toLowerCase()} slab`}
+                      alt={`KalingaStone Quartz ${s.name} - Series ${s.series} ${family.label.toLowerCase()} slab`}
                       fill
                       sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -206,7 +206,7 @@ export default async function QuartzFamilyPage({ params }: Props) {
               Specifying {family.label.toLowerCase()}?
             </h2>
             <p className="text-ink/70 mt-2 max-w-md">
-              Slab availability, samples and volume pricing from Sharjah stock —
+              Slab availability, samples and volume pricing from Sharjah stock -
               usually within one working day.
             </p>
           </div>

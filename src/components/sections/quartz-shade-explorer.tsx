@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
  * sticky colour-family headers with jump chips, each family collapsed to
  * its first rows with a "show all" expander. Every card is server-
  * rendered and stays in the DOM when collapsed or filtered (CSS hide
- * only) — GOVERNANCE's view-source test — and every card links to the
+ * only) - GOVERNANCE's view-source test - and every card links to the
  * shade's own indexed page.
  */
 
@@ -36,7 +36,7 @@ function ShadeCard({
         <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
           <Image
             src={`/kalingastone/quartz/swatches/${shade.slug}.webp`}
-            alt={`KalingaStone Quartz ${shade.name} — Series ${shade.series} engineered quartz slab, ${shade.size} mm`}
+            alt={`KalingaStone Quartz ${shade.name} - Series ${shade.series} engineered quartz slab, ${shade.size} mm`}
             fill
             sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 45vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"

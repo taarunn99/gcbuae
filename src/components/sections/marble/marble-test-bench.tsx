@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Marble's four headline tests as the pinned scroll sequence. Gloss
- * leads — > 85% is the highest of the three KalingaStone ranges and the
+ * leads - > 85% is the highest of the three KalingaStone ranges and the
  * catalogue's strongest number. Honest framing throughout: marble is
  * the most refined surface of the three, not the toughest.
  */
@@ -35,7 +35,7 @@ const TESTS: Test[] = [
     suffix: "%",
     label: "Glossiness reflection",
     standard: "Reflectance",
-    body: "Above 85% — the highest polish of KalingaStone's three ranges (terrazzo exceeds 75%, quartz reaches 55–70%). SIMEC polishing lines with 36 heads produce it; the repolishable surface means it can be brought back, in situ, for the life of the floor.",
+    body: "Above 85% - the highest polish of KalingaStone's three ranges (terrazzo exceeds 75%, quartz reaches 55-70%). SIMEC polishing lines with 36 heads produce it; the repolishable surface means it can be brought back, in situ, for the life of the floor.",
     diagram: (
       <>
         <path pathLength={1} d="M8 46h48" />
@@ -52,7 +52,7 @@ const TESTS: Test[] = [
     suffix: "%",
     label: "Water absorption",
     standard: "ASTM C 97 / EN14617-1",
-    body: "Lower absorption than natural granite — the catalogue's own claim — which is what makes the surface immune to everyday stains and suited to vanities and bathrooms.",
+    body: "Lower absorption than natural granite - the catalogue's own claim - which is what makes the surface immune to everyday stains and suited to vanities and bathrooms.",
     diagram: (
       <>
         <path
@@ -67,11 +67,11 @@ const TESTS: Test[] = [
   {
     id: "strength",
     value: 150,
-    prefix: "110–",
+    prefix: "110-",
     suffix: " MPa",
     label: "Compressive strength",
     standard: "EN14617-15",
-    body: "110–150 MPa under compression — floors, staircases and lift lobbies carry their loads. Honest caveat: quartz remains the harder surface (Mohs 6–7 against marble's 4–5); marble answers with gloss and restorability.",
+    body: "110-150 MPa under compression - floors, staircases and lift lobbies carry their loads. Honest caveat: quartz remains the harder surface (Mohs 6-7 against marble's 4-5); marble answers with gloss and restorability.",
     diagram: (
       <>
         <path pathLength={1} d="M12 40h40v10H12Z" />
@@ -87,7 +87,7 @@ const TESTS: Test[] = [
     prefix: "Class ",
     label: "Surface burning",
     standard: "ASTM E 84",
-    body: "Class A surface-burning behaviour to the American standard; the European EN 13501-1 classification is B for walls and floors. Where a project mandates the top EN non-combustible class, specify the terrazzo range — it holds A1.",
+    body: "Class A surface-burning behaviour to the American standard; the European EN 13501-1 classification is B for walls and floors. Where a project mandates the top EN non-combustible class, specify the terrazzo range - it holds A1.",
     diagram: (
       <>
         <path pathLength={1} d="M12 50h40" />

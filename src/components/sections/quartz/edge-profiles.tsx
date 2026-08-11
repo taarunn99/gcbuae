@@ -1,12 +1,12 @@
 /**
- * The 21 edge profiles as drawn cross-sections — the slab seen end-on,
- * profiled edge on the right — replacing the old comma-separated text
+ * The 21 edge profiles as drawn cross-sections - the slab seen end-on,
+ * profiled edge on the right - replacing the old comma-separated text
  * list. Server component, pure SVG line-work in Pine Teal.
  */
 
 type Profile = { name: string; d: string };
 
-// viewBox 0 0 64 40 — slab body from x=4, top y=12, bottom y=28,
+// viewBox 0 0 64 40 - slab body from x=4, top y=12, bottom y=28,
 // profiled edge finishing near x=56.
 const PROFILES: Profile[] = [
   { name: "Straight eased", d: "M4 12h49l3 3v10l-3 3H4" },

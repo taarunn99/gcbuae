@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 
 // GOVERNANCE §6: auto-generated sitemap. Every future collection, brand-hub
 // and shade page must be added here (or generated from its data source) the
-// moment it exists — no orphan URLs, nothing indexable left out.
+// moment it exists - no orphan URLs, nothing indexable left out.
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 

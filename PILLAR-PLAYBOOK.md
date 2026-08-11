@@ -216,6 +216,11 @@ be, and content-free (the SEO copy never lives inside it).
 - Lifestyle photos carry printed captions — crop the bottom ~8% before
   publishing (done in the conversion step).
 
+16. **No long dashes, ever** (owner, 2026-08-11): em/en dashes read as
+    AI writing to the owner. Plain hyphen "-" everywhere - copy, titles,
+    metadata, alt text, JSON-LD. A sweep replaced 578 of them; grep
+    `[chars U+2014 U+2013]` in src before every push.
+
 ## 9. Pre-push checklist (per line page, on top of GOVERNANCE §9)
 
 ```bash

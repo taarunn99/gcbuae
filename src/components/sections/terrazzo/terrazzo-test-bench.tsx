@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 /**
  * Terrazzo's four headline tests as the pinned scroll sequence: section
  * holds, cards slide through on the right, the instrument's value rolls
- * and its diagram redraws. A1 fire leads — it is the range's strongest
+ * and its diagram redraws. A1 fire leads - it is the range's strongest
  * technical claim (top non-combustible class; Quartz is B). Mobile and
  * reduced-motion get a plain stack. All values server-rendered.
  */
@@ -36,7 +36,7 @@ const TESTS: Test[] = [
     prefix: "Class ",
     label: "Fire classification",
     standard: "EN 13501-1",
-    body: "A1 — the top non-combustible class, for both wall cladding and flooring. Where UAE fit-out mandates non-combustibility (lift lobbies, cladding, escape routes), terrazzo clears the bar engineered quartz cannot: quartz rates Class B.",
+    body: "A1 - the top non-combustible class, for both wall cladding and flooring. Where UAE fit-out mandates non-combustibility (lift lobbies, cladding, escape routes), terrazzo clears the bar engineered quartz cannot: quartz rates Class B.",
     diagram: (
       <>
         <path pathLength={1} d="M12 50h40" />
@@ -56,7 +56,7 @@ const TESTS: Test[] = [
     suffix: "%",
     label: "Water absorption",
     standard: "EN14617-1",
-    body: "Block-form manufacture keeps absorption under 0.2% — the property behind the manufacturer's positioning of terrazzo for bathrooms, counters, vanity tops and exterior cladding.",
+    body: "Block-form manufacture keeps absorption under 0.2% - the property behind the manufacturer's positioning of terrazzo for bathrooms, counters, vanity tops and exterior cladding.",
     diagram: (
       <>
         <path
@@ -75,7 +75,7 @@ const TESTS: Test[] = [
     suffix: "%",
     label: "Glossiness reflection",
     standard: "Reflectance",
-    body: "Polished terrazzo reflects more than 75% — higher than the quartz range's 55–70%. The mosaic surface is built to catch light, which is exactly why the fluted programme exists.",
+    body: "Polished terrazzo reflects more than 75% - higher than the quartz range's 55-70%. The mosaic surface is built to catch light, which is exactly why the fluted programme exists.",
     diagram: (
       <>
         <path pathLength={1} d="M8 46h48" />
@@ -87,11 +87,11 @@ const TESTS: Test[] = [
   {
     id: "strength",
     value: 110,
-    prefix: "95–",
+    prefix: "95-",
     suffix: " MPa",
     label: "Compressive strength",
     standard: "EN14617-15",
-    body: "95–110 MPa under compression — around three times structural concrete. Floors, treads and cladding carry their loads; note the honest caveat that quartz remains the harder surface for worktops.",
+    body: "95-110 MPa under compression - around three times structural concrete. Floors, treads and cladding carry their loads; note the honest caveat that quartz remains the harder surface for worktops.",
     diagram: (
       <>
         <path pathLength={1} d="M12 40h40v10H12Z" />

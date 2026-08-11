@@ -10,11 +10,11 @@ import { siteConfig } from "@/config/site";
 import { pad } from "@/lib/utils";
 
 /**
- * The Index — the eight lines as a magazine table of contents. Every
- * row stays one whole crawlable <Link>, with the Onyx hover sweep — and
+ * The Index - the eight lines as a magazine table of contents. Every
+ * row stays one whole crawlable <Link>, with the Onyx hover sweep - and
  * a floating photograph of the line trails the cursor across the list
  * (soft-lerped, desktop pointer only, pointer-events none, reduced
- * motion off). Images are the existing wheel renders — zero new bytes.
+ * motion off). Images are the existing wheel renders - zero new bytes.
  */
 
 const HUBS: Record<string, string> = {
@@ -129,7 +129,7 @@ export function IndexRows() {
         })}
       </div>
 
-      {/* The floating preview — trails the cursor across the index */}
+      {/* The floating preview - trails the cursor across the index */}
       <div
         ref={previewRef}
         aria-hidden

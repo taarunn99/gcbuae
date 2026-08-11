@@ -33,7 +33,7 @@ const FORMATS = [
     w: 3300,
     h: 2000,
     label: "3300 × 2000 mm",
-    note: "Superjumbo — Carrara Marmi",
+    note: "Superjumbo - Carrara Marmi",
     texture: "carrara-marmi",
   },
 ] as const;
@@ -154,7 +154,7 @@ export function SlabScale() {
         </div>
 
         <p className="text-muted mt-8 max-w-xl text-sm leading-relaxed">
-          Drawn to scale — the 3300 × 2000 mm superjumbo stands a head taller
+          Drawn to scale - the 3300 × 2000 mm superjumbo stands a head taller
           than the people specifying it, and covers a full kitchen island or a
           double-height lift-lobby panel with a single joint-free slab.
         </p>

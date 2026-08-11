@@ -30,7 +30,7 @@ const FEATURES: Feature[] = [
   {
     folio: "Feature 01 · Stone",
     title: "The stone standard",
-    quote: "Three catalogues, one warehouse — 128 shades deep.",
+    quote: "Three catalogues, one warehouse - 128 shades deep.",
     body: "KalingaStone quartz for the working kitchen, marble for the gloss that can be brought back, terrazzo for the floors and facades that must not burn. Every shade has its own indexed page, its true slab size, and a Sharjah stock position behind it.",
     image: "/products/editorial/stone-feature.webp",
     alt: "White-gloved hands holding a veined marble sample against the light",
@@ -43,8 +43,8 @@ const FEATURES: Feature[] = [
   {
     folio: "Feature 02 · Water",
     title: "Where water works",
-    quote: "The wet rooms earn their keep — or they leak it.",
-    body: "Jaquar showers, taps, sanitaryware and shower trays — the moving parts of a bathroom, specified with the same wholesale discipline as the stone they sit on. Range pages are in preparation; stock and pricing are a conversation away.",
+    quote: "The wet rooms earn their keep - or they leak it.",
+    body: "Jaquar showers, taps, sanitaryware and shower trays - the moving parts of a bathroom, specified with the same wholesale discipline as the stone they sit on. Range pages are in preparation; stock and pricing are a conversation away.",
     image: "/products/editorial/water-feature.webp",
     alt: "Sculptural chrome rain shower with falling water against dark green tiles",
     links: [
@@ -57,7 +57,7 @@ const FEATURES: Feature[] = [
   {
     folio: "Feature 03 · Care",
     title: "Kept like new",
-    quote: "A surface is a promise — care is how it's kept.",
+    quote: "A surface is a promise - care is how it's kept.",
     body: "FILA sealers and cleaners, matched to every stone we sell. The right chemistry at handover and a maintenance regime after it are the difference between a floor that ages and a floor that merely gets old.",
     image: "/products/editorial/care-feature-fila.webp",
     alt: "A sage-gloved hand polishing a glossy dark stone slab beside the FILA MP90 ECO XTREME sealer jug",

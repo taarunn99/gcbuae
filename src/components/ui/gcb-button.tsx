@@ -14,13 +14,13 @@ import { useMagnetic } from "@/hooks/use-magnetic";
  * the tokens in globals.css.
  *
  * `variant="dark"` sits on photography and dark sections; `variant="light"`
- * sits on limestone pages. `accent` retints the specular line — the product
+ * sits on limestone pages. `accent` retints the specular line - the product
  * wheel drives this per selection.
  */
 const PALETTE = {
   dark: {
     textColor: "#f7f8f5", // Porcelain (--ink)
-    lineColor: "#6f8f78", // Dusty Olive — the accent
+    lineColor: "#6f8f78", // Dusty Olive - the accent
     baseColor: "#355e4d", // Pine Teal
     tint: "#f7f8f5",
     tintOpacity: 0.05,
@@ -36,7 +36,7 @@ const PALETTE = {
     textColor: "#0c1510", // Onyx text
     lineColor: "#0c1510", // Onyx Green shine line (owner)
     baseColor: "#f7f8f5", // Marble White rim base
-    // The FILL is tint at tintOpacity — solid Marble White, not glass.
+    // The FILL is tint at tintOpacity - solid Marble White, not glass.
     tint: "#f7f8f5",
     tintOpacity: 1,
   },

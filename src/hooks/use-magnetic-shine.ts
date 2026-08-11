@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * Magnetism + cursor-tracking shine for every `[data-shine]` element inside
- * a container — ONE window listener and ONE rAF loop per group, no WebGL.
+ * a container - ONE window listener and ONE rAF loop per group, no WebGL.
  * The shine itself is pure CSS (`[data-shine]::after` in globals.css) driven
  * by the --sx/--sy/--so custom properties set here; a :hover fallback keeps
  * a centred glow even if JS never runs. Pointer-fine only; inert under

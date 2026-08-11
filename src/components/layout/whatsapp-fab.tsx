@@ -1,18 +1,18 @@
 "use client";
 
 /**
- * The WhatsApp floating button — the site's primary lead line, present
+ * The WhatsApp floating button - the site's primary lead line, present
  * on every route, bottom-right, sized to be unmissable. Onyx Green
  * disc, Marble White glyph (the brand's WhatsApp green is off-palette
- * and stays off). One tap opens the chat — no hover reveal.
+ * and stays off). One tap opens the chat - no hover reveal.
  */
 export function WhatsAppFab() {
   return (
     <a
-      href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20—%20I%27d%20like%20to%20enquire%20about%20materials."
+      href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20-%20I%27d%20like%20to%20enquire%20about%20materials."
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp — +971 52 992 7827"
+      aria-label="Chat on WhatsApp - +971 52 992 7827"
       className="group fixed right-5 bottom-5 z-50 flex items-center gap-0 sm:right-7 sm:bottom-7"
     >
       <span className="bg-warm-black text-ink flex size-20 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-105 sm:size-28">

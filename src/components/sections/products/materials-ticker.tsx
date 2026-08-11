@@ -1,5 +1,5 @@
 /**
- * Full-bleed outlined-type ticker — the issue's running head. Pure CSS
+ * Full-bleed outlined-type ticker - the issue's running head. Pure CSS
  * (the site's existing marquee keyframes); hollow Onyx-stroke display
  * caps with solid separators. Server component, aria-hidden duplicate
  * track for the seamless loop.

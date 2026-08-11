@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import { quartzShades } from "@/config/kalingastone-quartz";
 
 /**
- * THE QUARTZ HUB'S SIGNATURE ELEMENT — compare any two of the 69 shades
+ * THE QUARTZ HUB'S SIGNATURE ELEMENT - compare any two of the 69 shades
  * on one slab: pick a shade per side, drag the Pastel Green divider.
  * The shortlist conversation every specifier has, as an instrument.
  */
@@ -39,7 +39,7 @@ export function QuartzShadeCompare() {
       >
         {quartzShades.map((s) => (
           <option key={s.slug} value={s.slug}>
-            {s.name} — S{s.series}
+            {s.name} - S{s.series}
           </option>
         ))}
       </select>

@@ -18,7 +18,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Quartz, naturally engineered marble, terrazzo, showers, taps, sanitaryware, shower trays, and marble care — supplied across the UAE.",
+    "Quartz, naturally engineered marble, terrazzo, showers, taps, sanitaryware, shower trays, and marble care - supplied across the UAE.",
   // Without this, the root layout's canonical ("/") is inherited and this
   // page tells Google it is a copy of the homepage. GOVERNANCE §6.
   alternates: { canonical: "/products" },
@@ -29,7 +29,7 @@ export default function ProductsPage() {
     <main className="theme-forest bg-background text-foreground flex-1 pb-0">
       {/* SEO heading for the video hero (the visible word lives in the mask) */}
       <h1 className="sr-only">
-        Products — KalingaStone quartz, marble and terrazzo slabs, showers,
+        Products - KalingaStone quartz, marble and terrazzo slabs, showers,
         taps, sanitaryware and surface care, supplied across the UAE.
       </h1>
 
@@ -88,7 +88,7 @@ export default function ProductsPage() {
       {/* ---------- Certified reseller ---------- */}
       <AuthorizedDistributor />
 
-      {/* ---------- WhatsApp — the lead line ---------- */}
+      {/* ---------- WhatsApp - the lead line ---------- */}
       <WhatsAppPlugin />
 
       {/* ---------- Reach us ---------- */}
@@ -98,15 +98,15 @@ export default function ProductsPage() {
       <section className="py-24 sm:py-28">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1fr_1.618fr] lg:gap-10">
-            {/* The desk — a dark card carrying the promise */}
+            {/* The desk - a dark card carrying the promise */}
             <div className="bg-warm-black text-ink grain-gcb relative overflow-hidden rounded-2xl p-8 sm:p-10">
               <div className="relative z-10">
                 <p className="label-gcb text-bronze">Prefer it in writing?</p>
                 <h2 className="font-display text-phi-3 mt-5 max-w-md tracking-tight text-balance">
-                  Send the enquiry — it lands on the desk.
+                  Send the enquiry - it lands on the desk.
                 </h2>
                 <p className="text-ink/70 mt-6 max-w-md leading-relaxed">
-                  Specifications, BOQs, availability checks — answered usually
+                  Specifications, BOQs, availability checks - answered usually
                   within one working day.
                 </p>
                 <ul className="mt-10 space-y-3">
@@ -136,7 +136,7 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* The form — on a Dust Grey sheet */}
+            {/* The form - on a Dust Grey sheet */}
             <div className="bg-surface/60 border-warm-black rounded-2xl border p-8 sm:p-10">
               <ContactForm />
             </div>

@@ -27,7 +27,7 @@ export function TerrazzoLifestyleCarousel({
   aspectClass = "aspect-[16/15]",
 }: {
   items: CarouselItem[];
-  /** Card width classes — portrait media wants a narrower card. */
+  /** Card width classes - portrait media wants a narrower card. */
   cardClass?: string;
   /** Aspect of the media frame. */
   aspectClass?: string;

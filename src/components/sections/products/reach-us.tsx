@@ -4,7 +4,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/ui/container";
 
 /**
- * Reach us — the location as an object, not an embed: a stylized
+ * Reach us - the location as an object, not an embed: a stylized
  * palette-drawn map card with a pulsing pin (pure CSS ping), the plus
  * code set at display size like coordinates on a chart, and the three
  * ways in. The card opens Google Maps directions; no third-party map
@@ -38,7 +38,7 @@ export function ReachUs() {
                 className="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 loading="lazy"
               />
-              {/* The pulse — pure CSS, sits on the pin */}
+              {/* The pulse - pure CSS, sits on the pin */}
               <span
                 aria-hidden
                 className="absolute top-[48%] left-[61%] block size-5 -translate-x-1/2 -translate-y-1/2"
@@ -75,7 +75,7 @@ export function ReachUs() {
             <Reveal delay={0.16}>
               <p className="text-ink/80 mt-6 max-w-xl leading-relaxed">
                 Slabs on the racks, samples at the desk, coffee if you&rsquo;re
-                staying. Come see the stone in person — or send the site address
+                staying. Come see the stone in person - or send the site address
                 and we&rsquo;ll bring the stone to you.
               </p>
             </Reveal>
@@ -107,7 +107,7 @@ export function ReachUs() {
                     rel="noopener noreferrer"
                     className="chip-gcb border-ink/40 rounded-full border px-5 py-2.5 text-sm"
                   >
-                    WhatsApp — 052 992 7827
+                    WhatsApp - 052 992 7827
                   </a>
                 </li>
               </ul>

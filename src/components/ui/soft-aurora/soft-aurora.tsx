@@ -75,7 +75,7 @@ uniform float uPulseRate;
 
 #define TAU 6.28318
 
-// Adapted from upstream: ECG-style lub-dub — a strong beat and a softer
+// Adapted from upstream: ECG-style lub-dub - a strong beat and a softer
 // echo per cycle, each a narrow gaussian on the cycle phase.
 float heartbeat(float t) {
   float p = fract(t);

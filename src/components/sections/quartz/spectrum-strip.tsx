@@ -6,7 +6,7 @@ import { quartzFamilies, shadesOfFamily } from "@/config/kalingastone-quartz";
 /**
  * The colour-family split as a spectrum of the actual catalogue: all 69
  * swatches in one band, sorted white → veined → beige → grey → dark.
- * Each band is a link to its colour-family page. Server component —
+ * Each band is a link to its colour-family page. Server component -
  * every swatch and link is in the HTML; the interaction is pure CSS.
  */
 export function SpectrumStrip() {
@@ -21,7 +21,7 @@ export function SpectrumStrip() {
               href={`/kalingastone/quartz/colours/${f.slug}`}
               className="group min-w-0"
               style={{ flexGrow: members.length, flexBasis: 0 }}
-              title={`${f.label} — ${members.length} shades`}
+              title={`${f.label} - ${members.length} shades`}
             >
               <span className="text-muted group-hover:text-foreground mb-2 block truncate text-[0.65rem] tracking-wide uppercase transition-colors">
                 {f.label}
@@ -47,7 +47,7 @@ export function SpectrumStrip() {
         })}
       </div>
       <p className="text-muted mt-4 text-sm">
-        All 69 shades, sorted by colour — open a band to browse its range.
+        All 69 shades, sorted by colour - open a band to browse its range.
       </p>
     </div>
   );
