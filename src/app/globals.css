@@ -88,6 +88,45 @@
   color: var(--ink);
 }
 
+/* Golden-ratio (phi = 1.618) modular type scale — the editorial system
+   for magazine-style pages. phi^4 clamps down fluidly on small screens. */
+.text-phi-0 {
+  font-size: 1rem;
+  line-height: 1.618;
+}
+.text-phi-1 {
+  font-size: 1.618rem;
+  line-height: 1.4;
+}
+.text-phi-2 {
+  font-size: 2.618rem;
+  line-height: 1.15;
+}
+.text-phi-3 {
+  font-size: clamp(2.618rem, 6vw, 4.236rem);
+  line-height: 1.05;
+}
+.text-phi-4 {
+  font-size: clamp(3.4rem, 9.5vw, 6.854rem);
+  line-height: 0.95;
+}
+
+/* Magazine drop cap — first letter of an editorial paragraph. */
+.dropcap::first-letter {
+  font-family: var(--font-display-variable);
+  font-size: 4.236em;
+  line-height: 0.8;
+  float: left;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+}
+
+/* Outlined display type for tickers — Onyx stroke, hollow fill. */
+.text-outline-gcb {
+  -webkit-text-stroke: 1.5px var(--warm-black);
+  color: transparent;
+}
+
 /* Line-drawn diagram: strokes draw in when the element (re)mounts.
    pathLength=1 on every path normalises the dash math. */
 .quartz-diagram path {

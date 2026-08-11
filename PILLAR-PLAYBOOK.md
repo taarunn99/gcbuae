@@ -90,6 +90,15 @@ All in `src/components/sections/quartz/` — generalize or copy per line:
 | `rule-in` | underline that draws in under section H2s | |
 | shade explorer | sticky family headers + jump chips (with real swatch dots) + per-family "show all" expanders | kills the endless drawer |
 
+**Editorial "Materials Issue" system (products page, 2026-08-11):** a
+golden-ratio type scale lives in globals.css (`.text-phi-0`…`.text-phi-4`,
+`.dropcap`, `.text-outline-gcb`; grids split `1.618fr/1fr`). Components in
+`src/components/sections/products/`: issue-opener (masthead spread),
+materials-ticker (outlined-type marquee), feature-stack (sticky stacking
+cards), issue-stats (NumberFlow band), index-rows (whole-row links + the
+cursor-trailing image preview via `gsap.quickTo`). Reuse the system for
+future magazine-style pages.
+
 Packages already installed: `embla-carousel-react`, `embla-carousel-wheel-gestures`,
 `@number-flow/react`, `lucide-react` (strokeWidth 1.3). Aceternity/ReactBits
 patterns get rebuilt natively on Motion + GSAP — no new animation runtimes.
