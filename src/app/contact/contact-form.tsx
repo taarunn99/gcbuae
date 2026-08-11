@@ -95,7 +95,7 @@ export function ContactForm() {
       )}
 
       <div className="justify-self-start">
-        <GcbButton type="submit" size="md" variant="light" disabled={pending}>
+        <GcbButton type="submit" size="md" variant="porcelain" disabled={pending}>
           {pending ? "Sending…" : "Send message"}
         </GcbButton>
       </div>

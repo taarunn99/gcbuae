@@ -253,7 +253,7 @@ export default function KalingaStoneTerrazzoPage() {
                   quality={90}
                   sizes="320px"
                   className="object-cover"
-                  loading="eager"
+                  preload
                 />
               </figure>
             </Reveal>

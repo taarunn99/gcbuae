@@ -268,7 +268,7 @@ export default function KalingaStoneQuartzPage() {
                   quality={90}
                   sizes="320px"
                   className="object-cover"
-                  loading="eager"
+                  preload
                 />
               </figure>
             </Reveal>
