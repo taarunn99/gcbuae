@@ -49,8 +49,17 @@ adds the line-page specifics on top.
   facts only (family character, tier position, format, flags). No two
   pages read identical; nothing visual invented beyond family language.
 - JSON-LD: pillar = BreadcrumbList + ItemList + FAQPage; category =
-  BreadcrumbList + CollectionPage/ItemList; item = 4-level BreadcrumbList
+  BreadcrumbList + CollectionPage/ItemList; item = BreadcrumbList
   + Product (brand, material, image, offers→InStock, AED, seller).
+- Breadcrumbs (2026-08-13): ALWAYS use `Breadcrumb` + `breadcrumbJsonLd`
+  from `src/components/ui/breadcrumb.tsx` — one crumbs array renders the
+  visible trail AND the schema, so they can never disagree. Trails run
+  Home / Products / [Brand hub] / [Material] / [Category] / [Item]; every
+  crumb before the last is a link and every level MUST have a real page
+  (a brand mentioned in a trail needs its hub built first — the dead
+  "KalingaStone" span was the bug that forced this rule). Site has two
+  classifications: product lines (/products index) and brands
+  (`brands` in `src/config/kalingastone.ts` → brand-rail on /products).
 - Titles ≤60ch, no pipe-stuffing, mind the layout template
   (`%s — Global Classic UAE`): don't put "UAE" in the templated part
   (double-UAE bug); category pages use `title.absolute`.

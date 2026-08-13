@@ -17,6 +17,7 @@ import { FaqAccordion } from "@/components/sections/quartz/faq-accordion";
 import { MicrobanTimeline } from "@/components/sections/quartz/microban-timeline";
 import { RuleIn } from "@/components/sections/quartz/rule-in";
 import { TerrazzoLifestyleCarousel } from "@/components/sections/terrazzo/terrazzo-lifestyle-carousel";
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -114,26 +115,17 @@ const faqs = [
 
 /* ---------- JSON-LD ---------- */
 
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "KalingaStone", href: "/kalingastone" },
+  { label: "Marble", href: "/kalingastone/marble" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: siteConfig.url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "KalingaStone Marble",
-          item: `${siteConfig.url}/kalingastone/marble`,
-        },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@type": "ItemList",
       name: "KalingaStone Marble shades",
@@ -190,19 +182,7 @@ export default function KalingaStoneMarblePage() {
       {/* ---------- Hero ---------- */}
       <section className="pt-40 pb-20">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span>KalingaStone</span>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">Marble</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_minmax(0,320px)] lg:items-end">
             <div>

@@ -8,6 +8,7 @@ import { SplitHeading } from "@/components/motion/split-heading";
 import { SkuDecoder } from "@/components/sections/jaquar/sku-decoder";
 import { FaqAccordion } from "@/components/sections/quartz/faq-accordion";
 import { RuleIn } from "@/components/sections/quartz/rule-in";
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import { jaquarCategories } from "@/config/jaquar";
@@ -51,26 +52,16 @@ const faqs = [
   },
 ];
 
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "Jaquar", href: "/jaquar" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: siteConfig.url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Jaquar",
-          item: `${siteConfig.url}/jaquar`,
-        },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@type": "Brand",
       name: "Jaquar",
@@ -112,15 +103,7 @@ export default function JaquarPage() {
       {/* ---------- Hero ---------- */}
       <section className="pt-40 pb-20">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">Jaquar</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <SplitHeading
             as="h1"

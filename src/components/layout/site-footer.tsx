@@ -213,6 +213,20 @@ export function SiteFooter() {
                     </li>
                   ))}
                 </ul>
+
+                <p className="label-gcb text-bronze mt-8">Brands</p>
+                <ul className="mt-4 space-y-2.5">
+                  {[
+                    { label: "KalingaStone", href: "/kalingastone" },
+                    { label: "Jaquar", href: "/jaquar" },
+                  ].map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className="u-line text-ink/80">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* ONE numbered ordered list flowing across two aligned

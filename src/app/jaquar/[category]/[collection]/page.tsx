@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -74,38 +75,21 @@ export default async function JaquarCollectionPage({ params }: Props) {
 
   const image = `/jaquar/${category.slug}/${collection.slug}.webp`;
 
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "Jaquar", href: "/jaquar" },
+    { label: category.label, href: `/jaquar/${category.slug}` },
+    {
+      label: collection.name,
+      href: `/jaquar/${category.slug}/${collection.slug}`,
+    },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Jaquar",
-            item: `${siteConfig.url}/jaquar`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: category.label,
-            item: `${siteConfig.url}/jaquar/${category.slug}`,
-          },
-          {
-            "@type": "ListItem",
-            position: 4,
-            name: collection.name,
-            item: `${siteConfig.url}/jaquar/${category.slug}/${collection.slug}`,
-          },
-        ],
-      },
+      breadcrumbJsonLd(crumbs),
       {
         "@type": "Product",
         name: `Jaquar ${collection.name} ${category.label}`,
@@ -134,27 +118,7 @@ export default async function JaquarCollectionPage({ params }: Props) {
 
       <section className="pt-40 pb-16">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link href="/jaquar" className="u-line">
-              Jaquar
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link href={`/jaquar/${category.slug}`} className="u-line">
-              {category.label}
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">{collection.name}</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[1.618fr_1fr] lg:items-start">
             <div>

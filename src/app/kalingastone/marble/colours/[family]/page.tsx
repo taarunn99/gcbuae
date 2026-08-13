@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -47,32 +48,18 @@ export default async function MarbleFamilyPage({ params }: Props) {
   const shades = shadesOfMarbleFamily(family.id);
   const siblings = marbleFamilies.filter((f) => f.slug !== family.slug);
 
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "KalingaStone", href: "/kalingastone" },
+    { label: "Marble", href: "/kalingastone/marble" },
+    { label: family.label, href: `/kalingastone/marble/colours/${family.slug}` },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "KalingaStone Marble",
-            item: `${siteConfig.url}/kalingastone/marble`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: family.label,
-            item: `${siteConfig.url}/kalingastone/marble/colours/${family.slug}`,
-          },
-        ],
-      },
+      breadcrumbJsonLd(crumbs),
       {
         "@type": "CollectionPage",
         name: `KalingaStone ${family.label} - UAE`,
@@ -102,21 +89,7 @@ export default async function MarbleFamilyPage({ params }: Props) {
 
       <section className="pt-40 pb-20">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link href="/kalingastone/marble" className="u-line">
-              KalingaStone Marble
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">{family.label}</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <h1 className="font-display mt-8 max-w-3xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl">
             {family.label.toLowerCase().includes("marble")

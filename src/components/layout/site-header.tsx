@@ -164,7 +164,13 @@ export function SiteHeader() {
                     <div className="grid grid-cols-[1.618fr_1fr]">
                       {/* The three stone hubs, with real swatches */}
                       <div className="border-warm-black/15 border-r p-5">
-                        <p className="label-gcb text-bronze">KalingaStone</p>
+                        <Link
+                          href="/kalingastone"
+                          tabIndex={productsOpen ? 0 : -1}
+                          className="label-gcb text-bronze hover:text-foreground transition-colors"
+                        >
+                          KalingaStone →
+                        </Link>
                         <ul className="mt-3 space-y-1">
                           {[
                             {

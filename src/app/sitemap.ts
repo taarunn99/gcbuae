@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
     "",
     "/products",
+    "/kalingastone",
     "/kalingastone/quartz",
     "/kalingastone/marble",
     "/kalingastone/terrazzo",

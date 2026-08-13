@@ -44,6 +44,13 @@ const pages: SearchEntry[] = [
     "catalogue lines slabs",
   ),
   entry(
+    "KalingaStone",
+    "The brand hub - quartz, marble & terrazzo",
+    "/kalingastone",
+    "Pages",
+    "kalingastone brand hub classic marble company cmc dealer supplier reseller engineered stone",
+  ),
+  entry(
     "KalingaStone Quartz",
     "69 shades · the worktop material",
     "/kalingastone/quartz",

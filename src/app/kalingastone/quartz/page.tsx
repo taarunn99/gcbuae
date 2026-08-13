@@ -19,6 +19,7 @@ import { SpectrumStrip } from "@/components/sections/quartz/spectrum-strip";
 import { TestBench } from "@/components/sections/quartz/test-bench";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { QuartzShadeExplorer } from "@/components/sections/quartz-shade-explorer";
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import heroImage from "@/assets/kalingastone-quartz-hero.webp";
@@ -145,32 +146,17 @@ const faqs = [
 
 /* ---------- JSON-LD ---------- */
 
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "KalingaStone", href: "/kalingastone" },
+  { label: "Quartz", href: "/kalingastone/quartz" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: siteConfig.url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "KalingaStone",
-          item: `${siteConfig.url}/kalingastone/quartz`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Quartz",
-          item: `${siteConfig.url}/kalingastone/quartz`,
-        },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@type": "ItemList",
       name: "KalingaStone Quartz shades",
@@ -223,19 +209,7 @@ export default function KalingaStoneQuartzPage() {
       {/* ---------- Hero ---------- */}
       <section className="pt-40 pb-20">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span>KalingaStone</span>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">Quartz</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_minmax(0,320px)] lg:items-end">
             <div>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -68,38 +69,19 @@ export default async function QuartzShadePage({ params }: Props) {
     ? `/kalingastone/quartz/lifestyle/${shade.slug}.webp`
     : null;
 
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "KalingaStone", href: "/kalingastone" },
+    { label: "Quartz", href: "/kalingastone/quartz" },
+    { label: family.label, href: `/kalingastone/quartz/colours/${family.slug}` },
+    { label: shade.name, href: `/kalingastone/quartz/${shade.slug}` },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "KalingaStone Quartz",
-            item: `${siteConfig.url}/kalingastone/quartz`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: family.label,
-            item: `${siteConfig.url}/kalingastone/quartz/colours/${family.slug}`,
-          },
-          {
-            "@type": "ListItem",
-            position: 4,
-            name: shade.name,
-            item: `${siteConfig.url}/kalingastone/quartz/${shade.slug}`,
-          },
-        ],
-      },
+      breadcrumbJsonLd(crumbs),
       {
         "@type": "Product",
         name: `KalingaStone Quartz ${shade.name}`,
@@ -137,30 +119,7 @@ export default async function QuartzShadePage({ params }: Props) {
 
       <section className="pt-40 pb-16">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link href="/kalingastone/quartz" className="u-line">
-              KalingaStone Quartz
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link
-              href={`/kalingastone/quartz/colours/${family.slug}`}
-              className="u-line"
-            >
-              {family.label}
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">{shade.name}</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
             <div>

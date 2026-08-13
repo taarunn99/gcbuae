@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -65,38 +66,22 @@ export default async function TerrazzoShadePage({ params }: Props) {
   const swatch = `/kalingastone/terrazzo/swatches/${shade.slug}.webp`;
   const lifestyle = `/kalingastone/terrazzo/lifestyle/${shade.lifestyle}.webp`;
 
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "KalingaStone", href: "/kalingastone" },
+    { label: "Terrazzo", href: "/kalingastone/terrazzo" },
+    {
+      label: collection.label,
+      href: `/kalingastone/terrazzo/collections/${collection.slug}`,
+    },
+    { label: shade.name, href: `/kalingastone/terrazzo/${shade.slug}` },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "KalingaStone Terrazzo",
-            item: `${siteConfig.url}/kalingastone/terrazzo`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: collection.label,
-            item: `${siteConfig.url}/kalingastone/terrazzo/collections/${collection.slug}`,
-          },
-          {
-            "@type": "ListItem",
-            position: 4,
-            name: shade.name,
-            item: `${siteConfig.url}/kalingastone/terrazzo/${shade.slug}`,
-          },
-        ],
-      },
+      breadcrumbJsonLd(crumbs),
       {
         "@type": "Product",
         name: `KalingaStone Terrazzo ${shade.name}`,
@@ -131,30 +116,7 @@ export default async function TerrazzoShadePage({ params }: Props) {
 
       <section className="pt-40 pb-16">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link href="/kalingastone/terrazzo" className="u-line">
-              KalingaStone Terrazzo
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link
-              href={`/kalingastone/terrazzo/collections/${collection.slug}`}
-              className="u-line"
-            >
-              {collection.label}
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">{shade.name}</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
             <div>

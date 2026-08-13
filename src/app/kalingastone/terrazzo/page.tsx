@@ -16,6 +16,7 @@ import { TerrazzoLifestyleCarousel } from "@/components/sections/terrazzo/terraz
 import { TerrazzoShadeExplorer } from "@/components/sections/terrazzo/terrazzo-shade-explorer";
 import { TerrazzoSlabScale } from "@/components/sections/terrazzo/terrazzo-slab-scale";
 import { TerrazzoTestBench } from "@/components/sections/terrazzo/terrazzo-test-bench";
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -129,26 +130,17 @@ const faqs = [
 
 /* ---------- JSON-LD ---------- */
 
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "KalingaStone", href: "/kalingastone" },
+  { label: "Terrazzo", href: "/kalingastone/terrazzo" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: siteConfig.url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "KalingaStone Terrazzo",
-          item: `${siteConfig.url}/kalingastone/terrazzo`,
-        },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@type": "ItemList",
       name: "KalingaStone Terrazzo shades",
@@ -207,19 +199,7 @@ export default function KalingaStoneTerrazzoPage() {
       {/* ---------- Hero ---------- */}
       <section className="pt-40 pb-20">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span>KalingaStone</span>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">Terrazzo</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_minmax(0,320px)] lg:items-end">
             <div>

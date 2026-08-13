@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
+import { BrandRail } from "@/components/sections/products/brand-rail";
 import { FeatureStack } from "@/components/sections/products/feature-stack";
 import { IndexRows } from "@/components/sections/products/index-rows";
 import { IssueOpener } from "@/components/sections/products/issue-opener";
@@ -60,9 +61,12 @@ export default function ProductsPage() {
         <Container>
           <Reveal>
             <div className="flex flex-wrap items-baseline justify-between gap-4">
-              <h2 className="font-display text-phi-3 tracking-tight">
-                The index.
-              </h2>
+              <div>
+                <p className="label-gcb text-muted">By product line</p>
+                <h2 className="font-display text-phi-3 mt-4 tracking-tight">
+                  The index.
+                </h2>
+              </div>
               <p className="label-gcb text-muted">Eight lines · tap any row</p>
             </div>
           </Reveal>
@@ -84,6 +88,9 @@ export default function ProductsPage() {
           </Reveal>
         </Container>
       </section>
+
+      {/* ---------- The Brands - the second classification ---------- */}
+      <BrandRail />
 
       {/* ---------- Certified reseller ---------- */}
       <AuthorizedDistributor />

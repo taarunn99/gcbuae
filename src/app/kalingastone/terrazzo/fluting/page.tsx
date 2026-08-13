@@ -5,13 +5,13 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { FlutingLightPlay } from "@/components/sections/terrazzo/fluting-light-play";
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
   flutingSamples,
   terrazzoShadeBySlug,
 } from "@/config/kalingastone-terrazzo";
-import { siteConfig } from "@/config/site";
 
 /**
  * The fluting page - KalingaStone's signature terrazzo treatment gets
@@ -26,32 +26,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/kalingastone/terrazzo/fluting" },
 };
 
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "KalingaStone", href: "/kalingastone" },
+  { label: "Terrazzo", href: "/kalingastone/terrazzo" },
+  { label: "Fluting", href: "/kalingastone/terrazzo/fluting" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: siteConfig.url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "KalingaStone Terrazzo",
-          item: `${siteConfig.url}/kalingastone/terrazzo`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Fluting",
-          item: `${siteConfig.url}/kalingastone/terrazzo/fluting`,
-        },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@type": "ItemList",
       name: "KalingaStone Terrazzo fluting samples",
@@ -78,21 +64,7 @@ export default function FlutingPage() {
       {/* ---------- Hero ---------- */}
       <section className="pt-40 pb-16">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link href="/kalingastone/terrazzo" className="u-line">
-              KalingaStone Terrazzo
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">Fluting</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <SplitHeading
             as="h1"

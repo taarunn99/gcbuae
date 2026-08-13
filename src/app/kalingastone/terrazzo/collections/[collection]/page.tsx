@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import {
@@ -50,32 +51,21 @@ export default async function TerrazzoCollectionPage({ params }: Props) {
   const shades = shadesOfTerrazzoCollection(collection.series);
   const siblings = terrazzoCollections.filter((c) => c.slug !== slug);
 
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "KalingaStone", href: "/kalingastone" },
+    { label: "Terrazzo", href: "/kalingastone/terrazzo" },
+    {
+      label: collection.label,
+      href: `/kalingastone/terrazzo/collections/${collection.slug}`,
+    },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "KalingaStone Terrazzo",
-            item: `${siteConfig.url}/kalingastone/terrazzo`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: collection.label,
-            item: `${siteConfig.url}/kalingastone/terrazzo/collections/${collection.slug}`,
-          },
-        ],
-      },
+      breadcrumbJsonLd(crumbs),
       {
         "@type": "CollectionPage",
         name: `KalingaStone Terrazzo ${collection.label} - UAE`,
@@ -105,21 +95,7 @@ export default async function TerrazzoCollectionPage({ params }: Props) {
 
       <section className="pt-40 pb-20">
         <Container>
-          <nav aria-label="Breadcrumb" className="label-gcb text-muted">
-            <Link href="/" className="u-line">
-              Home
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <Link href="/kalingastone/terrazzo" className="u-line">
-              KalingaStone Terrazzo
-            </Link>
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-            <span className="text-foreground">{collection.label}</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <h1 className="font-display mt-8 max-w-3xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl">
             {collection.label} terrazzo, in the UAE.
