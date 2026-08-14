@@ -128,15 +128,15 @@ export default async function JaquarCategoryPage({ params }: Props) {
               {(() => {
                 const section = catalogueSectionFor(category.slug);
                 return section ? (
-                  <a
-                    href={`/jaquar/catalogue/${section.file}.pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="chip-gcb border-border/50 mt-6 inline-block rounded-full border px-5 py-2.5 text-sm"
-                  >
-                    This range in the official catalogue - {section.pages}
-                    (PDF, {section.size})
-                  </a>
+                  <div className="mt-8">
+                    <GcbButton
+                      href={`/jaquar/catalogue/${section.file}.pdf`}
+                      size="sm"
+                      variant="light"
+                    >
+                      Download the catalogue section (PDF, {section.size})
+                    </GcbButton>
+                  </div>
                 ) : null;
               })()}
             </div>

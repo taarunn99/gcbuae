@@ -257,22 +257,36 @@ export const catalogueSections: CatalogueSection[] = [
   { file: "jaquar-washroom-warranty-care", label: "Washroom Accessories, Warranty & Care", pages: "pp 352-364", size: "1 MB" },
 ];
 
-/** Which download covers which site category (shower-enclosures: none -
- *  the catalogue does not cover them). */
+/** Which download covers which site category (six-way taxonomy). */
 export const catalogueSectionByCategory: Record<string, string> = {
   faucets: "jaquar-faucets-sanitaryware",
-  "sanitary-ware": "jaquar-faucets-sanitaryware",
-  "flushing-systems": "jaquar-flushing-systems",
-  accessories: "jaquar-accessories",
+  "wash-basins": "jaquar-faucets-sanitaryware",
+  "water-closets": "jaquar-faucets-sanitaryware",
   showers: "jaquar-showers",
-  whirlpools: "jaquar-wellness",
-  bathtubs: "jaquar-wellness",
   wellness: "jaquar-wellness",
   "water-heaters": "jaquar-water-heaters",
 };
 
-export function catalogueSectionFor(category: string) {
-  const file = catalogueSectionByCategory[category];
+/** Collection-level overrides where a collection's pages live in a
+ *  different printed section than its category's default. */
+const catalogueSectionByCollection: Record<string, string> = {
+  "i-flush": "jaquar-flushing-systems",
+  "flush-valves": "jaquar-flushing-systems",
+  cisterns: "jaquar-flushing-systems",
+  "flush-plates": "jaquar-flushing-systems",
+  "continental-accessories": "jaquar-accessories",
+  "continental-prime-accessories": "jaquar-accessories",
+  "kubix-prime-accessories": "jaquar-accessories",
+  "queens-accessories": "jaquar-accessories",
+  "rendezvous-crystal": "jaquar-accessories",
+  "combo-pack": "jaquar-accessories",
+  "washroom-equipment": "jaquar-washroom-warranty-care",
+};
+
+export function catalogueSectionFor(category: string, collection?: string) {
+  const file =
+    (collection && catalogueSectionByCollection[collection]) ||
+    catalogueSectionByCategory[category];
   return catalogueSections.find((s) => s.file === file) ?? null;
 }
 

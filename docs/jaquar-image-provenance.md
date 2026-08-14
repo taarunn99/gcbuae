@@ -44,6 +44,21 @@ captions/print artefacts).
 | `hub/banner.webp` (21:9, 4k) | Ultrawide marble vanity banner for the hub maker section |
 | `hub/editorial-mixer.webp`, `hub/editorial-wc.webp` | Hub editorial inserts |
 
+## Restructure additions (2026-08-14, six-category taxonomy)
+
+- ALL 1,221 product cutouts now ship as WebP via the local
+  `scripts/build-jaquar-thumbs.mjs` (sharp only, native resolution on
+  Marble White - no generation); 44 of them are the salvaged 4K
+  ByteDance upscales recovered from the halted Pass A run.
+- Category tiles `categories/wash-basins.webp` and
+  `categories/water-closets.webp` generated (nano_banana_pro 2k, 4:3,
+  brief prompt system) - the only new spend of the restructure (4 cr).
+- Every other hero under `heroes/{wash-basins,water-closets,wellness}/`
+  and `scenes/{wash-basins,water-closets}.webp` is a file copy of the
+  existing generated art remapped to the new slugs (provenance rows
+  above apply); `wellness/` and `showers/` collection images are copies
+  of the v1 official uae.jaquar.com photography.
+
 ## Pass C - hero film (model: seedance_2_5, 8 s, 16:9)
 
 - `public/jaquar/hero/jaquar-hero.mp4` + `jaquar-hero-poster.webp` -

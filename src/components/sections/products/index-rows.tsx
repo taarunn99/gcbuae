@@ -23,8 +23,8 @@ const HUBS: Record<string, string> = {
   terrazzo: "/kalingastone/terrazzo",
   showers: "/jaquar/showers",
   taps: "/jaquar/faucets",
-  sanitaryware: "/jaquar/sanitary-ware",
-  "shower-trays": "/jaquar/shower-enclosures",
+  sanitaryware: "/jaquar/wash-basins",
+  "shower-trays": "/jaquar/showers",
 };
 
 const PREVIEWS: Record<string, string> = {

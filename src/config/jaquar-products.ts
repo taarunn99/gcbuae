@@ -9,9 +9,17 @@ import catalogue from "./jaquar-products.json";
  */
 
 export type JaquarProduct = {
+  /** Verbatim printed name. */
   name: string;
+  /** Human-readable product type parsed from the name ("" if the print
+   *  gave nothing beyond the SKU). */
+  title: string;
+  /** Attribute chips parsed from the name (flow, size, trap, seat...). */
+  attrs: string[];
   sku: string;
   finish: string;
+  /** Browser filter group (mixers, taps, table-top, wall-hung-wcs...). */
+  group: string;
   /** Pack-relative image slug ("faucets/aria/ari-39001b") or "" if the
    *  catalogue printed no croppable photo for this row. */
   image: string;
@@ -28,6 +36,20 @@ export function productsOf(
   collection: string,
 ): JaquarProduct[] {
   return data[category]?.[collection] ?? [];
+}
+
+/** All products in a category whose parsed `group` matches - used by
+ *  aggregate landings like faucets/taps (quarter-turn taps across ranges). */
+export function productsOfGroups(
+  category: string,
+  groups: string[],
+): JaquarProduct[] {
+  const cat = data[category];
+  if (!cat) return [];
+  const wanted = new Set(groups);
+  return Object.values(cat)
+    .flat()
+    .filter((p) => wanted.has(p.group));
 }
 
 export function productCount(category: string, collection?: string): number {

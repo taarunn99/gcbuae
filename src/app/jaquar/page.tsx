@@ -27,7 +27,7 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: { absolute: "Jaquar Dealer UAE - Bathroom Fittings | Global Classic" },
   description:
-    "Authorized Jaquar dealer in the UAE - faucets, sanitaryware, showers, enclosures, whirlpools, bathtubs, flushing systems, wellness and water heaters from Sharjah stock. 1,500+ catalogued products with SKUs, trade pricing in AED, delivery to every emirate.",
+    "Authorized Jaquar dealer in the UAE - faucets and taps, wash basins, water closets, showers and enclosures, wellness and water heaters, wholesale from Sharjah stock. 1,480 catalogued products with SKUs, AED trade pricing against the BOQ, delivery to every emirate.",
   alternates: { canonical: "/jaquar" },
 };
 
@@ -126,14 +126,13 @@ export default function JaquarPage() {
           <Reveal className="mt-8 max-w-2xl">
             <p className="text-lg leading-relaxed">
               Global Classic is an authorized dealer of Jaquar bathroom fittings
-              in the UAE - faucets, sanitaryware, showers, enclosures,
-              whirlpools, bathtubs, flushing systems, wellness and water heaters
-              from the group that delivers{" "}
-              <strong>3.6 million bathrooms a year</strong>.{" "}
+              in the UAE - faucets and taps, wash basins, water closets,
+              showers and enclosures, wellness and water heaters from the group
+              that delivers <strong>3.6 million bathrooms a year</strong>.{" "}
               <strong>{catalogueTotal.toLocaleString()} catalogued products</strong>{" "}
-              with SKUs on this site, wholesale supply from Sharjah, AED trade
-              pricing on request, and Jaquar&apos;s printed warranty terms
-              behind every range.
+              with SKUs on this site, supplied wholesale from Sharjah in bulk
+              and project quantities only - AED trade pricing against the BOQ,
+              with Jaquar&apos;s printed warranty terms behind every range.
             </p>
           </Reveal>
 
@@ -173,7 +172,7 @@ export default function JaquarPage() {
         <Container>
           <p className="label-gcb text-muted">The range</p>
           <h2 className="font-display text-phi-3 mt-4 max-w-2xl tracking-tight text-balance">
-            Ten categories, one printed warranty card.
+            Six categories, one printed warranty card.
           </h2>
           <RuleIn className="mt-8 w-full max-w-3xl" />
 

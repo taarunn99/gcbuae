@@ -260,9 +260,8 @@ export function SiteHeader() {
                                       {
                                         showers: "/jaquar/showers",
                                         taps: "/jaquar/faucets",
-                                        sanitaryware: "/jaquar/sanitary-ware",
-                                        "shower-trays":
-                                          "/jaquar/shower-enclosures",
+                                        sanitaryware: "/jaquar/wash-basins",
+                                        "shower-trays": "/jaquar/showers",
                                       } as Record<string, string>
                                     )[product.slug] ??
                                     `/products#${product.slug}`
@@ -275,19 +274,14 @@ export function SiteHeader() {
                               </li>
                             ))}
                           {[
-                            { label: "Bathtubs", href: "/jaquar/bathtubs" },
-                            { label: "Wellness & Spas", href: "/jaquar/wellness" },
                             {
-                              label: "Flushing Systems",
-                              href: "/jaquar/flushing-systems",
+                              label: "Water Closets",
+                              href: "/jaquar/water-closets",
                             },
+                            { label: "Wellness & Spas", href: "/jaquar/wellness" },
                             {
                               label: "Water Heaters",
                               href: "/jaquar/water-heaters",
-                            },
-                            {
-                              label: "Accessories",
-                              href: "/jaquar/accessories",
                             },
                           ].map((item) => (
                             <li key={item.href}>

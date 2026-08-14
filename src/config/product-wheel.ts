@@ -47,7 +47,7 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/white-twin-basins-limestone-vanity-spa-uae.webp",
     alt: "Sculptural white ceramic twin basins on a pale limestone vanity with a eucalyptus sprig in a pine-green bud vase",
     accent: "#d2d4c8",
-    href: "/jaquar/sanitary-ware",
+    href: "/jaquar/wash-basins",
   },
   {
     id: "bathware",

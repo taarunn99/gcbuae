@@ -88,7 +88,7 @@ export const jaquarCategories: JaquarCategory[] = [
     label: "Faucets",
     query: "jaquar faucets UAE",
     intro:
-      "Jaquar faucets are the core of the brand that produces 125,000 taps a day - single-lever mixers, thermostats, sensor and pressmatic taps across collections from Aria to Kubix Prime, in ten finishes from Chrome to Gold Bright PVD. Global Classic supplies the range across the UAE from Sharjah, with a 10-year warranty behind every cartridge.",
+      "Jaquar faucets are the core of the brand that produces 125,000 taps a day - single lever basin mixers, quarter turn taps, thermostatic and sensor fittings across thirty-plus ranges from Aria to Florentine, in ten finishes from Chrome to Gold Bright PVD, with the design-matched chrome accessory sets alongside. Global Classic supplies taps, mixers and bathroom fittings wholesale from Sharjah - bulk and project quantities only, priced against the BOQ.",
     collections: [
       {
         name: "Aria",
@@ -584,6 +584,108 @@ export const jaquarCategories: JaquarCategory[] = [
         productTypes: ["Spout operated pillar tap", "Spout operated bib tap"],
         skuSamples: ["SOT-83011", "SOT-83037"],
       },
+      {
+        name: "Taps - Quarter Turn & Classic",
+        slug: "taps",
+        blurb:
+          "The taps, gathered: quarter turn pillar taps, basin taps, bib taps and angle valves from the Continental, Queen's, Astra and Rendezvous ranges, the Pressmatic self-closing line and spout operated taps - the classic non-mixer fittings a UAE project BOQ still calls taps. Every tap on this page carries its printed SKU and flow rate for direct quoting.",
+        productTypes: [
+          "Quarter turn pillar taps",
+          "Basin taps and bib taps",
+          "Angle valves and stop valves",
+          "Self-closing Pressmatic taps",
+          "Spout operated taps",
+        ],
+        skuSamples: ["CON-011KN", "QQT-7167B", "AQT-3011", "PRS-031"],
+      },
+      /* ---- Design-matched chrome accessory families ---- */
+      {
+        name: "Continental Accessories",
+        slug: "continental-accessories",
+        blurb:
+          "The broadest accessory family at 30 pieces: towel rails, rings and shelves with stainless steel options, soap dispensers in glass or metallic bottle, paper holders including a shelf variant, shower baskets, and swivel, oval and 3X magnifying pivotal mirrors - matched to the Continental faucet language.",
+        productTypes: [
+          "Towel rails and rings",
+          "Towel shelves",
+          "Soap dispensers",
+          "Paper holders",
+          "Robe hooks",
+          "Shower baskets",
+          "Mirrors",
+        ],
+        skuSamples: ["ACN-1121N", "ACN-1137N", "ACN-1181S", "ACN-1193N"],
+      },
+      {
+        name: "Continental Prime Accessories",
+        slug: "continental-prime-accessories",
+        blurb:
+          "Twenty pieces, all in chrome: a 300 mm grab bar, towel rails at 450 and 600 mm, square and round towel rings, soap dish and glass bottle dispenser, tumbler and toilet brush holders, paper holders with lid and spare, 600 mm glass and towel shelves, and robe hooks.",
+        productTypes: [
+          "Grab bars",
+          "Towel rails and rings",
+          "Soap dispensers",
+          "Tumbler holders",
+          "Paper holders",
+          "Shelves",
+          "Robe hooks",
+        ],
+        skuSamples: ["CPA-CHR-1101", "CPA-CHR-1111L450", "CPA-CHR-1171"],
+      },
+      {
+        name: "Kubix Prime Accessories",
+        slug: "kubix-prime-accessories",
+        blurb:
+          "Twenty squared-profile pieces matched to the cubist faucet flagship: toilet roll holders with shelf or stainless steel flap, towel ring, soap dispenser with glass bottle, tumbler and WC brush holders, double coat hook, 600 mm shelves with stainless steel hangers, and a 630 x 445 mm rectangular swivel mirror.",
+        productTypes: [
+          "Paper holders",
+          "Towel rings",
+          "Soap dispensers",
+          "Tumbler and brush holders",
+          "Coat hooks",
+          "Shelves",
+          "Mirrors",
+        ],
+        skuSamples: ["AKP-35757P", "AKP-35753PS", "AKP-35795"],
+      },
+      {
+        name: "Queen's Accessories",
+        slug: "queens-accessories",
+        blurb:
+          "Ten pieces built for daily service: a twin type paper holder, robe hooks, 600 mm towel shelves with lower hangers, stainless steel grab bars in 300, 450 and 600 mm, a retractable stainless steel cloth liner and a 550 mm glass shelf.",
+        productTypes: [
+          "Paper holders",
+          "Robe hooks",
+          "Towel shelves",
+          "Grab bars",
+          "Cloth liners",
+          "Glass shelves",
+        ],
+        skuSamples: ["AQN-7755", "AHS-1501", "AHS-1565"],
+      },
+      {
+        name: "Rendezvous Crystal Collection",
+        slug: "rendezvous-crystal",
+        blurb:
+          "Nine crystal-detailed pieces matching the Rendezvous tap range: a 600 mm towel rail and 450 mm towel shelf, a 550 mm glass shelf, towel ring, tumbler holder, soap dish, toilet paper holder, and double coat and robe hooks.",
+        productTypes: [
+          "Towel rails and shelves",
+          "Glass shelves",
+          "Towel rings",
+          "Tumbler holders",
+          "Soap dishes",
+          "Paper holders",
+          "Hooks",
+        ],
+        skuSamples: ["ACT-8811", "ACT-8871", "ACT-8821"],
+      },
+      {
+        name: "Combo Pack",
+        slug: "combo-pack",
+        blurb:
+          "A six-piece chrome set sold under one SKU: round towel ring, soap dish holder, glass bottle soap dispenser, paper holder with stainless steel lid, double robe hook and towel rail - the one-line fit-out for volume residential projects.",
+        productTypes: ["Accessory combo packs"],
+        skuSamples: ["ACN-6PCCOP1", "ACN-CHR-1121BN", "ACN-CHR-1153S"],
+      },
     ],
     finishes: METAL_FINISHES,
     claims: [
@@ -625,365 +727,310 @@ export const jaquarCategories: JaquarCategory[] = [
         q: "Do you supply Jaquar faucets for full projects?",
         a: "Yes - wholesale supply is the core of what Global Classic does. Send the BOQ and volume pricing in AED comes back usually within one working day, with delivery across the whole of the UAE.",
       },
+      {
+        q: "Do you sell single taps or replacement parts to homeowners?",
+        a: "No - we supply bulk and project quantities only, to contractors, developers, fit-out companies and trade buyers. We do not serve retail walk-ins, single-tap orders, or repair and installation calls.",
+      },
     ],
   },
   {
-    slug: "sanitary-ware",
-    label: "Sanitaryware",
-    query: "jaquar sanitary ware UAE",
+    slug: "wash-basins",
+    label: "Wash Basins",
+    query: "jaquar wash basin UAE",
     intro:
-      "Jaquar sanitaryware runs from rimless wall-hung WCs to the Bidspa electronic WC - 4.8 million pieces a year, Anti-Germ glazing, 3/6-litre dual flush and a 10-year warranty. Global Classic is a sanitary ware supplier for the UAE, stocking and delivering the range from Sharjah to every emirate, wholesale.",
+      "Jaquar wash basins run every installation type a washroom drawing can call for - table top sinks and thin-rim vessels, counter top and under counter bowls, wall hung basins with pedestals, semi recessed and corner formats - drawn from ranges like Aria, Fonte, Solo and the JDR designer line, in White, White Matt and Black Matt ceramic. Global Classic supplies wash basins and washroom equipment wholesale from Sharjah - project and bulk quantities only, never single pieces.",
     collections: [
       {
-        name: "Kubix Prime",
-        slug: "kubix-prime",
+        name: "Table Top Basins",
+        slug: "table-top",
         blurb:
-          "The flagship ceramic line - rimless, blind-installation wall-hung WCs and matching basins.",
+          "The largest basin family in the catalogue - 52 table top and thin rim sinks that sit ON the counter, from 380 x 380 mm squares to 800 x 500 mm slabs, in square, rectangular, oval, round and triangular shapes. Ranges: Laguna, Aria, Fonte, Solo, Florentine, Continental, Lyric, Queen's Prime, Ornamix Prime, D'Arc and the thin-rim JDR designer line, with White Matt and Black Matt options.",
         productTypes: [
-          "Rimless Blind Installation Wall Hung WC",
-          "Blind Installation Wall Hung Bidet",
-          "Rimless Bowl With Cistern",
-          "Table Top Basin",
+          "Table top basins, square and rectangular",
+          "Table top basins, round and oval",
+          "Thin rim designer basins (JDR)",
+          "Table top basins with three tap hole",
+          "Counter top vessel basins",
         ],
-        skuSamples: ["KUS-WHT-35953BIUFSMPM", "KUS-BLM-35153PM"],
+        skuSamples: ["LAS-WHT-91901", "JDS-BLM-25907N", "ARS-WHT-39901", "FNS-WHT-40931"],
       },
       {
-        name: "Bidspa",
-        slug: "bidspa",
+        name: "Counter Top Basins",
+        slug: "counter-top",
         blurb:
-          "The electronic WC range - automatic, rimless, in floor-mounted, back-to-wall and wall-hung formats.",
-        productTypes: [
-          "Automatic Rimless Floor Mounted WC",
-          "Bidspa Rimless Back To Wall WC",
-          "Bidspa Rimless Blind Installation Wall Hung WC",
-          "Bidspa Rimless Single Piece WC",
-          "Bidspa Rimless Wall Hung WC",
-        ],
-        skuSamples: ["ITS-WHT-89853S300PPPM", "ITS-WHT-6953NBIPP"],
+          "Counter top bowls that read as sculpture on the vanity - including the D'Arc 615 x 415 mm counter top basin and the bold cylindrical Fusion at 545 x 545 x 180 mm. The format for reception washrooms where the sink is on show.",
+        productTypes: ["Counter top basins", "Cylindrical vessel basins"],
+        skuSamples: ["DRS-WHT-37601", "FSS-WHT-29601", "SLS-WHT-6601"],
       },
       {
-        name: "Laguna",
-        slug: "laguna",
+        name: "Under Counter Basins",
+        slug: "under-counter",
         blurb:
-          "Soft-profile ceramics matching the Laguna faucet and whirlpool families.",
-        productTypes: ["Wall Hung WC", "Counter Top Basin", "Pedestal Basin"],
+          "Under counter sinks cemented beneath the stone - the clean-deck detail hotel vanities specify so the counter wipes straight into the bowl. Drawn from Fonte, Florentine, Continental, Solo and Queen's Prime.",
+        productTypes: ["Under counter basins, oval", "Under counter basins, rectangular"],
+        skuSamples: ["FNS-WHT-40801", "FLS-WHT-5701", "CNS-WHT-801"],
       },
       {
-        name: "Opal Prime",
-        slug: "opal-prime",
-        blurb: "Slim-rim basins and WCs in the prime ceramic specification.",
-        productTypes: [
-          "Wall Hung WC",
-          "Table Top Basin",
-          "Under Counter Basin",
-        ],
-      },
-      {
-        name: "Vignette Prime",
-        slug: "vignette-prime",
+        name: "Wall Hung Basins",
+        slug: "wall-hung-basins",
         blurb:
-          "Sculpted prime-tier ceramics with matching whirlpool and faucet ranges.",
-        productTypes: ["Wall Hung WC", "Counter Top Basin"],
-      },
-      {
-        name: "Arc",
-        slug: "arc",
-        blurb:
-          "Curved-geometry ceramics from the family that spans faucets to whirlpools.",
-        productTypes: ["Wall Hung WC", "Table Top Basin"],
-      },
-      /* ---- Catalogue 2025-2026 ranges (docs/jaquar-catalogue.md) ---- */
-      {
-        name: "D'Arc",
-        slug: "d-arc",
-        tagline: "Understated Elegance. Defined Workmanship",
-        blurb:
-          "A focused pair in white: a rimless blind installation wall hung WC with UF soft close slim seat cover at 355 x 525 x 380 mm, and a counter top basin at 615 x 415 x 150 mm. Two pieces, one architectural line.",
-        productTypes: ["Wall hung WCs", "Counter top basins"],
-        skuSamples: ["DRS-WHT-37953BIUFSM", "DRS-WHT-37601"],
-      },
-      {
-        name: "Aria",
-        slug: "aria",
-        blurb:
-          "A 19-piece range spanning basins, pedestals, WCs and bidets, led by tankless technology: a wall hung WC with sensor flush in battery and electric operated form, plus tankless single piece WCs with sensor operated single flush. Coupled, back to wall and blind installation formats cover P180 and S240 to S300 trap distances, all with UF soft close slim seat covers.",
-        productTypes: [
-          "Table top basins",
-          "Wall hung basins",
-          "Pedestals",
-          "Tankless sensor WCs",
-          "Single piece WCs",
-          "Coupled WCs",
-          "Back to wall WCs",
-          "Bidets",
-        ],
-        skuSamples: [
-          "ARS-WHT-39901",
-          "ARS-WHT-39961NBIUFSMTL",
-          "ARS-WHT-39751P180UFSMZ",
-          "ARS-WHT-39851S300UFSMTL",
-        ],
-      },
-      {
-        name: "Fonte",
-        slug: "fonte",
-        tagline: "Exquisite Design. Sublime Purity.",
-        blurb:
-          "Nine pieces built around one basin family: table top, under counter and wall hung basins with full and half pedestals, a rimless wall hung WC, and coupled WC bowls with dual flush cistern fittings in S220 and P180 trap options. Seat covers are UF soft close throughout.",
-        productTypes: [
-          "Table top basins",
-          "Under counter basins",
-          "Wall hung basins",
-          "Pedestals",
-          "Wall hung WCs",
-          "Coupled WCs",
-        ],
-        skuSamples: [
-          "FNS-WHT-40931",
-          "FNS-WHT-40801",
-          "FNS-WHT-40953UF",
-          "FNS-WHT-40751S220UFSMZ",
-        ],
-      },
-      {
-        name: "JDR Designer Range",
-        slug: "jdr-designer-range",
-        tagline: "Modernity Gets New Sophistication",
-        blurb:
-          "New in the 2025-2026 catalogue, JDR is a basin-led designer range: 18 pieces across table top, thin rim, semi recessed and wall hung corner formats. Thin rim shapes run rectangular, square, oval and round, with White Matt and Black Matt offered alongside standard White.",
-        productTypes: [
-          "Table top basins",
-          "Thin rim basins",
-          "Semi recessed basins",
-          "Wall hung corner basins",
-        ],
-        skuSamples: [
-          "JDS-WHT-25905",
-          "JDS-BLM-25907N",
-          "JDS-WHM-25911",
-          "JDS-WHT-25503",
-        ],
-      },
-      {
-        name: "Urinals",
-        slug: "urinals",
-        blurb:
-          "Five commercial urinals from 355 x 340 x 535 mm to 480 x 300 x 740 mm: back inlet models, a spreader hole variant and a without-sensor unit, all supplied with fixing accessories.",
-        productTypes: [
-          "Urinals",
-          "Back inlet urinals",
-          "Spreader hole urinals",
-        ],
-        skuSamples: ["URS-WHT-13253N", "URS-WHT-13255", "URS-WHT-13261H"],
-      },
-      {
-        name: "Disabled-Friendly Sanitaryware",
-        slug: "disabled-friendly",
-        blurb:
-          "Four pieces specified for accessible washrooms: a 650 x 565 x 155 mm wall hung basin, a 350 x 750 x 340 mm wall hung WC, a rimless back to wall WC and a rimless coupled bowl with cistern, both in P180 trap. Seat covers are UF soft close across the set.",
+          "Basins that mount to the wall and free the floor - 21 formats from compact cloakroom sinks to the 650 x 565 mm accessible basin, several with integrated or matching semi pedestals. The specification for washrooms cleaned by machine.",
         productTypes: [
           "Wall hung basins",
-          "Wall hung WCs",
-          "Back to wall WCs",
-          "Coupled WCs",
+          "Wall hung basins with integrated shelf",
+          "Accessible wall hung basins",
         ],
-        skuSamples: [
-          "DIS-WHT-93801",
-          "DIS-WHT-93951UF",
-          "DIS-WHT-93955P180UF",
-          "DIS-WHT-93753NP180UFSMZ",
-        ],
+        skuSamples: ["ARS-WHT-39803", "SLS-WHT-6801", "DIS-WHT-93801"],
       },
       {
-        name: "Solo",
-        slug: "solo",
+        name: "Pedestals",
+        slug: "pedestals",
         blurb:
-          "Twenty one pieces covering the full sanitaryware brief: basins with pedestals, single piece WCs across S110, S220 and S300 plus P180 traps, coupled bowls, bidets and wall hung WCs including an in-built jet model. Seats run PP and UF soft close, and the blind installation wall hung WC comes in White Matt and Black Matt as well as White.",
-        productTypes: [
-          "Table top basins",
-          "Counter top basins",
-          "Wall hung basins",
-          "Pedestals",
-          "Single piece WCs",
-          "Coupled WCs",
-          "Wall hung WCs",
-          "Bidets",
-        ],
-        skuSamples: [
-          "SLS-WHT-6901",
-          "SLS-WHT-6851S220PP",
-          "SLS-BLM-6953BIUFSM",
-          "SLS-WHT-6951JUFSM",
-        ],
+          "Full and half pedestals matched to the wall hung basin families - the classic full-height column or the half pedestal that skirts the trap. 19 pieces across Aria, Fonte, Solo, Florentine, Continental, Lyric and Queen's Prime.",
+        productTypes: ["Full pedestals", "Half pedestals"],
+        skuSamples: ["ARS-WHT-39155", "FNS-WHT-40153", "CNS-WHT-153"],
       },
       {
-        name: "Florentine",
-        slug: "florentine",
+        name: "Semi Recessed & Corner Basins",
+        slug: "semi-recessed-corner",
         blurb:
-          "Eight pieces around soft oval geometry: table top and under counter basins, a wall hung basin with full pedestal, and a rimless wall hung WC with UF soft close slim seat cover at 355 x 555 x 370 mm.",
-        productTypes: [
-          "Table top basins",
-          "Under counter basins",
-          "Wall hung basins",
-          "Pedestals",
-          "Wall hung WCs",
-        ],
-        skuSamples: ["FLS-WHT-5931", "FLS-WHT-5701", "FLS-WHT-5801"],
+          "The space-savers: semi recessed sinks that sink halfway into a slim counter, and wall hung corner basins for the tightest cloakrooms - from the JDR designer range.",
+        productTypes: ["Semi recessed basins", "Wall hung corner basins"],
+        skuSamples: ["JDS-WHT-25503", "JDS-WHT-25505"],
       },
       {
-        name: "Continental",
-        slug: "continental",
+        name: "Washroom Equipment",
+        slug: "washroom-equipment",
         blurb:
-          "The 26-piece workhorse range: basins in table top, under counter and wall hung formats with pedestals, coupled WC bowls in P180, S220 and S300 traps including a single side flush variant, rimless single piece WCs, and wall hung WCs with in-built jet in PP or UF seat options.",
+          "The commercial basin-area line: touch-free infrared hand dryers led by the 1850 W Nuovo dualflow with DC brushless motor and double HEPA filter (Flash and Bolt at 1150 W), push button and automatic 0.8 L soap dispensers including a 9V transformer variant, an AISI 304 stainless steel paper towel dispenser holding 400-600 C/Z fold towels, and grab bars in white, black matt and satin.",
         productTypes: [
-          "Table top basins",
-          "Under counter basins",
-          "Wall hung basins",
-          "Pedestals",
-          "Coupled WCs",
-          "Single piece WCs",
-          "Wall hung WCs",
-          "Bidets",
+          "Hand dryers",
+          "Soap dispensers",
+          "Paper towel dispensers",
+          "Grab bars",
         ],
-        skuSamples: [
-          "CNS-WHT-905",
-          "CNS-WHT-959JUF",
-          "CNS-WHT-853S300SPPSM",
-          "CNS-WHT-153",
-        ],
-      },
-      {
-        name: "Lyric",
-        slug: "lyric",
-        blurb:
-          "Twelve pieces led by a thin rim triangular table top basin at 600 x 410 x 100 mm. Single piece WCs cover S220, S300 and P180 traps, two of them with sensor and manual operated single flush cistern fittings; all seat covers are UF soft close slim.",
-        productTypes: [
-          "Table top basins",
-          "Wall hung basins",
-          "Pedestals",
-          "Wall hung WCs",
-          "Single piece WCs",
-          "Coupled WCs",
-        ],
-        skuSamples: [
-          "LYS-WHT-38901N",
-          "LYS-WHT-38851S300UFSMN",
-          "LYS-WHT-38851S220UFSMSNR",
-          "LYS-WHT-38751S250UFSMZ",
-        ],
-      },
-      {
-        name: "Queen's Prime",
-        slug: "queens-prime",
-        blurb:
-          "Twelve pieces in a soft-edged classic profile: wall hung, under counter and table top basins, a rimless wall hung WC, coupled bowls with dual flush or single side flush cisterns in P180 and S250 traps, a back to wall WC, and floor mounted and wall hung bidets. UF soft close seat covers throughout.",
-        productTypes: [
-          "Wall hung basins",
-          "Under counter basins",
-          "Table top basins",
-          "Pedestals",
-          "Wall hung WCs",
-          "Coupled WCs",
-          "Back to wall WCs",
-          "Bidets",
-        ],
-        skuSamples: [
-          "QPS-WHT-7803PM",
-          "QPS-WHT-7953UFPM",
-          "QPS-WHT-7753P180UFPMZ",
-          "QPS-WHT-7151PM",
-        ],
-      },
-      {
-        name: "Ornamix Prime",
-        slug: "ornamix-prime",
-        blurb:
-          "Ten pieces with tankless flushing at the centre: a wall hung WC with sensor flush and a single piece WC with sensor and manual operated single flush, alongside rimless coupled bowls in P180 and S250 traps, a back to wall WC, an integrated wall hung basin and a blind installation bidet. Seats are UF soft close slim across the range.",
-        productTypes: [
-          "Table top basins",
-          "Integrated wall hung basins",
-          "Tankless sensor WCs",
-          "Single piece WCs",
-          "Coupled WCs",
-          "Wall hung WCs",
-          "Back to wall WCs",
-          "Bidets",
-        ],
-        skuSamples: [
-          "ONS-WHT-10901",
-          "ONS-WHT-10961BIUFSMTL",
-          "ONS-WHT-10851S300UFSMTL",
-          "ONS-WHT-10753P180UFSMZ",
-        ],
-      },
-      {
-        name: "Fusion",
-        slug: "fusion",
-        blurb:
-          "A compact four-piece set: a 545 x 545 x 180 mm counter top basin, a wall hung WC with PP soft close seat cover, and a rimless single piece WC with dual flush cistern fitting in S300 trap and UF soft close slim seat.",
-        productTypes: [
-          "Counter top basins",
-          "Wall hung WCs",
-          "Single piece WCs",
-        ],
-        skuSamples: [
-          "FSS-WHT-29601",
-          "FSS-WHT-29951PP",
-          "FSS-WHT-29853S300UFSM",
-        ],
+        skuSamples: ["HDR-SLV-AK2030", "SDR-WHT-DJ0010FN", "PTD-SAP-DT0106CSN", "WAC-BLM-BG0800N"],
       },
     ],
     finishes: CERAMIC_FINISHES,
     claims: [
       {
-        title: "Anti-Germ Glazing",
-        body: "Fluoro-polymer in the glaze forms a hydrophobic shield that prevents the build-up of bacteria and germs, with glazed traps for clean, odour-free WCs.",
+        title: "Anti-Germ glazing on every bowl",
+        body: "Fluoro-polymer in the glaze forms a hydrophobic shield against bacteria build-up - the hygiene spec hotels and clinics write into the BOQ, on every basin type.",
       },
       {
-        title: "3/6-litre dual flush",
-        body: "Two push-button dual-flush technology gives the choice of a 3-litre or 6-litre flush - silent flushing, proven by 100-ball and ink tests.",
+        title: "Every installation type, one brand",
+        body: "Table top, counter top, under counter, wall hung, pedestal, semi recessed and corner - the whole washroom drawing sources from one catalogue, in matching design families.",
       },
       {
-        title: "Rimless + blind installation",
-        body: "Rimless bowls with no side windows for installation - cleaner lines, cleaner maintenance, tested to 400 kg load for WCs and 100 kg for basins.",
+        title: "Load tested to 100 kg",
+        body: "Jaquar basins are load tested to 100 kg - specified with confidence in public and commercial washrooms, with two-person handling recommended at install.",
       },
       {
-        title: "Seats that outlast the spec",
-        body: "Soft-closing detachable UF seat covers carry over 150 kg and a 5-year soft-close guarantee.",
+        title: "Beyond the ceramic",
+        body: "The basin area finishes with commercial equipment - HEPA-filtered hand dryers, sensor soap dispensers and AISI 304 towel dispensers - supplied on the same wholesale BOQ.",
       },
     ],
     specs: [
-      ["Warranty", "10 yr ceramic body - 5 yr UF seat cover - 2 yr mechanical parts"],
-      ["Flush", "Dual 3L / 6L - adjustable to 2L / 4L"],
-      ["Glaze", "Anti-Germ fluoro-polymer, glazed traps"],
-      ["Load tests", "400 kg WC - 100 kg basin - 150 kg seat"],
-      [
-        "Ceramic finishes",
-        "White, White Matt, Beige Matt, Black Matt, Grey Matt",
-      ],
-      ["Trap types", "P type and S type"],
+      ["Installation types", "Table top - counter top - under counter - wall hung - pedestal - semi recessed - corner"],
+      ["Sizes", "380 x 380 mm cloakroom sinks to 800 x 500 mm slabs"],
+      ["Ceramic finishes", "White, White Matt, Black Matt (range-dependent)"],
+      ["Load test", "100 kg per basin"],
+      ["Warranty", "10 yr ceramic body per the printed matrix"],
+      ["Equipment", "Hand dryers 1150-1850 W - dispensers 0.8 L - AISI 304 steel"],
     ],
     faqs: [
       {
-        q: "Is Jaquar sanitaryware suitable for hotel and commercial projects?",
-        a: "Yes - rimless WCs with Anti-Germ glazing and 3/6-litre dual flush are specified for hospitality and commercial washrooms, and Global Classic supplies project quantities from Sharjah stock with delivery across the whole of the UAE.",
+        q: "What is the difference between table top, counter top and under counter wash basins?",
+        a: "Table top and counter top sinks sit on or over the vanity surface as visible bowls; under counter basins are cemented beneath the stone so the counter edge wipes straight into the bowl. Wall hung basins skip the counter entirely and mount to the wall, with or without a pedestal skirting the trap.",
       },
       {
-        q: "What colours does Jaquar sanitaryware come in?",
-        a: "Beyond classic White: White Matt, Beige Matt, Black Matt and Grey Matt across the premium ranges, with P-type and S-type trap options.",
+        q: "Do you sell single wash basins to homeowners?",
+        a: "No - Global Classic supplies wholesale and project quantities only: contractors, developers, fit-out companies and trading buyers. We do not serve retail walk-ins, single-piece orders or installation and repair work. Send a BOQ for AED trade pricing.",
       },
       {
-        q: "What is the Bidspa?",
-        a: "Jaquar's electronic WC range - automatic operation and rimless bowls, available floor-mounted, back-to-wall, single-piece and wall-hung.",
+        q: "Which Jaquar basin ranges are available in the UAE?",
+        a: "The 2025-2026 catalogue ranges we supply include Laguna, Aria, Fonte, Solo, Florentine, Continental, Lyric, Queen's Prime, Ornamix Prime, D'Arc, Fusion and the JDR designer line - every basin on this page carries its catalogue SKU for direct BOQ quoting.",
+      },
+      {
+        q: "Are matching taps and accessories available for these sinks?",
+        a: "Yes - the same design families run across the faucet ranges and chrome accessory sets, so a washroom specifies basin, mixer and hardware as one language. See the Faucets category for the matching ranges.",
+      },
+    ],
+  },
+  {
+    slug: "water-closets",
+    label: "Water Closets",
+    query: "jaquar water closet UAE",
+    intro:
+      "Jaquar water closets cover the full toilet specification: rimless wall hung WCs on 400 kg frames, floor mounted single piece and coupled commodes, the Bidspa electronic range and tankless sensor WCs, bidets, urinals and accessible formats - plus the complete flushing programme from i-Flush in-pipeline mechanisms to designer flush plates. Global Classic supplies WCs, toilets and flushing systems wholesale from Sharjah - bulk and project quantities only.",
+    collections: [
+      {
+        name: "Wall Hung WCs",
+        slug: "wall-hung-wcs",
+        blurb:
+          "Rimless wall hung toilets in blind installation and standard formats - 26 pieces across Kubix Prime, Laguna, Aria, Solo, Florentine, Continental, Lyric, Queen's Prime, D'Arc and Fusion, several in White Matt and Black Matt. Paired with in-wall cistern frames rated to 400 kg, they clear the floor for machine cleaning - the hotel and office standard.",
+        productTypes: [
+          "Rimless blind installation wall hung WCs",
+          "Wall hung WCs with UF soft close slim seats",
+          "Wall hung WCs with in-built jet",
+        ],
+        skuSamples: ["KUS-WHT-35953BIUFSMPM", "DRS-WHT-37953BIUFSM", "SLS-BLM-6953BIUFSM"],
+      },
+      {
+        name: "Floor Mounted WCs",
+        slug: "floor-mounted-wcs",
+        blurb:
+          "The 50-piece floor standing family: rimless single piece WCs, coupled bowls with dual flush cistern fittings, back to wall formats and bowls with cisterns - across S110 to S300 and P180 trap distances, with UF or PP soft close seats. Single side flush and sensor-and-manual variants included.",
+        productTypes: [
+          "Single piece WCs",
+          "Coupled WC bowls with cistern fittings",
+          "Back to wall WCs",
+          "Bowls with cistern",
+        ],
+        skuSamples: ["SLS-WHT-6851S220PP", "CNS-WHT-853S300SPPSM", "LYS-WHT-38851S300UFSMN"],
+      },
+      {
+        name: "Smart & Sensor WCs",
+        slug: "smart-wcs",
+        blurb:
+          "The electronic tier: Bidspa automatic rimless WCs in floor mounted, back to wall, single piece and wall hung formats, plus Aria and Ornamix Prime tankless WCs with sensor operated flushing in battery and electric versions - 16 pieces of the specification that separates a five-star washroom drawing.",
+        productTypes: [
+          "Bidspa automatic rimless WCs",
+          "Tankless wall hung WCs with sensor flush",
+          "Tankless single piece WCs, sensor and manual",
+        ],
+        skuSamples: ["ITS-WHT-89853S300PPPM", "ARS-WHT-39961NBIUFSMTL", "ONS-WHT-10851S300UFSMTL"],
+      },
+      {
+        name: "Bidets",
+        slug: "bidets",
+        blurb:
+          "Floor mounted, wall hung and blind installation bidets matched to the WC families - 14 pieces across Laguna, Aria, Solo, Continental, Lyric, Queen's Prime and Ornamix Prime.",
+        productTypes: ["Floor mounted bidets", "Wall hung bidets", "Blind installation bidets"],
+        skuSamples: ["LAS-WHT-91153", "ARS-WHT-39153", "QPS-WHT-7151PM"],
+      },
+      {
+        name: "Urinals",
+        slug: "urinals",
+        blurb:
+          "Commercial urinals from 355 x 340 x 535 mm to 480 x 300 x 740 mm - back inlet models, a spreader hole variant and a without-sensor unit, supplied with fixing accessories. Pairs with Pressmatic metered urinal valves at 2.0 and 3.85 litres per flush from the faucet line.",
+        productTypes: ["Back inlet urinals", "Spreader hole urinals", "Urinal partitions"],
+        skuSamples: ["URS-WHT-13253N", "URS-WHT-13255", "URS-WHT-13261H"],
+      },
+      {
+        name: "Accessible WCs & Basins",
+        slug: "accessible",
+        blurb:
+          "The disabled-friendly set for accessible washrooms: a 350 x 750 x 340 mm wall hung WC, rimless back to wall and coupled formats in P180 trap, and the matching 650 x 565 mm wall hung basin - specified with grab bars from the washroom equipment line.",
+        productTypes: [
+          "Accessible wall hung WCs",
+          "Accessible back to wall WCs",
+          "Accessible coupled WCs",
+          "Accessible wall hung basins",
+        ],
+        skuSamples: ["DIS-WHT-93951UF", "DIS-WHT-93955P180UF", "DIS-WHT-93801"],
+      },
+      {
+        name: "i-Flush",
+        slug: "i-flush",
+        blurb:
+          "Installed directly in the pipeline, i-Flush replaces the concealed cistern with an in-wall flushing mechanism in 20 mm and 32 mm bodies, with dual flush push button actuation and a printed flow rate of 1.2 l/sec. The 32 mm body works efficiently from a minimum 0.8 bar dynamic pressure and permits repeated flushing with no refill wait; floor mounting frame variants ship with P-type or S-type drain pipe connection sets for wall hung WCs.",
+        productTypes: [
+          "In-wall flushing systems",
+          "Floor mounting frame bodies",
+          "Exposed part kits",
+        ],
+        skuSamples: ["FLV-1075N", "FLV-1073", "FLV-1075FP", "FLV-1073FS"],
+        finishCodes: ["CHR", "ABR", "ACR", "BCH", "BLM", "GRF"],
+      },
+      {
+        name: "Flush Valves",
+        slug: "flush-valves",
+        blurb:
+          "Thirteen exposed and Metropole in-wall flush valves in 32 mm and 40 mm sizes. Regular valves print 10.00 l/f adjustable from 4-20 l/f or a fixed 6.0 l/f; dual flow models print 3.0/6.0 l/f, with round flange, square flange or rectangular dual flush plate options for western commodes.",
+        productTypes: [
+          "Regular flush valves",
+          "Dual flow flush valves",
+          "Metropole in-wall flush valves",
+        ],
+        skuSamples: ["FLV-1015", "FLV-1029", "FLV-1085N", "FLV-1089DFP"],
+      },
+      {
+        name: "In-Wall Cisterns",
+        slug: "cisterns",
+        blurb:
+          "Single piece in-wall cisterns in slim and front or top actuation bodies, with wall or floor mounting frames and P-type or S-type drain pipe connection sets for wall hung WCs. Dual flush prints 3/6 litres adjustable to 2/4; the floor standing frame is rated up to 400 kg with a fixed 135 mm centre to centre inlet/outlet distance, 0-200 mm adjustable legs and no chiselling of the wall required, while anti-condensation lining wraps the tank and supply bend.",
+        productTypes: [
+          "Slim in-wall cisterns",
+          "Front or top actuation cisterns",
+          "Wall mounting frame variants",
+          "Floor mounting frame variants",
+        ],
+        skuSamples: ["JCS-WHT-2400WS", "JCS-WHT-2400FP", "JCS-WHT-2431S"],
+      },
+      {
+        name: "Flush Plates",
+        slug: "flush-plates",
+        blurb:
+          "Eleven control plates matched to the design families that specify them: Laguna, Continental Prime, Opal, Kubix, Fusion, Ornamix Prime, Vignette Prime, Alive, Aria, Queens Prime and D'arc. One actuation architecture, eleven faces.",
+        productTypes: ["Control plates"],
+        skuSamples: ["JCP-912415", "JCP-2415", "JCP-392415", "JCP-372415"],
+      },
+    ],
+    finishes: CERAMIC_FINISHES,
+    claims: [
+      {
+        title: "Rimless + Anti-Germ, as standard",
+        body: "Rimless bowls with no side windows and fluoro-polymer Anti-Germ glazing with glazed traps - cleaner lines, cleaner maintenance, proven by 100-ball and ink tests, silent flushing.",
+      },
+      {
+        title: "Frames engineered for wall hung WCs",
+        body: "Floor standing frames rated up to 400 kg, legs adjustable 0-200 mm, inlet and outlet fixed at 135 mm centres - and no chiselling of the wall required.",
+      },
+      {
+        title: "Water discipline built in",
+        body: "Dual flush at 3/6 litres, adjustable to 2/4 litres on site; i-Flush works from 0.8 bar with no refill wait - the specification UAE green-building briefs ask for, in print.",
+      },
+      {
+        title: "Warranted in tiers, honestly",
+        body: "Ceramic bodies carry 10 years, flush valves 10, concealed cistern bodies and mechanisms 7, sensor systems 5, UF seats 5 - per Jaquar's printed warranty table, never a blanket claim.",
+      },
+    ],
+    specs: [
+      ["WC formats", "Wall hung - single piece - coupled - back to wall - smart/sensor"],
+      ["Traps", "P180 - S110 / S220 / S250 / S300"],
+      ["Seats", "UF soft close slim (5 yr) - PP soft close (2 yr)"],
+      ["Dual flush", "3/6 L adjustable to 2/4 L"],
+      ["i-Flush", "Works from 0.8 bar - 20 / 32 mm bodies - 1.2 l/sec"],
+      ["Frame", "400 kg rated - 0-200 mm legs - 135 mm centres"],
+      ["Warranty", "10 yr ceramic and flush valve - 7 yr concealed cistern - 5 yr sensor"],
+    ],
+    faqs: [
+      {
+        q: "Wall hung or floor mounted WC - what should a project specify?",
+        a: "Wall hung WCs on in-wall frames (rated 400 kg) clear the floor for machine cleaning and read premium - the hotel standard. Floor mounted single piece and coupled WCs install without in-wall work and suit refurbishments and volume housing. Both come rimless with Anti-Germ glazing across the ranges we stock.",
+      },
+      {
+        q: "What is the difference between i-Flush, a flush valve and a concealed cistern?",
+        a: "A concealed cistern stores water in-wall and needs refill time; a flush valve draws from the supply line at full bore; i-Flush installs directly in the pipeline with dual flush actuation, works from 0.8 bar, and flushes repeatedly with no refill wait - the compact answer where wall depth or refill time is the constraint.",
+      },
+      {
+        q: "Do you supply single toilets or do repairs?",
+        a: "No - Global Classic is a wholesale trading company. We supply bulk and project quantities to contractors, developers and fit-out companies; we do not serve retail buyers, single-piece orders, or installation and repair calls. Send the BOQ for AED trade pricing.",
+      },
+      {
+        q: "What trap distance do Jaquar WCs use?",
+        a: "The catalogue prints P180 (P-trap, 180 mm from floor) and S-traps at 110, 220, 250 and 300 mm from the wall, per model - the trap code sits inside every SKU on this page, so the BOQ can be matched to the drainage drawing before ordering.",
       },
     ],
   },
   {
     slug: "showers",
-    label: "Showers",
+    label: "Showers & Enclosures",
     query: "jaquar showers UAE",
     intro:
-      "Jaquar showers cover overhead rain showers, Octane hand showers and full shower concepts - up to five flow patterns, Rubit anti-limescale nozzles and Booster technology that builds a full shower feel at low pressure. Supplied across the UAE by Global Classic from Sharjah, with up to a 10-year warranty.",
+      "Everything in showers, one category: overhead rain showers with registered designs, hand and body showers, exposed and concealed shower systems, full-height panels - and the glass that contains them, from the Ritz Collection to frameless walk-ins in 6, 8 and 10 mm tempered glass, with matching shower trays. Rubit anti-limescale nozzles, Booster technology for low-pressure risers, hinges tested to half a million cycles. Global Classic supplies the lot wholesale from Sharjah - project and bulk quantities only.",
     collections: [
       {
         name: "Overhead Showers",
@@ -1062,6 +1109,50 @@ export const jaquarCategories: JaquarCategory[] = [
         ],
         skuSamples: ["SHA-1215F", "SHA-1110", "SHA-485", "SHA-549D8"],
       },
+      /* ---- The glass: enclosures and trays (uae.jaquar.com source) ---- */
+      {
+        name: "Ritz Collection",
+        slug: "ritz-collection",
+        blurb:
+          "The signature enclosure series, built left- and right-handed in sizes from 1201 to 2800 mm.",
+        productTypes: ["Ritz R830G Left Version", "Ritz R830G Right Version"],
+        skuSamples: ["JSE-CHR-R830G1216L", "JSE-CHR-R830G1216R"],
+      },
+      {
+        name: "Frameless Enclosures",
+        slug: "frameless",
+        blurb:
+          "Wall-to-wall, corner and tub-mounted enclosures with no visible frame - just glass and brass.",
+        productTypes: [
+          "Frameless Wall to Wall Enclosure",
+          "Frameless Corner Enclosure",
+          "Frameless Tub Mounted Enclosure",
+        ],
+        skuSamples: ["JSE-CHR-820G1216H19X", "JSE-CHR-840G1620H19X"],
+      },
+      {
+        name: "Framed Enclosures",
+        slug: "framed",
+        blurb: "The framed range - structure on show, sizes to 4200 mm.",
+        productTypes: [
+          "Framed Corner Enclosure",
+          "Framed Wall to Wall Enclosure",
+        ],
+      },
+      {
+        name: "Sliding Range",
+        slug: "sliding-range",
+        blurb:
+          "Sliding doors on brass-encapsulated ball-bearing rollers with a 5-year roller warranty.",
+        productTypes: ["Sliding Door Enclosure", "Sliding Corner Enclosure"],
+      },
+      {
+        name: "Shower Trays",
+        slug: "shower-tray",
+        blurb:
+          "The matching low-profile trays that finish the enclosure install.",
+        productTypes: ["Shower Tray"],
+      },
     ],
     finishes: METAL_FINISHES,
     claims: [
@@ -1081,12 +1172,22 @@ export const jaquarCategories: JaquarCategory[] = [
         title: "Thermo insulation",
         body: "The shower body stays cool to the touch, preventing scalding in hot-line installations.",
       },
+      {
+        title: "Glass tempered in-house",
+        body: "Enclosure glass in 6, 8 and 10 mm, tempered on Jaquar's own fully automatic unit - 4 to 5 times stronger than float glass, proven by fragmentation, zebra, ball-drop and free-fall tests, with anti-limescale Easy Clean treatment.",
+      },
+      {
+        title: "Hardware that holds",
+        body: "Brass hinges tested for 500,000 cycles and rated to 25 kg per hinge, SS 304 stabilisers, rise-and-fall doors that lift 6-8 mm while opening and settle back to seal - with a 5-year hardware warranty.",
+      },
     ],
     specs: [
-      ["Warranty", "Up to 10 years"],
+      ["Shower warranty", "Up to 10 years - enclosure hardware 5 years"],
       ["Flow patterns", "Up to 5 - Normal, Massage, Mist, Cascade, Soft"],
       ["Nozzles", "Rubit elastic silicon, anti-limescale"],
       ["Pressure", "Booster technology for low-pressure lines"],
+      ["Enclosure glass", "Tempered 6 / 8 / 10 mm - 4-5x float strength"],
+      ["Enclosure sizes", "600 mm up to 4200 mm bands - Ritz 1201-2800 mm L/R"],
       ["Finishes", "10 metal finishes incl. PVD golds"],
     ],
     faqs: [
@@ -1098,285 +1199,34 @@ export const jaquarCategories: JaquarCategory[] = [
         q: "How do the nozzles handle hard water?",
         a: "Rubit technology moulds the spray jets in elastic silicon, so lime scale wipes off the face instead of blocking it - built for Gulf water hardness.",
       },
-    ],
-  },
-  {
-    slug: "shower-enclosures",
-    label: "Shower Enclosures",
-    query: "shower enclosures UAE",
-    intro:
-      "Jaquar shower enclosures run from the Ritz Collection to fully frameless walk-ins - tempered glass in 6, 8 and 10 mm, brass hardware tested to half a million cycles, and a design-installation-maintenance service in one. Global Classic supplies and coordinates enclosures across the UAE from Sharjah.",
-    collections: [
-      {
-        name: "Ritz Collection",
-        slug: "ritz-collection",
-        blurb:
-          "The signature enclosure series, built left- and right-handed in sizes from 1201 to 2800 mm.",
-        productTypes: ["Ritz R830G Left Version", "Ritz R830G Right Version"],
-        skuSamples: ["JSE-CHR-R830G1216L", "JSE-CHR-R830G1216R"],
-      },
-      {
-        name: "Frameless",
-        slug: "frameless",
-        blurb:
-          "Wall-to-wall, corner and tub-mounted enclosures with no visible frame - just glass and brass.",
-        productTypes: [
-          "Frameless Wall to Wall Enclosure",
-          "Frameless Corner Enclosure",
-          "Frameless Tub Mounted Enclosure",
-        ],
-        skuSamples: ["JSE-CHR-820G1216H19X", "JSE-CHR-840G1620H19X"],
-      },
-      {
-        name: "Framed",
-        slug: "framed",
-        blurb: "The framed range - structure on show, sizes to 4200 mm.",
-        productTypes: [
-          "Framed Corner Enclosure",
-          "Framed Wall to Wall Enclosure",
-        ],
-      },
-      {
-        name: "Sliding Range",
-        slug: "sliding-range",
-        blurb:
-          "Sliding doors on brass-encapsulated ball-bearing rollers with a 5-year roller warranty.",
-        productTypes: ["Sliding Door Enclosure", "Sliding Corner Enclosure"],
-      },
-      {
-        name: "Shower Tray",
-        slug: "shower-tray",
-        blurb:
-          "The matching low-profile trays that finish the enclosure install.",
-        productTypes: ["Shower Tray"],
-      },
-    ],
-    finishes: ["Chrome hardware", "SS 304 stabilisers"],
-    claims: [
-      {
-        title: "Tempered in-house",
-        body: "Glass options of 6, 8 and 10 mm, tempered on Jaquar's own fully automatic unit - 4 to 5 times stronger than float glass, proven by fragmentation, zebra, ball-drop and free-fall tests.",
-      },
-      {
-        title: "Hardware that holds",
-        body: "Brass hinges tested for 500,000 cycles and rated to 25 kg per hinge, with SS 304 stabilisers and a 5-year hardware warranty.",
-      },
-      {
-        title: "Rise and fall doors",
-        body: "Doors rise 6-8 mm off the floor while opening and settle back to seal - no dragging, no gap.",
-      },
-      {
-        title: "Easy Clean glass",
-        body: "Anti-limescale treatment keeps the glass clear in hard water - one-stop design, installation and maintenance.",
-      },
-    ],
-    specs: [
-      ["Glass", "Tempered 6 / 8 / 10 mm"],
-      ["Strength", "4-5x float glass - EN 14450, IS 14900"],
-      ["Hinges", "Brass, 500,000 cycles, 25 kg per hinge"],
-      ["Rollers", "Ball bearing in brass - 5-year warranty"],
-      ["Sizes", "600 mm up to 4200 mm bands"],
-      ["Hardware warranty", "5 years"],
-    ],
-    faqs: [
-      {
-        q: "What sizes do Jaquar shower enclosures come in?",
-        a: "Standard bands run from 600-800 mm up to 3801-4200 mm, with the Ritz Collection built in 1201-2800 mm left- and right-hand versions - and cut-to-site coordination handled with the install.",
-      },
       {
         q: "What glass thickness should a UAE villa enclosure use?",
-        a: "Jaquar tempers 6, 8 and 10 mm; frameless walk-ins typically specify 8 or 10 mm for stiffness. All glass is 4-5 times stronger than float and tested to EN 14450.",
+        a: "Jaquar tempers 6, 8 and 10 mm; frameless walk-ins typically specify 8 or 10 mm for stiffness. All glass is 4-5 times stronger than float and tested to EN 14450, with sizes from 600 mm bands up to 4200 mm.",
+      },
+      {
+        q: "Do you supply single showers or do repair work?",
+        a: "No - Global Classic supplies wholesale and project quantities only, to contractors, developers and fit-out companies. We do not serve retail buyers, single-piece orders, or shower fixing and hose-replacement calls. Send the BOQ for AED trade pricing.",
       },
     ],
   },
   {
-    slug: "whirlpools",
-    label: "Whirlpools",
-    query: "whirlpool bathtub UAE",
+    slug: "wellness",
+    label: "Wellness",
+    query: "jaquar whirlpool UAE",
     intro:
-      "Jaquar whirlpools are 140-190 cm hydro-massage and air-massage tubs across eleven ranges from Arc to Laguna - water pumps of 1.0 to 1.4 HP per model, 0.9 HP air blowers, chromotherapy and Antibac surfaces, designed by European specialists. Supplied across the UAE by Global Classic from Sharjah, with the full 13-model specification sheet published below.",
-    collections: [
-      {
-        name: "Arc",
-        slug: "arc",
-        blurb:
-          "The 1900 x 900 mm flagship - 8 slim water jets, 4 back jets, 16 air jets, chromotherapy.",
-        productTypes: ["Arc (Combi System)", "Arc (Water System)"],
-        skuSamples: ["JWP-WHT-ARC190CX", "JWP-WHT-ARC190WX"],
-      },
-      {
-        name: "Kubix Prime",
-        slug: "kubix-prime",
-        blurb: "The cubist geometry at 180 cm, in combi and water systems.",
-        productTypes: [
-          "Kubix Prime (Combi System)",
-          "Kubix Prime (Water System)",
-        ],
-        skuSamples: ["JWP-WHT-KUBIXPM180CX", "JWP-WHT-KUBIXPM180WX"],
-      },
-      {
-        name: "Opal Prime",
-        slug: "opal-prime",
-        blurb: "Soft-radius 180 cm tubs in the prime specification.",
-        productTypes: [
-          "Opal Prime (Combi System)",
-          "Opal Prime (Water System)",
-        ],
-        skuSamples: ["JWP-WHT-OPALPM180CX"],
-      },
-      {
-        name: "Vignette Prime",
-        slug: "vignette-prime",
-        blurb: "The sculpted 190 cm range matching Vignette Prime ceramics.",
-        productTypes: [
-          "Vignette Prime (Combi System)",
-          "Vignette Prime (Water System)",
-        ],
-        skuSamples: ["JWP-WHT-VGNT190CX"],
-      },
-      {
-        name: "D'arc",
-        slug: "darc",
-        blurb: "The asymmetric-curve tub of the family, at 180 cm.",
-        productTypes: ["D'arc (Combi System)", "D'arc (Water System)"],
-        skuSamples: ["JWP-WHT-DARC180CX"],
-      },
-      {
-        name: "Kubix",
-        slug: "kubix",
-        blurb: "The original cubist tub, combi and water systems.",
-        productTypes: ["Kubix (Combi System)", "Kubix (Water System)"],
-      },
-      /* ---- Catalogue 2025-2026 ranges (docs/jaquar-catalogue.md) ---- */
-      {
-        name: "Alive",
-        slug: "alive",
-        blurb:
-          "A single-size system at 1800 x 800 x 470 mm in whirlpool and airpool combi or water builds, with matching front and side panels. The spec sheet prints 8 water jets, 12 air jets and 4 back jets on a 1.4 HP water pump with 0.90 HP air blower, chromotherapy, digital control and an SS202 steel frame.",
-        productTypes: [
-          "Whirlpool and airpool combi systems",
-          "Water systems",
-          "Panels",
-        ],
-        skuSamples: [
-          "JWP-WHT-ALIVE180CX",
-          "JWP-WHT-ALIVE180WX",
-          "JWA-WHT-FP180X",
-        ],
-      },
-      {
-        name: "Fonte",
-        slug: "fonte",
-        blurb:
-          "The widest run in the line: 1500, 1600 and 1700 x 750 x 420 mm plus 1800 x 800 x 450 mm, each in water or whirlpool and airpool combi builds, with project variants carrying 6 water and 12 air jets and a level sensor electronic key pad. Pumps are printed per size: 1.0 HP on the 1800 x 800 and 1 HP on the 1500 x 750 and 1700 x 750, with a 0.90 HP air blower throughout.",
-        productTypes: [
-          "Whirlpool and airpool combi systems",
-          "Water systems",
-          "Project systems",
-          "Panels",
-        ],
-        skuSamples: [
-          "JWP-WHT-FONTE180CX",
-          "JWP-WHT-FONTE150CX",
-          "JWP-WHT-FONTE160PWX",
-          "JWA-WHT-FONT160FPX",
-        ],
-      },
-      {
-        name: "Fonte-R",
-        slug: "fonte-r",
-        blurb:
-          "A square-format 1500 x 1500 x 470 mm tub in combi and water system builds. It prints 8 water jets and 16 air jets with no back jets, on a 1.4 HP water pump with 0.90 HP air blower, chromotherapy and digital control.",
-        productTypes: ["Combi systems", "Water systems"],
-        skuSamples: ["JWP-WHT-POINT150CX", "JWP-WHT-POINT150WX"],
-      },
-      {
-        name: "Fusion",
-        slug: "fusion",
-        blurb:
-          "A corner-plan 1400 x 1400 x 450 mm system in water or combi builds with a matching angular panel. The spec sheet prints 6 water jets, 12 air jets and 4 back jets on a 1.0 HP water pump with 0.90 HP air blower.",
-        productTypes: ["Combi systems", "Water systems", "Angular panels"],
-        skuSamples: ["JWP-WHT-GMI140CX", "JWP-WHT-GMI140WX", "JWA-WHT-FUSNCPX"],
-      },
-      {
-        name: "Laguna",
-        slug: "laguna",
-        blurb:
-          "A slim 1800 x 700 x 450 mm footprint in whirlpool and airpool combi or water system builds, with front and side panels. It prints 6 water jets, 12 air jets and 4 back jets on a 1.4 HP water pump with 0.90 HP air blower, chromotherapy and digital control.",
-        productTypes: [
-          "Whirlpool and airpool combi systems",
-          "Water systems",
-          "Panels",
-        ],
-        skuSamples: [
-          "JWP-WHT-LAGUNA170CX",
-          "JWP-WHT-LAGUNA170WX",
-          "JWA-WHT-FPLAG170X",
-        ],
-      },
-    ],
-    finishes: ["White PMMA acrylic"],
-    claims: [
-      {
-        title: "European-designed systems",
-        body: "Created by specialist designers from Europe: hydro-massage water jets, air massage and chromotherapy in green, yellow, blue and red moods.",
-      },
-      {
-        title: "Pumps rated per model",
-        body: "The Arc combi runs a 1.4 HP water pump through 8 slim jets and 4 back jets with a 0.9 HP blower; the compact Fonte and Fusion formats run 1.0 HP pumps - every rating is per-model on the printed specification sheet, never a blanket figure.",
-      },
-      {
-        title: "Hygiene engineered in",
-        body: "Antibac hygienic surfaces, Y-shaped housings that drain completely, food-grade PVC pipes with antibacterial inner coating - no standing water, no bacteria formation.",
-      },
-      {
-        title: "Triple-tested electrics",
-        body: "Every tub passes a European 3-tier test - earthing resistance, insulation and high voltage - with a safety vacuum breaker that cuts the motor on suction blockage.",
-      },
-    ],
-    specs: [
-      ["Sizes", "1400 x 1400 to 1900 x 900 mm - 13 models"],
-      ["Water pumps", "1.0 HP (Fonte, Fusion formats) to 1.4 HP - per model"],
-      ["Air system", "0.9 HP blower - 12 or 16 air jets per model"],
-      ["Shell", "PMMA acrylic, PU Green reinforced, SS202 frame"],
-      ["Extras", "Chromotherapy - digital controls - headrests - system clean"],
-      ["Warranty", "5 yr body & jets - 2 yr electrical parts"],
-    ],
-    faqs: [
-      {
-        q: "What is the difference between a combi and water system whirlpool?",
-        a: "Water systems run hydro-massage jets only; combi systems add an air blower - the Arc combi pairs a 1.4 HP water pump with a 0.9 HP air blower through 16 air jets. Both come in the same tub designs.",
-      },
-      {
-        q: "Do Jaquar whirlpools fit standard UAE bathrooms?",
-        a: "The 13 catalogued models run 1400 x 1400 mm (Fusion) to 1900 x 900 mm (Arc, Vignette Prime) - standard alcove and freestanding bathroom dimensions. The full printed specification sheet is published on this page for design coordination.",
-      },
-    ],
-  },
-  /* ---------- New categories from the 2025-2026 catalogue ---------- */
-  {
-    slug: "bathtubs",
-    label: "Bathtubs",
-    query: "jaquar bathtub UAE",
-    intro:
-      "Jaquar bathtubs run freestanding sculptural tubs from 1600 x 750 to 1800 x 800 mm and thirty built-in configurations matched to eleven design families, all on the printed 12 mm three-layer acrylic build - transparent acrylic top, polymer layer, polyurethane layer. Global Classic supplies the range wholesale from Sharjah, with drain kits, panels and headrests, delivered to every emirate.",
+      "Jaquar wellness is the bathing programme in full: freestanding and built-in bathtubs on 12 mm three-layer acrylic, thirteen whirlpool models with per-model pump ratings from 1.0 to 1.4 HP, fourteen spas from two-seaters to the 5.9-metre Hydrozone swim spa, Hemlock wood saunas and steam generators laddering 4 to 24 kW. Global Classic supplies and coordinates the range wholesale from Sharjah for hotels, villas, developers and fitness projects - project quantities only.",
     collections: [
       {
         name: "Freestanding Bathtubs",
-        slug: "freestanding",
+        slug: "freestanding-bathtubs",
         blurb:
           "Eight sculptural tubs from 1600 x 750 mm to 1800 x 800 mm, with built-in overflows and pop-up wastes; the Queens tub is offered with chrome or gold overflow, waste and legs. Bodies carry the printed 12 mm three-layer acrylic build: special transparent acrylic top layer, special polymer layer and polyurethane layer.",
         productTypes: ["Freestanding bathtubs"],
-        skuSamples: [
-          "JBT-WHT-FSBTLG6001",
-          "JBT-WHT-FSBTMAD1778",
-          "JBT-WHT-FSBTPB278X",
-          "JBT-WHT-FSBT167543X",
-        ],
+        skuSamples: ["JBT-WHT-FSBTLG6001", "JBT-WHT-FSBTMAD1778", "JBT-WHT-FSBTPB278X"],
       },
       {
         name: "Built-In Bathtubs",
-        slug: "built-in",
+        slug: "built-in-bathtubs",
         blurb:
           "Thirty drop-in configurations across the Arc, Kubix, Kubix Prime, Opal Prime, D'Arc, Fonte, Fonte R, Alive, Vignette Prime, Fusion and Laguna families, in sizes up to 1900 x 900 x 470 mm. Framed versions carry powder coated MS frames with matched front and side panels, drain pipes and Base Europa installation kits.",
         productTypes: [
@@ -1385,187 +1235,105 @@ export const jaquarCategories: JaquarCategory[] = [
           "Front panels",
           "Side panels",
         ],
-        skuSamples: [
-          "JBT-WHT-KUBIXP180FX",
-          "JBT-WHT-DARC180FX",
-          "JBT-WHT-FONT170FX",
-          "JBT-WHT-LAGUNA180FX",
-        ],
+        skuSamples: ["JBT-WHT-KUBIXP180FX", "JBT-WHT-DARC180FX", "JBT-WHT-LAGUNA180FX"],
       },
       {
         name: "Bathtub Accessories",
-        slug: "accessories",
+        slug: "bathtub-accessories",
         blurb:
           "Completion hardware for the bathtub programme: drain pipes with overflow in 80 cm and 100 cm lengths plus a 70-80 mm overflow system, with-filler variants, the Base Europa installation kit, and Comfort and Sophi headrests in black.",
         productTypes: ["Drain pipes", "Installation kits", "Headrests"],
-        skuSamples: [
-          "JWA-CHR-132201",
-          "JWA-CHR-DRNPIPE100",
-          "IWA-CHR-ACC00510X",
-          "JWA-BLK-HRCP750GAC06",
-        ],
-      },
-    ],
-    finishes: ["White acrylic", "Chrome and gold fittings (Queens freestanding)"],
-    claims: [
-      {
-        title: "Three layers, 12 mm",
-        body: "The printed build: a special transparent acrylic top layer over a special polymer layer over polyurethane - 12 mm of shell engineered for chemical resistance and heat retention.",
+        skuSamples: ["JWA-CHR-132201", "JWA-CHR-DRNPIPE100", "JWA-BLK-HRCP750GAC06"],
       },
       {
-        title: "Eleven matched families",
-        body: "Built-in tubs are styled to the same families as the faucets and ceramics - Arc to Laguna - so a bathroom specifies as one language, not a mix of vendors.",
-      },
-      {
-        title: "Framed for install",
-        body: "Framed versions arrive on powder coated MS frames with matched front and side panels - the install detail that keeps site work off the critical path.",
-      },
-      {
-        title: "Completion hardware included in the programme",
-        body: "Drain pipes with overflow, Base Europa installation kits and headrests ship from the same catalogue - one BOQ line per bathroom, not five suppliers.",
-      },
-    ],
-    specs: [
-      ["Freestanding sizes", "1600 x 750 to 1800 x 800 mm - 8 tubs"],
-      ["Built-in sizes", "Up to 1900 x 900 x 470 mm - 30 configurations"],
-      ["Shell", "12 mm three-layer acrylic build"],
-      ["Families", "Arc, Kubix, Kubix Prime, Opal Prime, D'Arc, Fonte, Fonte R, Alive, Vignette Prime, Fusion, Laguna"],
-      ["Warranty", "5 yr non-electrical parts (per the printed matrix)"],
-    ],
-    faqs: [
-      {
-        q: "Freestanding or built-in - which Jaquar bathtub should a project specify?",
-        a: "Freestanding tubs are the sculptural statement - eight designs with built-in overflow and pop-up waste. Built-in tubs drop into a marble or tiled deck and match eleven Jaquar design families, with framed versions carrying their own MS frames and panels. Both build on the same 12 mm three-layer acrylic.",
-      },
-      {
-        q: "What is a Jaquar bathtub made of?",
-        a: "The catalogue prints a 12 mm three-layer build: a special transparent acrylic top layer, a special polymer layer and a polyurethane layer - the same PMMA acrylic family used on the whirlpool line.",
-      },
-      {
-        q: "Do you deliver Jaquar bathtubs across the UAE?",
-        a: "Yes - wholesale from Global Classic's Sharjah warehouse to every emirate, with drain kits, panels and installation hardware quoted on the same BOQ, usually within one working day.",
-      },
-    ],
-  },
-  {
-    slug: "flushing-systems",
-    label: "Flushing Systems",
-    query: "jaquar flushing system UAE",
-    intro:
-      "Jaquar flushing systems run from i-Flush in-pipeline mechanisms that work from 0.8 bar to exposed flush valves, slim in-wall cisterns and eleven designer control plates. Dual flush is 3/6 litres adjustable to 2/4, frames are rated to 400 kg, and flush valves carry a 10-year warranty. Global Classic supplies the range wholesale from Sharjah across the UAE.",
-    collections: [
-      {
-        name: "i-Flush",
-        slug: "i-flush",
+        name: "Arc",
+        slug: "arc",
         blurb:
-          "Installed directly in the pipeline, i-Flush replaces the concealed cistern with an in-wall flushing mechanism in 20 mm and 32 mm bodies, with dual flush push button actuation and a printed flow rate of 1.2 l/sec. The 32 mm body works efficiently from a minimum 0.8 bar dynamic pressure and permits repeated flushing with no refill wait; floor mounting frame variants ship with P-type or S-type drain pipe connection sets for wall hung WCs.",
-        productTypes: [
-          "In-wall flushing systems",
-          "Floor mounting frame bodies",
-          "Exposed part kits",
-        ],
-        skuSamples: ["FLV-1075N", "FLV-1073", "FLV-1075FP", "FLV-1073FS"],
-        finishCodes: ["CHR", "ABR", "ACR", "BCH", "BLM", "GRF"],
+          "The 1900 x 900 mm whirlpool flagship - 8 slim water jets, 4 back jets, 12 air jets, chromotherapy, on a 1.4 HP pump.",
+        productTypes: ["Arc (Combi System)", "Arc (Water System)"],
+        skuSamples: ["JWP-WHT-ARC190CX", "JWP-WHT-ARC190WX"],
       },
       {
-        name: "Flush Valves",
-        slug: "flush-valves",
+        name: "Kubix Prime",
+        slug: "kubix-prime",
+        blurb: "The cubist whirlpool at 1800 x 1100 mm, 16 air jets, in combi and water systems.",
+        productTypes: ["Kubix Prime (Combi System)", "Kubix Prime (Water System)"],
+        skuSamples: ["JWP-WHT-KUBIXPM180CX", "JWP-WHT-KUBIXPM180WX"],
+      },
+      {
+        name: "Opal Prime",
+        slug: "opal-prime",
+        blurb: "Soft-radius 1800 x 800 mm whirlpools in the prime specification.",
+        productTypes: ["Opal Prime (Combi System)", "Opal Prime (Water System)"],
+        skuSamples: ["JWP-WHT-OPALPM180CX"],
+      },
+      {
+        name: "Vignette Prime",
+        slug: "vignette-prime",
+        blurb: "The sculpted 1900 x 900 mm whirlpool matching Vignette Prime ceramics and faucets.",
+        productTypes: ["Vignette Prime (Combi System)", "Vignette Prime (Water System)"],
+        skuSamples: ["JWP-WHT-VGNT190CX"],
+      },
+      {
+        name: "D'arc",
+        slug: "darc",
+        blurb: "The asymmetric-curve whirlpool of the family, at 1800 x 1100 mm.",
+        productTypes: ["D'arc (Combi System)", "D'arc (Water System)"],
+        skuSamples: ["JWP-WHT-DARC180CX"],
+      },
+      {
+        name: "Kubix",
+        slug: "kubix",
+        blurb: "The original cubist whirlpool at 1800 x 800 mm, combi and water systems.",
+        productTypes: ["Kubix (Combi System)", "Kubix (Water System)"],
+      },
+      {
+        name: "Alive",
+        slug: "alive",
         blurb:
-          "Thirteen exposed and Metropole in-wall flush valves in 32 mm and 40 mm sizes. Regular valves print 10.00 l/f adjustable from 4-20 l/f or a fixed 6.0 l/f; dual flow models print 3.0/6.0 l/f, with round flange, square flange or rectangular dual flush plate options for western commodes.",
-        productTypes: [
-          "Regular flush valves",
-          "Dual flow flush valves",
-          "Metropole in-wall flush valves",
-        ],
-        skuSamples: ["FLV-1015", "FLV-1029", "FLV-1085N", "FLV-1089DFP"],
+          "A single-size whirlpool at 1800 x 800 x 470 mm in combi or water builds, with matching front and side panels - 8 water jets, 12 air jets and 4 back jets on a 1.4 HP pump with 0.90 HP blower, chromotherapy and SS202 frame.",
+        productTypes: ["Combi systems", "Water systems", "Panels"],
+        skuSamples: ["JWP-WHT-ALIVE180CX", "JWP-WHT-ALIVE180WX"],
       },
       {
-        name: "In-Wall Cisterns",
-        slug: "cisterns",
+        name: "Fonte",
+        slug: "fonte",
         blurb:
-          "Single piece in-wall cisterns in slim and front or top actuation bodies, with wall or floor mounting frames and P-type or S-type drain pipe connection sets for wall hung WCs. Dual flush prints 3/6 litres adjustable to 2/4; the floor standing frame is rated up to 400 kg with a fixed 135 mm centre to centre inlet/outlet distance, 0-200 mm adjustable legs and no chiselling of the wall required, while anti-condensation lining wraps the tank and supply bend.",
-        productTypes: [
-          "Slim in-wall cisterns",
-          "Front or top actuation cisterns",
-          "Wall mounting frame variants",
-          "Floor mounting frame variants",
-        ],
-        skuSamples: ["JCS-WHT-2400WS", "JCS-WHT-2400FP", "JCS-WHT-2431S"],
+          "The widest whirlpool run: 1500, 1600 and 1700 x 750 x 420 mm plus 1800 x 800 x 450 mm, in water or combi builds with project variants. Pumps are printed per size: 1.0 HP on the 1800 x 800 and 1 HP on the 1500 x 750 and 1700 x 750, with a 0.90 HP air blower throughout.",
+        productTypes: ["Combi systems", "Water systems", "Project systems", "Panels"],
+        skuSamples: ["JWP-WHT-FONTE180CX", "JWP-WHT-FONTE150CX"],
       },
       {
-        name: "Flush Plates",
-        slug: "flush-plates",
+        name: "Fonte-R",
+        slug: "fonte-r",
         blurb:
-          "Eleven control plates matched to the design families that specify them: Laguna, Continental Prime, Opal, Kubix, Fusion, Ornamix Prime, Vignette Prime, Alive, Aria, Queens Prime and D'arc. One actuation architecture, eleven faces.",
-        productTypes: ["Control plates"],
-        skuSamples: ["JCP-912415", "JCP-2415", "JCP-392415", "JCP-372415"],
-      },
-    ],
-    finishes: METAL_FINISHES,
-    claims: [
-      {
-        title: "i-Flush needs no cistern",
-        body: "Installed directly in the pipeline with dual flush actuation - the 32 mm body works from a minimum 0.8 bar dynamic pressure and flushes repeatedly with no refill wait.",
+          "A square-format 1500 x 1500 x 470 mm whirlpool in combi and water builds - 8 water jets and 16 air jets on a 1.4 HP pump with chromotherapy and digital control.",
+        productTypes: ["Combi systems", "Water systems"],
+        skuSamples: ["JWP-WHT-POINT150CX", "JWP-WHT-POINT150WX"],
       },
       {
-        title: "Frames engineered for wall hung WCs",
-        body: "Floor standing frames rated up to 400 kg, legs adjustable 0-200 mm, inlet and outlet fixed at 135 mm centres - and no chiselling of the wall required.",
+        name: "Fusion",
+        slug: "fusion",
+        blurb:
+          "A corner-plan 1400 x 1400 x 450 mm whirlpool in water or combi builds with a matching angular panel - 6 water jets, 12 air jets and 4 back jets on a 1.0 HP pump.",
+        productTypes: ["Combi systems", "Water systems", "Angular panels"],
+        skuSamples: ["JWP-WHT-GMI140CX", "JWP-WHT-GMI140WX"],
       },
       {
-        title: "Water discipline built in",
-        body: "Dual flush at 3/6 litres, adjustable to 2/4 litres on site - the specification UAE green-building briefs ask for, in print.",
+        name: "Laguna",
+        slug: "laguna",
+        blurb:
+          "A slim 1800 x 700 x 450 mm whirlpool in combi or water builds, with front and side panels - 6 water jets, 12 air jets and 4 back jets on a 1.4 HP pump, chromotherapy and digital control.",
+        productTypes: ["Combi systems", "Water systems", "Panels"],
+        skuSamples: ["JWP-WHT-LAGUNA170CX", "JWP-WHT-LAGUNA170WX"],
       },
-      {
-        title: "Warranted in tiers, honestly",
-        body: "Flush valves carry 10 years, concealed cistern bodies and mechanisms 7, sensor flushing systems 5 - per Jaquar's printed warranty table, not a blanket claim.",
-      },
-    ],
-    specs: [
-      ["Dual flush", "3/6 L adjustable to 2/4 L"],
-      ["i-Flush", "Works from 0.8 bar - 20 mm and 32 mm bodies - 1.2 l/sec"],
-      ["Frame", "400 kg rated - 0-200 mm legs - 135 mm centres"],
-      ["Flush valves", "32 / 40 mm - 4-20 l/f adjustable or 3/6 l/f dual flow"],
-      ["Control plates", "11 designer faces matched to the collections"],
-      ["Warranty", "10 yr flush valve - 7 yr concealed cistern - 5 yr sensor"],
-    ],
-    faqs: [
-      {
-        q: "What is Jaquar i-Flush and when should it be specified?",
-        a: "i-Flush installs directly in the pipeline and replaces the concealed cistern entirely - dual flush actuation, 1.2 l/sec flow, repeated flushing with no refill wait. The 32 mm body works from just 0.8 bar dynamic pressure, which suits low-pressure risers where cistern refills lag.",
-      },
-      {
-        q: "How much load can the in-wall frame for a wall hung WC take?",
-        a: "The printed rating is up to 400 kg on the floor standing frame, with 0-200 mm adjustable legs and a fixed 135 mm centre-to-centre inlet/outlet - installed without chiselling the wall.",
-      },
-      {
-        q: "Can the 3/6 litre dual flush be reduced further?",
-        a: "Yes - the catalogue prints the dual flush as 3/6 litres adjustable to 2/4 litres, a site-level adjustment that halves the small flush for water-conscious projects.",
-      },
-      {
-        q: "What warranty do Jaquar flushing systems carry?",
-        a: "Per the printed matrix: flush valves 10 years, concealed cistern body and working mechanism 7 years, wall hung cisterns 2 years, sensor flushing systems 5 years.",
-      },
-    ],
-  },
-  {
-    slug: "wellness",
-    label: "Wellness",
-    query: "jaquar spa UAE",
-    intro:
-      "Jaquar wellness spans fourteen spas from two-seaters to the 5900 mm Hydrozone swim spa, Hemlock wood saunas in stove and infrared builds, and steam generators laddering 4 to 24 kW. Controllers run Balboa, Gecko and SV-series; shells are four-layer thermo bond. Global Classic supplies and coordinates the range for UAE villas, hotels and fitness projects from Sharjah.",
-    collections: [
       {
         name: "Spas",
         slug: "spas",
         blurb:
-          "Fourteen spas from two-seat units at 1650 x 1650 x 740 mm to the five-seat Hydrozone swim spa at 5900 x 2300 x 1300 mm, with jet counts running to 93 on the nine-seat Palladium. Controllers span SV2, SV3, SV4, Gecko and Balboa; variable output heaters run from 1.3 kW on Gemini to 6 kW on Hydrozone, Palladium and Aquagym Max, with electrical requirements from 13 amp up to a maximum 60 amps.",
+          "Fourteen spas from two-seat units at 1650 x 1650 x 740 mm to the five-seat Hydrozone swim spa at 5900 x 2300 x 1300 mm, with jet counts running to 93 on the nine-seat Palladium. Controllers span SV2, SV3, SV4, Gecko and Balboa; variable output heaters run from 1.3 kW to 6 kW, with electrical requirements from 13 amp up to a maximum 60 amps.",
         productTypes: ["Swim spas", "Seated spas", "Spa hard covers"],
-        skuSamples: [
-          "WSP-WHT-SPA5S590VX",
-          "WSP-SLV-SPA8S3520VX",
-          "JSP-WHT-SPABREVA5S",
-          "WSP-SLV-SPAFISHER",
-        ],
+        skuSamples: ["WSP-WHT-SPA5S590VX", "WSP-SLV-SPA8S3520VX", "JSP-WHT-SPABREVA5S"],
       },
       {
         name: "Saunas",
@@ -1581,227 +1349,52 @@ export const jaquarCategories: JaquarCategory[] = [
         blurb:
           "Steam generators ladder from 4 kW to 24 kW across eight ratings: 4, 6, 9, 12, 15, 18, 22.5 and 24 kW, paired with round or square control panels in white or black. The range closes with the Smart Vapour steam stool: 4.5 kW capacity, black matt, with chromotherapy light.",
         productTypes: ["Steam generators", "Control panels", "Steam stools"],
-        skuSamples: [
-          "JSG-WHT-NMID40",
-          "JSG-WHT-NMID240",
-          "JSG-BLK-CPROUND",
-          "JSG-BLK-PIUVAP5000ST",
-        ],
+        skuSamples: ["JSG-WHT-NMID40", "JSG-WHT-NMID240", "JSG-BLK-CPROUND"],
       },
     ],
-    finishes: ["White acrylic shells", "Silver shells", "Hemlock wood"],
+    finishes: ["White PMMA acrylic", "Silver shells", "Hemlock wood"],
     claims: [
       {
-        title: "Controllers the industry trusts",
-        body: "Balboa, Gecko and SV-series spa controllers per model, with programmable circulation pumps, illuminated topside controls and dual controllers on the big formats.",
+        title: "Pumps rated per model",
+        body: "The Arc combi runs a 1.4 HP water pump through 8 slim jets and 4 back jets with a 0.90 HP blower; the compact Fonte and Fusion formats run 1.0 HP pumps - every rating is per-model on the printed 13-model specification sheet below, never a blanket figure.",
       },
       {
-        title: "Four-layer thermo bond shells",
-        body: "Thermo bond 4-layer shell construction with 25 mm high-density PU insulation foam on the Balboa models - heat stays in the water, not the plant bill.",
+        title: "Three layers, 12 mm",
+        body: "Bathtub and whirlpool shells carry the printed build: a special transparent acrylic top layer over a special polymer layer over polyurethane, on PU Green reinforcement and SS202 steel frames.",
       },
       {
-        title: "From two seats to a swim lane",
-        body: "Fisher 2 and Gemini for terraces, Palladium's nine seats and 93 jets for hospitality, and the 5.9-metre Hydrozone swim spa with 6 kW heating and up to 60 amp electrical spec.",
+        title: "Hygiene and safety engineered in",
+        body: "Antibac surfaces, bow-shape no-bacteria pipes in food-grade PVC, self drainage, level sensors, a safety vacuum breaker that cuts the motor on suction blockage, and the European 3-tier electrical test on every tub.",
       },
       {
-        title: "Steam sized by the kilowatt",
-        body: "Eight generator ratings from 4 to 24 kW with round or square control panels - sized to the steam room, not guessed.",
+        title: "From a tub to a swim lane",
+        body: "One catalogue runs from a 1400 mm corner whirlpool to the 5.9-metre Hydrozone swim spa, Hemlock saunas and 24 kW steam rooms - with Balboa, Gecko and SV controllers per model and the full p334 spa sheet published here.",
       },
     ],
     specs: [
-      ["Spa formats", "14 models - 1650 x 1650 mm to 5900 x 2300 mm"],
-      ["Spa heaters", "1.3 kW to 6 kW variable output per model"],
-      ["Electrical", "13 amp to max 60 amps per model"],
+      ["Bathtubs", "Freestanding 1600-1800 mm - built-in to 1900 x 900 mm - 12 mm 3-layer acrylic"],
+      ["Whirlpools", "13 models, 1400 x 1400 to 1900 x 900 mm - pumps 1.0-1.4 HP per model"],
+      ["Spas", "14 models - 1650 mm two-seaters to 5900 mm swim spa - 13-60 amps"],
       ["Saunas", "Hemlock wood - stove and infrared (1750 / 2490 W carbon)"],
-      ["Steam generators", "4 / 6 / 9 / 12 / 15 / 18 / 22.5 / 24 kW"],
-      ["Warranty", "5 yr non-electrical - 2 yr electrical and spa shell"],
+      ["Steam", "4 / 6 / 9 / 12 / 15 / 18 / 22.5 / 24 kW generators"],
+      ["Warranty", "5 yr body & jets - 2 yr electrical and spa shell (printed matrix)"],
     ],
     faqs: [
+      {
+        q: "What is the difference between a bathtub, a whirlpool and a spa?",
+        a: "A bathtub is the still-water shell - freestanding or built-in. A whirlpool adds pumped water and air jets to a one-or-two person tub (Jaquar's run 1400-1900 mm with 1.0-1.4 HP pumps per model). A spa is the larger multi-seat format - 2 to 9 seats with Balboa/Gecko controllers - up to the swim spa with a current to swim against.",
+      },
+      {
+        q: "What is the difference between a combi and water system whirlpool?",
+        a: "Water systems run hydro-massage jets only; combi systems add an air blower - the Arc combi pairs a 1.4 HP water pump with a 0.90 HP air blower. Both come in the same tub designs.",
+      },
       {
         q: "What electrical supply does a Jaquar spa need?",
-        a: "It is printed per model: from 13 amps on the two-seat Nuovo up to a maximum 60 amps on the Hydrozone swim spa. Heaters are variable output, 1.3 kW to 6 kW depending on model - the full p334 features sheet travels with our quotations.",
+        a: "It is printed per model: from 13 amps on the two-seat Nuovo up to a maximum 60 amps on the Hydrozone swim spa, with variable output heaters from 1.3 kW to 6 kW. The full p334 features sheet travels with our quotations.",
       },
       {
-        q: "What is a swim spa?",
-        a: "A spa long enough to swim against a current - the Hydrozone runs 5900 x 2300 x 1300 mm with a swim lane and separate spa seating for five, holding 1,530 litres in the spa and 7,030 in the swim section.",
-      },
-      {
-        q: "Stove or infrared sauna - what is the difference?",
-        a: "Stove heater cabins heat the air with an electric stone stove; infrared models use carbon heaters printed at 1750 W and 2490 W that warm the body directly at lower air temperatures. Both are built in Hemlock wood with LED and chromo lighting.",
-      },
-      {
-        q: "How is a steam generator sized?",
-        a: "By steam room volume - the ladder runs 4, 6, 9, 12, 15, 18, 22.5 and 24 kW. Send the room dimensions and glass area with the enquiry and the rating comes back with the AED pricing.",
-      },
-    ],
-  },
-  {
-    slug: "accessories",
-    label: "Accessories",
-    query: "jaquar bathroom accessories UAE",
-    intro:
-      "Jaquar bathroom accessories run six design families - Continental to the crystal-detailed Rendezvous - across towel rails, dispensers, paper holders, shelves, hooks and mirrors, plus a commercial washroom line of HEPA-filtered hand dryers, sensor soap dispensers and AISI 304 paper towel dispensers. Global Classic supplies both wholesale from Sharjah, matched to the faucet collections they echo.",
-    collections: [
-      {
-        name: "Continental",
-        slug: "continental",
-        blurb:
-          "The broadest accessory family at 30 pieces: towel rails, rings and shelves with stainless steel options, soap dispensers in glass or metallic bottle, paper holders including a shelf variant, shower baskets, and swivel, oval and 3X magnifying pivotal mirrors.",
-        productTypes: [
-          "Towel rails",
-          "Towel rings",
-          "Towel shelves",
-          "Soap dispensers",
-          "Paper holders",
-          "Robe hooks",
-          "Shower baskets",
-          "Mirrors",
-        ],
-        skuSamples: ["ACN-1121N", "ACN-1137N", "ACN-1181S", "ACN-1193N"],
-      },
-      {
-        name: "Continental Prime",
-        slug: "continental-prime",
-        blurb:
-          "Twenty pieces, all in chrome: a 300 mm grab bar, towel rails at 450 and 600 mm, square and round towel rings, soap dish and glass bottle dispenser, tumbler and toilet brush holders, paper holders with lid and spare, 600 mm glass and towel shelves, and robe hooks.",
-        productTypes: [
-          "Grab bars",
-          "Towel rails",
-          "Towel rings",
-          "Soap dispensers",
-          "Tumbler holders",
-          "Paper holders",
-          "Shelves",
-          "Robe hooks",
-        ],
-        skuSamples: [
-          "CPA-CHR-1101",
-          "CPA-CHR-1111L450",
-          "CPA-CHR-1171",
-          "CPA-CHR-1153",
-        ],
-      },
-      {
-        name: "Kubix Prime",
-        slug: "kubix-prime",
-        blurb:
-          "Twenty squared-profile pieces: toilet roll holders with shelf or stainless steel flap, towel ring, soap dispenser with glass bottle, tumbler and WC brush holders, double coat hook, 600 mm shelves with stainless steel hangers, and a 630 x 445 mm rectangular swivel mirror.",
-        productTypes: [
-          "Paper holders",
-          "Towel rings",
-          "Soap dispensers",
-          "Tumbler holders",
-          "Brush holders",
-          "Coat hooks",
-          "Shelves",
-          "Mirrors",
-        ],
-        skuSamples: ["AKP-35757P", "AKP-35753PS", "AKP-35781PS", "AKP-35795"],
-      },
-      {
-        name: "Queen's",
-        slug: "queens",
-        blurb:
-          "Ten pieces built for daily service: a twin type paper holder, robe hooks, 600 mm towel shelves with lower hangers, stainless steel grab bars in 300, 450 and 600 mm, a retractable stainless steel cloth liner and a 550 mm glass shelf.",
-        productTypes: [
-          "Paper holders",
-          "Robe hooks",
-          "Towel shelves",
-          "Grab bars",
-          "Cloth liners",
-          "Glass shelves",
-        ],
-        skuSamples: ["AQN-7755", "AHS-1501", "AHS-1565", "AHS-1581H"],
-      },
-      {
-        name: "Rendezvous Crystal Collection",
-        slug: "rendezvous-crystal",
-        blurb:
-          "Nine crystal-detailed pieces: a 600 mm towel rail and 450 mm towel shelf, a 550 mm glass shelf, towel ring, tumbler holder, soap dish, toilet paper holder, and double coat and robe hooks.",
-        productTypes: [
-          "Towel rails",
-          "Towel shelves",
-          "Glass shelves",
-          "Towel rings",
-          "Tumbler holders",
-          "Soap dishes",
-          "Paper holders",
-          "Hooks",
-        ],
-        skuSamples: ["ACT-8811", "ACT-8871", "ACT-8821", "ACT-8833"],
-      },
-      {
-        name: "Combo Pack",
-        slug: "combo-pack",
-        blurb:
-          "A six-piece chrome set sold under one SKU: round towel ring, soap dish holder, glass bottle soap dispenser, paper holder with stainless steel lid, double robe hook and towel rail.",
-        productTypes: ["Accessory combo packs"],
-        skuSamples: ["ACN-6PCCOP1", "ACN-CHR-1121BN", "ACN-CHR-1153S"],
-      },
-      {
-        name: "Washroom Accessories",
-        slug: "washroom-accessories",
-        blurb:
-          "Commercial washroom hardware: touch-free infrared hand dryers led by the 1850 W Nuovo dualflow with DC brushless motor and double HEPA filter, with Flash and Bolt at 1150 W; push button and automatic 0.8 L soap dispensers including a 9V transformer variant; an AISI 304 stainless steel paper towel dispenser holding 400-600 C/Z fold towels; and 680 mm and vertical swing grab bars in white, black matt and satin.",
-        productTypes: [
-          "Hand dryers",
-          "Soap dispensers",
-          "Paper towel dispensers",
-          "Grab bars",
-        ],
-        skuSamples: [
-          "HDR-SLV-AK2030",
-          "SDR-WHT-DJ0010FN",
-          "PTD-SAP-DT0106CSN",
-          "WAC-BLM-BG0800N",
-        ],
-      },
-    ],
-    finishes: [
-      "Chrome",
-      "Stainless steel",
-      "Satin",
-      "Black Matt",
-      "White",
-    ],
-    claims: [
-      {
-        title: "Matched to the faucet families",
-        body: "Continental, Continental Prime, Kubix Prime, Queen's and Rendezvous accessories echo the faucet collections of the same names - one design language from mixer to towel rail.",
-      },
-      {
-        title: "Commercial grade where it counts",
-        body: "AISI 304 stainless steel paper towel dispensers, HEPA-filtered hand dryers with DC brushless motors, and stainless grab bars in three lengths for accessible washrooms.",
-      },
-      {
-        title: "One SKU fit-outs",
-        body: "The six-piece Combo Pack outfits a complete bathroom under a single code - the volume answer for apartment and hotel programmes.",
-      },
-      {
-        title: "Serviceable by design",
-        body: "Glass bottles, spare paper holders and retractable liners are catalogued as parts - washrooms stay in service instead of waiting on replacements.",
-      },
-    ],
-    specs: [
-      ["Design families", "Continental - Continental Prime - Kubix Prime - Queen's - Rendezvous Crystal"],
-      ["Hand dryers", "Nuovo dualflow 1850 W (double HEPA) - Flash / Bolt 1150 W"],
-      ["Soap dispensers", "0.8 L - push button, automatic, 9V transformer variant"],
-      ["Paper towel dispenser", "AISI 304 stainless - 400-600 C/Z fold towels"],
-      ["Grab bars", "300 / 450 / 600 / 680 mm - white, black matt, satin"],
-      ["Warranty", "10 yr metal parts - 2 yr dryers and dispensers"],
-    ],
-    faqs: [
-      {
-        q: "Can Jaquar accessories match my faucet collection?",
-        a: "That is the design intent - Continental, Continental Prime, Kubix Prime, Queen's and Rendezvous accessory families carry the same lines as their faucet namesakes, so towel rails, paper holders and mirrors read as one specification.",
-      },
-      {
-        q: "Does Jaquar make commercial washroom equipment?",
-        a: "Yes - the washroom line covers touch-free hand dryers (the 1850 W Nuovo dualflow runs a DC brushless motor with double HEPA filter), sensor and push-button soap dispensers, AISI 304 paper towel dispensers and stainless grab bars, all supplied wholesale by Global Classic.",
-      },
-      {
-        q: "What is in the Combo Pack?",
-        a: "Six chrome pieces under one SKU: towel ring, soap dish holder, glass bottle dispenser, paper holder with stainless lid, double robe hook and towel rail - the one-line fit-out for volume residential projects.",
+        q: "Do you supply wellness products to homeowners?",
+        a: "No - wholesale and project supply only: hotels, developers, contractors and fit-out companies, coordinated to site from Sharjah. We do not serve retail buyers or installation and service calls. Send the project BOQ for AED pricing.",
       },
     ],
   },
@@ -1810,7 +1403,7 @@ export const jaquarCategories: JaquarCategory[] = [
     label: "Water Heaters",
     query: "jaquar water heater UAE",
     intro:
-      "Jaquar water heaters ladder from 1-litre instant units to 500-litre floor-mounted Verna tanks - instant electric, Elena and Erica storage, Versa 30-100 litre verticals and horizontals, in gas, electric and instant families. Tank warranties run up to 7 years on storage models per the printed matrix. Global Classic supplies the ladder wholesale from Sharjah across the UAE.",
+      "Jaquar water heaters ladder from 1-litre instant units to 500-litre floor-mounted Verna tanks - instant electric, Elena and Erica storage, Versa 30-100 litre verticals and horizontals, in gas, electric and instant families. Tank warranties run up to 7 years on storage models per the printed matrix. Global Classic supplies the ladder wholesale from Sharjah across the UAE - bulk and project quantities only.",
     collections: [
       {
         name: "Water Heaters",
@@ -1825,12 +1418,7 @@ export const jaquarCategories: JaquarCategory[] = [
           "Digital storage water heaters",
           "Floor mounting water heaters",
         ],
-        skuSamples: [
-          "INS-WHT-3KW01",
-          "ELM-WHT-H015",
-          "VME-WHT-V100",
-          "VRN-GRY-500",
-        ],
+        skuSamples: ["INS-WHT-3KW01", "ELM-WHT-H015", "VME-WHT-V100", "VRN-GRY-500"],
       },
     ],
     finishes: ["White", "Grey (Verna floor mounting)"],
@@ -1869,8 +1457,8 @@ export const jaquarCategories: JaquarCategory[] = [
         a: "Per the printed hot water matrix: instant models 5 years on the tank, storage up to 100 litres 7 years on tank and 4 on the heating element, storage above 100 litres 3 years across tank, element and spares.",
       },
       {
-        q: "Are there horizontal models for false-ceiling installs?",
-        a: "Yes - Elena horizontal in 15 and 25 litres (510 and 747 mm long) and Versa horizontal in 30 to 100 litres, the standard answer for UAE apartment shafts and ceiling voids.",
+        q: "Do you sell single water heaters or do installations?",
+        a: "No - wholesale and project quantities only, supplied to contractors, developers and trading buyers from Sharjah stock. We do not serve retail buyers or installation calls. Send the BOQ with fixture counts for AED pricing.",
       },
     ],
   },

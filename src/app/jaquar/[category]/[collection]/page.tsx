@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ProductBrowser } from "@/components/sections/jaquar/product-browser";
 import { SpecTable } from "@/components/sections/jaquar/spec-table";
 import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
@@ -20,7 +21,7 @@ import {
   FINISH_DISCLAIMER,
   catalogueSectionFor,
 } from "@/config/jaquar-catalogue";
-import { productsOf } from "@/config/jaquar-products";
+import { productsOf, productsOfGroups } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
 
 /**
@@ -59,9 +60,12 @@ function heroFor(category: string, collection: string) {
   return null;
 }
 
-function productImage(image: string) {
-  const path = `/jaquar/products/${image}.webp`;
-  return existsSync(join(publicDir, path)) ? path : null;
+/** Products for a page - the taps landing aggregates the tap groups
+ *  across every faucet range (owner: "a subcategory for taps"). */
+function pageProducts(categorySlug: string, collectionSlug: string) {
+  if (categorySlug === "faucets" && collectionSlug === "taps")
+    return productsOfGroups("faucets", ["taps", "pressmatic"]);
+  return productsOf(categorySlug, collectionSlug);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -69,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = jaquarCategoryBySlug.get(categorySlug);
   const collection = jaquarCollectionBySlug(categorySlug, collectionSlug);
   if (!category || !collection) return {};
-  const products = productsOf(categorySlug, collectionSlug);
+  const products = pageProducts(categorySlug, collectionSlug);
   const countPhrase = products.length
     ? `All ${products.length} catalogue products with SKUs. `
     : "";
@@ -94,15 +98,12 @@ export default async function JaquarCollectionPage({ params }: Props) {
   const collection = jaquarCollectionBySlug(categorySlug, collectionSlug);
   if (!category || !collection) notFound();
 
-  const products = productsOf(categorySlug, collectionSlug);
+  const products = pageProducts(categorySlug, collectionSlug);
   const pages = products.map((p) => p.page).filter(Boolean);
   const pageRange = pages.length
     ? `pp. ${Math.min(...pages)}-${Math.max(...pages)}`
     : null;
-
-  const gallery = products
-    .map((p) => ({ ...p, src: p.image ? productImage(p.image) : null }))
-    .filter((p) => p.src);
+  const section = catalogueSectionFor(categorySlug, collectionSlug);
 
   const hero = heroFor(categorySlug, collectionSlug);
 
@@ -310,97 +311,70 @@ export default async function JaquarCollectionPage({ params }: Props) {
         </Container>
       </section>
 
-      {/* ---------- The catalogue table - every product ---------- */}
+      {/* ---------- The range, browsable ---------- */}
       {products.length > 0 && (
         <section className="border-border/30 border-t py-20">
           <Container>
-            <div className="flex flex-wrap items-baseline justify-between gap-4">
-              <h2 className="font-display text-phi-2 tracking-tight">
-                Every {collection.name} product, catalogued.
-              </h2>
-              <p className="label-gcb text-muted">
-                {products.length} products
-                {pageRange && ` · catalogue ${pageRange}`}
-              </p>
+            <div className="grid gap-8 lg:grid-cols-[1.618fr_1fr] lg:items-end">
+              <div>
+                <p className="label-gcb text-muted">The range, in pictures</p>
+                <h2 className="font-display text-phi-2 mt-4 tracking-tight">
+                  Every {collection.name} product, browsable.
+                </h2>
+                <p className="text-muted mt-4 max-w-xl text-sm leading-relaxed">
+                  {products.length} products from the Jaquar Global Bath
+                  Catalogue 2025-2026{pageRange && ` (${pageRange})`} - each
+                  with its photograph, specification chips and SKU. Flow rates
+                  are at 3 bar. Send any SKU list for AED wholesale pricing.
+                </p>
+              </div>
+              {section && (
+                <div className="lg:justify-self-end">
+                  <GcbButton
+                    href={`/jaquar/catalogue/${section.file}.pdf`}
+                    size="sm"
+                    variant="light"
+                  >
+                    Download this section (PDF, {section.size})
+                  </GcbButton>
+                </div>
+              )}
             </div>
-            <p className="text-muted mt-4 max-w-2xl text-sm leading-relaxed">
-              Transcribed from the Jaquar Global Bath Catalogue 2025-2026.
-              Flow rates marked * are at 3 bar pressure; the Page column cites
-              the printed catalogue
-              {(() => {
-                const section = catalogueSectionFor(category.slug);
-                return section ? (
-                  <>
-                    {" - "}
-                    <a
-                      href={`/jaquar/catalogue/${section.file}.pdf`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="u-line text-foreground"
-                    >
-                      download this section ({section.pages}, PDF{" "}
-                      {section.size})
-                    </a>
-                  </>
-                ) : null;
-              })()}
-              . Send any SKU for AED trade pricing against Sharjah stock.
-            </p>
-            <div className="mt-10">
-              <SpecTable
-                dark={false}
-                caption={`Jaquar ${collection.name} product table`}
-                head={["Product", "SKU", "Finish", "Page"]}
-                rows={products.map((p) => [
-                  p.name === p.sku ? "-" : p.name,
-                  <span key={p.sku} className="font-mono text-xs">
-                    {p.sku}
-                  </span>,
-                  p.finish || "-",
-                  p.page ? String(p.page) : "-",
-                ])}
-                minWidth={640}
+            <div className="mt-12">
+              <ProductBrowser
+                products={products}
+                collectionName={collection.name}
               />
             </div>
-          </Container>
-        </section>
-      )}
 
-      {/* ---------- The pieces, up close ---------- */}
-      {gallery.length > 0 && (
-        <section className="border-border/30 border-t py-20">
-          <Container>
-            <h2 className="font-display text-phi-2 tracking-tight">
-              The pieces, up close.
-            </h2>
-            <ul className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
-              {gallery.slice(0, 8).map((p) => (
-                <li key={p.sku}>
-                  <figure>
-                    <span className="border-warm-black relative block aspect-[4/5] overflow-hidden rounded-lg border bg-[#F7F8F5]">
-                      <Image
-                        src={p.src!}
-                        alt={`${p.name === p.sku ? `Jaquar ${collection.name}` : p.name} - ${p.sku}${p.finish ? ` - ${p.finish}` : ""}`}
-                        fill
-                        sizes="(min-width: 1024px) 22vw, 45vw"
-                        className="object-contain p-3"
-                        loading="lazy"
-                      />
-                    </span>
-                    <figcaption className="mt-3">
-                      <span className="block font-mono text-xs">{p.sku}</span>
-                      <span className="text-muted mt-1 block text-xs leading-relaxed">
-                        {p.name === p.sku
-                          ? collection.name
-                          : p.name.length > 80
-                            ? `${p.name.slice(0, 77)}...`
-                            : p.name}
-                      </span>
-                    </figcaption>
-                  </figure>
-                </li>
-              ))}
-            </ul>
+            {/* Verbatim printed table, folded for reference and search */}
+            <details className="border-border/40 group mt-14 rounded-xl border">
+              <summary className="label-gcb flex cursor-pointer items-center justify-between px-6 py-4">
+                The printed table, verbatim - {products.length} rows
+                <span
+                  aria-hidden
+                  className="transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+              <div className="px-6 pb-6">
+                <SpecTable
+                  dark={false}
+                  caption={`Jaquar ${collection.name} printed product table`}
+                  head={["Product as printed", "SKU", "Finish", "Page"]}
+                  rows={products.map((p) => [
+                    p.name === p.sku ? "-" : p.name,
+                    <span key={p.sku} className="font-mono text-xs">
+                      {p.sku}
+                    </span>,
+                    p.finish || "-",
+                    p.page ? String(p.page) : "-",
+                  ])}
+                  minWidth={640}
+                />
+              </div>
+            </details>
           </Container>
         </section>
       )}

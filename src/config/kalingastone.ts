@@ -91,7 +91,7 @@ export const brands: Brand[] = [
     role: "Bathroom fittings",
     blurb:
       "Faucets, sanitaryware, showers, enclosures and whirlpools - authorized dealer, 10-year warranty serviced in the UAE.",
-    stat: "5 categories · 28 collections",
+    stat: "6 categories · 1,480 catalogued products",
   },
   {
     name: "FILA",

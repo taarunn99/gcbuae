@@ -20,11 +20,11 @@ import {
  */
 export function CategorySheets({ category }: { category: string }) {
   switch (category) {
-    case "whirlpools":
+    case "wellness":
       return (
         <div className="mt-16">
           <h3 className="label-gcb text-bronze">
-            The 13-model specification sheet, as printed
+            The 13-model whirlpool specification sheet, as printed
           </h3>
           <div className="mt-6">
             <SpecTable
@@ -34,6 +34,34 @@ export function CategorySheets({ category }: { category: string }) {
               footnote={WHIRLPOOL_SHEET_NOTE}
               minWidth={1500}
             />
+          </div>
+          <h3 className="label-gcb text-bronze mt-16">
+            Fourteen spas, sized and seated
+          </h3>
+          <div className="mt-6">
+            <SpecTable
+              caption="Jaquar spa models"
+              head={["Model", "Printed size", "Seats"]}
+              rows={spaModels.map((m) => [m.name, m.size, m.seats])}
+              footnote={PICTURES_DISCLAIMER}
+              minWidth={560}
+            />
+          </div>
+          <div className="mt-12 max-w-2xl">
+            <h3 className="label-gcb text-bronze">
+              From the p334 spa features sheet
+            </h3>
+            <dl className="divide-ink/10 border-ink/15 mt-5 divide-y border-y">
+              {spaSheetHighlights.map(([term, value]) => (
+                <div
+                  key={term}
+                  className="grid grid-cols-[1fr_1.618fr] gap-4 py-3"
+                >
+                  <dt className="text-ink/60 text-sm">{term}</dt>
+                  <dd className="text-sm">{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       );
@@ -64,7 +92,7 @@ export function CategorySheets({ category }: { category: string }) {
           </div>
         </div>
       );
-    case "flushing-systems":
+    case "water-closets":
       return (
         <div className="mt-16 max-w-2xl">
           <h3 className="label-gcb text-bronze">The installation numbers</h3>
@@ -75,39 +103,6 @@ export function CategorySheets({ category }: { category: string }) {
               rows={flushingFacts.map((r) => [r[0], r[1]])}
               minWidth={480}
             />
-          </div>
-        </div>
-      );
-    case "wellness":
-      return (
-        <div className="mt-16">
-          <h3 className="label-gcb text-bronze">
-            Fourteen spas, sized and seated
-          </h3>
-          <div className="mt-6">
-            <SpecTable
-              caption="Jaquar spa models"
-              head={["Model", "Printed size", "Seats"]}
-              rows={spaModels.map((m) => [m.name, m.size, m.seats])}
-              footnote={PICTURES_DISCLAIMER}
-              minWidth={560}
-            />
-          </div>
-          <div className="mt-12 max-w-2xl">
-            <h3 className="label-gcb text-bronze">
-              From the p334 features sheet
-            </h3>
-            <dl className="divide-ink/10 border-ink/15 mt-5 divide-y border-y">
-              {spaSheetHighlights.map(([term, value]) => (
-                <div
-                  key={term}
-                  className="grid grid-cols-[1fr_1.618fr] gap-4 py-3"
-                >
-                  <dt className="text-ink/60 text-sm">{term}</dt>
-                  <dd className="text-sm">{value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
       );

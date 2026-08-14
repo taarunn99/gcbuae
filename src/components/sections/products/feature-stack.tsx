@@ -50,9 +50,9 @@ const FEATURES: Feature[] = [
     links: [
       { label: "Showers", href: "/jaquar/showers" },
       { label: "Taps & faucets", href: "/jaquar/faucets" },
-      { label: "Sanitaryware", href: "/jaquar/sanitary-ware" },
-      { label: "Enclosures & trays", href: "/jaquar/shower-enclosures" },
-      { label: "Whirlpools", href: "/jaquar/whirlpools" },
+      { label: "Wash basins", href: "/jaquar/wash-basins" },
+      { label: "Water closets", href: "/jaquar/water-closets" },
+      { label: "Wellness", href: "/jaquar/wellness" },
     ],
   },
   {
