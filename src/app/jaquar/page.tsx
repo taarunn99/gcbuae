@@ -2,22 +2,31 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import heroImage from "@/assets/jaquar-hero.webp";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
+import { JaquarHero } from "@/components/sections/jaquar/jaquar-hero";
 import { SkuDecoder } from "@/components/sections/jaquar/sku-decoder";
+import { SpecTable } from "@/components/sections/jaquar/spec-table";
 import { FaqAccordion } from "@/components/sections/quartz/faq-accordion";
 import { RuleIn } from "@/components/sections/quartz/rule-in";
 import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import { jaquarCategories } from "@/config/jaquar";
+import {
+  WARRANTY_FOOTNOTE,
+  careRules,
+  hotWaterWarranty,
+  jaquarEntity,
+  warrantyMatrix,
+} from "@/config/jaquar-catalogue";
+import { catalogueTotal } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Jaquar Dealer UAE - Bathroom Fittings | Global Classic" },
   description:
-    "Authorized Jaquar dealer in the UAE - faucets, sanitaryware, showers, shower enclosures and whirlpools from Sharjah stock. 10-year warranty, trade pricing in AED, delivery to every emirate.",
+    "Authorized Jaquar dealer in the UAE - faucets, sanitaryware, showers, enclosures, whirlpools, bathtubs, flushing systems, wellness and water heaters from Sharjah stock. 1,500+ catalogued products with SKUs, trade pricing in AED, delivery to every emirate.",
   alternates: { canonical: "/jaquar" },
 };
 
@@ -28,11 +37,11 @@ const faqs = [
   },
   {
     q: "What does Jaquar make?",
-    a: "Complete bathroom solutions from the group founded in 1960: faucets (125,000 taps a day), sanitaryware (4.8 million pieces a year), showers, shower enclosures, whirlpools and more - across three tiers: Artize (luxury), Jaquar (premium) and Essco (value).",
+    a: "Complete bathroom solutions from the group founded in 1960: faucets (125,000 taps a day), sanitaryware, showers, shower enclosures, whirlpools, bathtubs, flushing systems, spas, saunas, steam solutions, accessories and water heaters - across three tiers: Artize (luxury), Jaquar (premium) and Essco (value).",
   },
   {
     q: "Is the Jaquar warranty honoured in the UAE?",
-    a: "Yes. Faucets and sanitaryware carry a 10-year warranty, showers up to 10 years and enclosure hardware 5 years, serviced through Jaquar's UAE network (toll-free 800-527827) with Global Classic handling supply paperwork.",
+    a: "Yes, on the printed per-part terms: 10 years on faucet metal parts, braided hoses, flush valves and ceramic bodies; 5 years on colour finishes, sensor faucets, UF seats and wellness bodies; tiered terms on water heaters. Serviced through Jaquar's UAE network (toll-free 800-527827) with Global Classic handling supply paperwork - the full table is published on this page.",
   },
   {
     q: "Do you give trade pricing on Jaquar products?",
@@ -116,12 +125,14 @@ export default function JaquarPage() {
           <Reveal className="mt-8 max-w-2xl">
             <p className="text-lg leading-relaxed">
               Global Classic is an authorized dealer of Jaquar bathroom fittings
-              in the UAE - faucets, sanitaryware, showers, shower enclosures and
-              whirlpools from the group that delivers{" "}
-              <strong>3.6 million bathrooms a year</strong>. Wholesale supply
-              from Sharjah, AED trade pricing on request, delivery to every
-              emirate, and Jaquar&apos;s <strong>10-year warranty</strong>{" "}
-              behind the premium ranges.
+              in the UAE - faucets, sanitaryware, showers, enclosures,
+              whirlpools, bathtubs, flushing systems, wellness and water heaters
+              from the group that delivers{" "}
+              <strong>3.6 million bathrooms a year</strong>.{" "}
+              <strong>{catalogueTotal.toLocaleString()} catalogued products</strong>{" "}
+              with SKUs on this site, wholesale supply from Sharjah, AED trade
+              pricing on request, and Jaquar&apos;s printed warranty terms
+              behind every range.
             </p>
           </Reveal>
 
@@ -129,10 +140,10 @@ export default function JaquarPage() {
           <Reveal delay={0.15}>
             <dl className="border-border/40 mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border sm:grid-cols-4">
               {[
-                ["1960", "founded - six decades of bathware"],
+                ["65+", "years of manufacturing prowess"],
                 ["55+", "countries with Jaquar presence"],
                 ["125,000", "taps produced every day"],
-                ["10 yr", "warranty on faucets & sanitaryware"],
+                ["8", "plants over 330,000 m2"],
               ].map(([value, label]) => (
                 <div key={label} className="bg-surface/40 px-6 py-6">
                   <dt className="sr-only">{label}</dt>
@@ -151,27 +162,17 @@ export default function JaquarPage() {
         </Container>
       </section>
 
-      {/* ---------- Hero image ---------- */}
-      <section aria-label="Jaquar bathroom" className="pb-4">
-        <div className="relative overflow-hidden">
-          <Image
-            src={heroImage}
-            alt="Luxury UAE bathroom with freestanding bathtub, chrome floor-standing faucet and a deep green accent wall"
-            sizes="100vw"
-            quality={90}
-            className="h-auto w-full"
-            placeholder="blur"
-            preload
-          />
-        </div>
+      {/* ---------- Hero film ---------- */}
+      <section aria-label="Jaquar rain shower film" className="pb-4">
+        <JaquarHero />
       </section>
 
-      {/* ---------- The five categories ---------- */}
+      {/* ---------- The ten categories ---------- */}
       <section className="py-24">
         <Container>
           <p className="label-gcb text-muted">The range</p>
           <h2 className="font-display text-phi-3 mt-4 max-w-2xl tracking-tight text-balance">
-            Five categories, one warranty card.
+            Ten categories, one printed warranty card.
           </h2>
           <RuleIn className="mt-8 w-full max-w-3xl" />
 
@@ -252,17 +253,19 @@ export default function JaquarPage() {
                 Ten years on paper, serviced in the UAE.
               </h2>
               <p className="mt-8 max-w-xl text-lg leading-relaxed">
-                Faucets and sanitaryware carry a 10-year warranty; showers up to
-                10 years; enclosure hardware and rollers 5 years - backed by
-                Jaquar&apos;s UAE service line (toll-free 800-527827) and
-                cartridges tested for half a million cycles. Buy through an
+                Ten years on faucet metal parts, braided hoses, flush valves
+                and ceramic bodies; five on colour finishes, sensor
+                electronics, UF seats and wellness bodies - the full per-part
+                table from Jaquar&apos;s printed warranty card is published
+                below, backed by the UAE service line (toll-free 800-527827)
+                and cartridges tested for half a million cycles. Buy through an
                 authorized dealer and the paperwork simply works.
               </p>
               <ul className="mt-10 flex flex-wrap gap-3">
                 {[
-                  "10 yr faucets & sanitaryware",
-                  "Up to 10 yr showers",
-                  "5 yr enclosure hardware",
+                  "10 yr faucet metal parts & ceramic bodies",
+                  "10 yr flush valves",
+                  "5 yr colour finishes & sensor",
                   "UAE service: 800-527827",
                 ].map((chip) => (
                   <li
@@ -285,6 +288,117 @@ export default function JaquarPage() {
                 loading="lazy"
               />
             </figure>
+          </div>
+        </Container>
+      </section>
+
+      {/* ---------- The warranty, in print ---------- */}
+      <section className="bg-warm-black text-ink grain-gcb relative overflow-hidden py-24">
+        <Container className="relative z-10">
+          <p className="label-gcb text-bronze">Honest, per part</p>
+          <h2 className="font-display text-phi-3 mt-4 max-w-2xl tracking-tight text-balance">
+            The warranty table, exactly as Jaquar prints it.
+          </h2>
+          <p className="text-ink/70 mt-6 max-w-2xl leading-relaxed">
+            No UAE reseller publishes this. Transcribed from the printed
+            warranty card (catalogue p360) - so a BOQ is specified on the real
+            terms, not a blanket claim.
+          </p>
+          <div className="mt-12 grid gap-14 lg:grid-cols-[1.618fr_1fr]">
+            <SpecTable
+              caption="Jaquar warranty matrix"
+              head={["Category", "Product or part", "Years"]}
+              rows={warrantyMatrix.map((r) => [r.category, r.part, r.years])}
+              footnote={WARRANTY_FOOTNOTE}
+              minWidth={560}
+            />
+            <div>
+              <h3 className="label-gcb text-bronze">Hot water solutions</h3>
+              <div className="mt-5">
+                <SpecTable
+                  caption="Jaquar hot water warranty matrix"
+                  head={["Line", "Tank", "Element", "Spares"]}
+                  rows={hotWaterWarranty.map((r) => [
+                    r.line,
+                    r.tank,
+                    r.element,
+                    r.spares,
+                  ])}
+                  minWidth={380}
+                />
+              </div>
+              <h3 className="label-gcb text-bronze mt-10">
+                Care, per the printed guidelines
+              </h3>
+              <ul className="mt-5 space-y-2.5">
+                {careRules.map((rule) => (
+                  <li key={rule} className="flex items-start gap-3">
+                    <span
+                      aria-hidden
+                      className="bg-bronze mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                    />
+                    <span className="text-ink/80 text-sm leading-relaxed">
+                      {rule}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ---------- The maker ---------- */}
+      <section className="py-24">
+        <Container>
+          <p className="label-gcb text-muted">Behind the brand</p>
+          <h2 className="font-display text-phi-3 mt-4 max-w-2xl tracking-tight text-balance">
+            The first Indian company to win a Red Dot.
+          </h2>
+          <figure className="border-warm-black relative mt-12 aspect-[21/9] overflow-hidden rounded-xl border">
+            <Image
+              src="/jaquar/hub/banner.webp"
+              alt="Editorial banner - chrome basin mixer on a long marble vanity against a deep onyx green wall"
+              fill
+              quality={90}
+              sizes="(min-width: 1536px) 1400px, 100vw"
+              className="object-cover"
+              loading="lazy"
+            />
+          </figure>
+          <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.618fr] lg:items-start">
+            <figure className="border-warm-black relative hidden aspect-[3/4] overflow-hidden rounded-xl border lg:block">
+              <Image
+                src="/jaquar/hub/editorial-wc.webp"
+                alt="Wall-hung white ceramic WC in a marble bathroom with an onyx green niche"
+                fill
+                quality={90}
+                sizes="(min-width: 1024px) 34vw, 100vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </figure>
+            <dl className="divide-border/30 border-border/30 divide-y border-y">
+              {[
+                ["Manufacturing", jaquarEntity.plants],
+                ["Output", jaquarEntity.fittingsPerYear],
+                ["Headquarters", jaquarEntity.hq],
+                ["Design", jaquarEntity.redDot],
+                ["Designers", jaquarEntity.designers],
+                ["Group brands", jaquarEntity.groupBrands],
+                ["In Dubai", jaquarEntity.dubai],
+                ["Certification", jaquarEntity.esma],
+                ["Sustainability", jaquarEntity.sustainability],
+              ].map(([term, value]) => (
+                <div
+                  key={term}
+                  className="grid gap-2 py-4 sm:grid-cols-[1fr_1.618fr] sm:gap-6"
+                >
+                  <dt className="label-gcb text-muted">{term}</dt>
+                  <dd className="text-sm leading-relaxed">{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </Container>
       </section>

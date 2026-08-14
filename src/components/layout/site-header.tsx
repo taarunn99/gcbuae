@@ -274,6 +274,32 @@ export function SiteHeader() {
                                 </Link>
                               </li>
                             ))}
+                          {[
+                            { label: "Bathtubs", href: "/jaquar/bathtubs" },
+                            { label: "Wellness & Spas", href: "/jaquar/wellness" },
+                            {
+                              label: "Flushing Systems",
+                              href: "/jaquar/flushing-systems",
+                            },
+                            {
+                              label: "Water Heaters",
+                              href: "/jaquar/water-heaters",
+                            },
+                            {
+                              label: "Accessories",
+                              href: "/jaquar/accessories",
+                            },
+                          ].map((item) => (
+                            <li key={item.href}>
+                              <Link
+                                href={item.href}
+                                tabIndex={productsOpen ? 0 : -1}
+                                className="hover:bg-surface/60 block rounded-md px-2 py-1.5 text-sm transition-colors"
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>

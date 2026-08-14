@@ -1,15 +1,33 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { CategorySheets } from "@/components/sections/jaquar/category-sheets";
 import { FaqAccordion } from "@/components/sections/quartz/faq-accordion";
 import { RuleIn } from "@/components/sections/quartz/rule-in";
 import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import { jaquarCategories, jaquarCategoryBySlug } from "@/config/jaquar";
+import { productCount } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
+
+const publicDir = join(process.cwd(), "public");
+
+/** Official web image where it exists, else the generated hero. */
+function cardImage(category: string, collection: string) {
+  const official = `/jaquar/${category}/${collection}.webp`;
+  if (existsSync(join(publicDir, official)))
+    return { src: official, generated: false };
+  const generated = `/jaquar/heroes/${category}/${collection}.webp`;
+  if (existsSync(join(publicDir, generated)))
+    return { src: generated, generated: true };
+  return null;
+}
 
 /**
  * Jaquar category pages - one primary query each ("jaquar faucets UAE",
@@ -136,31 +154,52 @@ export default async function JaquarCategoryPage({ params }: Props) {
           <RuleIn className="mt-6 w-full" />
 
           <ul className="mt-12 grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {category.collections.map((collection) => (
-              <li key={collection.slug}>
-                <Link
-                  href={`/jaquar/${category.slug}/${collection.slug}`}
-                  className="group block"
-                >
-                  <span className="border-warm-black bg-ink relative block aspect-[4/3] overflow-hidden rounded-xl border">
-                    <Image
-                      src={`/jaquar/${category.slug}/${collection.slug}.webp`}
-                      alt={`Jaquar ${collection.name} ${category.label.toLowerCase()} - official product photograph`}
-                      fill
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                      className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </span>
-                  <span className="font-display group-hover:text-bronze mt-4 block text-xl leading-tight transition-colors">
-                    {collection.name}
-                  </span>
-                  <span className="text-muted mt-1.5 block text-sm leading-relaxed">
-                    {collection.blurb}
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {category.collections.map((collection) => {
+              const image = cardImage(category.slug, collection.slug);
+              const count = productCount(category.slug, collection.slug);
+              return (
+                <li key={collection.slug}>
+                  <Link
+                    href={`/jaquar/${category.slug}/${collection.slug}`}
+                    className="group block"
+                  >
+                    {image && (
+                      <span className="border-warm-black bg-ink relative block aspect-[4/3] overflow-hidden rounded-xl border">
+                        <Image
+                          src={image.src}
+                          alt={
+                            image.generated
+                              ? `Jaquar ${collection.name} ${category.label.toLowerCase()} - editorial visual`
+                              : `Jaquar ${collection.name} ${category.label.toLowerCase()} - official product photograph`
+                          }
+                          fill
+                          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                          className={
+                            image.generated
+                              ? "object-cover transition-transform duration-500 group-hover:scale-105"
+                              : "object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                          }
+                          loading="lazy"
+                        />
+                      </span>
+                    )}
+                    <span className="mt-4 flex items-baseline justify-between gap-3">
+                      <span className="font-display group-hover:text-bronze block text-xl leading-tight transition-colors">
+                        {collection.name}
+                      </span>
+                      {count > 0 && (
+                        <span className="text-muted shrink-0 text-xs">
+                          {count} products →
+                        </span>
+                      )}
+                    </span>
+                    <span className="text-muted mt-1.5 block text-sm leading-relaxed">
+                      {collection.blurb}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </Container>
       </section>
@@ -214,6 +253,9 @@ export default async function JaquarCategoryPage({ params }: Props) {
               ))}
             </ul>
           </div>
+
+          {/* The printed catalogue sheets nobody else publishes */}
+          <CategorySheets category={category.slug} />
         </Container>
       </section>
 
