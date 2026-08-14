@@ -44,7 +44,7 @@ const FEATURES: Feature[] = [
     folio: "Feature 02 · Water",
     title: "Where water works",
     quote: "The wet rooms earn their keep - or they leak it.",
-    body: "Jaquar showers, taps, sanitaryware and shower trays - the moving parts of a bathroom, specified with the same wholesale discipline as the stone they sit on. Every category now has its own page - collections, finishes and the specs, with AED trade pricing a message away.",
+    body: "Jaquar faucets and taps, wash basins, water closets, showers and enclosures, wellness and water heaters - the moving parts of a bathroom, specified with the same wholesale discipline as the stone they sit on. Six categories, 1,480 catalogued products with SKUs, and AED trade pricing a message away.",
     image: "/products/editorial/water-feature.webp",
     alt: "Sculptural chrome rain shower with falling water against dark green tiles",
     links: [

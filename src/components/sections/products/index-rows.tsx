@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 import { pad } from "@/lib/utils";
 
 /**
- * The Index - the eight lines as a magazine table of contents. Every
+ * The Index - the ten lines as a magazine table of contents. Every
  * row stays one whole crawlable <Link>, with the Onyx hover sweep - and
  * a floating photograph of the line trails the cursor across the list
  * (soft-lerped, desktop pointer only, pointer-events none, reduced
@@ -21,10 +21,12 @@ const HUBS: Record<string, string> = {
   quartz: "/kalingastone/quartz",
   "naturally-engineered-marble": "/kalingastone/marble",
   terrazzo: "/kalingastone/terrazzo",
-  showers: "/jaquar/showers",
-  taps: "/jaquar/faucets",
-  sanitaryware: "/jaquar/wash-basins",
-  "shower-trays": "/jaquar/showers",
+  faucets: "/jaquar/faucets",
+  "wash-basins": "/jaquar/wash-basins",
+  "water-closets": "/jaquar/water-closets",
+  "showers-enclosures": "/jaquar/showers",
+  wellness: "/jaquar/wellness",
+  "water-heaters": "/jaquar/water-heaters",
 };
 
 const PREVIEWS: Record<string, string> = {
@@ -32,10 +34,13 @@ const PREVIEWS: Record<string, string> = {
   "naturally-engineered-marble":
     "/products/white-engineered-marble-floor-gallery-hall-uae.webp",
   terrazzo: "/products/white-terrazzo-flooring-green-chips-daybed-dubai.webp",
-  showers: "/products/jaquar-rain-shower-white-stone-wet-room-uae.webp",
-  taps: "/products/brushed-steel-tap-white-marble-basin-uae.webp",
-  sanitaryware: "/products/white-twin-basins-limestone-vanity-spa-uae.webp",
-  "shower-trays": "/products/jaquar-rain-shower-white-stone-wet-room-uae.webp",
+  faucets: "/products/brushed-steel-tap-white-marble-basin-uae.webp",
+  "wash-basins": "/products/white-twin-basins-limestone-vanity-spa-uae.webp",
+  "water-closets": "/jaquar/categories/water-closets.webp",
+  "showers-enclosures":
+    "/products/jaquar-rain-shower-white-stone-wet-room-uae.webp",
+  wellness: "/jaquar/heroes/wellness/freestanding-bathtubs.webp",
+  "water-heaters": "/jaquar/categories/water-heaters.webp",
   "sealers-cleaners":
     "/products/fila-mp90-sealer-white-marble-workshop-uae.webp",
 };

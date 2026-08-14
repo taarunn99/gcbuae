@@ -19,7 +19,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Quartz, naturally engineered marble, terrazzo, showers, taps, sanitaryware, shower trays, and marble care - supplied across the UAE.",
+    "Quartz, naturally engineered marble, terrazzo, faucets and taps, wash basins, water closets, showers and enclosures, wellness, water heaters and marble care - supplied wholesale across the UAE.",
   // Without this, the root layout's canonical ("/") is inherited and this
   // page tells Google it is a copy of the homepage. GOVERNANCE §6.
   alternates: { canonical: "/products" },
@@ -30,8 +30,10 @@ export default function ProductsPage() {
     <main className="theme-forest bg-background text-foreground flex-1 pb-0">
       {/* SEO heading for the video hero (the visible word lives in the mask) */}
       <h1 className="sr-only">
-        Products - KalingaStone quartz, marble and terrazzo slabs, showers,
-        taps, sanitaryware and surface care, supplied across the UAE.
+        Products - KalingaStone quartz, marble and terrazzo slabs, Jaquar
+        faucets and taps, wash basins, water closets, showers and enclosures,
+        wellness and water heaters, and FILA surface care, supplied wholesale
+        across the UAE.
       </h1>
 
       <ProductsVideoHero />
@@ -67,7 +69,7 @@ export default function ProductsPage() {
                   The index.
                 </h2>
               </div>
-              <p className="label-gcb text-muted">Eight lines · tap any row</p>
+              <p className="label-gcb text-muted">Ten lines · tap any row</p>
             </div>
           </Reveal>
 

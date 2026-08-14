@@ -11,8 +11,8 @@ const ITEMS = [
   "Terrazzo",
   "Showers",
   "Taps",
-  "Sanitaryware",
-  "Shower Trays",
+  "Wash Basins",
+  "Water Closets",
   "Care",
 ];
 

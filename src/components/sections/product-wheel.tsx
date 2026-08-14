@@ -214,7 +214,7 @@ export function ProductWheel() {
       <div className="container-gcb">
         <p className="label-gcb text-ink/60">The Collection</p>
         <h2 className="font-display text-ink mt-4 max-w-2xl text-3xl leading-tight tracking-tight sm:text-5xl">
-          Eight lines. One standard.
+          Ten lines. One standard.
         </h2>
       </div>
 

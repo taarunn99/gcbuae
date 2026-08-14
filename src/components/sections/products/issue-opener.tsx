@@ -52,7 +52,7 @@ export function IssueOpener() {
             <Reveal delay={0.2}>
               <p className="text-muted mt-10 max-w-xl leading-relaxed">
                 128 shades of engineered stone across quartz, marble and
-                terrazzo · Jaquar showers, taps and sanitaryware · FILA sealers
+                terrazzo · Jaquar bathware in six categories · FILA sealers
                 and cleaners - stocked in Sharjah, delivered across the whole of
                 the UAE, wholesale.
               </p>

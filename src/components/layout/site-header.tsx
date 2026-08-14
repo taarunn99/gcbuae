@@ -258,10 +258,13 @@ export function SiteHeader() {
                                   href={
                                     (
                                       {
-                                        showers: "/jaquar/showers",
-                                        taps: "/jaquar/faucets",
-                                        sanitaryware: "/jaquar/wash-basins",
-                                        "shower-trays": "/jaquar/showers",
+                                        faucets: "/jaquar/faucets",
+                                        "wash-basins": "/jaquar/wash-basins",
+                                        "water-closets":
+                                          "/jaquar/water-closets",
+                                        "showers-enclosures": "/jaquar/showers",
+                                        wellness: "/jaquar/wellness",
+                                        "water-heaters": "/jaquar/water-heaters",
                                       } as Record<string, string>
                                     )[product.slug] ??
                                     `/products#${product.slug}`
@@ -273,27 +276,6 @@ export function SiteHeader() {
                                 </Link>
                               </li>
                             ))}
-                          {[
-                            {
-                              label: "Water Closets",
-                              href: "/jaquar/water-closets",
-                            },
-                            { label: "Wellness & Spas", href: "/jaquar/wellness" },
-                            {
-                              label: "Water Heaters",
-                              href: "/jaquar/water-heaters",
-                            },
-                          ].map((item) => (
-                            <li key={item.href}>
-                              <Link
-                                href={item.href}
-                                tabIndex={productsOpen ? 0 : -1}
-                                className="hover:bg-surface/60 block rounded-md px-2 py-1.5 text-sm transition-colors"
-                              >
-                                {item.label}
-                              </Link>
-                            </li>
-                          ))}
                         </ul>
                       </div>
                     </div>
