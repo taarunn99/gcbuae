@@ -18,6 +18,7 @@ import {
 import {
   FINISH_CODE_NAMES,
   FINISH_DISCLAIMER,
+  catalogueSectionFor,
 } from "@/config/jaquar-catalogue";
 import { productsOf } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
@@ -324,8 +325,26 @@ export default async function JaquarCollectionPage({ params }: Props) {
             </div>
             <p className="text-muted mt-4 max-w-2xl text-sm leading-relaxed">
               Transcribed from the Jaquar Global Bath Catalogue 2025-2026.
-              Flow rates marked * are at 3 bar pressure. Send any SKU for AED
-              trade pricing against Sharjah stock.
+              Flow rates marked * are at 3 bar pressure; the Page column cites
+              the printed catalogue
+              {(() => {
+                const section = catalogueSectionFor(category.slug);
+                return section ? (
+                  <>
+                    {" - "}
+                    <a
+                      href={`/jaquar/catalogue/${section.file}.pdf`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="u-line text-foreground"
+                    >
+                      download this section ({section.pages}, PDF{" "}
+                      {section.size})
+                    </a>
+                  </>
+                ) : null;
+              })()}
+              . Send any SKU for AED trade pricing against Sharjah stock.
             </p>
             <div className="mt-10">
               <SpecTable

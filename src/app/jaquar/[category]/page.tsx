@@ -13,6 +13,7 @@ import { Breadcrumb, breadcrumbJsonLd } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
 import { jaquarCategories, jaquarCategoryBySlug } from "@/config/jaquar";
+import { catalogueSectionFor } from "@/config/jaquar-catalogue";
 import { productCount } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
 
@@ -124,6 +125,20 @@ export default async function JaquarCategoryPage({ params }: Props) {
               <p className="mt-8 max-w-2xl text-lg leading-relaxed">
                 {category.intro}
               </p>
+              {(() => {
+                const section = catalogueSectionFor(category.slug);
+                return section ? (
+                  <a
+                    href={`/jaquar/catalogue/${section.file}.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="chip-gcb border-border/50 mt-6 inline-block rounded-full border px-5 py-2.5 text-sm"
+                  >
+                    This range in the official catalogue - {section.pages}
+                    (PDF, {section.size})
+                  </a>
+                ) : null;
+              })()}
             </div>
             <figure className="border-warm-black relative hidden aspect-[3/4] overflow-hidden rounded-xl border lg:block">
               <Image

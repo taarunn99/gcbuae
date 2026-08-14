@@ -99,6 +99,23 @@ All in `src/components/sections/quartz/` — generalize or copy per line:
 | `rule-in` | underline that draws in under section H2s | |
 | shade explorer | sticky family headers + jump chips (with real swatch dots) + per-family "show all" expanders | kills the endless drawer |
 
+**Jaquar v2 catalogue build (2026-08-14):** the 2025-2026 print catalogue
+became the source of truth for 10 categories / ~85 collections. Standing
+decisions: fusion (FUS-, catalogue) and fusion-prime (uae.jaquar.com) are
+SEPARATE pages, cross-linked; EKO is projects-only framing; warranty is
+ALWAYS per-part (p360 matrix in `jaquar-catalogue.ts` - never blanket
+"10-year"); whirlpool pump HP is per-model (four Fonte/Fusion = 1.0 HP).
+Products data generated from the pack csv (`build-jaquar-products.mjs`);
+catalogue PDF split to per-section downloads (`split-jaquar-catalogue.mjs`,
+public/jaquar/catalogue/). Higgsfield lessons: the ByteDance upscaler
+FLATTENS alpha (pre-composite cutouts onto Marble White first -
+`jaquar-upscale-prep.mjs`); nano banana trips false-positive NSFW on
+empty-bathroom/sauna/steam scenes (reword to "empty architectural
+interior, still life, no people"); ALWAYS preflight get_cost and budget
+before batching (gen 2k = 2 cr, 4k = 4 cr, upscale = 2 cr, video 8s = 52
+cr). Owner halted Pass A upscales mid-run to preserve credits - ~42 paid
+upscale jobs remain unclaimed in the Higgsfield gallery.
+
 **Editorial "Materials Issue" system (products page, 2026-08-11):** a
 golden-ratio type scale lives in globals.css (`.text-phi-0`…`.text-phi-4`,
 `.dropcap`, `.text-outline-gcb`; grids split `1.618fr/1fr`). Components in

@@ -16,6 +16,7 @@ import { jaquarCategories } from "@/config/jaquar";
 import {
   WARRANTY_FOOTNOTE,
   careRules,
+  catalogueSections,
   hotWaterWarranty,
   jaquarEntity,
   warrantyMatrix,
@@ -288,6 +289,45 @@ export default function JaquarPage() {
                 loading="lazy"
               />
             </figure>
+          </div>
+        </Container>
+      </section>
+
+      {/* ---------- The catalogue, by section ---------- */}
+      <section className="border-border/30 border-t py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.618fr] lg:items-start">
+            <div>
+              <p className="label-gcb text-muted">The source, downloadable</p>
+              <h2 className="font-display text-phi-3 mt-4 tracking-tight text-balance">
+                The 2025-2026 catalogue, split by section.
+              </h2>
+              <p className="text-muted mt-6 max-w-md leading-relaxed">
+                Every product table on this site cites its printed catalogue
+                page. Download the section you are specifying from - the
+                official Jaquar Global Bath Catalogue, 364 pages, split so the
+                BOQ annex stays light.
+              </p>
+            </div>
+            <ul className="divide-border/30 border-border/30 divide-y border-y">
+              {catalogueSections.map((section) => (
+                <li key={section.file}>
+                  <a
+                    href={`/jaquar/catalogue/${section.file}.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-baseline justify-between gap-6 py-3.5"
+                  >
+                    <span className="font-display group-hover:text-bronze text-lg leading-tight transition-colors">
+                      {section.label}
+                    </span>
+                    <span className="text-muted shrink-0 text-xs">
+                      {section.pages} · PDF {section.size}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>
