@@ -7,6 +7,8 @@ import {
   terrazzoShades,
 } from "@/config/kalingastone-terrazzo";
 import { jaquarCategories } from "@/config/jaquar";
+import { filaCategories } from "@/config/fila";
+import { filaProducts } from "@/config/fila-products";
 import { siteConfig } from "@/config/site";
 
 // GOVERNANCE §6: auto-generated sitemap. Every future collection, brand-hub
@@ -96,9 +98,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ]);
 
+  const filaUrls: MetadataRoute.Sitemap = [
+    "/fila",
+    "/fila/solutions",
+    "/fila/about",
+    "/fila/projects",
+    ...filaCategories.map((c) => `/fila/${c.slug}`),
+    ...filaProducts.map((p) => `/fila/${p.slug}`),
+  ].map((route) => ({
+    url: `${siteConfig.url}${route}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: route === "/fila" ? 0.7 : 0.5,
+  }));
+
   return [
     ...core,
     ...jaquarUrls,
+    ...filaUrls,
     ...families,
     ...shades,
     ...terrazzoCollectionUrls,

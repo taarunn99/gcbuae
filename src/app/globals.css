@@ -375,3 +375,85 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- FILA "Yellow Editorial" theme (owner-sanctioned brand
+   exception, scoped strictly to /fila pages - the global five-colour
+   palette is untouched elsewhere). Ratio discipline: 60% paper, 25%
+   ink, 12% yellow, 3% category chips. ---------- */
+.theme-fila {
+  --fila-yellow: #fed400;
+  --fila-ink: #0b0b0c;
+  --fila-paper: #fafaf6;
+  --fila-concrete: #e9e7e0;
+  --fila-cyan: #2aa9df;
+  --fila-red: #e8442e;
+  --fila-orange: #f07e1b;
+  background: var(--fila-paper);
+  color: var(--fila-ink);
+}
+.fila-display {
+  font-family: var(--font-fila-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+}
+/* 6px yellow underline bar - FILA's own print motif */
+.fila-bar {
+  display: block;
+  width: 4.236rem;
+  height: 6px;
+  background: var(--fila-yellow);
+}
+.fila-bar-draw {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+/* Ghost numerals behind section heads */
+.fila-ghost {
+  position: absolute;
+  z-index: 0;
+  font-family: var(--font-fila-display), sans-serif;
+  font-size: clamp(6rem, 18vw, 14rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(11 11 12 / 0.08);
+  user-select: none;
+  pointer-events: none;
+}
+/* Masonry - CSS columns, degrades to plain flow without JS */
+.fila-masonry {
+  columns: 1;
+  column-gap: 1.25rem;
+}
+@media (min-width: 640px) { .fila-masonry { columns: 2; } }
+@media (min-width: 1024px) { .fila-masonry { columns: 3; } }
+.fila-masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+/* Card hover: 4px lift + yellow border sweep */
+.fila-card {
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s, border-color 0.35s;
+  border: 1px solid rgb(11 11 12 / 0.08);
+}
+.fila-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--fila-yellow);
+  box-shadow: 0 10px 30px rgb(11 11 12 / 0.1);
+}
+/* System strip scroll snap */
+.fila-strip {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.fila-strip > * { scroll-snap-align: start; }
+/* Partner marquee */
+@keyframes fila-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.fila-marquee { animation: fila-marquee 42s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .fila-marquee { animation: none; }
+  .fila-bar-draw { transform: none; }
+}

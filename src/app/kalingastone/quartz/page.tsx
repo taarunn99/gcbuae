@@ -797,7 +797,19 @@ export default function KalingaStoneQuartzPage() {
             <Link href="/products" className="u-line text-foreground">
               all product lines
             </Link>
-            .
+            . For the care system behind every slab we supply -{" "}
+            <Link href="/fila/mp90-eco-xtreme" className="u-line text-foreground">
+              FILA MP90 ECO XTREME
+            </Link>{" "}
+            protection,{" "}
+            <Link href="/fila/marble-refresh" className="u-line text-foreground">
+              MARBLE REFRESH
+            </Link>{" "}
+            daily care and{" "}
+            <Link href="/fila/pw10" className="u-line text-foreground">
+              PW10
+            </Link>{" "}
+            pre-laying treatment - see the FILA hub.
           </p>
         </Container>
       </section>

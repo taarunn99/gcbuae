@@ -79,6 +79,20 @@ const pages: SearchEntry[] = [
     "fluted grooves texture wall",
   ),
   entry(
+    "FILA",
+    "Surface care - 34 products, official UAE distribution",
+    "/fila",
+    "Pages",
+    "fila surface care sealers cleaners protectors italy brand hub",
+  ),
+  entry(
+    "FILA Solutions",
+    "What to do if - grout haze, rust, limescale",
+    "/fila/solutions",
+    "Pages",
+    "stain removal problems fix surface",
+  ),
+  entry(
     "About",
     "Global Classic Building Materials",
     "/about",
@@ -179,7 +193,24 @@ const jaquar: SearchEntry[] = [
   ]),
 ];
 
-export const searchIndex: SearchEntry[] = [...pages, ...jaquar, ...shades];
+import { filaProducts } from "./fila-products";
+
+const fila: SearchEntry[] = filaProducts.map((p) =>
+  entry(
+    `FILA ${p.name}`,
+    p.title,
+    `/fila/${p.slug}`,
+    "Pages",
+    `fila surface care ${p.category} ${p.surfaces[0].toLowerCase()}`,
+  ),
+);
+
+export const searchIndex: SearchEntry[] = [
+  ...pages,
+  ...jaquar,
+  ...fila,
+  ...shades,
+];
 
 /** Rank: prefix label match > label match > keyword match. */
 export function searchSite(query: string, limit = 9): SearchEntry[] {

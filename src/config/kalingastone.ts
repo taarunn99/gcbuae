@@ -95,11 +95,11 @@ export const brands: Brand[] = [
   },
   {
     name: "FILA",
-    href: "/contact",
-    logo: "/brands/fila.svg",
+    href: "/fila",
+    logo: "/brands/fila-logo.svg",
     role: "Surface care",
     blurb:
-      "Sealers, cleaners and maintenance systems for stone surfaces - brand pages in production, catalogue on request.",
-    stat: "Care systems · enquire",
+      "Italian surface care since 1943 - 34 professional cleaners, protectors and finishes with printed coverage tables, official UAE distribution.",
+    stat: "34 products · 4 lines",
   },
 ];

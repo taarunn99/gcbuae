@@ -95,6 +95,6 @@ export const wheelProducts: WheelProduct[] = [
     image: "/products/fila-mp90-sealer-white-marble-workshop-uae.webp",
     alt: "FILA MP90 Eco Xtreme penetrating sealer beside a gloved hand sealing a white marble slab in a bright workshop",
     accent: "#355e4d",
-    href: "/products#sealers-cleaners",
+    href: "/fila",
   },
 ];

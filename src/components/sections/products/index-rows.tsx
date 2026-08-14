@@ -27,6 +27,7 @@ const HUBS: Record<string, string> = {
   "showers-enclosures": "/jaquar/showers",
   wellness: "/jaquar/wellness",
   "water-heaters": "/jaquar/water-heaters",
+  "sealers-cleaners": "/fila",
 };
 
 const PREVIEWS: Record<string, string> = {

@@ -265,6 +265,7 @@ export function SiteHeader() {
                                         "showers-enclosures": "/jaquar/showers",
                                         wellness: "/jaquar/wellness",
                                         "water-heaters": "/jaquar/water-heaters",
+                                        "sealers-cleaners": "/fila",
                                       } as Record<string, string>
                                     )[product.slug] ??
                                     `/products#${product.slug}`
