@@ -21,12 +21,12 @@ export function ShowroomLocator() {
       <div className="container-gcb flex flex-col items-center text-center">
         <p className="label-gcb text-warm-black/60">Where we are</p>
         <h2 className="font-display text-warm-black mt-3 text-2xl tracking-tight">
-          {siteConfig.address.city}, United Arab Emirates
+          Al Sajaa, {siteConfig.address.city}, United Arab Emirates
         </h2>
         <div className="mt-10 flex h-[320px] w-[360px] items-start justify-center">
           <LocationMap
-            location={`${siteConfig.address.city}, United Arab Emirates`}
-            coordinates="25.2048° N, 55.2708° E"
+            location={`Al Sajaa, ${siteConfig.address.city}, UAE`}
+            coordinates="25.3604° N, 55.6503° E"
           />
         </div>
         <p className="text-warm-black/70 mt-6 max-w-md leading-relaxed">

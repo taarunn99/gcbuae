@@ -181,8 +181,8 @@ export function MaterialsExplore() {
                   )}
                   loading="lazy"
                 />
-                {/* The ball - swatch rendered AT ball size (sharp at retina),
-                    never stretched across the whole panel */}
+                {/* The ball - a generated 4K macro of the shade, rendered AT
+                    ball size so it is sharp at retina */}
                 <span
                   className={cn(
                     "absolute top-1/2 left-1/2 block size-52 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full",
@@ -191,8 +191,8 @@ export function MaterialsExplore() {
                   )}
                 >
                   <Image
-                    src={item.swatch}
-                    alt={`${item.shadeLabel} ${item.label.toLowerCase()} swatch`}
+                    src={item.ball}
+                    alt={`${item.shadeLabel} ${item.label.toLowerCase()} macro`}
                     fill
                     sizes="13rem"
                     quality={90}
@@ -289,8 +289,8 @@ export function MaterialsExplore() {
               </span>
               <span className="border-ink absolute top-4 right-4 block size-16 overflow-hidden rounded-full border">
                 <Image
-                  src={item.swatch}
-                  alt={`${item.shadeLabel} ${item.label.toLowerCase()} swatch`}
+                  src={item.ball}
+                  alt={`${item.shadeLabel} ${item.label.toLowerCase()} macro`}
                   fill
                   sizes="4rem"
                   className="object-cover"

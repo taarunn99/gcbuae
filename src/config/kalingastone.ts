@@ -72,7 +72,8 @@ export type HomeMaterialShowcase = {
   slug: KalingaStoneMaterial["slug"];
   shadeSlug: string;
   shadeLabel: string;
-  swatch: string;
+  /** Generated 4K macro of the shade, cut square for the ball. */
+  ball: string;
   scene: string;
   sceneAlt: string;
 };
@@ -82,7 +83,7 @@ export const homeMaterialsShowcase: HomeMaterialShowcase[] = [
     slug: "quartz",
     shadeSlug: "calacatta-lazza",
     shadeLabel: "Calacatta Lazza",
-    swatch: "/kalingastone/quartz/swatches/calacatta-lazza.webp",
+    ball: "/home/materials/quartz-ball.webp",
     scene: "/home/materials/quartz-scene.webp",
     sceneAlt:
       "Calacatta Lazza quartz kitchen island with a waterfall edge in soft daylight",
@@ -91,7 +92,7 @@ export const homeMaterialsShowcase: HomeMaterialShowcase[] = [
     slug: "marble",
     shadeSlug: "emperador-scuro",
     shadeLabel: "Emperador Scuro",
-    swatch: "/kalingastone/marble/swatches/emperador-scuro.webp",
+    ball: "/home/materials/marble-ball.webp",
     scene: "/home/materials/marble-scene.webp",
     sceneAlt:
       "Emperador Scuro engineered marble vanity wall in a warm bathroom",
@@ -100,7 +101,7 @@ export const homeMaterialsShowcase: HomeMaterialShowcase[] = [
     slug: "terrazzo",
     shadeSlug: "exotic-green",
     shadeLabel: "Exotic Green",
-    swatch: "/kalingastone/terrazzo/swatches/exotic-green.webp",
+    ball: "/home/materials/terrazzo-ball.webp",
     scene: "/home/materials/terrazzo-scene.webp",
     sceneAlt:
       "Exotic Green terrazzo floor with green marble chips in a gallery stair hall",

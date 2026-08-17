@@ -17,9 +17,9 @@ export const siteConfig = {
     whatsapp: "",
   },
   address: {
-    street: "",
-    city: "Dubai",
-    region: "Dubai",
+    street: "9M62+45M, Al Sajaa, Al Jlail",
+    city: "Sharjah",
+    region: "Sharjah",
     postalCode: "",
     country: "AE",
   },

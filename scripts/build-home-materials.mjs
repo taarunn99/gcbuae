@@ -24,13 +24,17 @@ const SOURCE_DIR = join(ROOT, "assets", "source", "home-materials");
 const OUT_DIR = join(ROOT, "public", "home", "materials");
 
 const SLUGS = ["quartz", "marble", "terrazzo"];
-const WIDTH = 1920;
-const HEIGHT = 1232;
+const WIDTH = 2048;
+const HEIGHT = 1314;
 const BUDGET_KB = 300;
 
 /** Terrazzo chip detail is entropy-heavy - it needs a lower encode to fit
- *  the budget; the sharpness lives in the 1920px resolution, not the q. */
-const QUALITY = { quartz: 86, marble: 86, terrazzo: 74 };
+ *  the budget; the sharpness lives in the 2048px resolution, not the q. */
+const QUALITY = { quartz: 86, marble: 86, terrazzo: 70 };
+
+/** The ball textures - generated 4K seamless macros
+ *  ({slug}-ball-master.*), cut square at 2.5x the 208px ball. */
+const BALL_SIZE = 512;
 
 await mkdir(OUT_DIR, { recursive: true });
 const sources = await readdir(SOURCE_DIR);
@@ -52,6 +56,21 @@ for (const slug of SLUGS) {
   const flag = kb > BUDGET_KB ? "  <-- OVER 300KB BUDGET" : kb > 200 ? "  (over 200KB target)" : "";
   console.log(`${slug}-scene.webp  ${WIDTH}x${HEIGHT}  ${kb}KB${flag}`);
   if (kb > BUDGET_KB) failed = true;
+
+  const ballMaster = sources.find((f) => f.startsWith(`${slug}-ball-master.`));
+  if (!ballMaster) {
+    console.error(`MISSING ball master for ${slug} in ${SOURCE_DIR}`);
+    failed = true;
+    continue;
+  }
+  const ballOut = join(OUT_DIR, `${slug}-ball.webp`);
+  await sharp(join(SOURCE_DIR, ballMaster), { limitInputPixels: false })
+    .resize(BALL_SIZE, BALL_SIZE, { fit: "cover" })
+    .webp({ quality: 88, effort: 6, smartSubsample: true })
+    .toFile(ballOut);
+  const ballKb = Math.round((await stat(ballOut)).size / 1024);
+  console.log(`${slug}-ball.webp  ${BALL_SIZE}x${BALL_SIZE}  ${ballKb}KB`);
+  if (ballKb > BUDGET_KB) failed = true;
 }
 
 if (failed) {

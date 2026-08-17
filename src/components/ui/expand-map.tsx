@@ -16,8 +16,10 @@ import { EASE, DURATION } from "@/lib/motion";
 /**
  * LocationMap - the expanding map card (adapted 2026-08-17 from an
  * owner-supplied reference component). Collapsed it is a small card with
- * the location name; a click springs it open into a stylised street map
- * with a pin. Cursor tilt on fine pointers.
+ * the location name; the FIRST activation springs it open into a
+ * stylised street map with a pin, the SECOND opens Google Maps
+ * directions from the visitor's current location (owner spec). Cursor
+ * tilt on fine pointers.
  *
  * House adaptations: imports from "motion/react" (the repo's Motion, NOT
  * framer-motion - same API, no new runtime); every colour maps onto the
@@ -31,6 +33,8 @@ import { EASE, DURATION } from "@/lib/motion";
 interface LocationMapProps {
   location?: string;
   coordinates?: string;
+  /** Google Maps directions URL opened by the second activation. */
+  mapsHref?: string;
   className?: string;
 }
 
@@ -42,8 +46,9 @@ const ACCENT_GLOW_SOFT = "drop-shadow(0 0 4px rgba(111, 143, 120, 0.35))";
 const ACCENT_GLOW = "drop-shadow(0 0 8px rgba(111, 143, 120, 0.6))";
 
 export function LocationMap({
-  location = "Dubai, United Arab Emirates",
-  coordinates = "25.2048° N, 55.2708° E",
+  location = "Al Sajaa, Sharjah, UAE",
+  coordinates = "25.3604° N, 55.6503° E",
+  mapsHref = "https://www.google.com/maps/dir/?api=1&destination=9M62%2B45M%20Sharjah",
   className,
 }: LocationMapProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -75,23 +80,32 @@ export function LocationMap({
     ? { duration: 0 }
     : { type: "spring" as const, stiffness: 400, damping: 35 };
 
+  /** First activation expands; the second opens Google Maps directions. */
+  const activate = () => {
+    if (isExpanded) {
+      window.open(mapsHref, "_blank", "noopener,noreferrer");
+    } else {
+      setIsExpanded(true);
+    }
+  };
+
   return (
     <motion.div
       ref={containerRef}
       role="button"
       tabIndex={0}
       aria-expanded={isExpanded}
-      aria-label={`Map card for ${location} - activate to ${isExpanded ? "collapse" : "expand"}`}
+      aria-label={`Map card for ${location} - activate to ${isExpanded ? "open Google Maps directions" : "expand the map"}`}
       className={`relative cursor-pointer select-none ${className ?? ""}`}
       style={{ perspective: 1000 }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      onClick={() => setIsExpanded((v) => !v)}
+      onClick={activate}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          setIsExpanded((v) => !v);
+          activate();
         }
       }}
     >
@@ -356,18 +370,18 @@ export function LocationMap({
         </div>
       </motion.div>
 
-      {/* Click hint */}
+      {/* Click hint - expand first, directions second */}
       <motion.p
         className="text-warm-black/60 absolute -bottom-6 left-1/2 text-[10px] whitespace-nowrap"
         style={{ x: "-50%" }}
         initial={{ opacity: 0 }}
         animate={{
-          opacity: isHovered && !isExpanded ? 1 : 0,
+          opacity: isHovered ? 1 : 0,
           y: isHovered ? 0 : 4,
         }}
         transition={{ duration: 0.2 }}
       >
-        Click to expand
+        {isExpanded ? "Click for directions" : "Click to expand"}
       </motion.p>
     </motion.div>
   );
