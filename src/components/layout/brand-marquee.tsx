@@ -5,12 +5,12 @@
  * - the owner (an authorised distributor of all three) requires unmodified
  * third-party marks; recolouring someone else's trademark is not ours to do.
  * This is the one sanctioned exception to the five-colour palette.
- * Current KalingaStone/FILA files are interim; the owner supplies final art.
+ * FILA logo is the owner-supplied final art; KalingaStone remains interim.
  */
 const BRANDS = [
   { name: "KalingaStone", src: "/brands/kalingastone.png", height: 34 },
   { name: "Jaquar Group", src: "/brands/jaquar.png", height: 44 },
-  { name: "FILA Surface Care", src: "/brands/fila.svg", height: 48 },
+  { name: "FILA Surface Care", src: "/brands/fila-logo.svg", height: 48 },
 ];
 
 function Track() {
