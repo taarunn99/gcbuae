@@ -11,24 +11,70 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 /**
- * The Brands - a character-select deck (owner spec, fourth pass,
- * 2026-08-17). Pinned 300vh; normal vertical scroll drives the deck
- * horizontally with a coverflow pose. THE STAGE CHANGES COLOUR WITH THE
- * BRAND: as each logo reaches centre, the whole section crossfades to a
- * background chosen to contrast that specific logo (owner-sanctioned
- * departure from the five-colour palette for this section only). No
- * cards, no numerals, no ghost type - the logo, two slow disks, chip
- * facts, the shiny button, a progress rail and a centred scroll cue.
+ * The Brands - a character-select deck (owner spec, fifth pass,
+ * 2026-08-17). Pinned 300vh; vertical scroll drives the deck horizontally
+ * with a coverflow pose, and THE STAGE CHANGES COLOUR WITH THE BRAND
+ * (owner-sanctioned departure from the five-colour palette, this section
+ * only). The plain rotating circles are gone - each slide is now a brand
+ * shelf: the logo left, then a filmstrip of small rounded tiles carrying
+ * REAL catalogue imagery (swatches, fittings, care bottles) running
+ * consecutively after the logo and bleeding past the viewport edge. The
+ * strip parallax-drifts against the track so it visibly scrolls with the
+ * deck. No cards, no numerals, no ghost type.
  *
- * Ledger rule: no overflow clipping on any ANCESTOR of the sticky
- * frame - the clip lives on the sticky element itself.
+ * Ledger rules honoured: no overflow clipping on any ANCESTOR of the
+ * sticky frame (the clip lives on the sticky element itself); tile and
+ * chip hairlines are FULL-ALPHA Onyx - partial-alpha Onyx reads as grey.
  */
 
-/** Stage colour per brand - picked to contrast each logo's own colour:
- *  warm alabaster under KalingaStone's deep red mark, cool porcelain
- *  grey under Jaquar's black wordmark, FILA's own yellow behind its
- *  black-and-yellow block. Order must match `brands`. */
-const STAGE_COLORS = ["#F2E9DD", "#DCE1DE", "#FED400"];
+/** Stage colour per brand - deepened so the stage reads saturated, not
+ *  washy, while still contrasting each logo's own colour: warm sand under
+ *  KalingaStone's deep red mark, cool stone grey under Jaquar's black
+ *  wordmark, FILA's own yellow behind its block. Order matches `brands`. */
+const STAGE_COLORS = ["#ECDABF", "#CDD5CF", "#FED400"];
+
+type Tile = {
+  src: string;
+  /** What the tile shows - documentation only, tiles are decorative. */
+  alt: string;
+};
+
+/** The shelf tiles - real swatches for KalingaStone, the GENERATED
+ *  aesthetic scenes for Jaquar and FILA (owner 2026-08-17: white-ground
+ *  product cutouts don't blend on the stage; swatches do, scenes do).
+ *  Eight per brand, all full-bleed crops. Order matches `brands`. */
+const BRAND_TILES: Tile[][] = [
+  [
+    { src: "/kalingastone/quartz/swatches/alluring.webp", alt: "Alluring quartz swatch" },
+    { src: "/kalingastone/marble/swatches/emperador-scuro.webp", alt: "Emperador Scuro engineered marble swatch" },
+    { src: "/kalingastone/terrazzo/swatches/exotic-green.webp", alt: "Exotic Green terrazzo swatch" },
+    { src: "/kalingastone/quartz/swatches/nero-classic.webp", alt: "Nero Classic quartz swatch" },
+    { src: "/kalingastone/marble/swatches/artic-white.webp", alt: "Artic White engineered marble swatch" },
+    { src: "/kalingastone/quartz/swatches/pietra-grey.webp", alt: "Pietra Grey quartz swatch" },
+    { src: "/kalingastone/terrazzo/swatches/jade.webp", alt: "Jade terrazzo swatch" },
+    { src: "/kalingastone/quartz/swatches/crema-gold.webp", alt: "Crema Gold quartz swatch" },
+  ],
+  [
+    { src: "/jaquar/scenes/faucets.webp", alt: "Chrome basin mixer running over marble" },
+    { src: "/jaquar/scenes/bathtubs.webp", alt: "Freestanding bathtub against a green wall" },
+    { src: "/jaquar/scenes/showers.webp", alt: "Rain shower scene" },
+    { src: "/jaquar/scenes/sanitary-ware.webp", alt: "Sanitaryware scene" },
+    { src: "/jaquar/scenes/wash-basins.webp", alt: "Wash basin scene" },
+    { src: "/jaquar/scenes/wellness.webp", alt: "Wellness and spa scene" },
+    { src: "/jaquar/scenes/shower-enclosures.webp", alt: "Shower enclosure scene" },
+    { src: "/jaquar/scenes/whirlpools.webp", alt: "Whirlpool scene" },
+  ],
+  [
+    { src: "/images/fila/brand/droplets-macro-stone-hero.webp", alt: "Sealed stone beading golden droplets" },
+    { src: "/images/fila/heroes/protectors.webp", alt: "Water droplets on protected dark granite" },
+    { src: "/images/fila/brand/leaf-droplets-macro.webp", alt: "Droplets on a green leaf macro" },
+    { src: "/images/fila/heroes/finishing.webp", alt: "Waxed terracotta floor in warm light" },
+    { src: "/images/fila/heroes/cleaners.webp", alt: "Foam arc across a porcelain floor" },
+    { src: "/images/fila/brand/material-palette-tiles.webp", alt: "Palette of tile and stone samples" },
+    { src: "/images/fila/heroes/hub-droplets.webp", alt: "Amber droplet on travertine" },
+    { src: "/images/fila/brand/kitchen-marble-flatlay.webp", alt: "Kitchen flatlay on black marble" },
+  ],
+];
 
 export function BrandCarousel() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -46,6 +92,10 @@ export function BrandCarousel() {
       if (!section || !wrapper || !track) return;
 
       const cards = gsap.utils.toArray<HTMLElement>("[data-brand-card]", track);
+      const strips = gsap.utils.toArray<HTMLElement>(
+        "[data-brand-strip]",
+        track,
+      );
       const count = cards.length;
 
       const setPose = (progress: number) => {
@@ -58,6 +108,9 @@ export function BrandCarousel() {
             autoAlpha: 1 - 0.6 * Math.abs(clamped),
             zIndex: 10 - Math.round(Math.abs(clamped) * 5),
           });
+          // The shelf lags the track so the tiles visibly travel
+          if (strips[i])
+            gsap.set(strips[i], { x: clamped * -0.08 * window.innerWidth });
         }
         // Stage colour follows whichever logo holds the centre
         const lower = Math.max(0, Math.min(count - 1, Math.floor(position)));
@@ -96,14 +149,14 @@ export function BrandCarousel() {
         {brands.map((brand, i) => (
           <div
             key={brand.name}
-            className="py-20"
+            className="overflow-hidden py-20"
             style={{ backgroundColor: STAGE_COLORS[i] }}
           >
             <div className="container-gcb">
               {i === 0 && (
                 <p className="label-gcb text-warm-black/60 mb-10">By brand</p>
               )}
-              <BrandSlide brand={brand} />
+              <BrandSlide brand={brand} tiles={BRAND_TILES[i]} />
             </div>
           </div>
         ))}
@@ -136,14 +189,14 @@ export function BrandCarousel() {
             className="flex w-max items-stretch will-change-transform"
             style={{ perspective: "1200px" }}
           >
-            {brands.map((brand) => (
+            {brands.map((brand, i) => (
               <div
                 key={brand.name}
                 data-brand-card
-                className="flex h-[64vh] w-screen shrink-0 items-center justify-center px-6 sm:px-16"
+                className="flex h-[64vh] w-screen shrink-0 items-center px-6 sm:px-16"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <BrandSlide brand={brand} large />
+                <BrandSlide brand={brand} tiles={BRAND_TILES[i]} />
               </div>
             ))}
           </div>
@@ -183,67 +236,78 @@ export function BrandCarousel() {
   );
 }
 
+/**
+ * One brand shelf: logo + facts + button on the left, then the tile
+ * filmstrip running after the logo and bleeding past the right viewport
+ * edge (negative margin cancels the slide padding). Tiles alternate a
+ * small vertical offset so the shelf has rhythm, not a ruler line.
+ */
 function BrandSlide({
   brand,
-  large,
+  tiles,
 }: {
   brand: (typeof brands)[number];
-  large?: boolean;
+  tiles: Tile[];
 }) {
   return (
-    <div
-      className={cn(
-        "relative flex w-full flex-col items-center justify-center text-center",
-        large && "max-w-5xl",
-      )}
-    >
-      {/* The slow-turning disks behind the logo */}
-      {large && (
-        <span
-          aria-hidden
-          className="border-warm-black/25 pointer-events-none absolute top-1/2 left-1/2 h-[46vh] w-[46vh] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed motion-safe:animate-[spin_45s_linear_infinite]"
-        />
-      )}
-      {large && (
-        <span
-          aria-hidden
-          className="border-warm-black/10 pointer-events-none absolute top-1/2 left-1/2 h-[34vh] w-[34vh] -translate-x-1/2 -translate-y-1/2 rounded-full border motion-safe:animate-[spin_70s_linear_infinite_reverse]"
-        />
-      )}
+    <div className="flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
+      <div className="flex shrink-0 flex-col items-start gap-7">
+        <Link
+          href={brand.href}
+          aria-label={`Explore ${brand.name}`}
+          className="group relative block h-[12vh] max-h-32 w-full max-w-md lg:h-[16vh] lg:max-h-48 lg:w-[30rem] lg:max-w-none"
+        >
+          <Image
+            src={brand.logo}
+            alt={`${brand.name} logo`}
+            fill
+            sizes="(min-width: 1024px) 480px, 90vw"
+            className="object-contain object-left drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.04]"
+            loading="eager"
+          />
+        </Link>
 
-      <Link
-        href={brand.href}
-        aria-label={`Explore ${brand.name}`}
-        className={cn(
-          "group relative block w-full",
-          large ? "h-[28vh] max-h-72" : "h-24",
-        )}
-      >
-        <Image
-          src={brand.logo}
-          alt={`${brand.name} logo`}
-          fill
-          sizes={large ? "50vw" : "30vw"}
-          className="object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.05]"
-          loading="lazy"
-        />
-      </Link>
+        {/* Facts as chips - full-alpha Onyx hairlines, never grey */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="chip-gcb border-warm-black text-warm-black rounded-full border px-4 py-1.5 text-sm">
+            {brand.role}
+          </span>
+          <span className="chip-gcb border-warm-black text-warm-black rounded-full border px-4 py-1.5 text-sm">
+            {brand.stat}
+          </span>
+        </div>
 
-      {/* Facts as chips */}
-      <div className="relative mt-8 flex flex-wrap items-center justify-center gap-2">
-        <span className="chip-gcb border-warm-black/30 text-warm-black rounded-full border px-4 py-1.5 text-sm">
-          {brand.role}
-        </span>
-        <span className="chip-gcb border-warm-black/30 text-warm-black rounded-full border px-4 py-1.5 text-sm">
-          {brand.stat}
-        </span>
-      </div>
-
-      {/* The shiny magnetic button */}
-      <div className="relative mt-7">
+        {/* The shiny magnetic button */}
         <GcbButton href={brand.href} size="md" variant="light">
           Explore {brand.name}
         </GcbButton>
+      </div>
+
+      {/* The filmstrip - real catalogue material, on to the viewport edge */}
+      <div className="-mr-6 min-w-0 flex-1 sm:-mr-16" aria-hidden>
+        <div
+          data-brand-strip
+          className="flex w-max items-center gap-3 will-change-transform md:gap-4"
+        >
+          {tiles.map((tile, i) => (
+            <div
+              key={tile.src}
+              className={cn(
+                "border-warm-black bg-ink relative size-14 shrink-0 overflow-hidden rounded-xl border shadow-sm md:size-20 xl:size-28",
+                i % 2 ? "translate-y-2.5" : "-translate-y-2.5",
+              )}
+            >
+              <Image
+                src={tile.src}
+                alt=""
+                fill
+                sizes="96px"
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

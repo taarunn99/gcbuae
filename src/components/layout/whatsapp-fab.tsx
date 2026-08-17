@@ -2,9 +2,11 @@
 
 /**
  * The WhatsApp floating button - the site's primary lead line, present
- * on every route, bottom-right, sized to be unmissable. Onyx Green
- * disc, Marble White glyph (the brand's WhatsApp green is off-palette
- * and stays off). One tap opens the chat - no hover reveal.
+ * on every route, bottom-right. Onyx Green disc, Marble White glyph
+ * (the brand's WhatsApp green is off-palette and stays off). Owner note
+ * 2026-08-17: the glyph leads, the disc is a tight ring around it - the
+ * Onyx ground must never dominate the corner again. One tap opens the
+ * chat - no hover reveal.
  */
 export function WhatsAppFab() {
   return (
@@ -15,11 +17,10 @@ export function WhatsAppFab() {
       aria-label="Chat on WhatsApp - +971 52 992 7827"
       className="group fixed right-5 bottom-5 z-50 flex items-center gap-0 sm:right-7 sm:bottom-7"
     >
-      <span className="bg-warm-black text-ink flex size-20 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-105 sm:size-28">
+      <span className="bg-warm-black text-ink flex size-16 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-105 sm:size-20">
         <svg
           aria-hidden
-          width="44"
-          height="44"
+          className="size-12 sm:size-14"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
