@@ -20,6 +20,15 @@ ledger from the KalingaStone Quartz build.
 Marketing site for Global Classic Building Materials (GCB), a UAE building
 materials trading company.
 
+## Dev environment (2026-08-17)
+
+The working copy lives at `~/dev/gcbuae` - NEVER in Desktop, Documents or
+any iCloud-synced folder. iCloud sync of the previous Desktop location
+evicted files, wrote conflict copies into .next and caused 15-minute dev
+hangs. If dev ever crawls again: check `df -h` free space (keep >30 GB)
+and delete `.next`. The clone is shallow (--depth 1); run
+`git fetch --unshallow` if full history is ever needed.
+
 ## Stack
 
 Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 ·
