@@ -5,11 +5,13 @@
  *
  * Reads the Higgsfield 4K masters from assets/source/home-materials/
  * ({quartz,marble,terrazzo}-master.png|jpg|webp) and writes
- * public/home/materials/{slug}-scene.webp at 840x1120 - 2x the ~420px CSS
- * slot of the expanded panel. One single encode from the master (never
- * re-compress a compressed derivative), per PILLAR-PLAYBOOK §7. Prints the
- * output size and fails loudly if any derivative exceeds the 300KB asset
- * budget from GOVERNANCE §4.
+ * public/home/materials/{slug}-scene.webp at 1920x1232 - 2x the widest
+ * CSS slot of the expanded panel (~960px inside the 90rem container), in
+ * the panel's landscape aspect so object-cover crops nothing sharp away.
+ * One single encode from the master (never re-compress a compressed
+ * derivative), per PILLAR-PLAYBOOK §7. Prints the output size and fails
+ * loudly if any derivative exceeds the 300KB asset budget from
+ * GOVERNANCE §4.
  */
 
 import { mkdir, readdir, stat } from "node:fs/promises";
@@ -22,9 +24,13 @@ const SOURCE_DIR = join(ROOT, "assets", "source", "home-materials");
 const OUT_DIR = join(ROOT, "public", "home", "materials");
 
 const SLUGS = ["quartz", "marble", "terrazzo"];
-const WIDTH = 840;
-const HEIGHT = 1120;
+const WIDTH = 1920;
+const HEIGHT = 1232;
 const BUDGET_KB = 300;
+
+/** Terrazzo chip detail is entropy-heavy - it needs a lower encode to fit
+ *  the budget; the sharpness lives in the 1920px resolution, not the q. */
+const QUALITY = { quartz: 86, marble: 86, terrazzo: 74 };
 
 await mkdir(OUT_DIR, { recursive: true });
 const sources = await readdir(SOURCE_DIR);
@@ -40,7 +46,7 @@ for (const slug of SLUGS) {
   const out = join(OUT_DIR, `${slug}-scene.webp`);
   await sharp(join(SOURCE_DIR, master), { limitInputPixels: false })
     .resize(WIDTH, HEIGHT, { fit: "cover", position: "attention" })
-    .webp({ quality: 86, effort: 6, smartSubsample: true })
+    .webp({ quality: QUALITY[slug], effort: 6, smartSubsample: true })
     .toFile(out);
   const kb = Math.round((await stat(out)).size / 1024);
   const flag = kb > BUDGET_KB ? "  <-- OVER 300KB BUDGET" : kb > 200 ? "  (over 200KB target)" : "";

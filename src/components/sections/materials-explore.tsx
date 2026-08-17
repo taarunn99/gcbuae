@@ -16,8 +16,9 @@ import { cn } from "@/lib/utils";
  * 2026-08-17, after KalingaStone's own explore carousel, Elixir excluded).
  * Three balls of real material - Quartz, Marble, Terrazzo - and the active
  * one opens into a tall lifestyle panel featuring the same shade. Hover
- * expands on fine pointers; on touch the first tap expands and the panel
- * itself navigates. One item is always expanded so the row is never flat.
+ * expands on fine pointers and leaving the row collapses everything back
+ * to the three balls (owner correction, 2026-08-17); on touch the first
+ * tap expands and the panel itself navigates.
  *
  * Performance contract (rebuilt 2026-08-17 after the first grid-column
  * morph janked): every panel is a FIXED-size layer that never resizes.
@@ -59,14 +60,15 @@ const RADIUS = BALL / 2;
 const ROW = 544; // = h-[34rem]
 
 /**
- * translateX for item i when item a is active. Every wrapper is the same
- * fixed width (container minus two ball slots), so percentages in
- * translateX resolve against that width and the whole layout needs no
- * ResizeObserver: collapsed items centre their ball on the slot, the
- * active item sits flush at its slot start.
+ * translateX for item i when item a is active (null = resting state, all
+ * three balls centred in the row). Every wrapper is the same fixed width
+ * (container minus two ball slots), so percentages in translateX resolve
+ * against that width and the whole layout needs no ResizeObserver:
+ * collapsed items centre their ball on the slot, the active item sits
+ * flush at its slot start.
  */
-function wrapperX(a: number, i: number): string {
-  if (i === a) return `${i * (BALL + GAP)}px`;
+function wrapperX(a: number | null, i: number): string {
+  if (a === null || i === a) return `${i * (BALL + GAP)}px`;
   if (a > i) return `calc(${i * (BALL + GAP) + RADIUS}px - 50%)`;
   return `calc(50% + ${(i - 1) * (BALL + GAP) + GAP + RADIUS}px)`;
 }
@@ -74,7 +76,7 @@ function wrapperX(a: number, i: number): string {
 const EASE_CSS = "cubic-bezier(0.76, 0, 0.24, 1)";
 
 export function MaterialsExplore() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number | null>(null);
   const reduced = useReducedMotion();
   const fine = useFinePointer();
 
@@ -106,8 +108,18 @@ export function MaterialsExplore() {
           the whole of the UAE.
         </p>
 
-        {/* Desktop: fixed-size layers, transform + clip-path + opacity only. */}
-        <div className="relative mt-14 hidden h-[34rem] lg:block">
+        {/* Desktop: fixed-size layers, transform + clip-path + opacity only.
+            Leaving the row (or tabbing out of it) rests everything back to
+            the three balls. */}
+        <div
+          className="relative mt-14 hidden h-[34rem] lg:block"
+          onPointerLeave={fine ? () => setActive(null) : undefined}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) {
+              setActive(null);
+            }
+          }}
+        >
           {items.map((item, i) => {
             const expanded = i === active;
             return (
@@ -155,23 +167,13 @@ export function MaterialsExplore() {
                     willChange: "clip-path",
                   }}
                 >
-                <Image
-                  src={item.swatch}
-                  alt={`${item.shadeLabel} ${item.label.toLowerCase()} swatch`}
-                  fill
-                  sizes="60vw"
-                  className={cn(
-                    "object-cover",
-                    fade,
-                    expanded ? "opacity-0" : "opacity-100",
-                  )}
-                  loading="lazy"
-                />
+                <span className="bg-surface absolute inset-0 block" aria-hidden />
                 <Image
                   src={item.scene}
                   alt={item.sceneAlt}
                   fill
-                  sizes="60vw"
+                  sizes="(min-width: 90rem) 976px, (min-width: 1024px) calc(100vw - 464px), 100vw"
+                  quality={90}
                   className={cn(
                     "object-cover",
                     fade,
@@ -179,6 +181,25 @@ export function MaterialsExplore() {
                   )}
                   loading="lazy"
                 />
+                {/* The ball - swatch rendered AT ball size (sharp at retina),
+                    never stretched across the whole panel */}
+                <span
+                  className={cn(
+                    "absolute top-1/2 left-1/2 block size-52 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full",
+                    fade,
+                    expanded ? "opacity-0" : "opacity-100",
+                  )}
+                >
+                  <Image
+                    src={item.swatch}
+                    alt={`${item.shadeLabel} ${item.label.toLowerCase()} swatch`}
+                    fill
+                    sizes="13rem"
+                    quality={90}
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                </span>
 
                 {/* Ball hairline - full-alpha Onyx, fades out on expand */}
                 <span
@@ -251,6 +272,7 @@ export function MaterialsExplore() {
                 alt={item.sceneAlt}
                 fill
                 sizes="100vw"
+                quality={90}
                 className="object-cover"
                 loading="lazy"
               />

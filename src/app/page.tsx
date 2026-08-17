@@ -5,6 +5,7 @@ import { FilmLoop } from "@/components/sections/film/film-loop";
 import { Hero } from "@/components/sections/hero";
 import { MaterialsExplore } from "@/components/sections/materials-explore";
 import { ProductWheel } from "@/components/sections/product-wheel";
+import { ShowroomLocator } from "@/components/sections/showroom-locator";
 import { Container } from "@/components/ui/container";
 import { kalingaStoneMaterials } from "@/config/kalingastone";
 import { siteConfig } from "@/config/site";
@@ -87,6 +88,8 @@ export default function HomePage() {
       <BrandMarquee />
 
       <MaterialsExplore />
+
+      <ShowroomLocator />
     </main>
   );
 }
