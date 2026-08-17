@@ -11,19 +11,27 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 /**
- * The Brands - a character-select deck (owner spec, 2026-08-17, third
- * pass). Pinned 300vh; normal vertical scroll drives the deck
- * horizontally with a coverflow pose. No cards, no numerals: each brand
- * is its logo floating over a giant outlined ghost name, backed by a
- * slow-turning dashed disk (the "horizontal disk" of the spec), with
- * chip facts and the house shiny magnetic button. A Pine progress rail
- * tracks the deck; the scroll cue stays centred in the frame. Pastel
- * Green ground, Onyx type. Reduced motion ships a static row.
+ * The Brands - a character-select deck (owner spec, fourth pass,
+ * 2026-08-17). Pinned 300vh; normal vertical scroll drives the deck
+ * horizontally with a coverflow pose. THE STAGE CHANGES COLOUR WITH THE
+ * BRAND: as each logo reaches centre, the whole section crossfades to a
+ * background chosen to contrast that specific logo (owner-sanctioned
+ * departure from the five-colour palette for this section only). No
+ * cards, no numerals, no ghost type - the logo, two slow disks, chip
+ * facts, the shiny button, a progress rail and a centred scroll cue.
  *
  * Ledger rule: no overflow clipping on any ANCESTOR of the sticky
  * frame - the clip lives on the sticky element itself.
  */
+
+/** Stage colour per brand - picked to contrast each logo's own colour:
+ *  warm alabaster under KalingaStone's deep red mark, cool porcelain
+ *  grey under Jaquar's black wordmark, FILA's own yellow behind its
+ *  black-and-yellow block. Order must match `brands`. */
+const STAGE_COLORS = ["#F2E9DD", "#DCE1DE", "#FED400"];
+
 export function BrandCarousel() {
+  const sectionRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
@@ -32,12 +40,12 @@ export function BrandCarousel() {
   useGSAP(
     () => {
       if (reduced) return;
+      const section = sectionRef.current;
       const wrapper = wrapperRef.current;
       const track = trackRef.current;
-      if (!wrapper || !track) return;
+      if (!section || !wrapper || !track) return;
 
       const cards = gsap.utils.toArray<HTMLElement>("[data-brand-card]", track);
-      const ghosts = gsap.utils.toArray<HTMLElement>("[data-brand-ghost]", track);
       const count = cards.length;
 
       const setPose = (progress: number) => {
@@ -50,9 +58,16 @@ export function BrandCarousel() {
             autoAlpha: 1 - 0.6 * Math.abs(clamped),
             zIndex: 10 - Math.round(Math.abs(clamped) * 5),
           });
-          // Ghost name drifts against the deck for parallax depth
-          if (ghosts[i]) gsap.set(ghosts[i], { xPercent: clamped * 18 });
         }
+        // Stage colour follows whichever logo holds the centre
+        const lower = Math.max(0, Math.min(count - 1, Math.floor(position)));
+        const upper = Math.min(count - 1, lower + 1);
+        const blend = gsap.utils.interpolate(
+          STAGE_COLORS[lower],
+          STAGE_COLORS[upper],
+          position - lower,
+        );
+        gsap.set(section, { backgroundColor: blend });
         if (railRef.current)
           gsap.set(railRef.current, { scaleX: Math.max(0.02, progress) });
       };
@@ -71,27 +86,37 @@ export function BrandCarousel() {
         },
       });
     },
-    { scope: wrapperRef, dependencies: [reduced] },
+    { scope: sectionRef, dependencies: [reduced] },
   );
 
-  /* Reduced motion: a calm static row, same content. */
+  /* Reduced motion: three calm full-bleed strips, each on its own stage. */
   if (reduced) {
     return (
-      <section className="bg-bronze py-24">
-        <div className="container-gcb">
-          <p className="label-gcb text-warm-black/60">By brand</p>
-          <div className="mt-10 grid gap-16 sm:grid-cols-3">
-            {brands.map((brand) => (
-              <BrandSlide key={brand.name} brand={brand} />
-            ))}
+      <section aria-label="The brands">
+        {brands.map((brand, i) => (
+          <div
+            key={brand.name}
+            className="py-20"
+            style={{ backgroundColor: STAGE_COLORS[i] }}
+          >
+            <div className="container-gcb">
+              {i === 0 && (
+                <p className="label-gcb text-warm-black/60 mb-10">By brand</p>
+              )}
+              <BrandSlide brand={brand} />
+            </div>
           </div>
-        </div>
+        ))}
       </section>
     );
   }
 
   return (
-    <section aria-label="The brands" className="bg-bronze">
+    <section
+      ref={sectionRef}
+      aria-label="The brands"
+      style={{ backgroundColor: STAGE_COLORS[0] }}
+    >
       <div ref={wrapperRef} className="relative h-[300vh]">
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="container-gcb flex items-baseline justify-between">
@@ -128,7 +153,7 @@ export function BrandCarousel() {
             <div className="bg-warm-black/15 relative h-px w-full overflow-hidden">
               <div
                 ref={railRef}
-                className="bg-verde absolute inset-y-0 left-0 w-full origin-left"
+                className="bg-warm-black absolute inset-y-0 left-0 w-full origin-left"
                 style={{ transform: "scaleX(0.02)" }}
               />
             </div>
@@ -172,24 +197,11 @@ function BrandSlide({
         large && "max-w-5xl",
       )}
     >
-      {/* Giant outlined ghost name, drifting behind the logo */}
-      <span
-        aria-hidden
-        data-brand-ghost
-        className={cn(
-          "font-display text-warm-black/60 pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[72%] tracking-tight whitespace-nowrap uppercase select-none",
-          "[-webkit-text-stroke:1.5px_rgb(12_21_16_/_0.22)] text-transparent",
-          large ? "text-[13vw]" : "text-6xl",
-        )}
-      >
-        {brand.name}
-      </span>
-
-      {/* The slow-turning disk behind the logo */}
+      {/* The slow-turning disks behind the logo */}
       {large && (
         <span
           aria-hidden
-          className="border-verde/40 pointer-events-none absolute top-1/2 left-1/2 h-[46vh] w-[46vh] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed motion-safe:animate-[spin_45s_linear_infinite]"
+          className="border-warm-black/25 pointer-events-none absolute top-1/2 left-1/2 h-[46vh] w-[46vh] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed motion-safe:animate-[spin_45s_linear_infinite]"
         />
       )}
       {large && (
