@@ -15,14 +15,17 @@ import { cn } from "@/lib/utils";
  * Explore the materials - the home page's closing section (owner spec,
  * 2026-08-17, after KalingaStone's own explore carousel, Elixir excluded).
  * Three balls of real material - Quartz, Marble, Terrazzo - and the active
- * one morphs into a tall lifestyle panel featuring the same shade. Hover
+ * one opens into a tall lifestyle panel featuring the same shade. Hover
  * expands on fine pointers; on touch the first tap expands and the panel
  * itself navigates. One item is always expanded so the row is never flat.
  *
- * Owner-approved GOVERNANCE §3 exception (2026-08-17): the morph
- * transitions grid columns and the frame's max-width/height - a contained
- * layout animation. The section row height is fixed, so nothing outside
- * it ever shifts. Reduced motion swaps instantly.
+ * Performance contract (rebuilt 2026-08-17 after the first grid-column
+ * morph janked): every panel is a FIXED-size layer that never resizes.
+ * The morph is transform (translateX on calc values that need no JS
+ * measurement) + an animated clip-path circle that grows from the ball
+ * into the full panel + opacity crossfades. No layout property ever
+ * animates, which also puts the section back inside GOVERNANCE §3.
+ * Reduced motion swaps instantly.
  *
  * Footer rule: the footer is fixed BEHIND the page - this section must
  * stay opaque, full-width and in normal flow (no sticky, no pinning).
@@ -49,13 +52,36 @@ const items = kalingaStoneMaterials.map((material) => ({
   ...homeMaterialsShowcase.find((s) => s.slug === material.slug)!,
 }));
 
-/** The morph timing - numerically DURATION.fast / EASE.inOut from @/lib/motion. */
-const MORPH = "duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)]";
+/** Ball diameter, gap and row height in px - shared by the position math. */
+const BALL = 208;
+const GAP = 24;
+const RADIUS = BALL / 2;
+const ROW = 544; // = h-[34rem]
+
+/**
+ * translateX for item i when item a is active. Every wrapper is the same
+ * fixed width (container minus two ball slots), so percentages in
+ * translateX resolve against that width and the whole layout needs no
+ * ResizeObserver: collapsed items centre their ball on the slot, the
+ * active item sits flush at its slot start.
+ */
+function wrapperX(a: number, i: number): string {
+  if (i === a) return `${i * (BALL + GAP)}px`;
+  if (a > i) return `calc(${i * (BALL + GAP) + RADIUS}px - 50%)`;
+  return `calc(50% + ${(i - 1) * (BALL + GAP) + GAP + RADIUS}px)`;
+}
+
+const EASE_CSS = "cubic-bezier(0.76, 0, 0.24, 1)";
 
 export function MaterialsExplore() {
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
   const fine = useFinePointer();
+
+  const fade = cn(
+    "transition-opacity duration-[400ms]",
+    reduced && "transition-none",
+  );
 
   return (
     <section
@@ -80,18 +106,8 @@ export function MaterialsExplore() {
           the whole of the UAE.
         </p>
 
-        {/* Desktop: the morphing row. Fixed height so the page never shifts. */}
-        <div
-          className="mt-14 hidden h-[36rem] grid-cols-1 items-center justify-items-center gap-6 lg:grid"
-          style={{
-            gridTemplateColumns: items
-              .map((_, i) => (i === active ? "2.8fr" : "1fr"))
-              .join(" "),
-            transitionProperty: reduced ? "none" : "grid-template-columns",
-            transitionDuration: "400ms",
-            transitionTimingFunction: "cubic-bezier(0.76, 0, 0.24, 1)",
-          }}
-        >
+        {/* Desktop: fixed-size layers, transform + clip-path + opacity only. */}
+        <div className="relative mt-14 hidden h-[34rem] lg:block">
           {items.map((item, i) => {
             const expanded = i === active;
             return (
@@ -110,69 +126,109 @@ export function MaterialsExplore() {
                       }
                     : undefined
                 }
-                className="group flex h-full w-full flex-col items-center justify-center gap-5"
+                className={cn(
+                  "pointer-events-none absolute top-0 left-0 block",
+                  expanded ? "z-10" : "z-0",
+                )}
+                style={{
+                  width: `calc(100% - ${2 * (BALL + GAP)}px)`,
+                  height: `${ROW}px`,
+                  transform: `translateX(${wrapperX(active, i)})`,
+                  transition: reduced
+                    ? "none"
+                    : `transform 600ms ${EASE_CSS}`,
+                  willChange: "transform",
+                }}
               >
+                {/* The clipped frame - the ONLY hit area (clip-path clips
+                    pointer events too, so overlapping wrappers never steal
+                    each other's hovers or clicks). */}
                 <span
-                  className={cn(
-                    "border-warm-black relative block w-full overflow-hidden border",
-                    !reduced &&
-                      `transition-[max-width,height,border-radius] ${MORPH}`,
-                    expanded
-                      ? "h-[33rem] max-w-[52rem] rounded-3xl"
-                      : "h-52 max-w-52 rounded-full",
-                  )}
+                  className="pointer-events-auto absolute inset-0 block overflow-hidden rounded-3xl"
+                  style={{
+                    clipPath: expanded
+                      ? "circle(105% at 50% 50%)"
+                      : `circle(${RADIUS}px at 50% 50%)`,
+                    transition: reduced
+                      ? "none"
+                      : `clip-path 600ms ${EASE_CSS}`,
+                    willChange: "clip-path",
+                  }}
                 >
-                  <Image
-                    src={item.swatch}
-                    alt={`${item.shadeLabel} ${item.label.toLowerCase()} swatch`}
-                    fill
-                    sizes="(min-width: 1024px) 13rem, 50vw"
-                    className={cn(
-                      "object-cover",
-                      !reduced && `transition-opacity ${MORPH}`,
-                      expanded ? "opacity-0" : "opacity-100",
-                    )}
-                    loading="lazy"
-                  />
-                  <Image
-                    src={item.scene}
-                    alt={item.sceneAlt}
-                    fill
-                    sizes="(min-width: 1024px) 52rem, 100vw"
-                    className={cn(
-                      "object-cover",
-                      !reduced && `transition-opacity ${MORPH}`,
-                      expanded ? "opacity-100" : "opacity-0",
-                    )}
-                    loading="lazy"
-                  />
-                  {/* Scrim + panel copy - only readable in the expanded state */}
-                  <span
-                    aria-hidden={!expanded}
-                    className={cn(
-                      "from-warm-black/70 absolute inset-0 flex flex-col justify-end bg-gradient-to-t via-transparent to-transparent p-8",
-                      !reduced && `transition-opacity ${MORPH}`,
-                      expanded ? "opacity-100" : "opacity-0",
-                    )}
-                  >
-                    <span className="font-display text-ink block text-4xl tracking-tight">
-                      {item.label}
-                    </span>
-                    <span className="text-ink/80 mt-2 block text-sm">
-                      {item.shadeLabel} · {item.shadeCount} shades
-                    </span>
-                    <span className="chip-gcb border-ink/60 text-ink mt-5 inline-flex w-fit items-center rounded-full border px-4 py-1.5 text-sm">
-                      Explore {item.label.toLowerCase()}
-                    </span>
-                  </span>
-                </span>
-                {/* Ball caption - keeps its space when hidden so nothing shifts */}
-                <span
+                <Image
+                  src={item.swatch}
+                  alt={`${item.shadeLabel} ${item.label.toLowerCase()} swatch`}
+                  fill
+                  sizes="60vw"
                   className={cn(
-                    "label-gcb text-warm-black",
-                    !reduced && `transition-opacity ${MORPH}`,
+                    "object-cover",
+                    fade,
                     expanded ? "opacity-0" : "opacity-100",
                   )}
+                  loading="lazy"
+                />
+                <Image
+                  src={item.scene}
+                  alt={item.sceneAlt}
+                  fill
+                  sizes="60vw"
+                  className={cn(
+                    "object-cover",
+                    fade,
+                    expanded ? "opacity-100" : "opacity-0",
+                  )}
+                  loading="lazy"
+                />
+
+                {/* Ball hairline - full-alpha Onyx, fades out on expand */}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "border-warm-black absolute top-1/2 left-1/2 size-52 -translate-x-1/2 -translate-y-1/2 rounded-full border",
+                    fade,
+                    expanded ? "opacity-0" : "opacity-100",
+                  )}
+                />
+                {/* Panel hairline - fades in on expand */}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "border-warm-black absolute inset-0 rounded-3xl border",
+                    fade,
+                    expanded ? "opacity-100" : "opacity-0",
+                  )}
+                />
+
+                {/* Scrim + panel copy - only readable in the expanded state */}
+                <span
+                  aria-hidden={!expanded}
+                  className={cn(
+                    "from-warm-black/70 absolute inset-0 flex flex-col justify-end bg-gradient-to-t via-transparent to-transparent p-8",
+                    fade,
+                    expanded ? "opacity-100" : "opacity-0",
+                  )}
+                >
+                  <span className="font-display text-ink block text-4xl tracking-tight">
+                    {item.label}
+                  </span>
+                  <span className="text-ink/80 mt-2 block text-sm">
+                    {item.shadeLabel} · {item.shadeCount} shades
+                  </span>
+                  <span className="chip-gcb border-ink/60 text-ink mt-5 inline-flex w-fit items-center rounded-full border px-4 py-1.5 text-sm">
+                    Explore {item.label.toLowerCase()}
+                  </span>
+                </span>
+                </span>
+
+                {/* Ball caption - outside the clipped frame so it stays
+                    visible under the circle; fades on expand */}
+                <span
+                  className={cn(
+                    "label-gcb text-warm-black pointer-events-auto absolute left-1/2 -translate-x-1/2 whitespace-nowrap",
+                    fade,
+                    expanded ? "opacity-0" : "opacity-100",
+                  )}
+                  style={{ top: `calc(50% + ${RADIUS + 24}px)` }}
                 >
                   {item.label}
                 </span>
