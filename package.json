@@ -12,6 +12,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "assets:hero": "node scripts/build-hero-assets.mjs",
+    "assets:home-materials": "node scripts/build-home-materials.mjs",
     "assets:film": "bash scripts/build-film-loop.sh"
   },
   "dependencies": {

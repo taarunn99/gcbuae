@@ -60,6 +60,54 @@ export const kalingaStoneShadeTotal =
   quartzShades.length + marbleShades.length + terrazzoShades.length;
 
 /**
+ * Home page "Explore the materials" showcase - one featured shade per
+ * material. The swatch fills the collapsed ball and the generated scene
+ * fills the expanded panel, and both show the SAME shade (owner spec,
+ * 2026-08-17). Scenes are Higgsfield-generated portraits; 4K masters live
+ * in assets/source/home-materials/ (gitignored), derivatives are built by
+ * scripts/build-home-materials.mjs. Label/href/blurb join from
+ * kalingaStoneMaterials by slug - never duplicate them here.
+ */
+export type HomeMaterialShowcase = {
+  slug: KalingaStoneMaterial["slug"];
+  shadeSlug: string;
+  shadeLabel: string;
+  swatch: string;
+  scene: string;
+  sceneAlt: string;
+};
+
+export const homeMaterialsShowcase: HomeMaterialShowcase[] = [
+  {
+    slug: "quartz",
+    shadeSlug: "calacatta-lazza",
+    shadeLabel: "Calacatta Lazza",
+    swatch: "/kalingastone/quartz/swatches/calacatta-lazza.webp",
+    scene: "/home/materials/quartz-scene.webp",
+    sceneAlt:
+      "Calacatta Lazza quartz kitchen island with a waterfall edge in soft daylight",
+  },
+  {
+    slug: "marble",
+    shadeSlug: "emperador-scuro",
+    shadeLabel: "Emperador Scuro",
+    swatch: "/kalingastone/marble/swatches/emperador-scuro.webp",
+    scene: "/home/materials/marble-scene.webp",
+    sceneAlt:
+      "Emperador Scuro engineered marble vanity wall in a warm bathroom",
+  },
+  {
+    slug: "terrazzo",
+    shadeSlug: "exotic-green",
+    shadeLabel: "Exotic Green",
+    swatch: "/kalingastone/terrazzo/swatches/exotic-green.webp",
+    scene: "/home/materials/terrazzo-scene.webp",
+    sceneAlt:
+      "Exotic Green terrazzo floor with green marble chips in a gallery stair hall",
+  },
+];
+
+/**
  * The Brands classification - the second way into the catalogue next to the
  * product-line index. Consumed by the /products brand rail; hrefs are the
  * brand hubs (FILA's hub is pending owner files, so it routes to contact).

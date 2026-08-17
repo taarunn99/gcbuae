@@ -3,8 +3,11 @@ import { SplitHeading } from "@/components/motion/split-heading";
 import { BrandMarquee } from "@/components/layout/brand-marquee";
 import { FilmLoop } from "@/components/sections/film/film-loop";
 import { Hero } from "@/components/sections/hero";
+import { MaterialsExplore } from "@/components/sections/materials-explore";
 import { ProductWheel } from "@/components/sections/product-wheel";
 import { Container } from "@/components/ui/container";
+import { kalingaStoneMaterials } from "@/config/kalingastone";
+import { siteConfig } from "@/config/site";
 import { pad } from "@/lib/utils";
 
 // Everything below the hero is still placeholder, pending design direction.
@@ -23,9 +26,28 @@ const capabilities = [
   },
 ];
 
+/** The closing materials showcase, mirrored as structured data. */
+const materialsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "KalingaStone materials at Global Classic",
+  itemListElement: kalingaStoneMaterials.map((material, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: `KalingaStone ${material.label}`,
+    url: `${siteConfig.url}${material.href}`,
+  })),
+};
+
 export default function HomePage() {
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(materialsJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
 
       {/* Onyx stage - the darkest green, per the owner's palette direction. */}
@@ -63,6 +85,8 @@ export default function HomePage() {
       <ProductWheel />
 
       <BrandMarquee />
+
+      <MaterialsExplore />
     </main>
   );
 }
