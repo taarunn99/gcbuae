@@ -14,8 +14,8 @@ import { cn } from "@/lib/utils";
  * The section pins for 300vh of vertical scroll; the scroll is never
  * hijacked - normal wheel/touch scrolling simply drives the deck
  * horizontally, one brand card at a time, with a coverflow rotation as
- * cards enter and leave the centre. Dusty Olive ground, logos huge,
- * text minimal. Reduced motion ships a static row.
+ * cards enter and leave the centre. Pastel Green ground, logos floating
+ * free with no card chrome, text minimal. Reduced motion: static row.
  *
  * Ledger rule respected: no overflow clipping on any ANCESTOR of the
  * sticky frame - the clip lives on the sticky element itself.
@@ -70,7 +70,7 @@ export function BrandCarousel() {
   /* Reduced motion: a calm static row, same content. */
   if (reduced) {
     return (
-      <section className="bg-travertine py-24">
+      <section className="bg-bronze py-24">
         <div className="container-gcb">
           <p className="label-gcb text-warm-black/60">By brand</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
@@ -84,7 +84,7 @@ export function BrandCarousel() {
   }
 
   return (
-    <section aria-label="The brands" className="bg-travertine">
+    <section aria-label="The brands" className="bg-bronze">
       <div ref={wrapperRef} className="relative h-[300vh]">
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="container-gcb">
@@ -98,33 +98,19 @@ export function BrandCarousel() {
             className="mt-8 flex w-max items-stretch will-change-transform"
             style={{ perspective: "1200px" }}
           >
-            {brands.map((brand, index) => (
+            {brands.map((brand) => (
               <div
                 key={brand.name}
                 data-brand-card
                 className="flex w-screen shrink-0 items-center justify-center px-6 sm:px-16"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <BrandCard brand={brand} index={index} large />
+                <BrandCard brand={brand} large />
               </div>
             ))}
           </div>
-          {/* Deck position markers */}
-          <div className="container-gcb mt-8 flex items-center gap-3">
-            {brands.map((brand, i) => (
-              <span
-                key={brand.name}
-                className="text-warm-black/50 font-mono text-[0.6rem] tabular-nums"
-              >
-                {String(i + 1).padStart(2, "0")}
-                {i < brands.length - 1 && (
-                  <span aria-hidden className="bg-warm-black/20 mx-3 inline-block h-px w-10 align-middle" />
-                )}
-              </span>
-            ))}
-            <span className="label-gcb text-warm-black/50 ml-auto">
-              Keep scrolling
-            </span>
+          <div className="container-gcb mt-8">
+            <span className="label-gcb text-warm-black/50">Keep scrolling</span>
           </div>
         </div>
       </div>
@@ -134,36 +120,23 @@ export function BrandCarousel() {
 
 function BrandCard({
   brand,
-  index,
   large,
 }: {
   brand: (typeof brands)[number];
-  index?: number;
   large?: boolean;
 }) {
   return (
     <Link
       href={brand.href}
       className={cn(
-        "group border-warm-black/25 bg-ink/60 relative flex w-full flex-col items-center justify-center rounded-2xl border text-center backdrop-blur-sm transition-colors duration-300",
-        "hover:border-warm-black",
-        large
-          ? "h-[62vh] max-w-4xl px-10 py-12"
-          : "aspect-[4/3] px-8 py-10",
+        "group relative flex w-full flex-col items-center justify-center text-center",
+        large ? "h-[62vh] max-w-4xl px-10 py-12" : "px-8 py-10",
       )}
     >
-      {typeof index === "number" && (
-        <span
-          aria-hidden
-          className="font-display text-warm-black/10 pointer-events-none absolute top-4 right-6 text-7xl select-none"
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      )}
       <span
         className={cn(
           "relative block w-full",
-          large ? "h-[30vh] max-h-72" : "h-24",
+          large ? "h-[36vh] max-h-96" : "h-24",
         )}
       >
         <Image
