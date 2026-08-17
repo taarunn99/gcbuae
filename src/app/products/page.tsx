@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
-import { BrandRail } from "@/components/sections/products/brand-rail";
+import { BrandCarousel } from "@/components/sections/products/brand-carousel";
 import { FeatureStack } from "@/components/sections/products/feature-stack";
 import { IndexRows } from "@/components/sections/products/index-rows";
 import { IssueOpener } from "@/components/sections/products/issue-opener";
@@ -91,8 +91,8 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      {/* ---------- The Brands - the second classification ---------- */}
-      <BrandRail />
+      {/* ---------- The Brands - character-select deck ---------- */}
+      <BrandCarousel />
 
       {/* ---------- Certified reseller ---------- */}
       <AuthorizedDistributor />
