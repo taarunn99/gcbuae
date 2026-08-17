@@ -2,6 +2,7 @@ import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { BrandMarquee } from "@/components/layout/brand-marquee";
 import { FilmLoop } from "@/components/sections/film/film-loop";
+import { GlobalPresence } from "@/components/sections/global-presence";
 import { Hero } from "@/components/sections/hero";
 import { MaterialsExplore } from "@/components/sections/materials-explore";
 import { ProductWheel } from "@/components/sections/product-wheel";
@@ -90,6 +91,8 @@ export default function HomePage() {
       <MaterialsExplore />
 
       <ShowroomLocator />
+
+      <GlobalPresence />
     </main>
   );
 }

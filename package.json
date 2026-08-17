@@ -13,6 +13,7 @@
     "format:check": "prettier --check .",
     "assets:hero": "node scripts/build-hero-assets.mjs",
     "assets:home-materials": "node scripts/build-home-materials.mjs",
+    "assets:world-map": "node scripts/build-world-map.mjs",
     "assets:film": "bash scripts/build-film-loop.sh"
   },
   "dependencies": {
@@ -36,6 +37,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotted-map": "^3.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
     "opentype.js": "^2.0.0",
