@@ -60,7 +60,7 @@ export function GlobalPresence() {
           demo). Heading + ONE line only. Below lg the heading stacks
           above the full-bleed map. */}
       <div className="relative">
-        <div className="pointer-events-none relative z-10 px-6 text-center lg:absolute lg:inset-x-0 lg:top-[10%]">
+        <div className="pointer-events-none relative z-10 px-6 text-center lg:absolute lg:inset-x-0 lg:top-[3%]">
           <p className="label-gcb text-ink/60">Global presence</p>
           <h2 className="font-display text-ink mx-auto mt-3 text-3xl tracking-tight sm:text-5xl">
             One material, {kalingaStoneBrand.countries} countries.
@@ -76,7 +76,7 @@ export function GlobalPresence() {
               dissolves so the world surfaces below the text */}
           <div
             aria-hidden
-            className="from-warm-black via-warm-black/75 pointer-events-none absolute inset-x-0 top-0 hidden h-[52%] bg-gradient-to-b to-transparent lg:block"
+            className="from-warm-black/90 via-warm-black/50 pointer-events-none absolute inset-x-0 top-0 hidden h-[30%] bg-gradient-to-b to-transparent lg:block"
           />
         </div>
 
