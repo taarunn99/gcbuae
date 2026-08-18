@@ -180,7 +180,7 @@ export default function AboutPage() {
               <p className="text-muted mt-6 max-w-xl leading-relaxed">
                 The model is deliberately narrow: hold the slabs, know the
                 shades, price the volume, deliver to any emirate. Application
-                belongs to our sister company 60 Newton and the brands'
+                belongs to our sister company 60 Newton and the brands&apos;
                 authorized applicators, so the material and the workmanship
                 both stay warrantable.
               </p>

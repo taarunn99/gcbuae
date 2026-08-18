@@ -14,6 +14,7 @@
     "assets:hero": "node scripts/build-hero-assets.mjs",
     "assets:home-materials": "node scripts/build-home-materials.mjs",
     "assets:world-map": "node scripts/build-world-map.mjs",
+    "assets:blog": "node scripts/build-blog-images.mjs",
     "assets:film": "bash scripts/build-film-loop.sh"
   },
   "dependencies": {

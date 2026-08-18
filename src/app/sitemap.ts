@@ -9,6 +9,7 @@ import {
 import { jaquarCategories } from "@/config/jaquar";
 import { filaCategories } from "@/config/fila";
 import { filaProducts } from "@/config/fila-products";
+import { BLOG_CATEGORIES, BLOG_POSTS } from "@/config/blog";
 import { siteConfig } from "@/config/site";
 
 // GOVERNANCE §6: auto-generated sitemap. Every future collection, brand-hub
@@ -27,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kalingastone/terrazzo/fluting",
     "/jaquar",
     "/about",
+    "/blog",
     "/contact",
     "/privacy-policy",
     "/terms",
@@ -112,7 +114,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "/fila" ? 0.7 : 0.5,
   }));
 
+  // The Journal - every post and category page, generated from the
+  // registry so a new post can never be orphaned.
+  const blogPosts: MetadataRoute.Sitemap = BLOG_POSTS.map((p) => ({
+    url: `${siteConfig.url}/blog/${p.slug}`,
+    lastModified: new Date(p.dateModified),
+    changeFrequency: "monthly",
+    priority: p.kind === "pillar" ? 0.7 : 0.6,
+  }));
+
+  const blogCategories: MetadataRoute.Sitemap = BLOG_CATEGORIES.map((c) => ({
+    url: `${siteConfig.url}/blog/category/${c.slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.5,
+  }));
+
   return [
+    ...blogPosts,
+    ...blogCategories,
     ...core,
     ...jaquarUrls,
     ...filaUrls,

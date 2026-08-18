@@ -3,50 +3,39 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
+import { PostCard } from "@/components/sections/blog/post-card";
 import { RuleIn } from "@/components/sections/quartz/rule-in";
 import { Container } from "@/components/ui/container";
 import { GcbButton } from "@/components/ui/gcb-button";
+import { BLOG_CATEGORIES, BLOG_POSTS, blogPostBySlug } from "@/config/blog";
 
 /**
- * The Journal masthead - the blog's front door while the first issue is
- * written (owner, 2026-08-18). noindex until real articles ship so a
- * thin page never enters the index (GOVERNANCE §7); flip robots when
- * the first piece is published.
+ * The Journal index - editorial asymmetric grid per BLOG-PACKAGE.md,
+ * on the house palette: one featured post, card grid, quiet text
+ * category tabs (real links to indexed category pages, no client
+ * filter state), and the showroom CTA band. Now indexable: 39 real
+ * posts live behind it.
  */
 export const metadata: Metadata = {
   title: "The Journal",
   description:
-    "Field notes from the slab trade - specifications, installs and the science of stone, written from the Al Sajaa warehouse. First issue in progress.",
+    "Field notes from the slab trade: honest guides to engineered marble, quartz, terrazzo, bathroom fittings and stone care, written for UAE project buyers.",
   alternates: { canonical: "/blog" },
-  robots: { index: false, follow: true },
 };
 
-const UPCOMING = [
-  {
-    title: "How to read a quartz spec sheet",
-    standfirst:
-      "Flexural strength, water absorption, NSF - what the numbers permit you to build.",
-  },
-  {
-    title: "Book-matching marble: approving the lot",
-    standfirst:
-      "Why specifiers sign off slabs on the rack, and what to look for when you do.",
-  },
-  {
-    title: "Terrazzo underfoot: the case for block-form",
-    standfirst:
-      "Class A1 fire ratings, exterior grades and the fluting nobody else stocks.",
-  },
-];
+const FEATURED_SLUG = "quartz-vs-marble";
 
-export default function BlogPage() {
+export default function BlogIndexPage() {
+  const featured = blogPostBySlug.get(FEATURED_SLUG)!;
+  const rest = BLOG_POSTS.filter((p) => p.slug !== FEATURED_SLUG);
+
   return (
-    <main className="theme-forest bg-background text-foreground flex-1 pt-40 pb-32">
+    <main className="theme-forest bg-background text-foreground flex-1 pt-40 pb-0">
       <Container>
         <Reveal>
           <div className="flex flex-wrap items-baseline justify-between gap-4">
             <p className="label-gcb text-muted">The Journal · Global Classic</p>
-            <p className="label-gcb text-muted">First issue in progress</p>
+            <p className="label-gcb text-muted">{BLOG_POSTS.length} guides</p>
           </div>
           <RuleIn className="mt-4 w-full" />
         </Reveal>
@@ -58,41 +47,56 @@ export default function BlogPage() {
           Field notes from the slab trade.
         </SplitHeading>
 
-        <Reveal>
-          <p className="text-muted mt-8 max-w-xl leading-relaxed">
-            Written from the warehouse, not the newsroom - specifications,
-            installs and the science of stone. The first pieces are on the
-            desk now.
-          </p>
-        </Reveal>
-
-        <div className="divide-warm-black/15 border-warm-black/15 mt-16 divide-y border-y">
-          {UPCOMING.map((piece, i) => (
-            <Reveal key={piece.title} delay={i * 0.08}>
-              <article className="grid gap-3 py-8 lg:grid-cols-[1.618fr_1fr] lg:items-baseline">
-                <h2 className="font-display text-phi-2 tracking-tight">
-                  {piece.title}
-                </h2>
-                <div>
-                  <p className="text-muted leading-relaxed">
-                    {piece.standfirst}
-                  </p>
-                  <p className="label-gcb text-bronze mt-3">In progress</p>
-                </div>
-              </article>
-            </Reveal>
+        {/* Category tabs - quiet text links, not pills */}
+        <nav aria-label="Journal categories" className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+          {BLOG_CATEGORIES.map((category) => (
+            <Link
+              key={category.slug}
+              href={`/blog/category/${category.slug}`}
+              className="u-line label-gcb text-warm-black/70 hover:text-warm-black transition-colors"
+            >
+              {category.label}
+            </Link>
           ))}
+        </nav>
+
+        {/* Featured */}
+        <div className="mt-14">
+          <PostCard post={featured} featured />
         </div>
 
-        <Reveal className="mt-14 flex flex-wrap items-center gap-3">
-          <GcbButton href="/contact" size="md" variant="porcelain">
-            Ask us directly
-          </GcbButton>
-          <Link href="/about" className="u-line label-gcb text-foreground/80">
-            Back to About →
-          </Link>
-        </Reveal>
+        {/* The grid */}
+        <div className="mt-16 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
       </Container>
+
+      {/* Showroom CTA band */}
+      <section className="bg-warm-black grain-gcb relative mt-24 overflow-hidden py-20">
+        <Container className="relative z-10">
+          <p className="label-gcb text-ink/60">Beyond the reading</p>
+          <h2 className="font-display text-ink text-phi-2 mt-3 max-w-2xl leading-tight tracking-tight">
+            See the materials in person.
+          </h2>
+          <p className="text-ink/70 mt-4 max-w-xl leading-relaxed">
+            Every guide here is written from slabs on racks at Al Sajaa,
+            Sharjah. Walk the stock, tag your slabs, price your BOQ.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <GcbButton href="/contact" size="md">
+              Plan a visit
+            </GcbButton>
+            <Link
+              href="/products"
+              className="chip-gcb border-ink/60 text-ink inline-flex items-center rounded-full border px-5 py-2.5 text-sm"
+            >
+              The Materials Issue
+            </Link>
+          </div>
+        </Container>
+      </section>
     </main>
   );
 }
