@@ -127,7 +127,7 @@ export const brands: Brand[] = [
   {
     name: "KalingaStone",
     href: "/kalingastone",
-    logo: "/brands/kalingastone.png",
+    logo: "/brands/kalingastone.svg",
     role: "Engineered stone",
     blurb:
       "Quartz, marble and terrazzo slabs by Classic Marble Company - authorized reseller for the Northern Emirates.",
