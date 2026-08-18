@@ -126,6 +126,11 @@
   -webkit-text-stroke: 1.5px var(--warm-black);
   color: transparent;
 }
+/* The same, Marble White stroke for Onyx stages. */
+.text-outline-ink {
+  -webkit-text-stroke: 1.5px var(--ink);
+  color: transparent;
+}
 
 /* Line-drawn diagram: strokes draw in when the element (re)mounts.
    pathLength=1 on every path normalises the dash math. */

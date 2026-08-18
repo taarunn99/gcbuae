@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
-import { FamilyParallax } from "@/components/sections/about/family-parallax";
 import { GroupDeck } from "@/components/sections/about/group-deck";
 import { JournalTeaser } from "@/components/sections/about/journal-teaser";
 import { IssueStats } from "@/components/sections/products/issue-stats";
@@ -68,16 +67,16 @@ export default function AboutPage() {
           <RuleIn className="mt-4 w-full" />
         </Reveal>
 
-        <SplitHeading
-          as="h1"
-          className="font-display text-phi-4 mt-12 max-w-4xl tracking-tight text-balance"
-        >
-          Classic is not an era. It is a standard we supply to.
-        </SplitHeading>
-
-        <div className="mt-14 grid gap-12 lg:grid-cols-[1.618fr_1fr] lg:gap-16">
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1.618fr_1fr] lg:gap-16">
           <div>
-            <Reveal>
+            <SplitHeading
+              as="h1"
+              className="font-display text-phi-4 max-w-4xl tracking-tight text-balance"
+            >
+              Classic is not an era. It is a standard we supply to.
+            </SplitHeading>
+
+            <Reveal className="mt-14">
               <p className="dropcap text-phi-1 max-w-2xl leading-relaxed font-light">
                 {siteConfig.description}
               </p>
@@ -111,9 +110,11 @@ export default function AboutPage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.15}>
-            <FamilyParallax>
-            <figure className="relative">
+          {/* Starts at the top, right after the rule line; sticky rides
+              down with the scroll and is BOUNDED by this column - it can
+              never run into the ticker below. */}
+          <div className="relative">
+            <figure className="relative lg:sticky lg:top-28">
               <div className="border-warm-black relative aspect-[3/4] overflow-hidden border">
                 <Image
                   src="/home/about-family.webp"
@@ -129,8 +130,7 @@ export default function AboutPage() {
                 A family trade, cut in stone
               </figcaption>
             </figure>
-            </FamilyParallax>
-          </Reveal>
+          </div>
         </div>
       </Container>
 

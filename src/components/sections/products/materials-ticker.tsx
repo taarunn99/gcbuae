@@ -23,8 +23,8 @@ function Track({ hidden, items, dark }: { hidden?: boolean; items: string[]; dar
         <span key={item} className="flex items-baseline">
           <span
             className={
-              "font-display text-phi-3 text-outline-gcb mx-6 whitespace-nowrap uppercase" +
-              (dark ? " [-webkit-text-stroke-color:var(--ink)]" : "")
+              "font-display text-phi-3 mx-6 whitespace-nowrap uppercase " +
+              (dark ? "text-outline-ink" : "text-outline-gcb")
             }
           >
             {item}
