@@ -16,10 +16,10 @@ const ITEMS = [
   "Care",
 ];
 
-function Track({ hidden }: { hidden?: boolean }) {
+function Track({ hidden, items }: { hidden?: boolean; items: string[] }) {
   return (
     <div aria-hidden={hidden} className="flex shrink-0 items-baseline">
-      {ITEMS.map((item) => (
+      {items.map((item) => (
         <span key={item} className="flex items-baseline">
           <span className="font-display text-phi-3 text-outline-gcb mx-6 whitespace-nowrap uppercase">
             {item}
@@ -33,15 +33,15 @@ function Track({ hidden }: { hidden?: boolean }) {
   );
 }
 
-export function MaterialsTicker() {
+export function MaterialsTicker({ items = ITEMS }: { items?: string[] }) {
   return (
     <section
       aria-label="Product lines ticker"
       className="border-warm-black overflow-hidden border-y py-8"
     >
       <div className="marquee-gcb flex w-max">
-        <Track />
-        <Track hidden />
+        <Track items={items} />
+        <Track items={items} hidden />
       </div>
     </section>
   );

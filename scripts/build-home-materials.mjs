@@ -38,7 +38,7 @@ const BALL_SIZE = 512;
 
 /** One-off editorial extras that share this pipeline: portrait stills
  *  at the same 840x1120 slot ({name}-master.* -> {name}.webp). */
-const EXTRAS = ["contact-still", "faq-glass"];
+const EXTRAS = ["contact-still", "faq-glass", "about-family", "about-racks"];
 
 await mkdir(OUT_DIR, { recursive: true });
 const sources = await readdir(SOURCE_DIR);

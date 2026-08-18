@@ -2,6 +2,46 @@
  * Single source of truth for company details that appear in metadata,
  * structured data, the header and the footer.
  */
+export type GroupCompany = {
+  name: string;
+  role: string;
+  href?: string;
+  logo?: string;
+  here?: boolean;
+};
+
+/**
+ * The Lapiz Group of Companies - rendered as the fan deck on /about.
+ * href only where a site is live; the rest are "in the making"
+ * (owner, 2026-08-18). Global Classic is the you-are-here card.
+ */
+const lapizGroup: GroupCompany[] = [
+    {
+      name: "Lapiz Blue General Trading LLC",
+      role: "Construction chemicals",
+      href: "https://www.lapizblue.com",
+      logo: "/brands/lapizblue.png",
+    },
+    {
+      name: "Alsama Metal Coatings & Ind LLC",
+      role: "Metal coatings",
+    },
+    {
+      name: "Global Classic Building Materials LLC",
+      role: "Stone, bathware & care",
+      here: true,
+    },
+    {
+      name: "Montolite Building Materials LLC",
+      role: "Building materials",
+    },
+    {
+      name: "Sixty Newton Technical Services LLC",
+      role: "The application arm",
+      href: "https://www.60newton.com",
+    },
+];
+
 export const siteConfig = {
   name: "Global Classic Building Materials",
   shortName: "GCB",
@@ -27,6 +67,7 @@ export const siteConfig = {
     linkedin: "",
     instagram: "https://www.instagram.com/globalclassic.bmt/",
   },
+  group: lapizGroup,
   nav: [
     { label: "Home", href: "/" },
     { label: "Products", href: "/products" },
