@@ -12,6 +12,7 @@ import {
   shadesOfMarbleFamily,
 } from "@/config/kalingastone-marble";
 import { siteConfig } from "@/config/site";
+import { seoDescription } from "@/lib/seo";
 
 /**
  * Marble colour-category pages. Each owns one query per GOVERNANCE §1
@@ -35,7 +36,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: {
       absolute: `${family.label} Slabs UAE - ${count} KalingaStone Shades`,
     },
-    description: `${count} ${family.label.toLowerCase()} shades from the KalingaStone engineered marble collection - 304 × 125 cm slabs, > 85% gloss, repolishable, stocked in Sharjah and supplied across the UAE.`,
+    description: seoDescription(
+      `${count} ${family.label.toLowerCase()} shades from the KalingaStone engineered marble collection - 304 x 125 cm slabs, repolishable.`,
+      "Stocked in Sharjah, supplied UAE-wide with specs per shade.",
+      "AED trade pricing.",
+    ),
     alternates: { canonical: `/kalingastone/marble/colours/${family.slug}` },
   };
 }

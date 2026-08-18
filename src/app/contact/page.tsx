@@ -5,13 +5,13 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { ContactHero } from "@/components/sections/contact-hero";
 import { Container } from "@/components/ui/container";
-import { siteConfig } from "@/config/site";
 
 import { ContactForm } from "@/components/sections/contact-form";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Talk to ${siteConfig.name} about materials, specifications and supply across the UAE.`,
+  title: "Contact - AED Quotes & Trade Pricing",
+  description:
+    "Send a BOQ, spec or idea to Global Classic, Sharjah - AED quotes on KalingaStone slabs, Jaquar and FILA within one working day, delivery across the UAE.",
   alternates: { canonical: "/contact" },
 };
 

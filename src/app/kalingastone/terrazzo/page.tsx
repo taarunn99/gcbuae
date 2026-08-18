@@ -27,9 +27,11 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "KalingaStone Terrazzo Slabs UAE - 24 Shades" },
+  title: {
+    absolute: "KalingaStone Terrazzo Slabs UAE - 24 Shades | Global Classic",
+  },
   description:
-    "The complete KalingaStone terrazzo range in the UAE: 24 shades across 5 collections, 304 × 125 cm slabs, A1 fire class, exterior-ready, fluting programme. Stocked and supplied by Global Classic, Sharjah.",
+    "The complete KalingaStone terrazzo range in the UAE - 24 shades across 5 collections, A1 fire class, exterior ready, stocked and supplied from Sharjah.",
   alternates: { canonical: "/kalingastone/terrazzo" },
 };
 

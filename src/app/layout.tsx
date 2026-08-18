@@ -41,7 +41,9 @@ const film = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} - ${siteConfig.tagline}`,
+    // Home carries the site's primary query (GOVERNANCE §1) at the full
+    // 60ch SERP budget; brand identity stays in og/twitter titles.
+    default: "Marble Slab Supplier UAE - Global Classic Building Materials",
     // GOVERNANCE §6: "Primary Query - Global Classic UAE" pattern.
     template: "%s - Global Classic UAE",
   },

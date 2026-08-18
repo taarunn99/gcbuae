@@ -17,9 +17,9 @@ import { ContactForm } from "@/components/sections/contact-form";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
-  title: "Products",
+  title: "KalingaStone, Jaquar & FILA Products",
   description:
-    "Quartz, naturally engineered marble, terrazzo, faucets and taps, wash basins, water closets, showers and enclosures, wellness, water heaters and marble care - supplied wholesale across the UAE.",
+    "Quartz, engineered marble and terrazzo slabs, Jaquar bathware and FILA surface care - stocked in Sharjah and supplied wholesale across the UAE in AED.",
   // Without this, the root layout's canonical ("/") is inherited and this
   // page tells Google it is a copy of the homepage. GOVERNANCE §6.
   alternates: { canonical: "/products" },

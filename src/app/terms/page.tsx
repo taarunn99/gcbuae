@@ -5,7 +5,8 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: `The terms governing use of the ${siteConfig.name} website.`,
+  description:
+    "The terms governing use of the Global Classic Building Materials website - content, trademarks, liability and the laws of the United Arab Emirates.",
   alternates: { canonical: "/terms" },
 };
 

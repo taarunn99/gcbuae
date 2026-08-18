@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Fluted Terrazzo Panels UAE - KalingaStone Fluting" },
   description:
-    "KalingaStone's fluting programme: shallow machined grooves across terrazzo slabs that play with light. Nine catalogued samples on bases from Ceppo to Exotic Green - supplied UAE-wide from Sharjah stock.",
+    "KalingaStone's fluting programme - shallow machined grooves across terrazzo slabs. Nine catalogued samples from Ceppo to Exotic Green, supplied from Sharjah.",
   alternates: { canonical: "/kalingastone/terrazzo/fluting" },
 };
 

@@ -11,7 +11,7 @@ import { filaProducts } from "@/config/fila-products";
 export const metadata: Metadata = {
   title: { absolute: "FILA Reference Projects - Canova to the Apple Store" },
   description:
-    "Where FILA surface care is specified: Gipsoteca di Canova, Hotel Mondrian Qatar, the Canadian Museum for Human Rights, the Library of Birmingham and Apple Store Piazza Liberty - with the exact printed product lists.",
+    "Where FILA is specified: the Gipsoteca di Canova, Hotel Mondrian Qatar, the Library of Birmingham and Apple Store Piazza Liberty, with printed product lists.",
   alternates: { canonical: "/fila/projects" },
 };
 

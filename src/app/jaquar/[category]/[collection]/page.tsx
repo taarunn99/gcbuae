@@ -23,6 +23,7 @@ import {
 } from "@/config/jaquar-catalogue";
 import { productsOf, productsOfGroups } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
+import { seoDescription, seoTitle } from "@/lib/seo";
 
 /**
  * Jaquar collection range pages - the long-tail layer ("jaquar ornamix
@@ -74,13 +75,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const collection = jaquarCollectionBySlug(categorySlug, collectionSlug);
   if (!category || !collection) return {};
   const products = pageProducts(categorySlug, collectionSlug);
-  const countPhrase = products.length
-    ? `All ${products.length} catalogue products with SKUs. `
-    : "";
   const hero = heroFor(categorySlug, collectionSlug);
+  // Skip the category word when the range name already carries it
+  // ("Overhead Showers" inside "Showers & Enclosures").
+  const nameWords = new Set(collection.name.toLowerCase().split(/[^a-z]+/));
+  const redundant = category.label
+    .toLowerCase()
+    .split(/[^a-z]+/)
+    .some((word) => word.length > 3 && nameWords.has(word));
   return {
-    title: `Jaquar ${collection.name} ${category.label} - UAE`,
-    description: `${collection.blurb} ${countPhrase}Supplied in the UAE by Global Classic, Sharjah - AED trade pricing on request, Jaquar warranty honoured.`,
+    title: {
+      absolute: seoTitle(
+        `Jaquar ${collection.name} UAE`,
+        redundant ? "" : ` - ${category.label}`,
+        " - Price & SKUs",
+        " | Global Classic",
+      ),
+    },
+    description: seoDescription(
+      products.length
+        ? `Jaquar ${collection.name} in the UAE - all ${products.length} catalogue products with SKUs and finishes.`
+        : `Jaquar ${collection.name} in the UAE - the full range with specifications, finishes and official imagery.`,
+      "AED trade pricing from Sharjah stock, Jaquar warranty honoured.",
+      "Delivery to every emirate.",
+      "BOQ quotes within one working day.",
+    ),
     alternates: {
       canonical: `/jaquar/${category.slug}/${collection.slug}`,
     },

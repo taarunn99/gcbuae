@@ -14,6 +14,7 @@ import {
 } from "@/config/kalingastone-terrazzo";
 import { siteConfig } from "@/config/site";
 import { terrazzoBody, terrazzoIntro } from "@/lib/terrazzo-copy";
+import { seoDescription, seoTitle } from "@/lib/seo";
 
 /**
  * One indexed URL per terrazzo shade - the same long-tail play as the
@@ -34,8 +35,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!shade) return {};
   const collection = terrazzoCollectionBySeries.get(shade.series)!;
   return {
-    title: `${shade.name} - KalingaStone Terrazzo`,
-    description: `${shade.name}: KalingaStone terrazzo, ${collection.label} (Series ${shade.series}), 304 × 125 cm slab${shade.microban ? ", Microban® protected" : ""}. Tiles, slabs or cut-to-size from Sharjah stock, UAE-wide.`,
+    title: {
+      absolute: seoTitle(
+        `${shade.name} - KalingaStone Terrazzo`,
+        " Slab UAE",
+        " | Global Classic",
+      ),
+    },
+    description: seoDescription(
+      `${shade.name} - KalingaStone terrazzo, ${collection.label} (Series ${shade.series}), 304 x 125 cm slab${shade.microban ? ", Microban® protected" : ""}.`,
+      "Tiles, slabs or cut-to-size from Sharjah stock.",
+      "AED trade pricing, UAE-wide delivery.",
+    ),
     alternates: { canonical: `/kalingastone/terrazzo/${shade.slug}` },
     openGraph: {
       images: [

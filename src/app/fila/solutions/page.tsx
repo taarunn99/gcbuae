@@ -10,9 +10,9 @@ import { filaProductBySlug } from "@/config/fila-products";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "FILA Solutions - What To Do If | Surface Problems Solved, UAE" },
+  title: { absolute: "FILA Solutions UAE - What To Do If | Global Classic" },
   description:
-    "Grout haze after tiling, rust on marble, limescale in bathrooms, efflorescence before laying - the FILA answer to each surface problem, from the printed catalogue. Supplied wholesale in the UAE by Global Classic.",
+    "Grout haze, rust on marble, limescale, efflorescence - the FILA answer to each surface problem from the printed catalogue, supplied wholesale in the UAE.",
   alternates: { canonical: "/fila/solutions" },
 };
 

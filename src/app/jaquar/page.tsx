@@ -25,9 +25,11 @@ import { catalogueTotal } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Jaquar Dealer UAE - Bathroom Fittings | Global Classic" },
+  title: {
+    absolute: "Jaquar Dealer UAE - Bathroom Fittings Price | Global Classic",
+  },
   description:
-    "Authorized Jaquar dealer in the UAE - faucets and taps, wash basins, water closets, showers and enclosures, wellness and water heaters, wholesale from Sharjah stock. 1,480 catalogued products with SKUs, AED trade pricing against the BOQ, delivery to every emirate.",
+    "Authorized Jaquar dealer in the UAE - faucets, basins, WCs, showers, wellness and water heaters from Sharjah stock. 1,480 products with SKUs, AED trade pricing.",
   alternates: { canonical: "/jaquar" },
 };
 

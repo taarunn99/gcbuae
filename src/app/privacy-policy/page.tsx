@@ -5,7 +5,8 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `How ${siteConfig.name} collects, uses and protects personal information on this website.`,
+  description:
+    "How Global Classic Building Materials collects, uses and protects personal information on this website - data, cookies, contact details and your rights.",
   alternates: { canonical: "/privacy-policy" },
 };
 

@@ -18,6 +18,7 @@ import {
   filaProductsByCategory,
   type FilaCategory,
 } from "@/config/fila-products";
+import { seoDescription, seoTitle } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 
 /**
@@ -43,16 +44,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = filaCategoryBySlug.get(slug as FilaCategory);
   if (category) {
     return {
-      title: { absolute: `FILA ${category.label} UAE - ${category.query} | Global Classic` },
-      description: `${category.intro.slice(0, 150)}...`,
+      title: {
+        absolute: seoTitle(
+          `FILA ${category.label} UAE`,
+          ` - ${category.query.replace(/ UAE$/, "")}`,
+          " | Global Classic",
+        ),
+      },
+      description: seoDescription(
+        category.intro,
+      ),
       alternates: { canonical: `/fila/${category.slug}` },
     };
   }
   const product = filaProductBySlug.get(slug);
   if (!product) return {};
   return {
-    title: `${product.name} UAE - ${product.title}`,
-    description: `FILA ${product.name}: ${product.title.toLowerCase()} for ${product.surfaces.slice(0, 3).join(", ").toLowerCase()}. ${product.packaging}. Printed coverage tables, official UAE distribution - wholesale supply, AED trade pricing on enquiry.`,
+    title: {
+      absolute: seoTitle(
+        `FILA ${product.name} UAE`,
+        ` - ${product.title}`,
+        " | Global Classic",
+      ),
+    },
+    description: seoDescription(
+      `FILA ${product.name} - ${product.title.toLowerCase()} for ${product.surfaces.slice(0, 3).join(", ").toLowerCase()}.`,
+      `${product.packaging}.`,
+      "Official UAE distribution, AED trade pricing on enquiry.",
+      "Printed coverage tables.",
+    ),
     alternates: { canonical: `/fila/${product.slug}` },
     openGraph: {
       images: [{ url: `/images/fila/products/${product.slug}.webp`, alt: `FILA ${product.name}` }],

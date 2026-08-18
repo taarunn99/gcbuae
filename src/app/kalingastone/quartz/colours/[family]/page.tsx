@@ -12,6 +12,7 @@ import {
   shadesOfFamily,
 } from "@/config/kalingastone-quartz";
 import { siteConfig } from "@/config/site";
+import { seoDescription } from "@/lib/seo";
 
 /**
  * Colour-family category pages. Each owns exactly one search query
@@ -36,7 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: {
       absolute: `${family.label} Slabs UAE - ${count} KalingaStone Shades`,
     },
-    description: `${count} ${family.label.toLowerCase()} shades from the KalingaStone engineered quartz collection - 20 mm slabs, NSF food safe, stocked in Sharjah and supplied across the UAE. Browse every shade with specs.`,
+    description: seoDescription(
+      `${count} ${family.label.toLowerCase()} shades from the KalingaStone quartz collection - 20 mm slabs, NSF food safe.`,
+      "Stocked in Sharjah, supplied UAE-wide with specs per shade.",
+      "AED trade pricing.",
+    ),
     alternates: { canonical: `/kalingastone/quartz/colours/${family.slug}` },
   };
 }

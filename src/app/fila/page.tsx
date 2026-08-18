@@ -16,9 +16,11 @@ import { filaProducts } from "@/config/fila-products";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "FILA Surface Care UAE - Official Distribution | Global Classic" },
+  title: {
+    absolute: "FILA Stone Care UAE - Official Distributor | Global Classic",
+  },
   description:
-    "FILA surface care in the UAE: 34 professional cleaners, protectors, finishes and ready-to-use products from the Italian maker founded 1943 - official distribution by Lapiz Blue, supplied wholesale by Global Classic. Coverage tables, systems and project references.",
+    "FILA surface care in the UAE - 34 professional cleaners, protectors and finishes from the Italian maker since 1943. Wholesale supply with coverage tables.",
   alternates: { canonical: "/fila" },
 };
 

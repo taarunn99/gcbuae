@@ -31,9 +31,11 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "KalingaStone Quartz Slabs UAE - 69 Shades",
+  title: {
+    absolute: "KalingaStone Quartz Slabs UAE - 69 Shades | Global Classic",
+  },
   description:
-    "The complete KalingaStone engineered quartz range in the UAE: 69 shades across 7 series, NSF food-safe, Microban® options, slabs up to 3300×2000 mm. Stocked and supplied by Global Classic, Sharjah.",
+    "The complete KalingaStone quartz range in the UAE - 69 shades across 7 series, NSF food safe, slabs up to 3300 x 2000 mm, stocked and supplied from Sharjah.",
   alternates: { canonical: "/kalingastone/quartz" },
 };
 

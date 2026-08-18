@@ -14,6 +14,7 @@ import {
 } from "@/config/kalingastone-quartz";
 import { siteConfig } from "@/config/site";
 import { shadeBody, shadeIntro } from "@/lib/quartz-copy";
+import { seoDescription, seoTitle } from "@/lib/seo";
 
 /**
  * One indexed URL per shade - the long-tail play no UAE KalingaStone
@@ -36,8 +37,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!shade) return {};
   const family = familyById.get(shade.family)!;
   return {
-    title: `${shade.name} - KalingaStone Quartz`,
-    description: `${shade.name}: KalingaStone engineered quartz, Series ${shade.series}, ${shade.size} mm${shade.microban ? ", Microban® protected" : ""}. ${family.label} range - slab availability and volume pricing from Sharjah stock.`,
+    title: {
+      absolute: seoTitle(
+        `${shade.name} - KalingaStone Quartz`,
+        " Slab UAE",
+        " | Global Classic",
+      ),
+    },
+    description: seoDescription(
+      `${shade.name} - KalingaStone engineered quartz, Series ${shade.series}, ${shade.size} mm${shade.microban ? ", Microban® protected" : ""}.`,
+      `${family.label} range.`,
+      "AED slab pricing and availability from Sharjah stock.",
+      "Delivery across the UAE.",
+    ),
     alternates: { canonical: `/kalingastone/quartz/${shade.slug}` },
     openGraph: {
       images: [

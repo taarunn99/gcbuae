@@ -12,6 +12,7 @@ import {
   terrazzoCollections,
 } from "@/config/kalingastone-terrazzo";
 import { siteConfig } from "@/config/site";
+import { seoDescription } from "@/lib/seo";
 
 /**
  * Collection-pair pages - the catalogue's own grouping (it never splits
@@ -36,7 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: {
       absolute: `${collection.label} Terrazzo UAE - ${count} KalingaStone Shades`,
     },
-    description: `${collection.label} - Series ${collection.series} of the KalingaStone terrazzo range: ${count} shades in 304 × 125 cm slabs, A1 fire class, stocked in Sharjah and supplied across the UAE as tiles, slabs or cut-to-size.`,
+    description: seoDescription(
+      `${collection.label} - Series ${collection.series} of the KalingaStone terrazzo range: ${count} shades in 304 x 125 cm slabs, A1 fire class.`,
+      "Stocked in Sharjah, supplied UAE-wide as tiles or slabs.",
+      "AED trade pricing on enquiry.",
+    ),
     alternates: {
       canonical: `/kalingastone/terrazzo/collections/${collection.slug}`,
     },

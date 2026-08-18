@@ -16,6 +16,7 @@ import { jaquarCategories, jaquarCategoryBySlug } from "@/config/jaquar";
 import { catalogueSectionFor } from "@/config/jaquar-catalogue";
 import { productCount } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
+import { seoDescription, seoTitle } from "@/lib/seo";
 
 const publicDir = join(process.cwd(), "public");
 
@@ -51,9 +52,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!category) return {};
   return {
     title: {
-      absolute: `Jaquar ${category.label} UAE - Dealer Supply, Sharjah`,
+      absolute: seoTitle(
+        `Jaquar ${category.label} UAE`,
+        " - Dealer Price & Supply",
+        " | Global Classic",
+      ),
     },
-    description: `${category.intro.slice(0, 150)}...`,
+    description: seoDescription(
+      `Jaquar ${category.label.toLowerCase()} in the UAE - ${category.collections.length} collections with SKUs, specs and official imagery.`,
+      "AED trade pricing from Sharjah stock, dealer warranty honoured.",
+      "Delivery to every emirate.",
+    ),
     alternates: { canonical: `/jaquar/${category.slug}` },
   };
 }

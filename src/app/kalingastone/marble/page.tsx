@@ -29,9 +29,11 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "KalingaStone Marble Slabs UAE - 35 Shades" },
+  title: {
+    absolute: "KalingaStone Marble Slabs UAE - 35 Shades | Global Classic",
+  },
   description:
-    "The complete KalingaStone engineered marble range in the UAE: 35 shades across 5 series, 304 × 125 cm slabs, > 85% gloss, repolishable surfaces. Stocked and supplied by Global Classic, Sharjah.",
+    "The complete KalingaStone engineered marble range in the UAE - 35 shades across 5 series, 304 x 125 cm slabs, repolishable, stocked and supplied from Sharjah.",
   alternates: { canonical: "/kalingastone/marble" },
 };
 

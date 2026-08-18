@@ -14,6 +14,7 @@ import {
 } from "@/config/kalingastone-marble";
 import { siteConfig } from "@/config/site";
 import { marbleBody, marbleIntro } from "@/lib/marble-copy";
+import { seoDescription, seoTitle } from "@/lib/seo";
 
 /**
  * One indexed URL per marble shade - the same long-tail play as the
@@ -34,8 +35,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!shade) return {};
   const family = marbleFamilyById.get(shade.family)!;
   return {
-    title: `${shade.name} - KalingaStone Marble`,
-    description: `${shade.name}: KalingaStone engineered marble, Series-${shade.series}, 304 × 125 cm slab${shade.microbanOption ? ", Microban® option available" : ""}. ${family.label} range - slab availability and volume pricing from Sharjah stock.`,
+    title: {
+      absolute: seoTitle(
+        `${shade.name} - KalingaStone Marble`,
+        " Slab UAE",
+        " | Global Classic",
+      ),
+    },
+    description: seoDescription(
+      `${shade.name} - KalingaStone engineered marble, Series-${shade.series}, 304 x 125 cm slab${shade.microbanOption ? ", Microban® option" : ""}.`,
+      `${family.label} range.`,
+      "AED slab pricing and availability from Sharjah stock.",
+      "Delivery across the UAE.",
+    ),
     alternates: { canonical: `/kalingastone/marble/${shade.slug}` },
     openGraph: {
       images: [

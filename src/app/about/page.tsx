@@ -14,9 +14,9 @@ import { GcbButton } from "@/components/ui/gcb-button";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us - Lapiz Group, Sharjah",
   description:
-    "Global Classic Building Materials - a 2024 Sharjah company inside the Lapiz Group, stocking KalingaStone slabs, Jaquar and FILA at Al Sajaa for project buyers across the UAE.",
+    "A 2024 Sharjah company in the Lapiz Group - KalingaStone slabs, Jaquar and FILA stocked at Al Sajaa for project buyers and BOQ supply across the UAE.",
   alternates: { canonical: "/about" },
 };
 

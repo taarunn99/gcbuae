@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     absolute: "KalingaStone UAE - Authorized Reseller | Global Classic",
   },
   description:
-    "KalingaStone engineered quartz, marble and terrazzo in the UAE - 128 shades by Classic Marble Company, stocked in Sharjah by Global Classic, an authorized reseller for the Northern Emirates. Trade pricing, delivery to every emirate.",
+    "KalingaStone engineered quartz, marble and terrazzo in the UAE - 128 shades stocked as full slabs in Sharjah by an authorized reseller, AED trade pricing.",
   alternates: { canonical: "/kalingastone" },
 };
 

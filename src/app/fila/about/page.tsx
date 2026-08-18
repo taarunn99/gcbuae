@@ -8,7 +8,7 @@ import { filaBrand, filaStats } from "@/config/fila";
 export const metadata: Metadata = {
   title: { absolute: "About FILA - Since 1943 | Surface Care, Italy to the UAE" },
   description:
-    "FILA Industria Chimica: founded 1943 by the Pettenon twins, Marchio Storico registered, ISO 9001/14001, Indoor Air Comfort Gold first in its Italian sector, Climate Pledge net zero 2040 - and a Dubai JLT office since 2012.",
+    "FILA Industria Chimica, founded 1943: Marchio Storico registered, ISO 9001/14001, Indoor Air Comfort Gold, and a Dubai JLT office serving the UAE since 2012.",
   alternates: { canonical: "/fila/about" },
 };
 

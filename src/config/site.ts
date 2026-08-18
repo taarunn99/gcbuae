@@ -48,7 +48,7 @@ export const siteConfig = {
   legalName: "Global Classic Building Materials LLC",
   tagline: "Surfaces for enduring interiors",
   description:
-    "Global Classic Building Materials supplies natural stone, marble, terrazzo and finishing materials across the UAE - for contractors, developers and consultants building interiors meant to last.",
+    "Wholesale marble, quartz and terrazzo slabs, Jaquar bathware and FILA care from Sharjah - KalingaStone authorized reseller, AED trade pricing, UAE delivery.",
   url: "https://www.gcbuae.com",
   locale: "en_AE",
   contact: {
