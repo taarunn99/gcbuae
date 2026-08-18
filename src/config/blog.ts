@@ -345,7 +345,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     datePublished: P,
     dateModified: P,
     heroAlt: "Three white quartz samples fanned: plain, Carrara-look and Calacatta-look",
-    productCta: { href: "/kalingastone/quartz/colours/white", label: "Browse the white quartz shades" },
+    productCta: { href: "/kalingastone/quartz/colours/white-quartz", label: "Browse the white quartz shades" },
     related: ["quartz-countertops-complete-guide", "quartz-slab-sizes-thickness", "marble-look-without-natural-marble"],
     readMinutes: 5,
   },

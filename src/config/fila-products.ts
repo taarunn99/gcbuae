@@ -103,7 +103,7 @@ export const filaProducts: FilaProduct[] = [
     advantages: ["Viscous consistency acts directly on the stain - no wastage", "Removes stains in just 15 minutes"],
     packaging: "75 ml bottles, boxes of 12",
     coverage: [["Rust spots", "undiluted", "spot application"]],
-    page: 10, hasScene: true,
+    page: 10, hasScene: false,
   },
   {
     name: "NOSPOT", slug: "nospot", category: "cleaners", line: "professional",
@@ -378,7 +378,7 @@ export const filaProducts: FilaProduct[] = [
     advantages: ["Daily use cleans and reinforces the protection treatment", "pH neutral - ideal for the most delicate natural stone", "No rinsing; quick drying; pleasant fragrance", "Food-contact safe", "A+ classified under the French VOC regulation"],
     packaging: "750 ml spray bottles, boxes of 6",
     coverage: [["Worktops", "spray", "ready to use"]],
-    page: 35, hasScene: true,
+    page: 35, hasScene: false,
   },
   {
     name: "NODROPS", slug: "nodrops", category: "ready-to-use", line: "ready-to-use",

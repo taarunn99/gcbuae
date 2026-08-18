@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Don't advertise the framework in response headers.
+  poweredByHeader: false,
   images: {
     // AVIF first: the hero is a large photograph and the extra encode cost is
     // paid once, at build. Order matters — the first match against the
