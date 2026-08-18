@@ -14,6 +14,7 @@ import { content as does_quartz_stain_or_scratch } from "./does-quartz-stain-or-
 import { content as engineered_marble_complete_guide } from "./engineered-marble-complete-guide";
 import { content as engineered_marble_vs_natural_marble } from "./engineered-marble-vs-natural-marble";
 import { content as engineered_stone_vs_porcelain_slabs } from "./engineered-stone-vs-porcelain-slabs";
+import { content as hard_water_stains_on_marble } from "./hard-water-stains-on-marble";
 import { content as how_to_choose_bathroom_vanity_top } from "./how-to-choose-bathroom-vanity-top";
 import { content as how_to_choose_shower_system } from "./how-to-choose-shower-system";
 import { content as how_to_clean_marble_floors_uae } from "./how-to-clean-marble-floors-uae";
@@ -22,6 +23,9 @@ import { content as is_engineered_marble_good_for_kitchens } from "./is-engineer
 import { content as jacuzzi_maintenance_uae } from "./jacuzzi-maintenance-uae";
 import { content as jacuzzi_spa_buyers_guide_uae } from "./jacuzzi-spa-buyers-guide-uae";
 import { content as jacuzzi_vs_hot_tub_vs_spa } from "./jacuzzi-vs-hot-tub-vs-spa";
+import { content as jaquar_vs_grohe } from "./jaquar-vs-grohe";
+import { content as kalingastone_price_uae } from "./kalingastone-price-uae";
+import { content as kalingastone_vs_caesarstone } from "./kalingastone-vs-caesarstone";
 import { content as marble_bathroom_ideas } from "./marble-bathroom-ideas";
 import { content as marble_care_maintenance_guide } from "./marble-care-maintenance-guide";
 import { content as marble_etching_vs_staining } from "./marble-etching-vs-staining";
@@ -30,6 +34,7 @@ import { content as marble_price_dubai } from "./marble-price-dubai";
 import { content as marble_slab_supplier_uae_how_to_choose } from "./marble-slab-supplier-uae-how-to-choose";
 import { content as quartz_countertop_price_dubai } from "./quartz-countertop-price-dubai";
 import { content as quartz_countertops_complete_guide } from "./quartz-countertops-complete-guide";
+import { content as quartz_countertops_sharjah } from "./quartz-countertops-sharjah";
 import { content as quartz_slab_sizes_thickness } from "./quartz-slab-sizes-thickness";
 import { content as quartz_vs_granite_uae } from "./quartz-vs-granite-uae";
 import { content as quartz_vs_marble } from "./quartz-vs-marble";
@@ -55,6 +60,7 @@ const CONTENT: Record<string, BlogContent> = {
   "engineered-marble-complete-guide": engineered_marble_complete_guide,
   "engineered-marble-vs-natural-marble": engineered_marble_vs_natural_marble,
   "engineered-stone-vs-porcelain-slabs": engineered_stone_vs_porcelain_slabs,
+  "hard-water-stains-on-marble": hard_water_stains_on_marble,
   "how-to-choose-bathroom-vanity-top": how_to_choose_bathroom_vanity_top,
   "how-to-choose-shower-system": how_to_choose_shower_system,
   "how-to-clean-marble-floors-uae": how_to_clean_marble_floors_uae,
@@ -63,6 +69,9 @@ const CONTENT: Record<string, BlogContent> = {
   "jacuzzi-maintenance-uae": jacuzzi_maintenance_uae,
   "jacuzzi-spa-buyers-guide-uae": jacuzzi_spa_buyers_guide_uae,
   "jacuzzi-vs-hot-tub-vs-spa": jacuzzi_vs_hot_tub_vs_spa,
+  "jaquar-vs-grohe": jaquar_vs_grohe,
+  "kalingastone-price-uae": kalingastone_price_uae,
+  "kalingastone-vs-caesarstone": kalingastone_vs_caesarstone,
   "marble-bathroom-ideas": marble_bathroom_ideas,
   "marble-care-maintenance-guide": marble_care_maintenance_guide,
   "marble-etching-vs-staining": marble_etching_vs_staining,
@@ -71,6 +80,7 @@ const CONTENT: Record<string, BlogContent> = {
   "marble-slab-supplier-uae-how-to-choose": marble_slab_supplier_uae_how_to_choose,
   "quartz-countertop-price-dubai": quartz_countertop_price_dubai,
   "quartz-countertops-complete-guide": quartz_countertops_complete_guide,
+  "quartz-countertops-sharjah": quartz_countertops_sharjah,
   "quartz-slab-sizes-thickness": quartz_slab_sizes_thickness,
   "quartz-vs-granite-uae": quartz_vs_granite_uae,
   "quartz-vs-marble": quartz_vs_marble,
@@ -89,6 +99,6 @@ const CONTENT: Record<string, BlogContent> = {
 
 export function getBlogContent(slug: string): BlogContent {
   const content = CONTENT[slug];
-  if (!content) throw new Error(`blog content missing for ${slug}`);
+  if (!content) throw new Error();
   return content;
 }

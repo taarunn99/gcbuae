@@ -60,6 +60,44 @@ Localization: every commercial page must carry UAE/Dubai/Abu Dhabi/Sharjah signa
 - **emiratesceramic.ae** (Al Jaber Group, Abu Dhabi): ceramic tiles/sanitaryware; products split onto verdeuae.com, no JSON-LD, no quartz. Not a quartz competitor.
 - Actual quartz-SERP incumbents to watch instead: archistoneuae.com (~3,500-word pillar, 60+ internal links, no schema), glaze.ae (400+ shade pages, thin), granitiuae.com (AED prices shown, ranks #1 "quartz slabs UAE"), tilesman.com, ronakintl.com. **Universal gaps we exploit: none has Product schema, FAQPage, spec tables, or B2B/wholesale copy; "quartz countertops Sharjah" SERP is spam blogs — easiest geo win.**
 
+
+### Audit appendix - 2026-08-18 (full-field crawl, all competitors + discovery)
+
+Full report: `docs/COMPETITOR-AUDIT-2026-08.md`. Headlines only:
+- **minamarbles.com has ABANDONED KalingaStone**: all brand URLs 404, purged
+  from every sitemap, nav now sells Caesarstone. The vacuum is uncontested;
+  their dead URLs are link-reclamation targets. Blog stale ~7 months.
+- **marmoclassic.ae** rebuilt on a new CMS whose every title reads
+  "GMC-Website" (placeholder); Kalinga shade pages live but outside the
+  sitemap; /ar live; still no schema. The last Kalinga merchandiser, crippled.
+- **glaze.ae**: ~900 per-shade URLs, Caesarstone distributor, but NO XML
+  sitemap at the standard path, no JSON-LD, blog titles broken, 9/14 posts
+  from 2021. No terrazzo, no bathrooms, no care brand named anywhere.
+- **archistoneuae.com**: 38-post blog + question-format quartz cluster, still
+  ZERO JSON-LD site-wide; no engineered marble at all.
+- **granitiuae.com**: now the technical benchmark (Product+Org+Breadcrumb
+  schema, per-SKU specs/stock/AED) but pivoted to sanitaryware; quartz is
+  7mm tile stock, not slabs.
+- **casamilanoitaly.com is the rising threat**: Shopify EN/AR/RU, priced
+  SKUs at scale, agentic-discovery sitemap, seven 2,000-word FAQ explainers
+  published Jul-Aug 2026. Gaps: no terrazzo, no care line, buried ledes.
+  Track MONTHLY, not quarterly.
+- **alqamaceramics.com is still hacked** (casino doorway pages, new ones
+  July 2026). Zero threat; avoid link adjacency.
+- **New names discovered** (see report §3): sabtagranite.com, ronakintl.com
+  (#1 "quartz supplier uae"), marmara.ae, siommarble.com, fairdealuae.com,
+  mahabldg.com; yellowpages-uae.com colonises supplier head terms in every
+  field (placement, not combat).
+- **SERP validation (33 queries)**: gcbuae.com appeared in none - zero
+  baseline. Confirmed-open vacuums now shipped against: kalingastone price,
+  kalingastone vs caesarstone, quartz countertops sharjah, hard water stains
+  on marble, jaquar vs grohe (Journal posts, 2026-08-18). Remaining backlog
+  in report §6.
+- **Standing conclusion**: no competitor occupies terrazzo + stone care +
+  bathrooms + slabs simultaneously; entrenchment everywhere is by
+  distributorship, not content. UAE-specific numbers and brand comparisons
+  remain the defensible territory.
+
 ### Standing competitor rule
 Quarterly: re-crawl all five; diff their sitemaps; note new content clusters; report to Tarun.
 
