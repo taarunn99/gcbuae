@@ -27,6 +27,14 @@ export function OrganizationJsonLd() {
       postalCode: address.postalCode || undefined,
       addressCountry: address.country,
     },
+    // Entity web: GCB is a Lapiz Group company (owner, 2026-08-18). The
+    // group's web home is lapizblue.com - naming it links the two
+    // knowledge-graph entities the partnership plan builds on.
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Lapiz Group of Companies",
+      url: "https://www.lapizblue.com",
+    },
   };
 
   if (contact.phone) {

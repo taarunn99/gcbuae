@@ -199,8 +199,16 @@ export default function FilaHubPage() {
           </h1>
           <span className="fila-bar mt-6" data-fila-bar />
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
-            FILA surface care, official UAE distribution by Lapiz Blue -
-            supplied wholesale to the trade by Global Classic. 34 catalogued
+            FILA surface care, official UAE distribution by{" "}
+            <a
+              href="https://www.lapizblue.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/40 underline-offset-4 hover:decoration-white"
+            >
+              Lapiz Blue
+            </a>{" "}
+            - supplied wholesale to the trade by Global Classic. 34 catalogued
             products, Italian since {filaBrand.founded}.
           </p>
         </Container>

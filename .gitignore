@@ -54,3 +54,6 @@ next-env.d.ts
 /assets/source/jaquar-catalogue/
 /assets/source/fila-catalogue/
 /assets/source/
+
+# Social video deliverables (Reels clips) - kept on disk, not shipped
+/assets/social/

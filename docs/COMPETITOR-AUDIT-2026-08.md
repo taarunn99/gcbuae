@@ -69,6 +69,12 @@ bathrooms). Medium: alrafahia.com (publishes quartz prices - and ranks
 for it), qconinternational.com (FILA channel competitor),
 independentmarble.com (HMK Moller care agent), tilesman.com,
 hottubkart.com (only wellness content player), marblelife-dubai.ae.
+**Partner, not competitor: lapizblue.com** - the Lapiz Group flagship
+(GCB's own group) ranks for KalingaStone and FILA queries. Treated as a
+coordination asset per docs/LAPIZ-SEO-PARTNERSHIP.md: query territory
+split, entity-linked schema, editorial cross-links. Never audit it as
+opposition again.
+
 Directory problem: yellowpages-uae.com colonises "[product] suppliers
 UAE" head terms across every field (8+ SERPs), with reachuae.com and
 atninfo.com behind it - get listed, don't fight them. A template farm
