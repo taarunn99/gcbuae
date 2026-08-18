@@ -25,6 +25,7 @@ import {
   terrazzoShades,
 } from "@/config/kalingastone-terrazzo";
 import { siteConfig } from "@/config/site";
+import { AmbientClip } from "@/components/ui/ambient-clip";
 
 export const metadata: Metadata = {
   title: {
@@ -226,17 +227,12 @@ export default function KalingaStoneTerrazzoPage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1} className="hidden lg:block">
-              <figure className="relative aspect-[3/4] overflow-hidden rounded-xl">
-                <Image
-                  src="/kalingastone/terrazzo/decor/chips-bowl.webp"
-                  alt="Sage-green ceramic bowl of loose terrazzo marble chips on a white KalingaStone terrazzo slab"
-                  fill
-                  quality={90}
-                  sizes="320px"
-                  className="object-cover"
-                  preload
-                />
+            <Reveal delay={0.1}>
+              <figure
+                className="relative aspect-[3/4] overflow-hidden rounded-xl"
+                aria-label="Light playing across KalingaStone terrazzo chips"
+              >
+                <AmbientClip name="terrazzo-light" />
               </figure>
             </Reveal>
           </div>

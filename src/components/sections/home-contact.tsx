@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import { ContactForm } from "./contact-form";
+import { AmbientClip } from "@/components/ui/ambient-clip";
 
 /**
  * Contact on home - the second-to-last section (owner spec, 2026-08-18):
@@ -27,16 +26,11 @@ export function HomeContact() {
           <div className="max-w-3xl">
             <ContactForm />
           </div>
-          <div className="border-warm-black relative hidden aspect-[3/4] overflow-hidden rounded-3xl border lg:block">
-            <Image
-              src="/home/contact-still.webp"
-              alt="Stone slab samples wrapped in sage linen with a marble fragment and olive branch"
-              fill
-              sizes="(min-width: 1024px) 34rem, 100vw"
-              quality={90}
-              className="object-cover"
-              loading="lazy"
-            />
+          <div
+            className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-3xl border"
+            aria-label="Water running over a brushed-brass fitting"
+          >
+            <AmbientClip name="brass-water" />
           </div>
         </div>
       </div>

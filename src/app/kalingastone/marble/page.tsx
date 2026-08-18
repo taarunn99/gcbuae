@@ -27,6 +27,7 @@ import {
   shadesOfMarbleFamily,
 } from "@/config/kalingastone-marble";
 import { siteConfig } from "@/config/site";
+import { AmbientClip } from "@/components/ui/ambient-clip";
 
 export const metadata: Metadata = {
   title: {
@@ -207,17 +208,12 @@ export default function KalingaStoneMarblePage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1} className="hidden lg:block">
-              <figure className="relative aspect-[3/4] overflow-hidden rounded-xl">
-                <Image
-                  src="/kalingastone/marble/decor/polish-still.webp"
-                  alt="Polisher's buffing pad mirrored in a glossy white KalingaStone marble slab beside a sage dish of polishing powder"
-                  fill
-                  quality={90}
-                  sizes="320px"
-                  className="object-cover"
-                  preload
-                />
+            <Reveal delay={0.1}>
+              <figure
+                className="relative aspect-[3/4] overflow-hidden rounded-xl"
+                aria-label="Slow travel across the veining of a KalingaStone marble slab"
+              >
+                <AmbientClip name="marble-vein" />
               </figure>
             </Reveal>
           </div>

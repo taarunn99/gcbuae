@@ -23,6 +23,7 @@ import {
 } from "@/config/jaquar-catalogue";
 import { catalogueTotal } from "@/config/jaquar-products";
 import { siteConfig } from "@/config/site";
+import { AmbientClip } from "@/components/ui/ambient-clip";
 
 export const metadata: Metadata = {
   title: {
@@ -280,16 +281,11 @@ export default function JaquarPage() {
                 ))}
               </ul>
             </div>
-            <figure className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-xl border">
-              <Image
-                src="/jaquar/scenes/faucets.webp"
-                alt="Chrome Jaquar-style basin mixer with arcing water against a dark green wall"
-                fill
-                quality={90}
-                sizes="(min-width: 1024px) 36vw, 100vw"
-                className="object-cover"
-                loading="lazy"
-              />
+            <figure
+              className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-xl border"
+              aria-label="Water running over a brushed-brass Jaquar-style fitting"
+            >
+              <AmbientClip name="brass-water" />
             </figure>
           </div>
         </Container>

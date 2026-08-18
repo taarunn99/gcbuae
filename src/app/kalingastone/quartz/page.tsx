@@ -29,6 +29,7 @@ import {
   shadesOfFamily,
 } from "@/config/kalingastone-quartz";
 import { siteConfig } from "@/config/site";
+import { AmbientClip } from "@/components/ui/ambient-clip";
 
 export const metadata: Metadata = {
   title: {
@@ -235,17 +236,12 @@ export default function KalingaStoneQuartzPage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1} className="hidden lg:block">
-              <figure className="relative aspect-[3/4] overflow-hidden rounded-xl">
-                <Image
-                  src="/kalingastone/quartz/decor/vase-olive.webp"
-                  alt="Sage-green ceramic vase with an olive branch standing on a white KalingaStone quartz plinth"
-                  fill
-                  quality={90}
-                  sizes="320px"
-                  className="object-cover"
-                  preload
-                />
+            <Reveal delay={0.1}>
+              <figure
+                className="relative aspect-[3/4] overflow-hidden rounded-xl"
+                aria-label="Morning light over a white KalingaStone quartz kitchen worktop"
+              >
+                <AmbientClip name="quartz-kitchen" />
               </figure>
             </Reveal>
           </div>

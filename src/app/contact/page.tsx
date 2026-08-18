@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import Image from "next/image";
 
 import { Reveal } from "@/components/motion/reveal";
 import { ContactHero } from "@/components/sections/contact-hero";
 import { Container } from "@/components/ui/container";
 
 import { ContactForm } from "@/components/sections/contact-form";
+import { AmbientClip } from "@/components/ui/ambient-clip";
 
 export const metadata: Metadata = {
   title: "Contact - AED Quotes & Trade Pricing",
@@ -26,16 +26,11 @@ export default function ContactPage() {
             <Reveal>
               <ContactForm />
             </Reveal>
-            <Reveal className="border-warm-black relative hidden aspect-[3/4] overflow-hidden rounded-3xl border lg:block">
-              <Image
-                src="/home/contact-still.webp"
-                alt="Stone slab samples wrapped in sage linen with a marble fragment and olive branch"
-                fill
-                sizes="(min-width: 1024px) 34rem, 100vw"
-                quality={90}
-                className="object-cover"
-                loading="lazy"
-              />
+            <Reveal
+              className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-3xl border"
+              aria-label="Slow travel across the veining of a KalingaStone marble slab"
+            >
+              <AmbientClip name="marble-vein" />
             </Reveal>
           </div>
         </Container>
