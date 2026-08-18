@@ -13,7 +13,7 @@ import { AuthorizedDistributor } from "@/components/sections/products/authorized
 import { ProfileBook } from "@/components/sections/products/profile-book";
 import { ReachUs } from "@/components/sections/products/reach-us";
 import { WhatsAppPlugin } from "@/components/sections/products/whatsapp-plugin";
-import { ContactForm } from "@/app/contact/contact-form";
+import { ContactForm } from "@/components/sections/contact-form";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {

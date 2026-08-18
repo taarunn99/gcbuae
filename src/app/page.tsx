@@ -1,4 +1,6 @@
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
+import { Channels } from "@/components/sections/channels";
+import { HomeContact } from "@/components/sections/home-contact";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { BrandMarquee } from "@/components/layout/brand-marquee";
 import { FilmLoop } from "@/components/sections/film/film-loop";
@@ -93,6 +95,10 @@ export default function HomePage() {
       <ShowroomLocator />
 
       <GlobalPresence />
+
+      <HomeContact />
+
+      <Channels />
     </main>
   );
 }

@@ -5,7 +5,7 @@ import { ContactHero } from "@/components/sections/contact-hero";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 
-import { ContactForm } from "./contact-form";
+import { ContactForm } from "@/components/sections/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",

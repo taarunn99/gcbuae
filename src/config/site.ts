@@ -13,8 +13,8 @@ export const siteConfig = {
   locale: "en_AE",
   contact: {
     email: "info@gcbuae.com",
-    phone: "",
-    whatsapp: "",
+    phone: "+971 52 992 7827",
+    whatsapp: "971529927827",
   },
   address: {
     street: "9M62+45M, Al Sajaa, Al Jlail",
@@ -25,7 +25,7 @@ export const siteConfig = {
   },
   social: {
     linkedin: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/globalclassic.bmt/",
   },
   nav: [
     { label: "Home", href: "/" },

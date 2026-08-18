@@ -4,7 +4,7 @@ import { useActionState } from "react";
 
 import { GcbButton } from "@/components/ui/gcb-button";
 
-import { sendContactMessage, type ContactFormState } from "./actions";
+import { sendContactMessage, type ContactFormState } from "@/app/contact/actions";
 
 const initialState: ContactFormState = { status: "idle" };
 

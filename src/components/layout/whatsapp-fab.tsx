@@ -8,13 +8,15 @@
  * Onyx ground must never dominate the corner again. One tap opens the
  * chat - no hover reveal.
  */
+import { siteConfig } from "@/config/site";
+
 export function WhatsAppFab() {
   return (
     <a
-      href="https://wa.me/971529927827?text=Hello%20Global%20Classic%20-%20I%27d%20like%20to%20enquire%20about%20materials."
+      href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hello%20Global%20Classic%20-%20I%27d%20like%20to%20enquire%20about%20materials.`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp - +971 52 992 7827"
+      aria-label={`Chat on WhatsApp - ${siteConfig.contact.phone}`}
       className="group fixed right-5 bottom-5 z-50 flex items-center gap-0 sm:right-7 sm:bottom-7"
     >
       <span className="bg-warm-black text-ink flex size-16 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-105 sm:size-20">

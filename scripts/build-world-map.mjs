@@ -127,9 +127,23 @@ await sharp(Buffer.from(svg), { density: 300 })
   .webp({ quality: 88, effort: 6 })
   .toFile(OUT_IMAGE);
 
+/* Tiny inline blur for the lazy base image - Next only fires its
+ * lazy-LCP warning when placeholder is empty, and the blur improves
+ * perceived load at ~300 bytes. */
+const blurBuffer = await sharp(Buffer.from(svg), { density: 72 })
+  .resize(24, null, { fit: "inside" })
+  .flatten({ background: "#0C1510" })
+  .webp({ quality: 40 })
+  .toBuffer();
+const blurDataURL = `data:image/webp;base64,${blurBuffer.toString("base64")}`;
+
 await writeFile(
   OUT_POINTS,
-  JSON.stringify({ viewBox: { width: 198, height: 100 }, markers }, null, 2),
+  JSON.stringify(
+    { viewBox: { width: 198, height: 100 }, blurDataURL, markers },
+    null,
+    2,
+  ),
 );
 
 const { size } = await import("node:fs").then((fs) =>

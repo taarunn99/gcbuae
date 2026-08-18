@@ -39,6 +39,9 @@ interface WorldMapProps {
   markers: WorldMapMarker[];
   arcs?: WorldMapArc[];
   viewBox: { width: number; height: number };
+  /** Script-generated inline blur - keeps the base image lazy without
+   *  Next's lazy-LCP warning. */
+  blurDataURL?: string;
   className?: string;
 }
 
@@ -50,7 +53,13 @@ function arcPath(from: WorldMapMarker, to: WorldMapMarker): string {
   return `M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`;
 }
 
-export function WorldMap({ markers, arcs = [], viewBox, className }: WorldMapProps) {
+export function WorldMap({
+  markers,
+  arcs = [],
+  viewBox,
+  blurDataURL,
+  className,
+}: WorldMapProps) {
   const [hovered, setHovered] = useState<WorldMapMarker | null>(null);
   const reduced = useReducedMotion();
 
@@ -66,6 +75,7 @@ export function WorldMap({ markers, arcs = [], viewBox, className }: WorldMapPro
         sizes="(min-width: 90rem) 1344px, 100vw"
         className="pointer-events-none object-cover select-none"
         loading="lazy"
+        {...(blurDataURL ? { placeholder: "blur" as const, blurDataURL } : {})}
       />
 
       <svg

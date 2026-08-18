@@ -71,7 +71,12 @@ export function GlobalPresence() {
         </div>
 
         <div className="relative mt-10 lg:mt-0 [mask-image:linear-gradient(to_bottom,black,black_86%,transparent)]">
-          <WorldMap markers={markers} arcs={arcs} viewBox={points.viewBox} />
+          <WorldMap
+            markers={markers}
+            arcs={arcs}
+            viewBox={points.viewBox}
+            blurDataURL={points.blurDataURL}
+          />
           {/* The shadow the heading rests on - covers the map, then
               dissolves so the world surfaces below the text */}
           <div
