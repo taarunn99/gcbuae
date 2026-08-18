@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Plus } from "lucide-react";
 import { useState } from "react";
 
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -9,19 +8,17 @@ import { FAQ_ITEMS } from "@/config/home-faq";
 import { cn } from "@/lib/utils";
 
 /**
- * Home FAQ - between the global map and the contact form (owner spec,
- * 2026-08-18, after the Lapiz Blue split FAQ but magazine-refined):
- * questions on the left as a quiet list, and the active answer set on
- * the golden-ratio type scale over a three-layer glass panel on the
- * right - generated palette image, a steam-on-glass blur layer, then
- * the text. Copy speaks to interior design companies, contractors and
- * BOQ-scale buyers - the site's lead target - never to end users.
+ * Home FAQ - between the global map and the contact form. Second pass
+ * (owner corrections, 2026-08-18): circle markers instead of plus signs
+ * (the Lapiz gesture in Onyx), stronger question contrast, the phi
+ * modular scale with the heading two steps above the body (phi squared,
+ * 2.618x), the glass image running SEAMLESS to the viewport edge - no
+ * box, no border - and the answer organized as a display lead plus
+ * short points on a true frosted-glass band, not a smoke gradient.
  *
- * SSR honesty: every answer is in the DOM in both layouts (stacked
- * with opacity on desktop, grid-rows collapse on mobile), so the
- * FAQPage JSON-LD built from this same array always matches.
+ * SSR honesty: every answer is in the DOM in both layouts; the FAQPage
+ * JSON-LD is built from the same config array.
  */
-
 
 export function HomeFaq() {
   const [active, setActive] = useState(0);
@@ -30,17 +27,18 @@ export function HomeFaq() {
   return (
     <section
       aria-label="Frequently asked questions"
-      className="bg-background relative py-24 lg:py-32"
+      className="bg-background relative"
     >
-      <div className="container-gcb">
-        <p className="label-gcb text-warm-black/60">FAQs</p>
-        <h2 className="font-display text-warm-black mt-3 text-3xl tracking-tight sm:text-5xl">
-          Quick answers.
-        </h2>
+      <div className="lg:grid lg:grid-cols-2">
+        {/* Left: heading + question list, gutters of its own */}
+        <div className="px-6 py-20 sm:px-10 lg:py-28 lg:pl-20 lg:pr-16 xl:pl-28">
+          <p className="label-gcb text-warm-black/60">FAQs</p>
+          <h2 className="font-display text-phi-3 text-warm-black mt-3 tracking-tight">
+            Quick answers.
+          </h2>
 
-        {/* Desktop: question list + the glass panel */}
-        <div className="mt-12 hidden gap-14 lg:grid lg:grid-cols-[1fr_0.618fr]">
-          <ul className="divide-warm-black/15 divide-y">
+          {/* Desktop question list */}
+          <ul className="divide-warm-black/15 mt-10 hidden divide-y lg:block">
             {FAQ_ITEMS.map((item, i) => {
               const isActive = i === active;
               return (
@@ -50,117 +48,144 @@ export function HomeFaq() {
                     onClick={() => setActive(i)}
                     aria-expanded={isActive}
                     aria-controls={`faq-panel-${i}`}
-                    className="group flex w-full items-center justify-between gap-6 py-5 text-left"
+                    className="group flex w-full items-center gap-4 py-5 text-left"
                   >
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "border-warm-black size-2.5 shrink-0 rounded-full border transition-colors duration-300",
+                        isActive ? "bg-warm-black" : "bg-transparent group-hover:bg-warm-black/30",
+                      )}
+                    />
                     <span
                       className={cn(
                         "font-display text-xl transition-colors duration-300",
-                        isActive ? "text-warm-black" : "text-warm-black/55 group-hover:text-warm-black/80",
+                        isActive ? "text-warm-black" : "text-warm-black/75 group-hover:text-warm-black",
                       )}
                     >
                       {item.q}
                     </span>
-                    <Plus
-                      size={18}
-                      strokeWidth={1.3}
-                      aria-hidden
-                      className={cn(
-                        "text-warm-black/50 shrink-0 transition-transform duration-300",
-                        isActive && "text-warm-black rotate-45",
-                      )}
-                    />
                   </button>
                 </li>
               );
             })}
           </ul>
 
-          {/* The glass panel - image, steam, text */}
-          <div className="border-warm-black relative aspect-[4/5] self-start overflow-hidden rounded-3xl border">
-            <Image
-              src="/home/faq-glass.webp"
-              alt="Condensation on pale glass in front of a sage stone interior"
-              fill
-              sizes="(min-width: 1024px) 34rem, 100vw"
-              quality={90}
-              className="object-cover"
-              loading="lazy"
-            />
-            {/* The steam layer - frosts whatever sits behind the words */}
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-transparent backdrop-blur-[2px]"
-            />
-            {FAQ_ITEMS.map((item, i) => (
-              <div
-                key={item.q}
-                id={`faq-panel-${i}`}
-                role="region"
-                aria-label={item.q}
-                className={cn(
-                  "absolute inset-0 flex flex-col justify-end p-9",
-                  !reduced && "transition-opacity duration-500",
-                  i === active ? "opacity-100" : "pointer-events-none opacity-0",
-                )}
-              >
-                <p className="label-gcb text-warm-black/70">{item.q}</p>
-                <p className="font-display text-phi-1 text-warm-black mt-4 leading-snug text-balance">
-                  {item.a}
-                </p>
-              </div>
-            ))}
+          {/* Mobile: accordion with the same circle markers */}
+          <div className="divide-warm-black/15 border-warm-black/15 mt-8 divide-y border-y lg:hidden">
+            {FAQ_ITEMS.map((item, i) => {
+              const isOpen = i === active;
+              return (
+                <div key={item.q}>
+                  <h3>
+                    <button
+                      type="button"
+                      onClick={() => setActive(isOpen ? -1 : i)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center gap-4 py-5 text-left"
+                    >
+                      <span
+                        aria-hidden
+                        className={cn(
+                          "border-warm-black size-2.5 shrink-0 rounded-full border transition-colors duration-300",
+                          isOpen ? "bg-warm-black" : "bg-transparent",
+                        )}
+                      />
+                      <span
+                        className={cn(
+                          "font-display text-lg transition-colors duration-300",
+                          isOpen ? "text-warm-black" : "text-warm-black/75",
+                        )}
+                      >
+                        {item.q}
+                      </span>
+                    </button>
+                  </h3>
+                  <div
+                    className={cn(
+                      "grid",
+                      !reduced &&
+                        "transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]",
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                    )}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="font-display text-warm-black text-lg leading-snug">
+                        {item.lead}
+                      </p>
+                      <ul className="mt-3 space-y-2 pb-6">
+                        {item.points.map((point) => (
+                          <li
+                            key={point}
+                            className="text-warm-black/75 flex gap-3 leading-relaxed"
+                          >
+                            <span
+                              aria-hidden
+                              className="bg-warm-black mt-2.5 size-1 shrink-0 rounded-full"
+                            />
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Mobile: classic accordion, answers stay in the DOM */}
-        <div className="divide-warm-black/15 border-warm-black/15 mt-10 divide-y border-y lg:hidden">
-          {FAQ_ITEMS.map((item, i) => {
-            const isOpen = i === active;
-            return (
-              <div key={item.q}>
-                <h3>
-                  <button
-                    type="button"
-                    onClick={() => setActive(isOpen ? -1 : i)}
-                    aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between gap-5 py-5 text-left"
-                  >
-                    <span
-                      className={cn(
-                        "font-display text-lg transition-colors duration-300",
-                        isOpen ? "text-warm-black" : "text-warm-black/60",
-                      )}
-                    >
-                      {item.q}
-                    </span>
-                    <Plus
-                      size={18}
-                      strokeWidth={1.3}
-                      aria-hidden
-                      className={cn(
-                        "text-warm-black/50 shrink-0 transition-transform duration-300",
-                        isOpen && "text-warm-black rotate-45",
-                      )}
-                    />
-                  </button>
-                </h3>
+        {/* Right: the glass image, seamless to the viewport edges */}
+        <div className="relative hidden lg:block">
+          <Image
+            src="/home/faq-glass.webp"
+            alt="Condensation on pale glass in front of a sage stone interior"
+            fill
+            sizes="50vw"
+            quality={90}
+            className="object-cover"
+            loading="lazy"
+          />
+          {/* The frosted-glass band the answer sits on - uniform heavy
+              blur with a crisp top edge, not a smoke gradient */}
+          <div className="border-t-warm-black/20 absolute inset-x-0 bottom-0 border-t bg-white/35 backdrop-blur-2xl">
+            <div className="grid p-10 xl:p-14 [&>*]:col-start-1 [&>*]:row-start-1">
+              {FAQ_ITEMS.map((item, i) => (
                 <div
+                  key={item.q}
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  aria-label={item.q}
                   className={cn(
-                    "grid",
-                    !reduced &&
-                      "transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]",
-                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                    !reduced && "transition-opacity duration-500",
+                    i === active
+                      ? "opacity-100"
+                      : "pointer-events-none opacity-0",
                   )}
                 >
-                  <div className="overflow-hidden">
-                    <p className="text-warm-black/70 pb-6 leading-relaxed">
-                      {item.a}
-                    </p>
-                  </div>
+                  <p className="label-gcb text-warm-black/70">{item.q}</p>
+                  {/* phi squared: lead at 2.618x the point size */}
+                  <p className="font-display text-phi-2 text-warm-black mt-4 leading-tight text-balance">
+                    {item.lead}
+                  </p>
+                  <ul className="mt-6 space-y-2.5">
+                    {item.points.map((point) => (
+                      <li
+                        key={point}
+                        className="text-phi-0 text-warm-black flex gap-3"
+                      >
+                        <span
+                          aria-hidden
+                          className="bg-warm-black mt-2.5 size-1.5 shrink-0 rounded-full"
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

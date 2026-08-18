@@ -2,7 +2,7 @@ import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Channels } from "@/components/sections/channels";
 import { HomeContact } from "@/components/sections/home-contact";
 import { HomeFaq } from "@/components/sections/home-faq";
-import { FAQ_ITEMS } from "@/config/home-faq";
+import { FAQ_ITEMS, faqAnswerText } from "@/config/home-faq";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { BrandMarquee } from "@/components/layout/brand-marquee";
 import { FilmLoop } from "@/components/sections/film/film-loop";
@@ -40,7 +40,7 @@ const faqJsonLd = {
   mainEntity: FAQ_ITEMS.map((item) => ({
     "@type": "Question",
     name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
+    acceptedAnswer: { "@type": "Answer", text: faqAnswerText(item) },
   })),
 };
 
