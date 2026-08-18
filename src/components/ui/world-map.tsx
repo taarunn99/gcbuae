@@ -15,10 +15,12 @@ import { cn } from "@/lib/utils";
  * (the raw SVG is ~590KB; the raster is 123KB and cacheable) plus
  * grid-snapped marker coordinates, so this island ships only the
  * overlay. framer-motion becomes motion/react, next-themes is dropped
- * (single light theme), and every colour is a palette token: Pine dot
- * grid on Porcelain, Pastel Green markers, Onyx for the hub and plant,
- * Pine arcs. Reduced motion renders the arcs as static strokes and
- * skips the pulses.
+ * (single light theme), and every colour is a palette token. Inverted
+ * stage (owner, 2026-08-18): Marble White dot grid and markers on the
+ * Onyx ground, the hub and plant in Pastel Green with pulses, Marble
+ * White arcs whose bow scales with edge length (the mesh has many
+ * short regional links). Reduced motion renders the arcs as static
+ * strokes and skips the pulses.
  */
 
 export type WorldMapMarker = {
@@ -41,8 +43,10 @@ interface WorldMapProps {
 }
 
 function arcPath(from: WorldMapMarker, to: WorldMapMarker): string {
+  const dist = Math.hypot(to.x - from.x, to.y - from.y);
+  const lift = Math.min(12, Math.max(1.5, dist * 0.22));
   const midX = (from.x + to.x) / 2;
-  const midY = Math.max(3, Math.min(from.y, to.y) - 13);
+  const midY = Math.max(2, Math.min(from.y, to.y) - lift);
   return `M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`;
 }
 
@@ -56,7 +60,7 @@ export function WorldMap({ markers, arcs = [], viewBox, className }: WorldMapPro
       style={{ aspectRatio: `${viewBox.width} / ${viewBox.height}` }}
     >
       <Image
-        src="/home/world-map.webp"
+        src="/home/world-map-onyx.webp"
         alt="Dotted world map of KalingaStone project locations"
         fill
         sizes="(min-width: 90rem) 1344px, 100vw"
@@ -70,40 +74,42 @@ export function WorldMap({ markers, arcs = [], viewBox, className }: WorldMapPro
         preserveAspectRatio="xMidYMid meet"
         aria-hidden
       >
-        {/* Supply arcs - Pine, drawn on loop; static strokes when reduced */}
-        {arcs.map((arc, i) =>
-          reduced ? (
+        {/* Connectivity mesh - Marble White, drawn on loop with a
+            per-edge stagger; static strokes when reduced */}
+        {arcs.map((arc, i) => {
+          const start = (i / Math.max(1, arcs.length)) * 0.6;
+          return reduced ? (
             <path
               key={`arc-${i}`}
               d={arcPath(arc.from, arc.to)}
               fill="none"
-              stroke="var(--verde)"
-              strokeWidth="0.3"
-              strokeOpacity="0.45"
+              stroke="var(--ink)"
+              strokeWidth="0.25"
+              strokeOpacity="0.35"
             />
           ) : (
             <motion.path
               key={`arc-${i}`}
               d={arcPath(arc.from, arc.to)}
               fill="none"
-              stroke="var(--verde)"
-              strokeWidth="0.3"
-              strokeOpacity="0.6"
+              stroke="var(--ink)"
+              strokeWidth="0.25"
+              strokeOpacity="0.45"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: [0, 0, 1, 1, 0] }}
               transition={{
-                duration: 12,
-                times: [0, i * 0.06, i * 0.06 + 0.25, 0.85, 1],
+                duration: 14,
+                times: [0, start, Math.min(0.8, start + 0.18), 0.9, 1],
                 ease: "easeInOut",
                 repeat: Infinity,
               }}
             />
-          ),
-        )}
+          );
+        })}
 
-        {/* Markers - Pastel Green dots; Onyx for the hub and the plant */}
+        {/* Markers - Marble White dots; Pastel Green hub and plant */}
         {markers.map((marker) => {
-          const anchor = marker.role ? "var(--warm-black)" : "var(--bronze)";
+          const anchor = marker.role ? "var(--bronze)" : "var(--ink)";
           const r = marker.role ? 1.1 : 0.75;
           return (
             <g key={marker.label}>

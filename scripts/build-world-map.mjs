@@ -22,7 +22,7 @@ import DottedMap from "dotted-map";
 import sharp from "sharp";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const OUT_IMAGE = join(ROOT, "public", "home", "world-map.webp");
+const OUT_IMAGE = join(ROOT, "public", "home", "world-map-onyx.webp");
 const OUT_POINTS = join(ROOT, "src", "config", "global-presence-points.json");
 
 /** role: "hub" = Al Sajaa/Dubai stock point, "plant" = Silvassa factory. */
@@ -109,12 +109,13 @@ const markers = LOCATIONS.map(({ label, lat, lng, role }) => {
 
 /* Pins were added only to project coordinates - render the base WITHOUT
  * them by regenerating a clean map for the SVG. */
+/* Inverted stage (owner, 2026-08-18): Onyx ground, Marble White dots. */
 const base = new DottedMap({ height: 100, grid: "diagonal" });
 const svg = base.getSVG({
   radius: 0.22,
-  color: "#355E4D3D",
+  color: "#F7F8F53D",
   shape: "circle",
-  backgroundColor: "#F7F8F5",
+  backgroundColor: "#0C1510",
 });
 
 await mkdir(dirname(OUT_IMAGE), { recursive: true });
@@ -122,7 +123,7 @@ await mkdir(dirname(OUT_IMAGE), { recursive: true });
  * element - flatten onto Porcelain explicitly. */
 await sharp(Buffer.from(svg), { density: 300 })
   .resize(2112, null, { fit: "inside" })
-  .flatten({ background: "#F7F8F5" })
+  .flatten({ background: "#0C1510" })
   .webp({ quality: 88, effort: 6 })
   .toFile(OUT_IMAGE);
 
@@ -134,5 +135,5 @@ await writeFile(
 const { size } = await import("node:fs").then((fs) =>
   fs.promises.stat(OUT_IMAGE),
 );
-console.log(`world-map.webp  ${Math.round(size / 1024)}KB`);
+console.log(`world-map-onyx.webp  ${Math.round(size / 1024)}KB`);
 console.log(`markers  ${markers.length}`);

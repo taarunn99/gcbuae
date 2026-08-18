@@ -48,10 +48,17 @@ function useFinePointer() {
   );
 }
 
-const items = kalingaStoneMaterials.map((material) => ({
-  ...material,
-  ...homeMaterialsShowcase.find((s) => s.slug === material.slug)!,
-}));
+/* Fail LOUDLY on slug drift between the two config arrays - a silent
+ * miss here once rendered six src="" images (console storm, 2026-08-18). */
+const items = kalingaStoneMaterials.map((material) => {
+  const showcase = homeMaterialsShowcase.find((s) => s.slug === material.slug);
+  if (!showcase) {
+    throw new Error(
+      `materials-explore: no homeMaterialsShowcase entry for "${material.slug}"`,
+    );
+  }
+  return { ...material, ...showcase };
+});
 
 /** Ball diameter, gap and row height in px - shared by the position math. */
 const BALL = 208;
@@ -293,6 +300,7 @@ export function MaterialsExplore() {
                   alt={`${item.shadeLabel} ${item.label.toLowerCase()} macro`}
                   fill
                   sizes="4rem"
+                  quality={90}
                   className="object-cover"
                   loading="lazy"
                 />
