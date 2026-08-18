@@ -51,35 +51,32 @@ export function GlobalPresence() {
   return (
     <section
       aria-label="KalingaStone global presence"
-      className="bg-warm-black grain-gcb relative overflow-hidden py-24 lg:py-32"
+      className="bg-warm-black grain-gcb relative overflow-hidden py-16 lg:py-6"
     >
-      <div className="container-gcb relative z-10">
-        <div className="flex items-baseline justify-between">
-          <div>
-            <p className="label-gcb text-ink/60">Global presence</p>
-            <h2 className="font-display text-ink mt-3 text-3xl tracking-tight sm:text-5xl">
-              One material, {kalingaStoneBrand.countries} countries.
-            </h2>
-          </div>
-          <p className="label-gcb text-ink/50 hidden sm:block">
-            {markers.length} markets marked
+      {/* Owner spec 2026-08-18: no container - the map runs the full
+          viewport width and fades into the Onyx ground top and bottom,
+          and on desktop the heading floats OVER the map's upper reaches
+          like a shadow overlay (reference: the Global Network demo).
+          Below lg the heading stacks above the full-bleed map. */}
+      <div className="relative">
+        <div className="pointer-events-none relative z-10 px-6 text-center lg:absolute lg:inset-x-0 lg:top-[13%]">
+          <p className="label-gcb text-ink/60">Global presence</p>
+          <h2 className="font-display text-ink mx-auto mt-3 text-3xl tracking-tight sm:text-5xl">
+            One material, {kalingaStoneBrand.countries} countries.
+          </h2>
+          <p className="text-ink/70 mx-auto mt-4 max-w-2xl leading-relaxed">
+            KalingaStone ships from the Silvassa plant to projects in{" "}
+            {kalingaStoneBrand.countries} countries. Global Classic holds
+            the UAE line of that network - slabs in stock at Al Sajaa,
+            Sharjah, delivered across the whole of the UAE.
           </p>
         </div>
-        <p className="text-ink/70 mt-5 max-w-2xl leading-relaxed">
-          KalingaStone ships from the Silvassa plant to projects in{" "}
-          {kalingaStoneBrand.countries} countries. Global Classic holds the
-          UAE line of that network - slabs in stock at Al Sajaa, Sharjah,
-          delivered across the whole of the UAE.
-        </p>
 
-        <WorldMap
-          className="mt-12"
-          markers={markers}
-          arcs={arcs}
-          viewBox={points.viewBox}
-        />
+        <div className="mt-10 lg:mt-0 [mask-image:linear-gradient(to_bottom,transparent,black_16%,black_88%,transparent)]">
+          <WorldMap markers={markers} arcs={arcs} viewBox={points.viewBox} />
+        </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-3 px-6 lg:-mt-20">
           <Link
             href="/kalingastone"
             className="chip-gcb border-ink/60 text-ink inline-flex items-center rounded-full border px-5 py-2 text-sm"
