@@ -53,7 +53,7 @@ export function HomeFaq() {
                     <span
                       aria-hidden
                       className={cn(
-                        "border-warm-black size-2.5 shrink-0 rounded-full border transition-colors duration-300",
+                        "border-warm-black size-4 shrink-0 rounded-full border transition-colors duration-300",
                         isActive ? "bg-warm-black" : "bg-transparent group-hover:bg-warm-black/30",
                       )}
                     />
@@ -87,7 +87,7 @@ export function HomeFaq() {
                       <span
                         aria-hidden
                         className={cn(
-                          "border-warm-black size-2.5 shrink-0 rounded-full border transition-colors duration-300",
+                          "border-warm-black size-4 shrink-0 rounded-full border transition-colors duration-300",
                           isOpen ? "bg-warm-black" : "bg-transparent",
                         )}
                       />
