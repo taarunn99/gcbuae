@@ -53,27 +53,31 @@ export function GlobalPresence() {
       aria-label="KalingaStone global presence"
       className="bg-warm-black grain-gcb relative overflow-hidden py-16 lg:py-6"
     >
-      {/* Owner spec 2026-08-18: no container - the map runs the full
-          viewport width and fades into the Onyx ground top and bottom,
-          and on desktop the heading floats OVER the map's upper reaches
-          like a shadow overlay (reference: the Global Network demo).
-          Below lg the heading stacks above the full-bleed map. */}
+      {/* Owner spec 2026-08-18, second pass: no container - the map runs
+          the full viewport width; a solid-to-transparent Onyx scrim sits
+          OVER the map's upper half so the heading rests on shadow and the
+          map emerges from underneath it (reference: the Global Network
+          demo). Heading + ONE line only. Below lg the heading stacks
+          above the full-bleed map. */}
       <div className="relative">
-        <div className="pointer-events-none relative z-10 px-6 text-center lg:absolute lg:inset-x-0 lg:top-[13%]">
+        <div className="pointer-events-none relative z-10 px-6 text-center lg:absolute lg:inset-x-0 lg:top-[10%]">
           <p className="label-gcb text-ink/60">Global presence</p>
           <h2 className="font-display text-ink mx-auto mt-3 text-3xl tracking-tight sm:text-5xl">
             One material, {kalingaStoneBrand.countries} countries.
           </h2>
-          <p className="text-ink/70 mx-auto mt-4 max-w-2xl leading-relaxed">
-            KalingaStone ships from the Silvassa plant to projects in{" "}
-            {kalingaStoneBrand.countries} countries. Global Classic holds
-            the UAE line of that network - slabs in stock at Al Sajaa,
-            Sharjah, delivered across the whole of the UAE.
+          <p className="text-ink/70 mx-auto mt-4 max-w-xl leading-relaxed">
+            Made in Silvassa, stocked in Al Sajaa, delivered UAE-wide.
           </p>
         </div>
 
-        <div className="mt-10 lg:mt-0 [mask-image:linear-gradient(to_bottom,transparent,black_16%,black_88%,transparent)]">
+        <div className="relative mt-10 lg:mt-0 [mask-image:linear-gradient(to_bottom,black,black_86%,transparent)]">
           <WorldMap markers={markers} arcs={arcs} viewBox={points.viewBox} />
+          {/* The shadow the heading rests on - covers the map, then
+              dissolves so the world surfaces below the text */}
+          <div
+            aria-hidden
+            className="from-warm-black via-warm-black/75 pointer-events-none absolute inset-x-0 top-0 hidden h-[52%] bg-gradient-to-b to-transparent lg:block"
+          />
         </div>
 
         <div className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-3 px-6 lg:-mt-20">
