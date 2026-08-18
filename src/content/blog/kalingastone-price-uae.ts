@@ -2,7 +2,7 @@ import type { BlogContent } from "./types";
 
 export const content: BlogContent = {
   answer:
-    "KalingaStone pricing in the UAE runs, as of 2026, roughly AED 120 to 250 per square metre installed for engineered marble, AED 250 to 450 for quartz in standard ranges, and AED 150 to 300 for terrazzo, with supply-only slab rates below those bands. Series, slab format and fixing scope move the number; quotes from stock are returned in AED, usually within one working day.",
+    "KalingaStone slabs in the UAE run roughly AED 250 to 500 per square metre supply-only as of 2026, across engineered marble, quartz and terrazzo alike, with designer shades and superjumbo formats above the band. A full slab covers about 4 to 5 square metres. Series, format and finish move the number; installation is a separate scope priced by the applicator, and quotes from live Sharjah stock are returned in AED, usually within one working day.",
   sections: [
     {
       h2: "Why KalingaStone prices are hard to find",
@@ -10,15 +10,15 @@ export const content: BlogContent = {
     },
     {
       h2: "Engineered marble: AED ranges by use",
-      body: "KalingaStone engineered marble typically lands at AED 120 to 250 per square metre installed in the UAE as of 2026, with supply-only slab pricing below that band; entry tonal shades anchor the low end while bold-veined statement series carry the top. Against the stones it visually competes with, that undercuts mid-tier Italian naturals, which run roughly AED 150 to 400 installed, while removing the grade lottery and most of the wastage risk.\n\nWhat moves the figure inside the band: series and shade, slab format and thickness, finish, and the fixing scope, floors price differently from cladding and stairs, and edges bill per linear metre. Large projects benefit twice, once from volume rates and again from engineered consistency holding wastage near pure cutting loss. The [marble range](/kalingastone/marble) lists every shade with formats; the [Dubai marble pricing guide](/blog/marble-price-dubai) covers how to read any stone quote line by line.",
+      body: "KalingaStone engineered marble trades inside the AED 250 to 500 per square metre supply-only band in the UAE as of 2026; entry tonal shades anchor the low end while bold-veined statement series carry the top, and a slab covers about 4 to 5 square metres. Against the stones it visually competes with, that matches mid-tier Italian naturals on like-for-like looks while removing the grade lottery and most of the wastage risk.\n\nWhat moves the figure inside the band: series and shade, slab format and thickness, and finish. Fixing is a separate scope priced by the applicator, floors price differently from cladding and stairs, and edges bill per linear metre. Large projects benefit twice, once from volume rates and again from engineered consistency holding wastage near pure cutting loss. The [marble range](/kalingastone/marble) lists every shade with formats; the [Dubai marble pricing guide](/blog/marble-price-dubai) covers how to read any stone quote line by line.",
     },
     {
       h2: "Quartz: AED ranges by series and format",
-      body: "KalingaStone quartz worktops install at roughly AED 250 to 450 per square metre for standard series in the UAE as of 2026, with designer shades and superjumbo formats reaching toward AED 800; supply-only slabs price well below installed rates, which is how fabricators and volume buyers purchase. The 69-shade range spans seven series, and position within it, plain solids at one end, bold Calacatta-look veining at the other, is the biggest single price lever.\n\nFormat is the second: standard slabs, jumbos and the 3300 by 2000 millimetre superjumbo each price per slab, and design-to-slab planning decides how many slabs a kitchen consumes, often mattering more than the rate itself. Fabrication extras, cutouts, edges, waterfalls, bill separately as on any quartz job. The [quartz range](/kalingastone/quartz) carries formats per shade, and the [Dubai quartz pricing guide](/blog/quartz-countertop-price-dubai) itemises what inflates a quote and what a fair one looks like.",
+      body: "KalingaStone quartz slabs trade in the same AED 250 to 500 per square metre supply-only band for standard series in the UAE as of 2026, with designer shades and superjumbo formats pricing above it; supply-only full slabs are how fabricators and volume buyers purchase, with fabrication and fitting quoted separately by the workshop. The 69-shade range spans seven series, and position within it, plain solids at one end, bold Calacatta-look veining at the other, is the biggest single price lever.\n\nFormat is the second: standard slabs, jumbos and the 3300 by 2000 millimetre superjumbo each price per slab, and design-to-slab planning decides how many slabs a kitchen consumes, often mattering more than the rate itself. Fabrication extras, cutouts, edges, waterfalls, bill separately as on any quartz job. The [quartz range](/kalingastone/quartz) carries formats per shade, and the [Dubai quartz pricing guide](/blog/quartz-countertop-price-dubai) itemises what inflates a quote and what a fair one looks like.",
     },
     {
       h2: "Terrazzo: AED ranges by collection",
-      body: "KalingaStone block terrazzo typically installs between AED 150 and 300 per square metre in the UAE as of 2026, varying by collection, format and fixing specification, with the statement large-chip collections above the band's middle and supply-only tiles and slabs below installed rates. That places it above porcelain at purchase and below most natural stone laid at scale, with a service life measured in decades of regrinds rather than replacement cycles.\n\nCollection drives the number first, tonal micro-chip fields, cafe-scale mixes and oversized-chip statements each price differently, then format, since large slabs cost more than tiles but lay near-seamless, then extras: matching stair treads, skirting and the fluted wall panels price per piece and per linear metre. Lifecycle arithmetic remains terrazzo's quiet argument, covered honestly in [the pros and cons breakdown](/blog/terrazzo-pros-and-cons); the [terrazzo range](/kalingastone/terrazzo) holds all five collections with formats per shade.",
+      body: "KalingaStone block terrazzo supplies inside the same rough AED 250 to 500 per square metre band in the UAE as of 2026, varying by collection and format, with the statement large-chip collections toward the top and fixing priced separately against the laying specification. That places it above porcelain at purchase and below most natural stone laid at scale, with a service life measured in decades of regrinds rather than replacement cycles.\n\nCollection drives the number first, tonal micro-chip fields, cafe-scale mixes and oversized-chip statements each price differently, then format, since large slabs cost more than tiles but lay near-seamless, then extras: matching stair treads, skirting and the fluted wall panels price per piece and per linear metre. Lifecycle arithmetic remains terrazzo's quiet argument, covered honestly in [the pros and cons breakdown](/blog/terrazzo-pros-and-cons); the [terrazzo range](/kalingastone/terrazzo) holds all five collections with formats per shade.",
     },
     {
       h2: "How to get an exact quote from stock",
@@ -28,7 +28,7 @@ export const content: BlogContent = {
   faq: [
     {
       q: "How much is a KalingaStone slab?",
-      a: "Supply-only slab pricing varies by material, series and format and sits below the installed ranges of AED 120 to 450 per square metre as of 2026. Exact per-slab AED quotes come from stock within one working day.",
+      a: "A slab covers about 4 to 5 square metres, and supply-only rates run roughly AED 250 to 500 per square metre as of 2026 depending on material, series and format - so a full slab typically lands in four figures. Exact per-slab AED quotes come from stock within one working day.",
     },
     {
       q: "Is KalingaStone cheaper than Caesarstone?",
@@ -36,7 +36,7 @@ export const content: BlogContent = {
     },
     {
       q: "Does the price include installation?",
-      a: "Ranges here are quoted installed unless stated supply-only. Always confirm the basis; supply-and-fix versus supply-only is the biggest source of quote confusion.",
+      a: "No - ranges here are supply-only slab rates. Installation is a separate scope priced by the applicator against the job, and confirming the basis is the first rule of comparing stone quotes.",
     },
     {
       q: "Who sells KalingaStone in the UAE?",

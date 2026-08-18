@@ -18,7 +18,7 @@ export const content: BlogContent = {
     },
     {
       h2: "Terrazzo cost in Dubai vs marble and porcelain",
-      body: "As of 2026, block terrazzo in Dubai typically lands between good porcelain and mid-tier natural marble: roughly AED 150 to 300 per square metre installed depending on collection, format and fixing spec, with statement large-chip collections above that. Porcelain runs cheaper to buy and install; natural marble overlaps terrazzo's band and rises far beyond it. All figures vary by project and supplier; treat them as ranges to frame quotes, not quotes.\n\nThe number that matters is lifecycle cost. Terrazzo's service life runs decades with repolishing, where porcelain is replaced when fashion or chips demand and cannot be refinished. Across a twenty-year hold, terrazzo frequently comes out the cheapest floor in the comparison. For BOQ-scale pricing against live stock, [the terrazzo range](/kalingastone/terrazzo) is quoted in AED from Al Sajaa, usually within one working day.",
+      body: "As of 2026, block terrazzo in Dubai supplies at roughly AED 250 to 500 per square metre as slabs and tiles depending on collection and format, with statement large-chip collections toward the top and fixing priced separately against the laying spec. Porcelain runs cheaper to buy and install; natural marble overlaps terrazzo's band and rises far beyond it. All figures vary by project and supplier; treat them as ranges to frame quotes, not quotes.\n\nThe number that matters is lifecycle cost. Terrazzo's service life runs decades with repolishing, where porcelain is replaced when fashion or chips demand and cannot be refinished. Across a twenty-year hold, terrazzo frequently comes out the cheapest floor in the comparison. For BOQ-scale pricing against live stock, [the terrazzo range](/kalingastone/terrazzo) is quoted in AED from Al Sajaa, usually within one working day.",
     },
     {
       h2: "Finishes: polished, honed, river wash, fluted",
@@ -32,7 +32,7 @@ export const content: BlogContent = {
   faq: [
     {
       q: "Is terrazzo expensive?",
-      a: "Upfront it costs more than porcelain, roughly AED 150 to 300 per square metre installed in Dubai as of 2026. Over a decades-long service life with repolishing, it is often the cheapest floor per year of use.",
+      a: "Upfront it costs more than porcelain, roughly AED 250 to 500 per square metre supply-only in Dubai as of 2026, with fixing priced separately. Over a decades-long service life with repolishing, it is often the cheapest floor per year of use.",
     },
     {
       q: "Is terrazzo slippery?",

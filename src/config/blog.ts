@@ -353,7 +353,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     slug: "quartz-countertop-price-dubai",
     title: "Quartz Countertop Prices in Dubai (2026)",
     description:
-      "Installed quartz worktop pricing in AED, what drives the quote, and how to compare offers.",
+      "Quartz slab pricing in AED, what drives the quote, and how to compare offers.",
     category: "buying-guides",
     kind: "cluster",
     primaryQuery: "quartz price dubai",

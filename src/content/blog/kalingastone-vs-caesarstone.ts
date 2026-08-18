@@ -18,7 +18,7 @@ export const content: BlogContent = {
     },
     {
       h2: "Price: the honest AED comparison",
-      body: "Caesarstone in the UAE prices as the premium import it is: installed worktops commonly quote from the mid-hundreds of dirhams per square metre upward into four figures for designer collections, as of 2026 and varying by dealer and fabrication scope. KalingaStone quartz installs at roughly AED 250 to 450 for standard series and toward AED 800 for designer shades and superjumbo formats, a band that undercuts like-for-like premium looks, often substantially at project volume.\n\nThe gap is brand positioning, not hidden corners: both are quality engineered stone, and the daily-performance comparison above is a draw. What the Caesarstone premium buys is the label and its specification cachet; what the KalingaStone saving funds is more project, more slabs, better fittings, or simply margin. BOQ-scale buyers feel the delta hardest, forty kitchens multiply every dirham of rate. The [full KalingaStone pricing guide](/blog/kalingastone-price-uae) frames all three materials in AED; matched quotes against a specific scope settle it precisely.",
+      body: "Caesarstone in the UAE prices as the premium import it is: installed worktops commonly quote from the mid-hundreds of dirhams per square metre upward into four figures for designer collections, as of 2026 and varying by dealer and fabrication scope. KalingaStone quartz slabs supply at roughly AED 250 to 500 per square metre for standard series, with designer shades and superjumbo formats above the band, pricing that undercuts like-for-like premium import looks, often substantially at project volume.\n\nThe gap is brand positioning, not hidden corners: both are quality engineered stone, and the daily-performance comparison above is a draw. What the Caesarstone premium buys is the label and its specification cachet; what the KalingaStone saving funds is more project, more slabs, better fittings, or simply margin. BOQ-scale buyers feel the delta hardest, forty kitchens multiply every dirham of rate. The [full KalingaStone pricing guide](/blog/kalingastone-price-uae) frames all three materials in AED; matched quotes against a specific scope settle it precisely.",
     },
     {
       h2: "Supply in the UAE: stock, slabs, service",
@@ -32,7 +32,7 @@ export const content: BlogContent = {
     },
     {
       q: "Which is cheaper?",
-      a: "KalingaStone, on like-for-like looks: standard series install around AED 250 to 450 per square metre as of 2026, below comparable premium import quotes. At project volume the gap compounds.",
+      a: "KalingaStone, on like-for-like looks: standard series supply around AED 250 to 500 per square metre as slabs as of 2026, below comparable premium import quotes. At project volume the gap compounds.",
     },
     {
       q: "Does Caesarstone make engineered marble or terrazzo?",

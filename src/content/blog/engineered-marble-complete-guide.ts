@@ -18,7 +18,7 @@ export const content: BlogContent = {
     },
     {
       h2: "What does engineered marble cost in Dubai?",
-      body: "As of 2026, engineered marble in Dubai typically runs AED 120 to 250 per square metre installed, varying by series, slab format and the fixing package; supply-only slab pricing sits below that band. That places it under mid-tier Italian naturals, which run roughly AED 150 to 400 installed, and well under statement stones. Series matters: entry shades in plain tones anchor the low end, while bold-veined and speciality series carry the top of the band.\n\nRead quotes carefully: the number that matters is supply-and-fix with wastage stated, since cutting plans can consume 10 to 15 percent more material than the floor area suggests. Thickness, edge details on stairs and skirting, and floor preparation move the final figure more than the slab price does. For live AED pricing against actual stock, [the marble range](/kalingastone/marble) is quoted from slabs on racks in Al Sajaa, usually within one working day. Verify final numbers with your supplier; ranges shift with freight and resin costs.",
+      body: "As of 2026, engineered marble in Dubai typically runs AED 250 to 500 per square metre supply-only, varying by series and slab format, with a slab covering about 4 to 5 square metres and fixing priced separately by the applicator. That places it level with slab-grade mid-tier Italian naturals on like-for-like looks, and well under statement stones. Series matters: entry shades in plain tones anchor the low end, while bold-veined and speciality series carry the top of the band.\n\nRead quotes carefully: the number that matters is supply-and-fix with wastage stated, since cutting plans can consume 10 to 15 percent more material than the floor area suggests. Thickness, edge details on stairs and skirting, and floor preparation move the final figure more than the slab price does. For live AED pricing against actual stock, [the marble range](/kalingastone/marble) is quoted from slabs on racks in Al Sajaa, usually within one working day. Verify final numbers with your supplier; ranges shift with freight and resin costs.",
     },
     {
       h2: "Where should you use it, and where shouldn't you?",
@@ -44,7 +44,7 @@ export const content: BlogContent = {
     },
     {
       q: "Is it cheaper than Italian marble?",
-      a: "Generally yes. Engineered marble installs around AED 120 to 250 per square metre in Dubai as of 2026, below comparable mid-tier Italian naturals, with far less wastage risk from breakage and variation.",
+      a: "On like-for-like looks it competes directly: roughly AED 250 to 500 per square metre supply-only in Dubai as of 2026, level with comparable mid-tier Italian naturals but with far less wastage risk from breakage and variation.",
     },
     {
       q: "What slab sizes exist?",

@@ -2,7 +2,7 @@ import type { BlogContent } from "./types";
 
 export const content: BlogContent = {
   answer:
-    "Quartz countertops in Sharjah install at roughly AED 250 to 450 per square metre for standard ranges as of 2026, with designer and jumbo formats above that, and the practical advantage of buying here is proximity: slabs stocked at Al Sajaa can be viewed, tagged and delivered across the emirate within days. Trade buyers order supply-only from the warehouse; households order supply-and-fix through fabricators.",
+    "Quartz slabs in Sharjah run roughly AED 250 to 500 per square metre supply-only for standard ranges as of 2026, with designer and jumbo formats above that and fabrication quoted separately, and the practical advantage of buying here is proximity: slabs stocked at Al Sajaa can be viewed, tagged and delivered across the emirate within days. Trade buyers order supply-only from the warehouse; households order supply-and-fix through fabricators.",
   sections: [
     {
       h2: "Why Sharjah buyers don't need a Dubai supplier",
@@ -10,7 +10,7 @@ export const content: BlogContent = {
     },
     {
       h2: "Prices in Sharjah: the honest AED picture",
-      body: "Sharjah pricing tracks the national market: as of 2026, standard quartz ranges install around AED 250 to 450 per square metre, designer shades and superjumbo formats run AED 450 to 800, and supply-only slab rates sit below installed numbers; all figures vary by series, format and fabrication scope. What Sharjah buyers avoid is the premium that sometimes rides along with Dubai showroom overheads and cross-emirate logistics, and what they gain is quote speed, since pricing from local stock returns in AED usually within one working day.\n\nThe quote mechanics are identical everywhere: itemised slabs, fabrication and installation beat blended numbers; cutouts, edges and waterfalls bill as lines; and design-to-slab planning, sizing the kitchen to the slab format, saves more than negotiation ever does. The [full Dubai pricing guide](/blog/quartz-countertop-price-dubai) applies verbatim here, and the [slab size guide](/blog/quartz-slab-sizes-thickness) explains the format arithmetic that decides how many slabs your kitchen consumes.",
+      body: "Sharjah pricing tracks the national market: as of 2026, standard quartz ranges supply around AED 250 to 500 per square metre as full slabs, designer shades and superjumbo formats price above that band, and installed supply-and-fix totals sit higher once fabrication joins; all figures vary by series, format andfabrication scope. What Sharjah buyers avoid is the premium that sometimes rides along with Dubai showroom overheads and cross-emirate logistics, and what they gain is quote speed, since pricing from local stock returns in AED usually within one working day.\n\nThe quote mechanics are identical everywhere: itemised slabs, fabrication and installation beat blended numbers; cutouts, edges and waterfalls bill as lines; and design-to-slab planning, sizing the kitchen to the slab format, saves more than negotiation ever does. The [full Dubai pricing guide](/blog/quartz-countertop-price-dubai) applies verbatim here, and the [slab size guide](/blog/quartz-slab-sizes-thickness) explains the format arithmetic that decides how many slabs your kitchen consumes.",
     },
     {
       h2: "What's in stock at Al Sajaa",
@@ -32,7 +32,7 @@ export const content: BlogContent = {
     },
     {
       q: "How much do quartz countertops cost in Sharjah?",
-      a: "As of 2026, roughly AED 250 to 450 per square metre installed for standard ranges, AED 450 to 800 for designer and jumbo formats, varying by fabrication scope. Supply-only slab rates sit lower.",
+      a: "As of 2026, roughly AED 250 to 500 per square metre supply-only for standard ranges, with designer and jumbo formats above that band. A slab covers about 4 to 5 square metres; fabrication and fitting are quoted separately.",
     },
     {
       q: "Can I see slabs before buying?",
