@@ -1,6 +1,8 @@
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Channels } from "@/components/sections/channels";
 import { HomeContact } from "@/components/sections/home-contact";
+import { HomeFaq } from "@/components/sections/home-faq";
+import { FAQ_ITEMS } from "@/config/home-faq";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { BrandMarquee } from "@/components/layout/brand-marquee";
 import { FilmLoop } from "@/components/sections/film/film-loop";
@@ -30,6 +32,18 @@ const capabilities = [
   },
 ];
 
+/** FAQ schema built from the SAME array the section renders - they can
+ *  never disagree. */
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 /** The closing materials showcase, mirrored as structured data. */
 const materialsJsonLd = {
   "@context": "https://schema.org",
@@ -50,6 +64,12 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(materialsJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
         }}
       />
       <Hero />
@@ -95,6 +115,8 @@ export default function HomePage() {
       <ShowroomLocator />
 
       <GlobalPresence />
+
+      <HomeFaq />
 
       <HomeContact />
 

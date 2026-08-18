@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ContactForm } from "./contact-form";
 
 /**
@@ -21,8 +23,21 @@ export function HomeContact() {
           Send the spec, the quantity or just the idea - a person replies
           within one working day.
         </p>
-        <div className="mt-12 max-w-3xl">
-          <ContactForm />
+        <div className="mt-12 grid items-start gap-14 lg:grid-cols-[1fr_0.618fr]">
+          <div className="max-w-3xl">
+            <ContactForm />
+          </div>
+          <div className="border-warm-black relative hidden aspect-[3/4] overflow-hidden rounded-3xl border lg:block">
+            <Image
+              src="/home/contact-still.webp"
+              alt="Stone slab samples wrapped in sage linen with a marble fragment and olive branch"
+              fill
+              sizes="(min-width: 1024px) 34rem, 100vw"
+              quality={90}
+              className="object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>

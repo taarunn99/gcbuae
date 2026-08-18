@@ -36,6 +36,10 @@ const QUALITY = { quartz: 86, marble: 86, terrazzo: 70 };
  *  ({slug}-ball-master.*), cut square at 2.5x the 208px ball. */
 const BALL_SIZE = 512;
 
+/** One-off editorial extras that share this pipeline: portrait stills
+ *  at the same 840x1120 slot ({name}-master.* -> {name}.webp). */
+const EXTRAS = ["contact-still", "faq-glass"];
+
 await mkdir(OUT_DIR, { recursive: true });
 const sources = await readdir(SOURCE_DIR);
 
@@ -71,6 +75,23 @@ for (const slug of SLUGS) {
   const ballKb = Math.round((await stat(ballOut)).size / 1024);
   console.log(`${slug}-ball.webp  ${BALL_SIZE}x${BALL_SIZE}  ${ballKb}KB`);
   if (ballKb > BUDGET_KB) failed = true;
+}
+
+for (const name of EXTRAS) {
+  const master = sources.find((f) => f.startsWith(`${name}-master.`));
+  if (!master) {
+    console.error(`MISSING extra master for ${name} in ${SOURCE_DIR}`);
+    failed = true;
+    continue;
+  }
+  const out = join(OUT_DIR, "..", `${name}.webp`);
+  await sharp(join(SOURCE_DIR, master), { limitInputPixels: false })
+    .resize(840, 1120, { fit: "cover", position: "attention" })
+    .webp({ quality: 86, effort: 6, smartSubsample: true })
+    .toFile(out);
+  const kb = Math.round((await stat(out)).size / 1024);
+  console.log(`${name}.webp  840x1120  ${kb}KB${kb > BUDGET_KB ? "  <-- OVER 300KB BUDGET" : ""}`);
+  if (kb > BUDGET_KB) failed = true;
 }
 
 if (failed) {
