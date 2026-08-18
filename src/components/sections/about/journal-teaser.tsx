@@ -1,11 +1,13 @@
+import Link from "next/link";
+
 import { MaterialsTicker } from "@/components/sections/products/materials-ticker";
 import { Container } from "@/components/ui/container";
 
 /**
  * The Journal - the blog's advance notice on /about (owner spec,
- * 2026-08-18: noticeable, magazine-voiced, and NO dead link until the
- * blog ships). Onyx stage, the outlined-type ticker running the
- * masthead, phi copy underneath.
+ * 2026-08-18: noticeable, magazine-voiced, linking to the /blog
+ * masthead page). Onyx stage, the outlined-type ticker in Marble White
+ * stroke, phi copy underneath.
  */
 export function JournalTeaser() {
   return (
@@ -17,8 +19,9 @@ export function JournalTeaser() {
         <Container>
           <p className="label-gcb text-ink/60">Next from Global Classic</p>
         </Container>
-        <div className="mt-8 [&_section]:border-ink/25 [&_.text-outline-gcb]:[-webkit-text-stroke-color:var(--ink)]">
+        <div className="mt-8">
           <MaterialsTicker
+            dark
             items={["The Journal", "Field Notes", "Specifications", "Installs", "The Science of Stone"]}
           />
         </div>
@@ -28,9 +31,17 @@ export function JournalTeaser() {
               Field notes from the slab trade - written from the warehouse,
               not the newsroom.
             </p>
-            <span className="border-ink/40 text-ink/70 label-gcb inline-flex items-center rounded-full border px-5 py-2.5">
-              First issue in progress
-            </span>
+            <div className="flex flex-col items-start gap-3">
+              <Link
+                href="/blog"
+                className="chip-gcb border-ink text-ink inline-flex items-center rounded-full border px-6 py-3 text-sm font-medium"
+              >
+                Read the Journal →
+              </Link>
+              <span className="label-gcb text-ink/50">
+                First issue in progress
+              </span>
+            </div>
           </div>
         </Container>
       </div>

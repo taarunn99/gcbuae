@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
+import { FamilyParallax } from "@/components/sections/about/family-parallax";
 import { GroupDeck } from "@/components/sections/about/group-deck";
 import { JournalTeaser } from "@/components/sections/about/journal-teaser";
 import { IssueStats } from "@/components/sections/products/issue-stats";
@@ -98,7 +99,7 @@ export default function AboutPage() {
               delay={0.2}
               className="mt-10 flex flex-wrap items-center gap-3"
             >
-              <GcbButton href="/contact" size="md">
+              <GcbButton href="/contact" size="md" variant="porcelain">
                 Talk to us
               </GcbButton>
               <Link
@@ -111,6 +112,7 @@ export default function AboutPage() {
           </div>
 
           <Reveal delay={0.15}>
+            <FamilyParallax>
             <figure className="relative">
               <div className="border-warm-black relative aspect-[3/4] overflow-hidden border">
                 <Image
@@ -127,6 +129,7 @@ export default function AboutPage() {
                 A family trade, cut in stone
               </figcaption>
             </figure>
+            </FamilyParallax>
           </Reveal>
         </div>
       </Container>
