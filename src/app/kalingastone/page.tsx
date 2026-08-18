@@ -29,7 +29,9 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "KalingaStone UAE - Authorized Reseller | Global Classic",
+    // Kerakoll lesson (owner, 2026-08-18): a brand hub title must carry
+    // the authority claim AND the category keywords, never just the brand.
+    absolute: "KalingaStone UAE - Quartz, Marble & Terrazzo Slab Reseller",
   },
   description:
     "KalingaStone engineered quartz, marble and terrazzo in the UAE - 128 shades stocked as full slabs in Sharjah by an authorized reseller, AED trade pricing.",

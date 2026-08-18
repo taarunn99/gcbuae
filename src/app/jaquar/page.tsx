@@ -26,7 +26,8 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Jaquar Dealer UAE - Bathroom Fittings Price | Global Classic",
+    // Kerakoll lesson: authority claim + category enumeration in the title.
+    absolute: "Jaquar Authorized Dealer UAE - Faucets, Basins, Showers",
   },
   description:
     "Authorized Jaquar dealer in the UAE - faucets, basins, WCs, showers, wellness and water heaters from Sharjah stock. 1,480 products with SKUs, AED trade pricing.",
