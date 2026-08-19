@@ -1,5 +1,6 @@
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Channels } from "@/components/sections/channels";
+import { HomeJaquar } from "@/components/sections/home-jaquar";
 import { HomeContact } from "@/components/sections/home-contact";
 import { HomeFaq } from "@/components/sections/home-faq";
 import { FAQ_ITEMS, faqAnswerText } from "@/config/home-faq";
@@ -105,6 +106,8 @@ export default function HomePage() {
       </section>
 
       <FilmLoop />
+
+      <HomeJaquar />
 
       <ProductWheel />
 

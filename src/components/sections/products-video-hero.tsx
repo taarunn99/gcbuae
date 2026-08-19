@@ -84,7 +84,7 @@ export function ProductsVideoHero() {
   );
 
   return (
-    <div ref={wrapRef} className={cn(!reduced && "h-[380vh]")}>
+    <div ref={wrapRef} className={cn(!reduced && "h-[440vh]")}>
       <section
         className={cn(
           "bg-warm-black relative h-[92svh] min-h-[560px] overflow-hidden",
@@ -181,6 +181,12 @@ export function ProductsVideoHero() {
               kicker: "KalingaStone",
               title: "Terrazzo",
               sub: "24 shades · Class A1 fire, exterior-ready",
+            },
+            {
+              href: "/jaquar",
+              kicker: "Jaquar Group",
+              title: "Jaquar",
+              sub: "6 categories · 1,480 catalogued products",
             },
           ].map((c) => (
             <Link

@@ -38,26 +38,6 @@ export default function ProductsPage() {
 
       <ProductsVideoHero />
 
-      {/* ---------- The Materials Issue ---------- */}
-      <IssueOpener />
-
-      <MaterialsTicker />
-
-      {/* ---------- Three feature spreads (stacking cards) ---------- */}
-      <section aria-label="Feature spreads" className="pt-16 lg:pt-24">
-        <FeatureStack />
-      </section>
-
-      {/* ---------- The numbers ---------- */}
-      <section className="bg-warm-black text-ink grain-gcb relative overflow-hidden py-24">
-        <Container className="relative z-10">
-          <p className="label-gcb text-bronze">This issue, in numbers</p>
-          <div className="mt-12">
-            <IssueStats />
-          </div>
-        </Container>
-      </section>
-
       {/* ---------- The Index ---------- */}
       <section className="py-24">
         <Container>
@@ -93,6 +73,26 @@ export default function ProductsPage() {
 
       {/* ---------- The Brands - character-select deck ---------- */}
       <BrandCarousel />
+
+      {/* ---------- The Materials Issue ---------- */}
+      <IssueOpener />
+
+      <MaterialsTicker />
+
+      {/* ---------- Three feature spreads (stacking cards) ---------- */}
+      <section aria-label="Feature spreads" className="pt-16 lg:pt-24">
+        <FeatureStack />
+      </section>
+
+      {/* ---------- The numbers ---------- */}
+      <section className="bg-warm-black text-ink grain-gcb relative overflow-hidden py-24">
+        <Container className="relative z-10">
+          <p className="label-gcb text-bronze">This issue, in numbers</p>
+          <div className="mt-12">
+            <IssueStats />
+          </div>
+        </Container>
+      </section>
 
       {/* ---------- Certified reseller ---------- */}
       <AuthorizedDistributor />
