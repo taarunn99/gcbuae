@@ -53,7 +53,9 @@ export const siteConfig = {
   locale: "en_AE",
   contact: {
     email: "info@gcbuae.com",
+    salesEmail: "atheesh.k@gcbuae.com",
     phone: "+971 52 992 7827",
+    landline: "+971 6 531 2015",
     whatsapp: "971529927827",
   },
   address: {

@@ -38,13 +38,22 @@ export function OrganizationJsonLd() {
   };
 
   if (contact.phone) {
-    jsonLd.contactPoint = {
-      "@type": "ContactPoint",
-      telephone: contact.phone,
-      email: contact.email,
-      contactType: "sales",
-      areaServed: "AE",
-    };
+    jsonLd.contactPoint = [
+      {
+        "@type": "ContactPoint",
+        telephone: contact.phone,
+        email: contact.email,
+        contactType: "sales",
+        areaServed: "AE",
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: contact.landline,
+        email: contact.salesEmail,
+        contactType: "customer service",
+        areaServed: "AE",
+      },
+    ];
   }
 
   if (sameAs.length > 0) {

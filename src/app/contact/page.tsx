@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { ContactHero } from "@/components/sections/contact-hero";
 import { Container } from "@/components/ui/container";
 
+import { ContactChannels } from "@/components/sections/contact-channels";
 import { ContactForm } from "@/components/sections/contact-form";
 import { AmbientClip } from "@/components/ui/ambient-clip";
 
@@ -19,6 +20,8 @@ export default function ContactPage() {
   return (
     <main className="theme-forest bg-background text-foreground flex-1">
       <ContactHero />
+
+      <ContactChannels />
 
       <section className="py-20 sm:py-24">
         <Container>

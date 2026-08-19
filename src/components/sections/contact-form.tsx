@@ -1,6 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+
+import { useRouter } from "next/navigation";
 
 import { GcbButton } from "@/components/ui/gcb-button";
 
@@ -16,14 +18,20 @@ export function ContactForm() {
     sendContactMessage,
     initialState,
   );
+  const router = useRouter();
+
+  // Success lands on the dedicated thank-you page (owner spec,
+  // 2026-08-19) - clear feedback plus a clean GA4 conversion URL.
+  useEffect(() => {
+    if (state.status === "sent") router.push("/contact/thank-you");
+  }, [state.status, router]);
 
   if (state.status === "sent") {
     return (
-      <div className="border p-10">
-        <p className="font-display text-2xl">Thank you.</p>
+      <div className="border p-10" role="status">
+        <p className="font-display text-2xl">Sent.</p>
         <p className="text-muted mt-3 leading-relaxed">
-          Your message is on its way - we will come back to you within one
-          working day.
+          Your message is on its way - taking you to the confirmation page.
         </p>
       </div>
     );
