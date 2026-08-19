@@ -83,7 +83,7 @@ const CHANNELS: {
 
 export function ContactChannels() {
   return (
-    <section aria-label="Direct contact channels" className="pb-4">
+    <section aria-label="Direct contact channels" className="pb-20 sm:pb-24">
       <Container>
         <Reveal>
           <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">

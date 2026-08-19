@@ -21,8 +21,6 @@ export default function ContactPage() {
     <main className="theme-forest bg-background text-foreground flex-1">
       <ContactHero />
 
-      <ContactChannels />
-
       <section className="py-20 sm:py-24">
         <Container>
           <div className="mx-auto grid max-w-6xl items-start gap-14 lg:grid-cols-[1fr_0.618fr]">
@@ -38,6 +36,8 @@ export default function ContactPage() {
           </div>
         </Container>
       </section>
+
+      <ContactChannels />
     </main>
   );
 }
