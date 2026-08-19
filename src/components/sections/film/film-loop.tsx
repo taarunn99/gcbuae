@@ -56,6 +56,11 @@ export function FilmLoop() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const [chapterIndex, setChapterIndex] = useState(0);
+  // The film only starts downloading when its section is within ~1.5
+  // viewports: autoPlay defeats preload="metadata", so mounting the
+  // <source> elements at load pulled the full ~3.7MB during first paint
+  // and held the loading spinner for seconds (perf audit, 2026-08-19).
+  const [nearView, setNearView] = useState(false);
   // Tracks the Network Information API; false during SSR so the sources are
   // in the HTML and only dropped once a constrained connection is confirmed.
   const stillsOnly = useSyncExternalStore(
@@ -69,6 +74,29 @@ export function FilmLoop() {
   useEffect(() => {
     if (stillsOnly) videoRef.current?.load();
   }, [stillsOnly]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNearView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "150% 0px" },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  // Sources mount after the near-view flip; load() makes the element
+  // pick them up, then the play observer starts it in view.
+  useEffect(() => {
+    if (nearView && !stillsOnly && !prefersReducedMotion)
+      videoRef.current?.load();
+  }, [nearView, stillsOnly, prefersReducedMotion]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -130,7 +158,7 @@ export function FilmLoop() {
         preload="metadata"
         poster={filmLoop.poster}
       >
-        {!prefersReducedMotion && !stillsOnly && (
+        {nearView && !prefersReducedMotion && !stillsOnly && (
           <>
             <source src={filmLoop.webm} type="video/webm" />
             <source src={filmLoop.mp4} type="video/mp4" />
