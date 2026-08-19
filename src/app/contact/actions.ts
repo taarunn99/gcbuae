@@ -79,14 +79,42 @@ export async function sendContactMessage(
       });
       if (response.ok) return { status: "sent" };
       console.error(
-        "contact form: resend error, falling back to formsubmit",
+        "contact form: resend error, falling back",
         await response.text(),
       );
     } catch (error) {
-      console.error(
-        "contact form: resend network error, falling back to formsubmit",
-        error,
-      );
+      console.error("contact form: resend network error, falling back", error);
+    }
+
+    // Interim rescue while the domain is unverified: Resend always
+    // delivers to the ACCOUNT OWNER's address from the onboarding
+    // sender. Set RESEND_FALLBACK_TO to that address in the env and
+    // enquiries land there instead of being lost.
+    const fallbackTo = process.env.RESEND_FALLBACK_TO;
+    if (fallbackTo) {
+      try {
+        const rescue = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "GCB Website <onboarding@resend.dev>",
+            to: [fallbackTo],
+            reply_to: email,
+            subject: `[for ${siteConfig.contactRecipient}] ${subject}`,
+            text: body,
+          }),
+        });
+        if (rescue.ok) return { status: "sent" };
+        console.error(
+          "contact form: resend fallback-to error",
+          await rescue.text(),
+        );
+      } catch (error) {
+        console.error("contact form: resend fallback-to network error", error);
+      }
     }
   }
 
