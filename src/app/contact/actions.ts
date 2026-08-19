@@ -66,11 +66,10 @@ export async function sendContactMessage(
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          // The shared onboarding sender only works to the account
-          // owner's own inbox; a verified @gcbuae.com CONTACT_FROM is
-          // what makes Resend deliver to the business inbox.
+          // Sends from the verified gcbuae.com domain (Resend, verified
+          // 2026-08-19); CONTACT_FROM stays as an override.
           from:
-            process.env.CONTACT_FROM ?? "GCB Website <onboarding@resend.dev>",
+            process.env.CONTACT_FROM ?? "GCB Website <website@gcbuae.com>",
           to: [siteConfig.contactRecipient],
           reply_to: email,
           subject,
