@@ -169,7 +169,7 @@ export default async function TerrazzoShadePage({ params }: Props) {
                 ))}
               </div>
 
-              <div className="mt-10 flex items-center gap-4">
+              <div className="mt-10 flex flex-wrap items-center gap-4">
                 <GcbButton href="/contact" size="md">
                   Request this shade
                 </GcbButton>

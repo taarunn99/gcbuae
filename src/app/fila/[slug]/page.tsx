@@ -270,7 +270,7 @@ function ProductView({ slug }: { slug: string }) {
       <section className="pt-40 pb-20">
         <Container>
           <Breadcrumb items={crumbs} />
-          <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.618fr] lg:items-start">
+          <div className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.618fr)] lg:items-start">
             {/* Packshot on the concrete well */}
             <div className="lg:sticky lg:top-32">
               <div className="rounded-xl bg-[#E9E7E0] p-10">
@@ -439,7 +439,7 @@ function ProductView({ slug }: { slug: string }) {
       {/* System position + related */}
       <section className="border-t border-[#0B0B0C]/10 py-16">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.618fr]">
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.618fr)]">
             {stage && (
               <div>
                 <p className="fila-display text-sm text-[#0B0B0C]/50">

@@ -49,7 +49,10 @@ export function MarbleLadder() {
               {t.series}
             </span>
 
-            <span className="flex min-w-0 flex-1 items-center">
+            {/* flex-wrap: shrink-0 thumbs overflowed the shrunken strip on
+                mobile and horizontally scrolled the page; desktop fits on
+                one line so wrap never engages (mobile audit, 2026-08-19). */}
+            <span className="flex min-w-0 flex-1 flex-wrap items-center gap-y-1">
               {shown.map((s, i) => (
                 <span
                   key={s.slug}

@@ -502,7 +502,7 @@ export default function JaquarPage() {
               working day.
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <GcbButton href="/contact" size="md" variant="dark">
               Request pricing
             </GcbButton>

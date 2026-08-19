@@ -49,14 +49,17 @@ export function GroupDeck() {
       </p>
 
       <div
-        className="relative mx-auto mt-10 h-[21rem] max-w-5xl sm:h-[23rem]"
+        className="relative mx-auto mt-10 h-[21rem] max-w-5xl [--fan-step:min(5vw,13.5rem)] sm:h-[23rem] sm:[--fan-step:min(19vw,13.5rem)]"
         onClick={() => setFanned((v) => !v)}
       >
         {CARDS.map((card, i) => {
           const offset = i - mid;
           const style = open
             ? {
-                transform: `translateX(calc(-50% + ${offset} * min(19vw, 13.5rem))) rotate(${offset * 4}deg) translateY(${Math.abs(offset) * 10}px)`,
+                // --fan-step is 19vw capped at 13.5rem on sm+, tightened
+                // below sm so the fanned edge cards stay inside a phone
+                // viewport (mobile audit, 2026-08-19).
+                transform: `translateX(calc(-50% + ${offset} * var(--fan-step, min(19vw, 13.5rem)))) rotate(${offset * 4}deg) translateY(${Math.abs(offset) * 10}px)`,
                 zIndex: 10 + i,
               }
             : {

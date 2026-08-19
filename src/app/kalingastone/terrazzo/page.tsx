@@ -443,7 +443,7 @@ export default function KalingaStoneTerrazzoPage() {
                 unique to the terrazzo range - nine catalogued samples on bases
                 from Ceppo to Exotic Green.
               </p>
-              <div className="mt-8 flex items-center gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <GcbButton href="/kalingastone/terrazzo/fluting" size="md">
                   Explore the fluting gallery
                 </GcbButton>
@@ -766,7 +766,7 @@ export default function KalingaStoneTerrazzoPage() {
               usually within one working day.
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <GcbButton href="/contact" size="md" variant="dark">
               Request availability
             </GcbButton>

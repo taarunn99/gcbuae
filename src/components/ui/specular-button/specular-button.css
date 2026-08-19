@@ -9,6 +9,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* Never wider than the container - lets the mobile label wrap
+     (gcb-button) actually constrain the button. No-op on desktop. */
+  max-width: 100%;
   border: none;
   margin: 0;
   font-family: inherit;

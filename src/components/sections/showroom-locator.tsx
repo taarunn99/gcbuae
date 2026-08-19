@@ -23,7 +23,10 @@ export function ShowroomLocator() {
         <h2 className="font-display text-warm-black mt-3 text-2xl tracking-tight">
           Al Sajaa, {siteConfig.address.city}, United Arab Emirates
         </h2>
-        <div className="mt-10 flex h-[320px] w-[360px] items-start justify-center">
+        {/* w-full + cap: the fixed 360px slot horizontally scrolled
+            sub-360px phones; >=400px viewports still render exactly
+            360px (mobile audit, 2026-08-19). */}
+        <div className="mt-10 flex h-[320px] w-full max-w-[360px] items-start justify-center">
           <LocationMap
             location={`Al Sajaa, ${siteConfig.address.city}, UAE`}
             coordinates="25.3604° N, 55.6503° E"

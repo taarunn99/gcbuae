@@ -54,7 +54,9 @@ export function CollectionLadder() {
               {c.series}
             </span>
 
-            <span className="flex min-w-0 flex-1 items-center">
+            {/* flex-wrap keeps shrink-0 thumbs from overflowing the page on
+                mobile; desktop fits one line (mobile audit, 2026-08-19). */}
+            <span className="flex min-w-0 flex-1 flex-wrap items-center gap-y-1">
               {shown.map((s, i) => (
                 <span
                   key={s.slug}

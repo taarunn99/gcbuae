@@ -17,14 +17,18 @@ export type Crumb = { label: string; href: string };
 export function Breadcrumb({ items }: { items: Crumb[] }) {
   const last = items.length - 1;
   return (
-    <nav aria-label="Breadcrumb" className="label-gcb text-muted">
+    /* flex-wrap, not inline flow: with no whitespace between the inline
+       elements the whole trail was ONE unbreakable line, and its
+       min-content width expanded the mobile layout viewport - zooming
+       out and side-panning every deep page on phones (audit,
+       2026-08-19). gap-x-2 reproduces the old mx-2 spacing exactly. */
+    <nav
+      aria-label="Breadcrumb"
+      className="label-gcb text-muted flex flex-wrap items-center gap-x-2 gap-y-2"
+    >
       {items.map((item, i) => (
         <Fragment key={item.href}>
-          {i > 0 && (
-            <span aria-hidden className="mx-2">
-              /
-            </span>
-          )}
+          {i > 0 && <span aria-hidden>/</span>}
           {i === last ? (
             <span className="text-foreground">{item.label}</span>
           ) : (

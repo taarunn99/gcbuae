@@ -55,7 +55,7 @@ export function CategorySheets({ category }: { category: string }) {
               {spaSheetHighlights.map(([term, value]) => (
                 <div
                   key={term}
-                  className="grid grid-cols-[1fr_1.618fr] gap-4 py-3"
+                  className="grid gap-2 py-3 sm:grid-cols-[1fr_1.618fr] sm:gap-4"
                 >
                   <dt className="text-ink/60 text-sm">{term}</dt>
                   <dd className="text-sm">{value}</dd>

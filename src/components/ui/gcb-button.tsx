@@ -74,7 +74,7 @@ export function GcbButton({
   const magneticRef = useMagnetic<HTMLSpanElement>(0.25, 70);
 
   return (
-    <span ref={magneticRef} className="inline-block will-change-transform">
+    <span ref={magneticRef} className="inline-block max-w-full will-change-transform">
       <SpecularButton
         size={size}
         radius={999}
@@ -97,7 +97,12 @@ export function GcbButton({
           if (href && !event.defaultPrevented) router.push(href);
         }}
       >
-        <span className="label-gcb whitespace-nowrap">{children}</span>
+        {/* Long labels must wrap below sm - a nowrap label made buttons
+            up to ~450px wide, horizontally scrolling every page that
+            carried one (mobile audit, 2026-08-19). Desktop keeps nowrap. */}
+        <span className="label-gcb max-sm:text-center whitespace-nowrap max-sm:whitespace-normal">
+          {children}
+        </span>
       </SpecularButton>
     </span>
   );

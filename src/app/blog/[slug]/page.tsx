@@ -195,7 +195,7 @@ export default async function BlogPostPage({
             </section>
 
             {/* Author block - the Organization, honestly */}
-            <div className="border-warm-black/20 mt-14 flex items-center gap-4 border-t pt-8">
+            <div className="border-warm-black/20 mt-14 flex flex-wrap items-center gap-4 border-t pt-8">
               <div>
                 <p className="font-display text-warm-black">
                   {siteConfig.legalName}

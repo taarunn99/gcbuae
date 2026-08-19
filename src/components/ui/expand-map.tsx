@@ -109,8 +109,10 @@ export function LocationMap({
         }
       }}
     >
+      {/* max-w-full: the card animates to a numeric 360px width, so CSS
+          caps it inside sub-360px viewports (mobile audit, 2026-08-19). */}
       <motion.div
-        className="border-warm-black bg-background relative overflow-hidden rounded-2xl border"
+        className="border-warm-black bg-background relative max-w-full overflow-hidden rounded-2xl border"
         style={
           reduced
             ? undefined

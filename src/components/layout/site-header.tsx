@@ -402,15 +402,26 @@ export function SiteHeader() {
       {/* Mobile menu - full screen, slides in from the right (CSS transform
           transition; stays mounted). Sits under the fixed bar z-wise so the
           logo and the X stay on top of it. */}
+      {/* The outer nav stays viewport-sized and CLIPS the sliding panel.
+          Parking the panel itself at translate-x-full expanded the mobile
+          layout viewport (fixed elements count toward the ICB), which
+          zoomed out and horizontally panned every page on real phones -
+          the root cause of the mobile-scroll bug (audit, 2026-08-19). */}
       <nav
         id="mobile-menu"
         aria-label="Primary"
         aria-hidden={!menuOpen}
         className={cn(
-          "bg-warm-black text-ink fixed inset-0 -z-10 overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] sm:hidden",
-          menuOpen ? "translate-x-0" : "pointer-events-none translate-x-full",
+          "fixed inset-0 -z-10 overflow-x-clip sm:hidden",
+          !menuOpen && "pointer-events-none",
         )}
       >
+        <div
+          className={cn(
+            "bg-warm-black text-ink absolute inset-0 overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]",
+            menuOpen ? "translate-x-0" : "translate-x-full",
+          )}
+        >
         <div className="container-gcb pt-24 pb-12">
           <p
             className={cn(
@@ -469,6 +480,7 @@ export function SiteHeader() {
               ))}
             </ul>
           </div>
+        </div>
         </div>
       </nav>
     </header>

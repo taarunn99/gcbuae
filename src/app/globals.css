@@ -180,6 +180,14 @@
     /* Lenis drives scrolling; native smooth scroll would fight it. */
     scroll-behavior: auto;
     -webkit-tap-highlight-color: transparent;
+    /* The page must never pan sideways (owner, 2026-08-19). `clip`
+       forbids horizontal scrolling WITHOUT creating a scroll container,
+       so position: sticky rails, the fixed footer reveal and Lenis are
+       unaffected - unlike `hidden`, which must never be used here. It
+       also swallows transient overflow during entrance animations.
+       Real overflow bugs still get FIXED at the source; this is the net,
+       not the fix (see the mobile audit, docs/DEPLOY-CHECKLIST.md). */
+    overflow-x: clip;
   }
 
   body {
