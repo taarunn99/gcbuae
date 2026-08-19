@@ -56,8 +56,8 @@ export function FilmLoop() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const [chapterIndex, setChapterIndex] = useState(0);
-  // The film only starts downloading when its section is within ~1.5
-  // viewports: autoPlay defeats preload="metadata", so mounting the
+  // The film only starts downloading when its section is within ~half a
+  // viewport: autoPlay defeats preload="metadata", so mounting the
   // <source> elements at load pulled the full ~3.7MB during first paint
   // and held the loading spinner for seconds (perf audit, 2026-08-19).
   const [nearView, setNearView] = useState(false);
@@ -85,7 +85,7 @@ export function FilmLoop() {
           observer.disconnect();
         }
       },
-      { rootMargin: "150% 0px" },
+      { rootMargin: "50% 0px" },
     );
     observer.observe(section);
     return () => observer.disconnect();
