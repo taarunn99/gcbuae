@@ -59,7 +59,7 @@ export function WhatsAppPlugin() {
           <div className="relative mx-auto w-full max-w-[360px]">
             <span
               aria-hidden
-              className="bg-verde absolute -inset-x-5 top-8 -bottom-5 rotate-2 rounded-2xl"
+              className="bg-verde absolute -inset-x-2 top-8 -bottom-5 rotate-2 rounded-2xl lg:-inset-x-5"
             />
             <div className="border-warm-black bg-background relative w-full overflow-hidden rounded-2xl border shadow-2xl">
               {/* Header */}

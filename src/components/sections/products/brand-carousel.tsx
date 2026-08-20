@@ -296,18 +296,21 @@ function BrandSlide({
         </GcbButton>
       </div>
 
-      {/* The filmstrip - real catalogue material, on to the viewport edge */}
-      <div className="-mr-6 min-w-0 flex-1 sm:-mr-16" aria-hidden>
+      {/* The filmstrip - real catalogue material. On phones the tiles
+          wrap into a contained grid (nothing may be cut by the screen
+          edge - owner rule, 2026-08-20); the edge-running strip is the
+          lg+ treatment. */}
+      <div className="min-w-0 flex-1 lg:-mr-16" aria-hidden>
         <div
           data-brand-strip
-          className="flex w-max items-center gap-3 will-change-transform md:gap-4"
+          className="grid grid-cols-4 gap-3 will-change-transform lg:flex lg:w-max lg:items-center lg:gap-4"
         >
           {tiles.map((tile, i) => (
             <div
               key={tile.src}
               className={cn(
-                "border-warm-black bg-ink relative size-14 shrink-0 overflow-hidden rounded-xl border shadow-sm md:size-20 xl:size-28",
-                i % 2 ? "translate-y-2.5" : "-translate-y-2.5",
+                "border-warm-black bg-ink relative aspect-square w-full shrink-0 overflow-hidden rounded-xl border shadow-sm lg:size-20 xl:size-28",
+                i % 2 ? "lg:translate-y-2.5" : "lg:-translate-y-2.5",
               )}
             >
               <Image

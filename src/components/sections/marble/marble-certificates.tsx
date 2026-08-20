@@ -98,7 +98,7 @@ export function MarbleCertificates() {
 
   return (
     <div>
-      <div ref={emblaRef} className="overflow-hidden">
+      <div ref={emblaRef} className="overflow-hidden max-lg:[mask-image:linear-gradient(to_right,transparent,black_3%,black_94%,transparent)]">
         <div className="flex touch-pan-y gap-5">
           {CLUSTERS.map((c, index) => (
             <article

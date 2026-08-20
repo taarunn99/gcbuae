@@ -51,7 +51,7 @@ export function MaterialsTicker({
       aria-label="Product lines ticker"
       className={
         (dark ? "border-ink/25" : "border-warm-black") +
-        " overflow-hidden border-y py-8"
+        " overflow-hidden border-y py-8 [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
       }
     >
       <div className="marquee-gcb flex w-max">

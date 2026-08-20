@@ -78,7 +78,7 @@ export function TerrazzoLifestyleCarousel({
 
   return (
     <div>
-      <div ref={emblaRef} className="overflow-hidden px-6 lg:px-[6vw]">
+      <div ref={emblaRef} className="overflow-hidden px-6 max-lg:[mask-image:linear-gradient(to_right,transparent,black_3%,black_94%,transparent)] lg:px-[6vw]">
         <div className="flex touch-pan-y gap-6">
           {items.map((item) => (
             <Link
