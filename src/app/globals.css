@@ -24,7 +24,7 @@
   --surface: #d2d4c8;
   --surface-raised: #f7f8f5;
   --border: #355e4d;
-  --muted: #6f8f78;
+  --muted: rgba(12, 21, 16, 0.66);
   --accent: #6f8f78;
   --accent-foreground: #f7f8f5;
 
@@ -52,7 +52,7 @@
   --surface: #d2d4c8;
   --surface-raised: #f7f8f5;
   --border: #355e4d;
-  --muted: #6f8f78;
+  --muted: rgba(12, 21, 16, 0.66);
   --accent: #6f8f78;
   --accent-foreground: #f7f8f5;
   --warm-black: #0c1510;

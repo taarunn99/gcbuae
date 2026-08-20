@@ -26,12 +26,12 @@ export function HomeContact() {
           <div className="max-w-3xl">
             <ContactForm />
           </div>
-          <div
+          <figure
             className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-3xl border"
             aria-label="Water running over a brushed-brass fitting"
           >
             <AmbientClip name="brass-water" />
-          </div>
+          </figure>
         </div>
       </div>
     </section>

@@ -78,7 +78,7 @@ export function MarbleLadder() {
             </span>
 
             {t.note && (
-              <span className="label-gcb text-bronze mr-1 hidden shrink-0 md:block">
+              <span className="label-gcb text-warm-black/65 mr-1 hidden shrink-0 md:block">
                 {t.note}
               </span>
             )}

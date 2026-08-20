@@ -167,8 +167,8 @@ function InstagramDeck() {
   return (
     <div className="bg-bronze border-warm-black relative flex flex-col overflow-hidden rounded-3xl border p-7 sm:p-9">
       <div className="flex items-baseline justify-between">
-        <p className="label-gcb text-warm-black/70">Instagram</p>
-        <span className="text-warm-black/70 flex items-center gap-2 text-sm">
+        <p className="label-gcb text-warm-black">Instagram</p>
+        <span className="text-warm-black flex items-center gap-2 text-sm">
           <svg aria-hidden width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <rect x="3" y="3" width="18" height="18" rx="5" />
             <circle cx="12" cy="12" r="4" />

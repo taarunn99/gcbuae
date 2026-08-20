@@ -10,10 +10,14 @@ type RevealProps = {
   className?: string;
   /** Seconds before the entrance starts. */
   delay?: number;
+  /** First-screen content renders statically - entrance fades were
+      gating text LCP past hydration (owner-approved, 2026-08-20). */
+  instant?: boolean;
 };
 
 /** Fades and rises a block the first time it scrolls into view. */
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Reveal({ children, className, delay = 0, instant = false }: RevealProps) {
+  if (instant) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}

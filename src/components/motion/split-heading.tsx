@@ -11,6 +11,8 @@ type SplitHeadingProps = {
   as?: "h1" | "h2" | "h3" | "p";
   /** Delay before the first line rises, in seconds. */
   delay?: number;
+  /** First-screen headings render statically (LCP; owner, 2026-08-20). */
+  instant?: boolean;
 };
 
 /**
@@ -25,11 +27,13 @@ export function SplitHeading({
   className,
   as: Tag = "h2",
   delay = 0,
+  instant = false,
 }: SplitHeadingProps) {
   const ref = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
+      if (instant) return;
       let split: SplitText | undefined;
       let cancelled = false;
 
@@ -64,11 +68,11 @@ export function SplitHeading({
         split?.revert();
       };
     },
-    { scope: ref, dependencies: [delay] },
+    { scope: ref, dependencies: [delay, instant] },
   );
 
   return (
-    <Tag ref={ref} className={cn("invisible", className)}>
+    <Tag ref={ref} className={cn(!instant && "invisible", className)}>
       {children}
     </Tag>
   );

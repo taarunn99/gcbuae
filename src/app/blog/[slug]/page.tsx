@@ -126,9 +126,9 @@ export default async function BlogPostPage({
         <Breadcrumb items={crumbs} />
 
         <header className="mt-10 max-w-3xl">
-          <p className="label-gcb text-bronze">
+          <p className="label-gcb text-warm-black/65">
             {category.label}
-            <span className="text-warm-black/40">
+            <span className="text-warm-black/60">
               {" "}· {post.readMinutes} min read ·{" "}
               {new Date(post.datePublished).toLocaleDateString("en-AE", {
                 day: "numeric",
@@ -151,6 +151,7 @@ export default async function BlogPostPage({
             quality={90}
             className="object-cover"
             preload
+            fetchPriority="high"
           />
         </figure>
 

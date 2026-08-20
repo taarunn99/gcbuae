@@ -36,6 +36,9 @@ const film = Fraunces({
   variable: "--font-film-variable",
   display: "swap",
   axes: ["opsz"],
+  // Below-the-fold only (the film words) - keep it off the LCP-critical
+  // preload chain (Lighthouse loop, 2026-08-20).
+  preload: false,
 });
 
 export const metadata: Metadata = {

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -11,14 +12,23 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
  * starts/stops on an IntersectionObserver so nothing decodes offscreen.
  * Reduced motion gets the poster only. Decorative - no controls, muted,
  * looped, aria-hidden with the poster alt carried by the figure around it.
+ *
+ * priorityPoster (2026-08-20): above-the-fold placements were LCP-bound
+ * by the late native poster fetch. With the flag on, a preloaded
+ * next/image renders UNDER the video (fetchpriority=high) and the
+ * native poster attribute is dropped - the frame paints early, the film
+ * fades in over it when it plays.
  */
 export function AmbientClip({
   name,
   className = "",
+  priorityPoster = false,
 }: {
   /** Basename in /public/clips: marble-vein, quartz-kitchen, terrazzo-light, brass-water */
   name: string;
   className?: string;
+  /** Set on above-the-fold placements where the poster is the LCP. */
+  priorityPoster?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const reducedMotion = useReducedMotion();
@@ -38,18 +48,34 @@ export function AmbientClip({
   }, [reducedMotion]);
 
   return (
-    <video
-      ref={videoRef}
-      className={`absolute inset-0 h-full w-full object-cover ${className}`}
-      poster={`/clips/${name}-poster.webp`}
-      preload="none"
-      muted
-      loop
-      playsInline
-      disablePictureInPicture
-      aria-hidden
-    >
-      {!reducedMotion && <source src={`/clips/${name}.mp4`} type="video/mp4" />}
-    </video>
+    <>
+      {priorityPoster && (
+        <Image
+          src={`/clips/${name}-poster.webp`}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 40rem, 100vw"
+          className="object-cover"
+          preload
+          fetchPriority="high"
+          aria-hidden
+        />
+      )}
+      <video
+        ref={videoRef}
+        className={`absolute inset-0 h-full w-full object-cover ${className}`}
+        {...(priorityPoster ? {} : { poster: `/clips/${name}-poster.webp` })}
+        preload="none"
+        muted
+        loop
+        playsInline
+        disablePictureInPicture
+        aria-hidden
+      >
+        {!reducedMotion && (
+          <source src={`/clips/${name}.mp4`} type="video/mp4" />
+        )}
+      </video>
+    </>
   );
 }

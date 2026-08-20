@@ -216,7 +216,7 @@ export default function KalingaStoneQuartzPage() {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_minmax(0,320px)] lg:items-end">
             <div>
-              <SplitHeading
+              <SplitHeading instant
                 as="h1"
                 className="font-display max-w-4xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl"
               >
@@ -224,7 +224,7 @@ export default function KalingaStoneQuartzPage() {
               </SplitHeading>
 
               {/* Answer-first paragraph for search and AI overviews */}
-              <Reveal className="mt-8 max-w-2xl">
+              <Reveal instant className="mt-8 max-w-2xl">
                 <p className="text-lg leading-relaxed">
                   KalingaStone Quartz is an engineered quartz surface made by
                   Classic Marble Company and distributed across the Emirates by
@@ -236,12 +236,12 @@ export default function KalingaStoneQuartzPage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1}>
+            <Reveal instant delay={0.1}>
               <figure
                 className="relative aspect-[3/4] overflow-hidden rounded-xl"
                 aria-label="Morning light over a white KalingaStone quartz kitchen worktop"
               >
-                <AmbientClip name="quartz-kitchen" />
+                <AmbientClip name="quartz-kitchen" priorityPoster />
               </figure>
             </Reveal>
           </div>

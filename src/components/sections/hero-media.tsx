@@ -62,8 +62,10 @@ export function HeroMedia() {
             sizes="100vw"
             quality={90}
             placeholder="blur"
-            // Replaces `priority`, deprecated in Next 16.
+            // Replaces `priority`, deprecated in Next 16. fetchPriority
+            // rides into the emitted preload link (Lighthouse: LCP request).
             preload
+            fetchPriority="high"
             className="object-cover [object-position:43.5%_50%]"
           />
         </div>

@@ -155,7 +155,7 @@ export function BrandCarousel() {
           >
             <div className="container-gcb">
               {i === 0 && (
-                <p className="label-gcb text-warm-black/60 mb-10">By brand</p>
+                <p className="label-gcb text-warm-black/70 mb-10">By brand</p>
               )}
               <BrandSlide brand={brand} tiles={BRAND_TILES[i]} />
             </div>
@@ -175,12 +175,12 @@ export function BrandCarousel() {
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="container-gcb flex items-baseline justify-between">
             <div>
-              <p className="label-gcb text-warm-black/60">By brand</p>
+              <p className="label-gcb text-warm-black/70">By brand</p>
               <h2 className="font-display text-phi-3 text-warm-black mt-3 tracking-tight">
                 Choose your brand.
               </h2>
             </div>
-            <p className="label-gcb text-warm-black/50 hidden sm:block">
+            <p className="label-gcb text-warm-black/65 hidden sm:block">
               Three names · one supplier
             </p>
           </div>
@@ -212,7 +212,7 @@ export function BrandCarousel() {
               />
             </div>
             <div className="mt-5 flex items-center justify-center gap-3">
-              <span className="label-gcb text-warm-black/60">
+              <span className="label-gcb text-warm-black/70">
                 Keep scrolling
               </span>
               <svg

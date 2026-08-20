@@ -29,7 +29,7 @@ export function WhatsAppPlugin() {
       <Container className="relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1.618fr_1fr] lg:gap-20">
           <div>
-            <p className="label-gcb text-bronze">
+            <p className="label-gcb text-warm-black/65">
               The fastest quote in Sharjah
             </p>
             <h2 className="font-display text-phi-3 mt-5 max-w-xl tracking-tight text-balance">

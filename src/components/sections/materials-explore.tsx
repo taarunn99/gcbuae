@@ -105,7 +105,7 @@ export function MaterialsExplore() {
               Explore the materials.
             </h2>
           </div>
-          <p className="label-gcb text-warm-black/50 hidden sm:block">
+          <p className="label-gcb text-warm-black/65 hidden sm:block">
             Three surfaces · one supplier
           </p>
         </div>
@@ -133,7 +133,7 @@ export function MaterialsExplore() {
               <Link
                 key={item.slug}
                 href={item.href}
-                aria-label={`Explore KalingaStone ${item.label.toLowerCase()}`}
+                aria-label={`${item.label} - explore the KalingaStone range`}
                 data-active={expanded}
                 onPointerEnter={fine ? () => setActive(i) : undefined}
                 onFocus={() => setActive(i)}
@@ -271,7 +271,7 @@ export function MaterialsExplore() {
             <Link
               key={item.slug}
               href={item.href}
-              aria-label={`Explore KalingaStone ${item.label.toLowerCase()}`}
+              aria-label={`${item.label} - explore the KalingaStone range`}
               className="border-warm-black relative block aspect-[4/5] overflow-hidden rounded-3xl border"
             >
               <Image

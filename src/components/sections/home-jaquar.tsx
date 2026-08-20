@@ -63,6 +63,8 @@ export function HomeJaquar() {
               <img
                 src="/brands/jaquar.png"
                 alt="Jaquar Group logo"
+                width={1000}
+                height={331}
                 className="h-20 w-auto sm:h-24"
                 loading="lazy"
               />

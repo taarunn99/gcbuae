@@ -123,7 +123,8 @@ export default function AboutPage() {
                   sizes="(min-width: 1024px) 30rem, 100vw"
                   quality={90}
                   className="object-cover"
-                  loading="lazy"
+                  preload
+                  fetchPriority="high"
                 />
               </div>
               <figcaption className="label-gcb text-muted absolute top-24 -right-6 origin-top-left rotate-90 whitespace-nowrap">

@@ -83,7 +83,7 @@ export function CollectionLadder() {
 
             <Link
               href={`/kalingastone/terrazzo/collections/${c.slug}`}
-              className="label-gcb text-bronze hover:text-foreground mr-1 hidden shrink-0 transition-colors md:block"
+              className="label-gcb text-warm-black/65 hover:text-foreground mr-1 hidden shrink-0 transition-colors md:block"
             >
               {c.label}
             </Link>

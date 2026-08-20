@@ -285,7 +285,7 @@ export default function JaquarPage() {
               className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-xl border"
               aria-label="Water running over a brushed-brass Jaquar-style fitting"
             >
-              <AmbientClip name="brass-water" />
+              <AmbientClip name="brass-water" priorityPoster />
             </figure>
           </div>
         </Container>

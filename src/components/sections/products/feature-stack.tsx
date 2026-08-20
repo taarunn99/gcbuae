@@ -104,7 +104,7 @@ export function FeatureStack() {
         >
           <div className="border-warm-black container-gcb border-t pt-8 pb-16 lg:pb-24">
             <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <p className="label-gcb text-bronze">{f.folio}</p>
+              <p className="label-gcb text-warm-black/65">{f.folio}</p>
               <p aria-hidden className="font-display text-muted text-phi-1">
                 {String(i + 1).padStart(2, "0")} / 03
               </p>

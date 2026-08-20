@@ -20,11 +20,13 @@ export function PostCard({
   featured?: boolean;
 }) {
   const category = blogCategoryBySlug.get(post.category);
+  // The featured card follows the page h1 directly, so it carries the
+  // h2 slot (Lighthouse heading-order, 2026-08-20).
+  const Heading = featured ? "h2" : "h3";
   return (
     <Link
       href={`/blog/${post.slug}`}
       className="group block"
-      aria-label={post.title}
     >
       <div className="border-warm-black relative aspect-[4/3] overflow-hidden border">
         <Image
@@ -33,14 +35,15 @@ export function PostCard({
           fill
           sizes={featured ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 1024px) 30vw, 100vw"}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-          loading="lazy"
+          loading={featured ? "eager" : "lazy"}
+          fetchPriority={featured ? "high" : undefined}
         />
       </div>
-      <p className="label-gcb text-bronze mt-4">
+      <p className="label-gcb text-warm-black/65 mt-4">
         {category?.label}
-        <span className="text-warm-black/40"> · {post.readMinutes} min read</span>
+        <span className="text-warm-black/60"> · {post.readMinutes} min read</span>
       </p>
-      <h3
+      <Heading
         className={
           featured
             ? "font-display text-warm-black text-phi-2 mt-2 leading-tight tracking-tight"
@@ -48,7 +51,7 @@ export function PostCard({
         }
       >
         {post.title}
-      </h3>
+      </Heading>
       <p className="text-warm-black/70 mt-2 leading-relaxed">
         {post.description}
       </p>

@@ -206,7 +206,7 @@ export default function KalingaStoneTerrazzoPage() {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_minmax(0,320px)] lg:items-end">
             <div>
-              <SplitHeading
+              <SplitHeading instant
                 as="h1"
                 className="font-display max-w-4xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl"
               >
@@ -214,7 +214,7 @@ export default function KalingaStoneTerrazzoPage() {
               </SplitHeading>
 
               {/* Answer-first paragraph for search and AI overviews */}
-              <Reveal className="mt-8 max-w-2xl">
+              <Reveal instant className="mt-8 max-w-2xl">
                 <p className="text-lg leading-relaxed">
                   KalingaStone Terrazzo is an engineered terrazzo made in block
                   form by Classic Marble Company and distributed across the
@@ -227,12 +227,12 @@ export default function KalingaStoneTerrazzoPage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1}>
+            <Reveal instant delay={0.1}>
               <figure
                 className="relative aspect-[3/4] overflow-hidden rounded-xl"
                 aria-label="Light playing across KalingaStone terrazzo chips"
               >
-                <AmbientClip name="terrazzo-light" />
+                <AmbientClip name="terrazzo-light" priorityPoster />
               </figure>
             </Reveal>
           </div>

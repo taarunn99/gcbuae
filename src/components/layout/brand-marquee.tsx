@@ -8,9 +8,9 @@
  * FILA and KalingaStone logos are the owner-supplied official art.
  */
 const BRANDS = [
-  { name: "KalingaStone", src: "/brands/kalingastone.svg", height: 44 },
-  { name: "Jaquar Group", src: "/brands/jaquar.png", height: 44 },
-  { name: "FILA Surface Care", src: "/brands/fila-logo.svg", height: 48 },
+  { name: "KalingaStone", src: "/brands/kalingastone.svg", height: 44, w: 746, h: 270 },
+  { name: "Jaquar Group", src: "/brands/jaquar.png", height: 44, w: 1000, h: 331 },
+  { name: "FILA Surface Care", src: "/brands/fila-logo.svg", height: 48, w: 3543, h: 2321 },
 ];
 
 function Track() {
@@ -21,6 +21,8 @@ function Track() {
           key={brand.name}
           src={brand.src}
           alt={brand.name}
+          width={brand.w}
+          height={brand.h}
           style={{ height: brand.height }}
           className="w-auto shrink-0"
           loading="lazy"

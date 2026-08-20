@@ -59,7 +59,7 @@ export function ShowroomLocator() {
             <dl className="space-y-6">
               {DETAILS.map((detail) => (
                 <div key={detail.label}>
-                  <dt className="label-gcb text-warm-black/50">
+                  <dt className="label-gcb text-warm-black/65">
                     {detail.label}
                   </dt>
                   {detail.lines.map((line) => (

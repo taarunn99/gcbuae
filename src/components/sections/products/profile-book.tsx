@@ -58,7 +58,7 @@ export function ProfileBook() {
       <div className="container-gcb [.is-filled_&]:text-ink relative py-24 transition-colors duration-500 sm:py-32">
         <div className="grid items-center gap-14 lg:grid-cols-[1.618fr_1fr] lg:gap-20">
           <div>
-            <p className="label-gcb text-bronze [.is-filled_&]:text-travertine transition-colors duration-500">
+            <p className="label-gcb text-warm-black/65 [.is-filled_&]:text-travertine transition-colors duration-500">
               The company, in print
             </p>
             <h2 className="font-display text-phi-3 mt-5 max-w-xl tracking-tight text-balance">
@@ -85,7 +85,6 @@ export function ProfileBook() {
           <a
             href="/profile/global-classic-profile.pdf"
             download="Global-Classic-Company-Profile.pdf"
-            aria-label="Open the company profile PDF"
             className="group/book mx-auto block w-full max-w-[320px]"
             style={{ perspective: "1600px" }}
           >

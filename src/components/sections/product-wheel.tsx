@@ -324,7 +324,7 @@ export function ProductWheel() {
                   src={active.image}
                   alt={active.alt}
                   fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 30rem, 100vw"
                   className="object-cover"
                   loading="eager"
                 />

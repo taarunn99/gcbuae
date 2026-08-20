@@ -189,7 +189,7 @@ export default function KalingaStoneMarblePage() {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_minmax(0,320px)] lg:items-end">
             <div>
-              <SplitHeading
+              <SplitHeading instant
                 as="h1"
                 className="font-display max-w-4xl text-4xl leading-tight tracking-tight text-balance sm:text-6xl"
               >
@@ -197,7 +197,7 @@ export default function KalingaStoneMarblePage() {
               </SplitHeading>
 
               {/* Answer-first paragraph for search and AI overviews */}
-              <Reveal className="mt-8 max-w-2xl">
+              <Reveal instant className="mt-8 max-w-2xl">
                 <p className="text-lg leading-relaxed">
                   KalingaStone Marble is an engineered marble made by Classic
                   Marble Company and distributed across the Emirates by Global
@@ -208,12 +208,12 @@ export default function KalingaStoneMarblePage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1}>
+            <Reveal instant delay={0.1}>
               <figure
                 className="relative aspect-[3/4] overflow-hidden rounded-xl"
                 aria-label="Slow travel across the veining of a KalingaStone marble slab"
               >
-                <AmbientClip name="marble-vein" />
+                <AmbientClip name="marble-vein" priorityPoster />
               </figure>
             </Reveal>
           </div>

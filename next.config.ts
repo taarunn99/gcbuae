@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Inline the (single, Tailwind v4) stylesheet - removes both
+    // render-blocking CSS requests (Lighthouse 2026-08-20).
+    inlineCss: true,
+  },
   // Don't advertise the framework in response headers.
   poweredByHeader: false,
   images: {

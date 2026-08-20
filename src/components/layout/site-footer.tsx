@@ -89,6 +89,11 @@ export function SiteFooter() {
   const iconRowRef = useMagneticShineGroup<HTMLDivElement>();
   const lapizRowRef = useMagneticShineGroup<HTMLDivElement>();
   const [height, setHeight] = useState(0);
+  // Paint the footer only once its spacer nears the viewport: the fixed
+  // block behind the page otherwise registers as the LCP element on
+  // short pages (Lighthouse, 2026-08-20). visibility keeps it in the
+  // DOM for crawlers and measurement.
+  const [nearBottom, setNearBottom] = useState(false);
 
   // The fixed footer occupies no flow space; the spacer mirrors its height
   // so the page scrolls exactly far enough to reveal it.
@@ -102,6 +107,22 @@ export function SiteFooter() {
     return () => ro.disconnect();
   }, []);
 
+  useEffect(() => {
+    const spacer = spacerRef.current;
+    if (!spacer) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNearBottom(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100% 0px" },
+    );
+    observer.observe(spacer);
+    return () => observer.disconnect();
+  }, []);
+
   useGSAP(
     () => {
       if (!spacerRef.current || !innerRef.current) return;
@@ -109,7 +130,7 @@ export function SiteFooter() {
 
       gsap.fromTo(
         innerRef.current,
-        { yPercent: -22, scale: 0.95, rotateX: 7, autoAlpha: 0.35 },
+        { yPercent: -22, scale: 0.95, rotateX: 7, autoAlpha: 0 },
         {
           yPercent: 0,
           scale: 1,
@@ -155,7 +176,10 @@ export function SiteFooter() {
       <footer
         ref={footerRef}
         className="bg-warm-black text-ink grain-gcb fixed inset-x-0 bottom-0 z-0 overflow-hidden"
-        style={{ perspective: "1200px" }}
+        style={{
+          perspective: "1200px",
+          visibility: nearBottom ? "visible" : "hidden",
+        }}
       >
         <div ref={innerRef} style={{ transformOrigin: "50% 0%" }}>
           <Container className="relative z-10 pt-16 pb-8 sm:pt-20">

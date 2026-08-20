@@ -77,7 +77,6 @@ export function AuthorizedDistributor() {
                 href="/certificates/kalingastone-authorized-reseller.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open the KalingaStone authorization letter PDF"
                 className="group block"
               >
                 <span className="border-ink/20 bg-ink/5 block rotate-[-1.5deg] rounded-lg border p-3 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.02] group-hover:rotate-0">
@@ -100,7 +99,6 @@ export function AuthorizedDistributor() {
                 href="/certificates/fila-preferred-distributor.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open the FILA Preferred UAE Distributor certificate PDF"
                 className="group block"
               >
                 <span className="border-ink/20 bg-ink/5 block rotate-[1.5deg] rounded-lg border p-3 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.02] group-hover:rotate-0">

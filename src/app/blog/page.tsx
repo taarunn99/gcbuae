@@ -32,7 +32,7 @@ export default function BlogIndexPage() {
   return (
     <main className="theme-forest bg-background text-foreground flex-1 pt-40 pb-0">
       <Container>
-        <Reveal>
+        <Reveal instant>
           <div className="flex flex-wrap items-baseline justify-between gap-4">
             <p className="label-gcb text-muted">The Journal · Global Classic</p>
             <p className="label-gcb text-muted">{BLOG_POSTS.length} guides</p>
@@ -40,7 +40,7 @@ export default function BlogIndexPage() {
           <RuleIn className="mt-4 w-full" />
         </Reveal>
 
-        <SplitHeading
+        <SplitHeading instant
           as="h1"
           className="font-display text-phi-4 mt-12 max-w-4xl tracking-tight text-balance"
         >

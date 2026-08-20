@@ -28,7 +28,7 @@ export function Hero() {
             outgrows the flat wall behind it and starts crossing the shower
             frame. The type ceiling is set from the same constraint. */}
         <div className="px-gutter mx-auto w-full max-w-[37rem] text-center lg:mx-0 lg:ml-[46.5%] lg:-translate-x-1/2">
-          <SplitHeading
+          <SplitHeading instant
             as="h1"
             className="font-display text-ink text-[clamp(2.25rem,4.6vw,4.25rem)] leading-[1.12] tracking-[-0.01em]"
           >
@@ -41,13 +41,13 @@ export function Hero() {
             ))}
           </SplitHeading>
 
-          <Reveal delay={0.75} className="mt-8">
+          <Reveal instant delay={0.75} className="mt-8">
             <p className="text-ink/80 mx-auto max-w-md text-base leading-relaxed text-balance">
               {heroCopy.subline}
             </p>
           </Reveal>
 
-          <Reveal delay={0.9} className="mt-10">
+          <Reveal instant delay={0.9} className="mt-10">
             <GcbButton href={heroCopy.cta.href} size="md" variant="dark">
               {heroCopy.cta.label}&ensp;&rarr;
             </GcbButton>

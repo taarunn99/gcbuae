@@ -99,7 +99,7 @@ export function GroupDeck() {
                 <span className="text-warm-black/60 mt-1 block text-sm">
                   {card.role}
                 </span>
-                <span className="label-gcb text-warm-black/50 mt-4 block">
+                <span className="label-gcb text-warm-black/65 mt-4 block">
                   {card.here
                     ? "You are here"
                     : card.href
@@ -120,6 +120,12 @@ export function GroupDeck() {
               href={card.href}
               target="_blank"
               rel="noopener noreferrer"
+              // Collapsed cards are stacked (partially obscured): keep
+              // them out of the tab order and a11y tree until the fan
+              // opens - the deck itself handles the opening tap
+              // (Lighthouse mobile target-size, 2026-08-20).
+              aria-hidden={!open}
+              tabIndex={open ? 0 : -1}
               className={cardClass}
               style={style}
               onClick={(e) => {

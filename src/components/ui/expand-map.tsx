@@ -105,7 +105,6 @@ export function LocationMap({
       role="button"
       tabIndex={0}
       aria-expanded={isExpanded}
-      aria-label={`Map card for ${location} - activate to ${isExpanded ? "open Google Maps directions" : "expand the map"}`}
       className={`relative cursor-pointer select-none ${className ?? ""}`}
       style={{ perspective: 1000 }}
       onMouseMove={handleMouseMove}
@@ -281,6 +280,11 @@ export function LocationMap({
           )}
         </AnimatePresence>
 
+        <span className="sr-only">
+          {isExpanded
+            ? " - activate to open Google Maps directions"
+            : " - activate to expand the map"}
+        </span>
         {/* Grid pattern - only show when collapsed */}
         <motion.div
           className="absolute inset-0 opacity-[0.03]"
@@ -334,8 +338,10 @@ export function LocationMap({
               </motion.svg>
             </motion.div>
 
-            {/* Status chip */}
+            {/* Status chip - decorative, kept out of the accessible name
+                so it matches the visible location label. */}
             <motion.div
+              aria-hidden
               className="bg-foreground/5 flex items-center gap-1.5 rounded-full px-2 py-1 backdrop-blur-sm"
               animate={{
                 scale: isHovered && !reduced ? 1.05 : 1,

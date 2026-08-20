@@ -54,7 +54,7 @@ export function ContactHero() {
         <Reveal>
           <p className="label-gcb text-bronze">Contact</p>
         </Reveal>
-        <SplitHeading
+        <SplitHeading instant
           as="h1"
           className="font-display text-phi-4 mx-auto mt-6 max-w-3xl tracking-tight text-balance"
         >

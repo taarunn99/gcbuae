@@ -27,11 +27,13 @@ export default function ContactPage() {
             <Reveal>
               <ContactForm />
             </Reveal>
-            <Reveal
-              className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-3xl border"
-              aria-label="Slow travel across the veining of a KalingaStone marble slab"
-            >
-              <AmbientClip name="marble-vein" />
+            <Reveal className="border-warm-black relative aspect-[3/4] overflow-hidden rounded-3xl border">
+              <figure
+                className="absolute inset-0"
+                aria-label="Slow travel across the veining of a KalingaStone marble slab"
+              >
+                <AmbientClip name="marble-vein" priorityPoster />
+              </figure>
             </Reveal>
           </div>
         </Container>
