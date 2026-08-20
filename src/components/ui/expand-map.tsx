@@ -38,12 +38,12 @@ interface LocationMapProps {
   className?: string;
 }
 
-/** Pastel Green (the --bronze token) at the alphas the reference used for
- *  emerald. The rgba pairs are the same palette colour with alpha - CSS
- *  filters cannot compose a var() into rgba(). */
-const ACCENT = "var(--bronze)";
-const ACCENT_GLOW_SOFT = "drop-shadow(0 0 4px rgba(111, 143, 120, 0.35))";
-const ACCENT_GLOW = "drop-shadow(0 0 8px rgba(111, 143, 120, 0.6))";
+/** Onyx Green (owner, 2026-08-20) - the pin, dot, icon and animated
+ *  underline all run on Onyx. The rgba pairs are the same colour with
+ *  alpha - CSS filters cannot compose a var() into rgba(). */
+const ACCENT = "var(--warm-black)";
+const ACCENT_GLOW_SOFT = "drop-shadow(0 0 4px rgba(12, 21, 16, 0.3))";
+const ACCENT_GLOW = "drop-shadow(0 0 8px rgba(12, 21, 16, 0.45))";
 
 export function LocationMap({
   location = "Al Sajaa, Sharjah, UAE",
@@ -384,7 +384,7 @@ export function LocationMap({
                       <p className="text-warm-black/70 text-xs">
                         +971 52 992 7827 · +971 6 531 2015 · info@gcbuae.com
                       </p>
-                      <p className="text-bronze pt-1 text-[11px] font-medium tracking-wide">
+                      <p className="text-warm-black pt-1 text-[11px] font-medium tracking-wide">
                         Tap again for Google Maps directions →
                       </p>
                     </>
@@ -395,7 +395,7 @@ export function LocationMap({
 
             {/* Animated underline - Pastel Green fade */}
             <motion.div
-              className="from-bronze via-bronze/40 h-px bg-gradient-to-r to-transparent"
+              className="from-warm-black via-warm-black/40 h-px bg-gradient-to-r to-transparent"
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: isHovered || isExpanded ? 1 : 0.3 }}
               transition={{ duration: DURATION.fast, ease: EASE.out }}
