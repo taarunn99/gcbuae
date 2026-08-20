@@ -444,7 +444,7 @@ export default function KalingaStoneTerrazzoPage() {
                 from Ceppo to Exotic Green.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <GcbButton href="/kalingastone/terrazzo/fluting" size="md">
+                <GcbButton href="/kalingastone/terrazzo/fluting" size="md" variant="light">
                   Explore the fluting gallery
                 </GcbButton>
               </div>

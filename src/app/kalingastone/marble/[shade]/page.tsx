@@ -169,7 +169,7 @@ export default async function MarbleShadePage({ params }: Props) {
               </div>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <GcbButton href="/contact" size="md">
+                <GcbButton href="/contact" size="md" variant="light">
                   Request this shade
                 </GcbButton>
                 <Link

@@ -298,8 +298,8 @@ export const jaquarEntity = {
   plants: "8 plants over 330,000 m2",
   bathroomsPerYear: "3.3 million bathrooms a year",
   fittingsPerYear: "45.9 million bath fittings a year",
-  hq: "LEED Platinum certified Net Positive HQ, NCR India",
-  redDot: "The very first Indian company to win the Red Dot Design Award",
+  hq: "LEED Platinum certified Net Positive headquarters",
+  redDot: "Winner of the Red Dot Design Award for product design",
   groupBrands: "Essco (1960) - Jaquar (1986) - Artize (2009)",
   designers:
     "Matteo Thun & Antonio Rodriguez, Danelon Meroni, Michael Foley, Parichay Mehra, Lisa Bosi",

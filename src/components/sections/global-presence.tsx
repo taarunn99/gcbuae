@@ -61,12 +61,12 @@ export function GlobalPresence() {
           above the full-bleed map. */}
       <div className="relative">
         <div className="pointer-events-none relative z-10 px-6 text-center lg:absolute lg:inset-x-0 lg:top-[3%]">
-          <p className="label-gcb text-ink/60">Global presence</p>
+          <p className="label-gcb text-ink/60">KalingaStone · Global presence</p>
           <h2 className="font-display text-ink mx-auto mt-3 text-3xl tracking-tight sm:text-5xl">
             One material, {kalingaStoneBrand.countries} countries.
           </h2>
           <p className="text-ink/70 mx-auto mt-4 max-w-xl leading-relaxed">
-            Made in Silvassa, stocked in Al Sajaa, delivered UAE-wide.
+            KalingaStone&rsquo;s worldwide network - made in Silvassa, stocked by Global Classic in Al Sajaa, delivered UAE-wide.
           </p>
         </div>
 

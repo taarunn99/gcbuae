@@ -42,7 +42,7 @@ const checkerboard = [
 ];
 
 const faqs = [
-  { q: "Who distributes FILA products in the UAE?", a: "FILA has run its Middle East branch from Dubai JLT since 2012; official UAE distribution is by Lapiz Blue, with Global Classic supplying the trade wholesale from Sharjah. We supply bulk and project quantities to contractors, fit-out companies, facilities teams and resellers - not single retail bottles." },
+  { q: "Who distributes FILA products in the UAE?", a: "FILA has run its Middle East branch from Dubai JLT since 2012. Global Classic is a certified Preferred UAE Distributor for 2026 - the certificate is on this site - supplying the trade wholesale from Sharjah alongside sister company Lapiz Blue. We supply bulk and project quantities to contractors, fit-out companies, facilities teams and resellers - not single retail bottles." },
   { q: "Which FILA product seals a marble worktop?", a: "MP90 ECO XTREME is the printed answer for polished marble, granite and porcelain - water- and oil-repellent, Indoor Air Comfort Gold certified, walk-on in 2 hours. Daily care then runs on MARBLE REFRESH, the pH-neutral spray that reinforces the protection." },
   { q: "What removes grout haze after tiling?", a: "DETERDEK PRO - the end-of-work buffered-acid detergent that removes post-installation deposits and limescale without attacking the material, phosphate-free, biodegradable up to 98%." },
   { q: "Are FILA products certified?", a: "FILA holds UNI EN ISO 9001 and 14001 (TUV Rheinland); in September 2022 it was the first in its sector in Italy to earn Indoor Air Comfort Gold by Eurofins, and it is a Climate Pledge signatory targeting net zero carbon by 2040. More than 83% of products are water-based." },
@@ -201,7 +201,8 @@ export default function FilaHubPage() {
           </h1>
           <span className="fila-bar mt-6" data-fila-bar />
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
-            FILA surface care, official UAE distribution by{" "}
+            FILA surface care - Global Classic is a certified Preferred UAE
+            Distributor for 2026, within the{" "}
             <a
               href="https://www.lapizblue.com"
               target="_blank"
@@ -210,9 +211,17 @@ export default function FilaHubPage() {
             >
               Lapiz Blue
             </a>{" "}
-            - supplied wholesale to the trade by Global Classic. 34 catalogued
-            products, Italian since {filaBrand.founded}.
+            distribution family. 34 catalogued products, Italian since{" "}
+            {filaBrand.founded}.
           </p>
+          <a
+            href="/certificates/fila-preferred-distributor.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center rounded-full border border-white/40 px-5 py-2 text-sm text-white/90 transition-colors hover:bg-white hover:text-[#0B0B0C]"
+          >
+            Preferred UAE Distributor 2026 - view the certificate (PDF)
+          </a>
         </Container>
       </section>
 

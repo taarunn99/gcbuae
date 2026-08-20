@@ -85,7 +85,7 @@ export default function BlogIndexPage() {
             Sharjah. Walk the stock, tag your slabs, price your BOQ.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <GcbButton href="/contact" size="md">
+            <GcbButton href="/contact" size="md" variant="light">
               Plan a visit
             </GcbButton>
             <Link

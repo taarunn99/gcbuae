@@ -391,7 +391,7 @@ export default function JaquarPage() {
         <Container>
           <p className="label-gcb text-muted">Behind the brand</p>
           <h2 className="font-display text-phi-3 mt-4 max-w-2xl tracking-tight text-balance">
-            The first Indian company to win a Red Dot.
+            A Red Dot Design Award winner.
           </h2>
           <figure className="border-warm-black relative mt-12 aspect-[21/9] overflow-hidden rounded-xl border">
             <Image

@@ -80,8 +80,8 @@ export function HomeJaquar() {
             </div>
 
             {/* The scene filmstrip, drifting on the marquee clock */}
-            <div className="-mr-5 min-w-0 flex-1 overflow-hidden md:-mr-10" aria-hidden>
-              <div className="marquee-gcb flex w-max">
+            <div className="-mr-5 min-w-0 flex-1 overflow-hidden py-3 md:-mr-10" aria-hidden>
+              <div className="marquee-gcb flex w-max items-center">
                 <TileStrip />
                 <TileStrip />
               </div>

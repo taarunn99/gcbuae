@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   AnimatePresence,
   motion,
@@ -53,6 +53,16 @@ export function LocationMap({
 }: LocationMapProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  // Desktop gets a landmark-sized card (owner, 2026-08-20) - the
+  // percentage-based map art scales with the animated dimensions.
+  const [desktop, setDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => setDesktop(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
   const containerRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
 
@@ -122,10 +132,17 @@ export function LocationMap({
                 transformStyle: "preserve-3d",
               }
         }
-        animate={{
-          width: isExpanded ? 360 : 240,
-          height: isExpanded ? 280 : 140,
-        }}
+        animate={
+          desktop
+            ? {
+                width: isExpanded ? 640 : 320,
+                height: isExpanded ? 420 : 190,
+              }
+            : {
+                width: isExpanded ? 360 : 240,
+                height: isExpanded ? 280 : 140,
+              }
+        }
         transition={expandTransition}
       >
         {/* Subtle gradient overlay */}
@@ -349,15 +366,30 @@ export function LocationMap({
 
             <AnimatePresence>
               {isExpanded && (
-                <motion.p
-                  className="text-warm-black/60 font-mono text-xs"
+                <motion.div
                   initial={{ opacity: 0, y: -10, height: 0 }}
                   animate={{ opacity: 1, y: 0, height: "auto" }}
                   exit={{ opacity: 0, y: -10, height: 0 }}
                   transition={{ duration: 0.25 }}
+                  className="space-y-0.5"
                 >
-                  {coordinates}
-                </motion.p>
+                  <p className="text-warm-black/60 font-mono text-xs">
+                    {coordinates}
+                  </p>
+                  {desktop && (
+                    <>
+                      <p className="text-warm-black/70 text-xs">
+                        9M62+45M, Al Sajaa Industrial, Al Jlail · Sharjah
+                      </p>
+                      <p className="text-warm-black/70 text-xs">
+                        +971 52 992 7827 · +971 6 531 2015 · info@gcbuae.com
+                      </p>
+                      <p className="text-bronze pt-1 text-[11px] font-medium tracking-wide">
+                        Tap again for Google Maps directions →
+                      </p>
+                    </>
+                  )}
+                </motion.div>
               )}
             </AnimatePresence>
 
