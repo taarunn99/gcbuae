@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { GcbButton } from "@/components/ui/gcb-button";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -83,10 +83,22 @@ export function BrandCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  // The pinned 3D scrub is a DESKTOP piece: on phones it stuttered and
+  // pushed the slide content (logo, chips, the CTA button) off both
+  // edges (iPhone report, 2026-08-20). Below lg the deck renders as the
+  // calm stacked strips.
+  const [desktop, setDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => setDesktop(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   useGSAP(
     () => {
-      if (reduced) return;
+      if (reduced || !desktop) return;
       const section = sectionRef.current;
       const wrapper = wrapperRef.current;
       const track = trackRef.current;
@@ -140,11 +152,11 @@ export function BrandCarousel() {
         },
       });
     },
-    { scope: sectionRef, dependencies: [reduced] },
+    { scope: sectionRef, dependencies: [reduced, desktop] },
   );
 
-  /* Reduced motion: three calm full-bleed strips, each on its own stage. */
-  if (reduced) {
+  /* Reduced motion AND mobile: three calm full-bleed strips. */
+  if (reduced || !desktop) {
     return (
       <section aria-label="The brands">
         {brands.map((brand, i) => (

@@ -250,7 +250,7 @@ export default function JaquarPage() {
       {/* ---------- Warranty / Jaquar Care ---------- */}
       <section className="py-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[1.618fr_1fr] lg:items-center">
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[1.618fr_1fr] lg:items-center">
             <div>
               <p className="label-gcb text-muted">Jaquar Care</p>
               <h2 className="font-display text-phi-3 mt-4 max-w-xl tracking-tight text-balance">
@@ -294,7 +294,7 @@ export default function JaquarPage() {
       {/* ---------- The catalogue, by section ---------- */}
       <section className="border-border/30 border-t py-24">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.618fr] lg:items-start">
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[1fr_1.618fr] lg:items-start">
             <div>
               <p className="label-gcb text-muted">The source, downloadable</p>
               <h2 className="font-display text-phi-3 mt-4 tracking-tight text-balance">
@@ -342,7 +342,7 @@ export default function JaquarPage() {
             warranty card (catalogue p360) - so a BOQ is specified on the real
             terms, not a blanket claim.
           </p>
-          <div className="mt-12 grid gap-14 lg:grid-cols-[1.618fr_1fr]">
+          <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[1.618fr_1fr]">
             <SpecTable
               caption="Jaquar warranty matrix"
               head={["Category", "Product or part", "Years"]}
@@ -404,7 +404,7 @@ export default function JaquarPage() {
               loading="lazy"
             />
           </figure>
-          <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.618fr] lg:items-start">
+          <div className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[1fr_1.618fr] lg:items-start">
             <figure className="border-warm-black relative hidden aspect-[3/4] overflow-hidden rounded-xl border lg:block">
               <Image
                 src="/jaquar/hub/editorial-wc.webp"
@@ -448,7 +448,7 @@ export default function JaquarPage() {
           <h2 className="font-display text-phi-3 mt-4 max-w-2xl tracking-tight text-balance">
             One dealer. Every emirate.
           </h2>
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1.618fr_1fr]">
+          <div className="mt-8 grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[1.618fr_1fr]">
             <p className="text-ink/85 max-w-2xl text-lg leading-relaxed">
               Global Classic supplies Jaquar bathroom fittings wholesale from
               the Al Sajaa warehouse in Sharjah, with delivery across the whole

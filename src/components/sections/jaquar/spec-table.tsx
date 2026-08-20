@@ -28,7 +28,7 @@ export function SpecTable({
 }: SpecTableProps) {
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="min-w-0 [contain:inline-size] overflow-x-auto">
         <table
           className="w-full text-sm"
           style={{ minWidth: `${minWidth}px` }}
