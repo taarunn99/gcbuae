@@ -6,7 +6,7 @@ import { useRef } from "react";
 import hero from "@/assets/hero.webp";
 import heroCopy from "@/config/hero-copy.json";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { ease, gsap, useGSAP } from "@/lib/gsap";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 /**
  * The hero photograph, its scrim, and the two transforms applied to it.
@@ -25,15 +25,9 @@ export function HeroMedia() {
     () => {
       if (prefersReducedMotion) return;
 
-      // Transform only - never fade the LCP element in. An opacity tween
-      // delays the largest contentful paint by its full duration; a transform
-      // costs nothing because the pixels are already painted.
-      gsap.fromTo(
-        intro.current,
-        { scale: 1.06 },
-        { scale: 1, duration: 2, ease: ease.reveal },
-      );
-
+      // No intro settle: the site opens at full rest, instantly - the
+      // owner wants "boom", zero opening animation (2026-08-20). Only
+      // the scroll parallax below remains, and it never moves at load.
       gsap.to(parallax.current, {
         yPercent: 12,
         scale: 1.05,
