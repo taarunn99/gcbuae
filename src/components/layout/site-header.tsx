@@ -309,7 +309,8 @@ export function SiteHeader() {
           ref={clusterRef}
           className="col-start-3 flex items-center gap-1 justify-self-end sm:gap-3"
         >
-          <div>
+          {/* Phones: tighter pill so the label never wraps to two lines. */}
+          <div className="max-sm:[&_.label-gcb]:text-[0.5625rem] max-sm:[&_.label-gcb]:tracking-[0.16em] max-sm:[&_.label-gcb]:whitespace-nowrap max-sm:[&_.specular-button]:[padding:9px_16px]">
             <GcbButton
               href="/contact"
               size="sm"
