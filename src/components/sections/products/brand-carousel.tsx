@@ -31,7 +31,8 @@ import { cn } from "@/lib/utils";
  *  washy, while still contrasting each logo's own colour: warm sand under
  *  KalingaStone's deep red mark, cool stone grey under Jaquar's black
  *  wordmark, FILA's own yellow behind its block. Order matches `brands`. */
-const STAGE_COLORS = ["#ECDABF", "#CDD5CF", "#FED400"];
+// FILA stage softened to buttery pastel (owner 2026-08-20: full #FED400 hurt)
+const STAGE_COLORS = ["#ECDABF", "#CDD5CF", "#F6E7A8"];
 
 type Tile = {
   src: string;

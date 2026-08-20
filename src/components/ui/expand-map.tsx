@@ -157,7 +157,7 @@ export function LocationMap({
               exit={{ opacity: 0 }}
               transition={{ duration: DURATION.fast, delay: 0.1 }}
             >
-              <div className="bg-surface absolute inset-0" />
+              <div className="bg-background absolute inset-0" />
 
               <svg
                 className="absolute inset-0 h-full w-full"
@@ -171,7 +171,7 @@ export function LocationMap({
                     y1={`${y}%`}
                     x2="100%"
                     y2={`${y}%`}
-                    className="stroke-foreground/25"
+                    className="stroke-warm-black/50"
                     strokeWidth="4"
                     pathLength={1}
                     initial={{ pathLength: 0 }}
@@ -186,7 +186,7 @@ export function LocationMap({
                     y1="0%"
                     x2={`${x}%`}
                     y2="100%"
-                    className="stroke-foreground/20"
+                    className="stroke-warm-black/40"
                     strokeWidth="3"
                     pathLength={1}
                     initial={{ pathLength: 0 }}
@@ -202,7 +202,7 @@ export function LocationMap({
                     y1={`${y}%`}
                     x2="100%"
                     y2={`${y}%`}
-                    className="stroke-foreground/10"
+                    className="stroke-warm-black/25"
                     strokeWidth="1.5"
                     pathLength={1}
                     initial={{ pathLength: 0 }}
@@ -217,7 +217,7 @@ export function LocationMap({
                     y1="0%"
                     x2={`${x}%`}
                     y2="100%"
-                    className="stroke-foreground/10"
+                    className="stroke-warm-black/25"
                     strokeWidth="1.5"
                     pathLength={1}
                     initial={{ pathLength: 0 }}
@@ -238,7 +238,7 @@ export function LocationMap({
               ].map((pos, i) => (
                 <motion.div
                   key={pos}
-                  className={`absolute ${pos} bg-foreground/20 border-foreground/10 rounded-sm border`}
+                  className={`absolute ${pos} bg-warm-black/30 border-warm-black/25 rounded-sm border`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.5 + i * 0.05 }}
