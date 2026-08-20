@@ -102,10 +102,21 @@ export function ProductsVideoHero() {
             className="object-cover"
           />
         ) : (
+          <>
+          {/* Poster layered under - iOS <video poster> hardening. */}
+          <Image
+            src="/products/hero/slab-procession-poster.webp"
+            alt=""
+            fill
+            quality={90}
+            sizes="100vw"
+            className="object-cover"
+            preload
+            aria-hidden
+          />
           <video
             className="absolute inset-0 h-full w-full object-cover"
             src="/products/hero/slab-procession.mp4"
-            poster="/products/hero/slab-procession-poster.webp"
             autoPlay
             muted
             loop
@@ -113,6 +124,7 @@ export function ProductsVideoHero() {
             preload="metadata"
             aria-hidden
           />
+          </>
         )}
 
         {/* Onyx layer with the type + window knocked out */}

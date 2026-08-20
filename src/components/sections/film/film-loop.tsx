@@ -62,6 +62,7 @@ export function FilmLoop() {
   // <source> elements at load pulled the full ~3.7MB during first paint
   // and held the loading spinner for seconds (perf audit, 2026-08-19).
   const [nearView, setNearView] = useState(false);
+
   // Tracks the Network Information API; false during SSR so the sources are
   // in the HTML and only dropped once a constrained connection is confirmed.
   const stillsOnly = useSyncExternalStore(
@@ -92,11 +93,23 @@ export function FilmLoop() {
     return () => observer.disconnect();
   }, []);
 
+  // Tracks whether the section is currently on screen, so a play can be
+  // retried the moment the (late-mounted) source becomes ready - the
+  // observer alone only fires on crossings, and load() aborts any play
+  // that raced it, which froze the film (WebKit audit, 2026-08-20).
+  const inViewRef = useRef(false);
+
   // Sources mount after the near-view flip; load() makes the element
-  // pick them up, then the play observer starts it in view.
+  // pick them up, then play resumes as soon as data is ready.
   useEffect(() => {
-    if (nearView && !stillsOnly && !prefersReducedMotion)
-      videoRef.current?.load();
+    const video = videoRef.current;
+    if (!video || !nearView || stillsOnly || prefersReducedMotion) return;
+    const onReady = () => {
+      if (inViewRef.current) void video.play().catch(() => {});
+    };
+    video.addEventListener("loadeddata", onReady);
+    video.load();
+    return () => video.removeEventListener("loadeddata", onReady);
   }, [nearView, stillsOnly, prefersReducedMotion]);
 
   useEffect(() => {
@@ -115,6 +128,7 @@ export function FilmLoop() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        inViewRef.current = entry.isIntersecting;
         if (entry.isIntersecting) {
           video.play().catch(() => {
             // Autoplay refused (e.g. iOS low-power): the poster and the
@@ -174,11 +188,11 @@ export function FilmLoop() {
         loop
         preload="metadata"
       >
+        {/* One universal H.264 file (1.7MB, re-encoded 2026-08-20):
+            Safari-class engines stalled on the VP9 WebM while claiming
+            support, freezing the film on its poster. */}
         {nearView && !prefersReducedMotion && !stillsOnly && (
-          <>
-            <source src={filmLoop.webm} type="video/webm" />
-            <source src={filmLoop.mp4} type="video/mp4" />
-          </>
+          <source src={filmLoop.mp4} type="video/mp4" />
         )}
       </video>
 

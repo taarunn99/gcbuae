@@ -20,7 +20,7 @@ import { HeroMedia } from "./hero-media";
  */
 export function Hero() {
   return (
-    <section className="relative flex min-h-dvh items-center overflow-hidden pb-[12vh]">
+    <section className="bg-warm-black relative flex min-h-dvh items-center overflow-hidden pb-[12vh]">
       <HeroMedia />
 
       <div className="relative z-10 w-full">

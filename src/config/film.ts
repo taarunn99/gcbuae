@@ -10,7 +10,6 @@
  */
 export const filmLoop = {
   mp4: "/film/film-loop.mp4",
-  webm: "/film/film-loop.webm",
   poster: "/film/film-loop-poster.webp",
   duration: 17.12,
 } as const;

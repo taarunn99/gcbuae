@@ -48,17 +48,30 @@ export function JaquarHero() {
           preload
         />
       ) : (
-        <video
-          ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/jaquar/hero/jaquar-hero.mp4"
-          poster="/jaquar/hero/jaquar-hero-poster.webp"
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label="Slow motion film of water threads falling from a Jaquar rain shower"
-        />
+        <>
+          {/* Poster as a real layer - iOS paints <video poster>
+              unreliably (WebKit audit, 2026-08-20). */}
+          <Image
+            src="/jaquar/hero/jaquar-hero-poster.webp"
+            alt=""
+            fill
+            quality={90}
+            sizes="100vw"
+            className="object-cover"
+            preload
+            aria-hidden
+          />
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/jaquar/hero/jaquar-hero.mp4"
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Slow motion film of water threads falling from a Jaquar rain shower"
+          />
+        </>
       )}
     </div>
   );

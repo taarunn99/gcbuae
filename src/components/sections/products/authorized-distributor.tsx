@@ -20,7 +20,7 @@ export function AuthorizedDistributor() {
           <div className="flex flex-wrap items-baseline justify-between gap-4">
             <p className="label-gcb text-bronze">Certified, on paper</p>
             <p className="label-gcb text-ink/50">
-              Ref GMC-GN-L-083-2026 · FILA certificate valid 2026
+              KalingaStone letter · FILA certificate, valid 2026
             </p>
           </div>
           <RuleIn className="bg-ink/30 mt-4 w-full" />
@@ -35,9 +35,9 @@ export function AuthorizedDistributor() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="text-ink/80 mt-8 max-w-xl text-lg leading-relaxed">
-                Global Classic Building Material Trading LLC is certified by
-                Grani Marmo Classic LLC as an authorized reseller of
-                KalingaStone products for the Northern Emirates, UAE - and
+                Global Classic Building Material Trading LLC is certified
+                through the official KalingaStone channel as an authorized
+                reseller for the Northern Emirates, UAE - and
                 certified by FILA Surface Chemicals Trading LLC as a Preferred
                 UAE Distributor of FILA surface care for 2026.
               </p>
@@ -82,7 +82,7 @@ export function AuthorizedDistributor() {
                 <span className="border-ink/20 bg-ink/5 block rotate-[-1.5deg] rounded-lg border p-3 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.02] group-hover:rotate-0">
                   <Image
                     src="/certificates/authorized-reseller-letter.webp"
-                    alt="Authorized Reseller letter - Grani Marmo Classic LLC certifies Global Classic Building Material Trading LLC as a reseller of Kalingastone products in the Northern Emirates, UAE"
+                    alt="Authorized Reseller letter certifying Global Classic Building Material Trading LLC as a KalingaStone reseller for the Northern Emirates, UAE"
                     width={900}
                     height={1273}
                     quality={90}

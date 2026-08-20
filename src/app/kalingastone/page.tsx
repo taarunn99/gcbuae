@@ -57,7 +57,7 @@ const faqs = [
   },
   {
     q: "Is Global Classic an authorized KalingaStone reseller?",
-    a: "Yes - in writing. Global Classic Building Material Trading LLC is certified by Grani Marmo Classic LLC as an authorized reseller of KalingaStone products for the Northern Emirates, UAE. The letter is published on this site and travels with our quotations.",
+    a: "Yes - in writing. Global Classic Building Material Trading LLC is certified through the official KalingaStone channel as an authorized reseller for the Northern Emirates, UAE. The letter is published on this site and travels with our quotations.",
   },
   {
     q: "What materials does KalingaStone make?",
