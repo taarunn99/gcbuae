@@ -25,6 +25,7 @@ import { content as jacuzzi_spa_buyers_guide_uae } from "./jacuzzi-spa-buyers-gu
 import { content as jacuzzi_vs_hot_tub_vs_spa } from "./jacuzzi-vs-hot-tub-vs-spa";
 import { content as jaquar_vs_grohe } from "./jaquar-vs-grohe";
 import { content as kalingastone_price_uae } from "./kalingastone-price-uae";
+import { content as lapiz_group_of_companies } from "./lapiz-group-of-companies";
 import { content as kalingastone_vs_caesarstone } from "./kalingastone-vs-caesarstone";
 import { content as marble_bathroom_ideas } from "./marble-bathroom-ideas";
 import { content as marble_care_maintenance_guide } from "./marble-care-maintenance-guide";
@@ -71,6 +72,7 @@ const CONTENT: Record<string, BlogContent> = {
   "jacuzzi-vs-hot-tub-vs-spa": jacuzzi_vs_hot_tub_vs_spa,
   "jaquar-vs-grohe": jaquar_vs_grohe,
   "kalingastone-price-uae": kalingastone_price_uae,
+  "lapiz-group-of-companies": lapiz_group_of_companies,
   "kalingastone-vs-caesarstone": kalingastone_vs_caesarstone,
   "marble-bathroom-ideas": marble_bathroom_ideas,
   "marble-care-maintenance-guide": marble_care_maintenance_guide,

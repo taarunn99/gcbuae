@@ -44,8 +44,8 @@ for (const file of sources.sort()) {
   if (kb > 300) failed = true;
 }
 console.log(`\n${sources.length} images, ${Math.round(total / 1024)}MB total`);
-if (sources.length !== 44) {
-  console.error(`EXPECTED 44 masters, found ${sources.length}`);
+if (sources.length !== 45) {
+  console.error(`EXPECTED 45 masters, found ${sources.length}`);
   failed = true;
 }
 if (failed) process.exit(1);

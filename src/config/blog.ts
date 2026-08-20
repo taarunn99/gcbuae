@@ -15,7 +15,8 @@ export type BlogCategory =
   | "care-maintenance"
   | "bathrooms"
   | "wellness"
-  | "buying-guides";
+  | "buying-guides"
+  | "company";
 
 export type BlogPostMeta = {
   slug: string;
@@ -69,6 +70,12 @@ export const BLOG_CATEGORIES: {
     label: "Buying Guides",
     intro:
       "Prices in honest AED ranges, quote comparisons that expose weak suppliers, and specification advice for commercial floors. This cluster exists because stone buying in the UAE runs on opaque numbers and confident traders; the antidote is knowing what drives a quote, what documentation to demand and which questions make a broker go quiet. Written by a stockist with slabs on racks, and priced accordingly.",
+  },
+  {
+    slug: "company",
+    label: "Company",
+    intro:
+      "Who is actually behind the warehouse. These posts cover Global Classic itself and the Lapiz Group of Companies it belongs to - the licences, agencies, sister companies and certificates that a procurement team checks before the first order. No positioning language, just the corporate facts, published where a buyer can verify them.",
   },
 ];
 
@@ -779,6 +786,23 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Two basin mixers in chrome and brushed graphite compared on marble",
     productCta: { href: "/jaquar", label: "Explore the Jaquar range" },
     related: ["best-bathroom-brands-uae", "bathroom-fittings-guide-uae", "black-vs-brushed-metal-bathroom-finishes"],
+    readMinutes: 6,
+  },
+  // ---------------- COMPANY ----------------
+  {
+    slug: "lapiz-group-of-companies",
+    title: "The Lapiz Group of Companies: Who We Are",
+    description:
+      "The five UAE companies of the Lapiz Group - Lapiz Blue, Global Classic, Sixty Newton, Montolite and Alsama - and what each supplies, from Dubai, Abu Dhabi and Sharjah.",
+    category: "company",
+    kind: "cluster",
+    primaryQuery: "lapiz group of companies",
+    secondaryQueries: ["lapiz group uae", "lapiz blue group", "global classic parent company"],
+    datePublished: "2026-08-20",
+    dateModified: "2026-08-20",
+    heroAlt: "Slab racks, construction chemical drums and coated metal profiles staged in a UAE warehouse",
+    productCta: { href: "/about", label: "Meet Global Classic" },
+    related: ["marble-slab-supplier-uae-how-to-choose", "kalingastone-price-uae", "stone-cleaning-products-guide"],
     readMinutes: 6,
   },
 ];
