@@ -45,7 +45,14 @@ export function GroupDeck() {
       }}
     >
       <p className="label-gcb text-warm-black/60 text-center" aria-hidden>
-        {open ? "Tap a card" : "Hover to explore"}
+        {open ? (
+          "Tap a card"
+        ) : (
+          <>
+            <span className="lg:hidden">Tap to explore</span>
+            <span className="hidden lg:inline">Hover to explore</span>
+          </>
+        )}
       </p>
 
       <div
