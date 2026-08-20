@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
@@ -142,9 +143,25 @@ export function FilmLoop() {
       aria-label="Materials film"
       className="bg-warm-black grain-gcb relative h-svh overflow-hidden"
     >
+      {/* Poster as a real layer: iOS Safari paints <video poster> unreliably
+          (black-frame report, 2026-08-20). The video covers it once playing. */}
+      <Image
+        src={filmLoop.poster}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+        loading="lazy"
+        aria-hidden
+      />
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={cn(
+          "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
+          nearView && !stillsOnly && !prefersReducedMotion
+            ? "opacity-100"
+            : "opacity-0",
+        )}
         style={{
           objectPosition: `${(chapter.focusX ?? 0.5) * 100}% 50%`,
           // Anchor changes land mid-dissolve, so the reframe plays as a slow
@@ -156,7 +173,6 @@ export function FilmLoop() {
         playsInline
         loop
         preload="metadata"
-        poster={filmLoop.poster}
       >
         {nearView && !prefersReducedMotion && !stillsOnly && (
           <>

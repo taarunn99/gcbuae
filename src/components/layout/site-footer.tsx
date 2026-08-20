@@ -94,6 +94,18 @@ export function SiteFooter() {
   // short pages (Lighthouse, 2026-08-20). visibility keeps it in the
   // DOM for crawlers and measurement.
   const [nearBottom, setNearBottom] = useState(false);
+  // The fixed stacked-reveal is a DESKTOP pattern: on phones the footer
+  // is taller than the viewport, and a fixed block taller than the
+  // screen can never be fully seen (iPhone report, 2026-08-20). Below
+  // lg the footer renders in normal flow.
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => setIsDesktop(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   // The fixed footer occupies no flow space; the spacer mirrors its height
   // so the page scrolls exactly far enough to reveal it.
@@ -127,6 +139,7 @@ export function SiteFooter() {
     () => {
       if (!spacerRef.current || !innerRef.current) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (!window.matchMedia("(min-width: 1024px)").matches) return;
 
       gsap.fromTo(
         innerRef.current,
@@ -171,14 +184,14 @@ export function SiteFooter() {
         ref={spacerRef}
         style={{ height }}
         aria-hidden
-        className="pointer-events-none"
+        className="pointer-events-none hidden lg:block"
       />
       <footer
         ref={footerRef}
-        className="bg-warm-black text-ink grain-gcb fixed inset-x-0 bottom-0 z-0 overflow-hidden"
+        className="bg-warm-black text-ink grain-gcb relative z-0 overflow-hidden lg:fixed lg:inset-x-0 lg:bottom-0"
         style={{
           perspective: "1200px",
-          visibility: nearBottom ? "visible" : "hidden",
+          visibility: !isDesktop || nearBottom ? "visible" : "hidden",
         }}
       >
         <div ref={innerRef} style={{ transformOrigin: "50% 0%" }}>
@@ -333,7 +346,7 @@ export function SiteFooter() {
               <p className="label-gcb text-ink/50">
                 © {new Date().getFullYear()} {siteConfig.legalName}
               </p>
-              <div className="flex items-center gap-6">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                 <Link
                   href="/privacy-policy"
                   className="label-gcb u-line text-ink/50"
