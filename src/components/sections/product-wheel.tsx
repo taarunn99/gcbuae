@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion } from "motion/react";
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useLenis } from "lenis/react";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { GcbButton } from "@/components/ui/gcb-button";
 import { wheelProducts } from "@/config/product-wheel";
@@ -94,6 +95,49 @@ export function ProductWheel() {
     setActiveIndex(index);
   };
 
+  // Programmatic scrolls MUST go through Lenis, never ScrollToPlugin: Lenis
+  // keeps its own scroll target, and a window scroll written behind its back
+  // gets yanked back on its next frame - the wheel's "bouncing" bug
+  // (2026-08-21). Read through refs so the useGSAP closure never goes stale.
+  const lenis = useLenis();
+  const lenisRef = useRef(lenis);
+  useEffect(() => {
+    lenisRef.current = lenis;
+  }, [lenis]);
+  // True while a programmatic glide is in flight, so the snap logic cannot
+  // re-trigger off the glide's own scroll events.
+  const snappingRef = useRef(false);
+  const guardTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
+
+  const glideTo = (target: number, glideDuration: number) => {
+    const activeLenis = lenisRef.current;
+    if (!activeLenis) {
+      // No Lenis mounted (shouldn't happen while a trigger exists) - the old
+      // direct path is a safety net, not the normal route.
+      gsap.to(window, { duration: glideDuration, ease: "gcb-out", scrollTo: target });
+      return;
+    }
+    snappingRef.current = true;
+    clearTimeout(guardTimeoutRef.current);
+    activeLenis.scrollTo(target, {
+      duration: glideDuration,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      onComplete: () => {
+        snappingRef.current = false;
+      },
+    });
+    // Lenis aborts a programmatic scroll on user input WITHOUT firing
+    // onComplete - never leave the guard stuck.
+    guardTimeoutRef.current = setTimeout(
+      () => {
+        snappingRef.current = false;
+      },
+      glideDuration * 1000 + 150,
+    );
+  };
+
   useGSAP(
     () => {
       const section = sectionRef.current;
@@ -135,19 +179,23 @@ export function ProductWheel() {
 
       // ScrollTrigger's built-in snap waits for native scroll-end, which
       // Lenis's smoothing delays unreliably - so snap manually: when updates
-      // go quiet between detents, glide the scroll to the nearest one.
+      // go quiet between detents, glide the scroll to the nearest one. The
+      // glide itself runs through Lenis (glideTo) and is guarded so its own
+      // scroll events can't re-arm the snap; once it lands on the detent the
+      // re-armed timer self-terminates on the proximity check below.
       let snapTimer: ReturnType<typeof setTimeout> | undefined;
       const queueSnap = (st: ScrollTrigger) => {
+        if (snappingRef.current) return;
         clearTimeout(snapTimer);
         snapTimer = setTimeout(() => {
+          if (snappingRef.current) return;
           const position = st.progress * (COUNT - 1);
           const nearest = Math.round(position);
           if (Math.abs(position - nearest) < 0.02) return;
-          gsap.to(window, {
-            duration: 0.5,
-            ease: "power2.out",
-            scrollTo: st.start + (nearest / (COUNT - 1)) * (st.end - st.start),
-          });
+          glideTo(
+            st.start + (nearest / (COUNT - 1)) * (st.end - st.start),
+            0.6,
+          );
         }, 200);
       };
 
@@ -158,6 +206,11 @@ export function ProductWheel() {
           end: `+=${(COUNT - 1) * perDetent}%`,
           pin: true,
           scrub: 0.5,
+          // Smoothed high-velocity scroll into a pin otherwise shows a
+          // one-frame jump at engage; a fling past the section otherwise
+          // machine-guns every detent through the scrub tail.
+          anticipatePin: 1,
+          fastScrollEnd: true,
           onUpdate: (self) => {
             const position = self.progress * (COUNT - 1);
             apply(position);
@@ -169,7 +222,11 @@ export function ProductWheel() {
         apply(st.progress * (COUNT - 1));
 
         return () => {
+          // Runs on matchMedia boundary crossings too: the recreated trigger
+          // must never inherit a stuck in-flight guard.
           clearTimeout(snapTimer);
+          clearTimeout(guardTimeoutRef.current);
+          snappingRef.current = false;
           triggerRef.current = null;
           st.kill();
         };
@@ -193,7 +250,10 @@ export function ProductWheel() {
     const st = triggerRef.current;
     if (st) {
       const target = st.start + (index / (COUNT - 1)) * (st.end - st.start);
-      gsap.to(window, { duration: 0.9, ease: "gcb-out", scrollTo: target });
+      // Through Lenis with the guard set, so the quiet-period snap stays
+      // suppressed for the whole glide; detent ticks still fire as the
+      // scrub ratchets past each line.
+      glideTo(target, 0.9);
     } else {
       commitIndex(index);
     }
@@ -310,26 +370,43 @@ export function ProductWheel() {
 
         {/* Active line card - centered on phones, right column on desktop */}
         <div className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-            <AnimatePresence mode="popLayout" initial={false}>
+          {/* All ten layers stay mounted (opacity/scale toggled) so a detent
+              crossing never cold-fetches an image and fast scrubs can't stack
+              exiting AnimatePresence layers. The layers are laid out at
+              opacity 0, so the browser lazily warms every image as the
+              section approaches - none of it touches initial page weight.
+              The Onyx backstop stops the first-ever reveal flashing
+              transparent before its image decodes. */}
+          <div className="bg-warm-black relative aspect-[4/3] overflow-hidden rounded-2xl">
+            {wheelProducts.map((product, index) => (
               <motion.div
-                key={active.id}
+                key={product.id}
                 className="absolute inset-0"
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
+                initial={false}
+                animate={{
+                  opacity: index === activeIndex ? 1 : 0,
+                  // Inactive layers rest pre-posed at 1.04, so becoming
+                  // active plays the same 1.04 -> 1 settle the old
+                  // AnimatePresence entrance had.
+                  scale: index === activeIndex ? 1 : 1.04,
+                }}
+                style={{ zIndex: index === activeIndex ? 2 : 1 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Image
-                  src={active.image}
-                  alt={active.alt}
+                  src={product.image}
+                  alt={index === activeIndex ? product.alt : ""}
                   fill
-                  sizes="(min-width: 1024px) 30rem, 100vw"
+                  // The real slot: ~43rem column at the 90rem container cap,
+                  // ~52vw in the desktop grid below it, and the max-w-md
+                  // (28rem) card on phones. The old 30rem under-declared
+                  // desktop by ~30% and served a soft upscale.
+                  sizes="(min-width: 90rem) 43rem, (min-width: 64rem) 52vw, (min-width: 28rem) 28rem, 100vw"
                   className="object-cover"
-                  loading="eager"
+                  loading="lazy"
                 />
               </motion.div>
-            </AnimatePresence>
+            ))}
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0 rounded-2xl border transition-colors duration-500"

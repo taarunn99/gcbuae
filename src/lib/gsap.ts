@@ -28,6 +28,15 @@ if (typeof window !== "undefined") {
   CustomEase.create("gcb-reveal", "0.25, 1, 0.5, 1");
 
   gsap.defaults({ ease: "gcb-out", duration: 1 });
+
+  // GLOBAL: iOS URL-bar collapse fires a resize that would otherwise force a
+  // full ScrollTrigger refresh mid-scroll - and the page's dvh/svh sections
+  // (hero, film) sit above the PINNED product wheel, so that refresh moved
+  // the pin bounds under the visitor's finger (wheel glitch, 2026-08-21).
+  // Safe globally: the only other pin-adjacent trigger (footer reveal) is
+  // desktop-only. Positions may drift by the bar delta until the next real
+  // refresh (rotation, route change, footer's 600ms refresh) - accepted.
+  ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
 /** Named easings shared by GSAP timelines. Mirrors `EASE` in `@/lib/motion`. */
