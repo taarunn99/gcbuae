@@ -39,11 +39,11 @@ const PREVIEWS: Record<string, string> = {
   "wash-basins": "/products/white-twin-basins-limestone-vanity-spa-uae-v2.webp",
   "water-closets": "/jaquar/categories/water-closets.webp",
   "showers-enclosures":
-    "/products/jaquar-rain-shower-white-stone-wet-room-uae.webp",
+    "/products/jaquar-rain-shower-white-stone-wet-room-uae-v2.webp",
   wellness: "/products/white-freestanding-bathtub-marble-terrazzo-suite-uae.webp",
   "water-heaters": "/jaquar/categories/water-heaters.webp",
   "sealers-cleaners":
-    "/products/fila-mp90-sealer-white-marble-workshop-uae.webp",
+    "/products/fila-mp90-sealer-white-marble-workshop-uae-v2.webp",
 };
 
 export function IndexRows() {

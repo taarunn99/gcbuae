@@ -70,8 +70,8 @@ export const wheelProducts: WheelProduct[] = [
   {
     id: "showers",
     label: "Showers & Enclosures",
-    image: "/products/jaquar-rain-shower-white-stone-wet-room-uae.webp",
-    alt: "Jaquar rain shower running in a bright white stone wet room with frameless glass and a fern on the ledge",
+    image: "/products/jaquar-rain-shower-white-stone-wet-room-uae-v2.webp",
+    alt: "Ceiling rain shower running in a warm white marble wet room with frameless glass, a fern on the marble bench and a brushed steel hand shower",
     accent: "#f7f8f5",
     href: "/jaquar/showers",
   },
@@ -94,8 +94,8 @@ export const wheelProducts: WheelProduct[] = [
   {
     id: "sealers-cleaners",
     label: "Sealers & Cleaners",
-    image: "/products/fila-mp90-sealer-white-marble-workshop-uae.webp",
-    alt: "FILA MP90 Eco Xtreme penetrating sealer beside a gloved hand sealing a white marble slab in a bright workshop",
+    image: "/products/fila-mp90-sealer-white-marble-workshop-uae-v2.webp",
+    alt: "FILA MP90 Eco Xtreme high performance penetrating sealer beside a gloved hand sealing a warm white marble slab in a stone workshop",
     accent: "#355e4d",
     href: "/fila",
   },
