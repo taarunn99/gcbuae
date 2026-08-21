@@ -37,7 +37,7 @@ const PREVIEWS: Record<string, string> = {
   "showers-enclosures":
     "/products/jaquar-rain-shower-white-stone-wet-room-uae-v2.webp",
   wellness: "/products/white-freestanding-bathtub-marble-terrazzo-suite-uae.webp",
-  "water-heaters": "/jaquar/categories/water-heaters.webp",
+  "water-heaters": "/products/jaquar-water-heater-showroom-uae.webp",
   "sealers-cleaners":
     "/products/fila-mp90-sealer-white-marble-workshop-uae-v2.webp",
 };
