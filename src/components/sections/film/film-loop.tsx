@@ -62,6 +62,16 @@ export function FilmLoop() {
   // <source> elements at load pulled the full ~3.7MB during first paint
   // and held the loading spinner for seconds (perf audit, 2026-08-19).
   const [nearView, setNearView] = useState(false);
+  // Which quality tier this screen deserves, decided once: screens whose
+  // effective pixel width (CSS width x devicePixelRatio) can resolve more
+  // than the SD file's 1284px get the 2K encode - the SD tier read as soft
+  // on retina desktops (owner complaint, 2026-08-21). false during SSR is
+  // harmless: the <source> only mounts client-side after the near-view flip.
+  const [hiRes] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.innerWidth * window.devicePixelRatio >= 1900,
+  );
 
   // Tracks the Network Information API; false during SSR so the sources are
   // in the HTML and only dropped once a constrained connection is confirmed.
@@ -188,11 +198,12 @@ export function FilmLoop() {
         loop
         preload="metadata"
       >
-        {/* One universal H.264 file (1.7MB, re-encoded 2026-08-20):
-            Safari-class engines stalled on the VP9 WebM while claiming
-            support, freezing the film on its poster. */}
+        {/* H.264 only, in two quality tiers (2026-08-21): Safari-class
+            engines stalled on the VP9 WebM while claiming support, freezing
+            the film on its poster - so tier choice is ours in JS, not the
+            browser's via codec negotiation. */}
         {nearView && !prefersReducedMotion && !stillsOnly && (
-          <source src={filmLoop.mp4} type="video/mp4" />
+          <source src={hiRes ? filmLoop.mp4_2k : filmLoop.mp4} type="video/mp4" />
         )}
       </video>
 

@@ -10,8 +10,20 @@
  * alternates the overlay left/right on desktop as the chapters turn.
  */
 export const filmLoop = {
-  mp4: "/film/film-loop.mp4",
-  poster: "/film/film-loop-poster.webp",
+  /**
+   * SD tier (1284x716, CRF 18): phones and 1x screens. New "-sd" name so
+   * no cache (browser or CDN) can keep serving the old low-bitrate
+   * film-loop.mp4, which stays in the repo untouched for easy rollback.
+   */
+  mp4: "/film/film-loop-sd.mp4",
+  /**
+   * 2K tier (2560x1428, from ML-upscaled masters, 2026-08-21): served to
+   * screens whose effective pixel width can resolve it - the SD file read
+   * as soft on retina desktops (owner complaint). Both tiers are H.264;
+   * VP9 stalled Safari-class engines (WebKit audit, 2026-08-20).
+   */
+  mp4_2k: "/film/film-loop-2k.mp4",
+  poster: "/film/film-loop-poster-2k.webp",
   duration: 17.12,
 } as const;
 
