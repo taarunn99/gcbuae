@@ -4,9 +4,10 @@
  * match the crossfade offsets baked into that script - each boundary is the
  * midpoint of a 1s dissolve.
  *
- * Copy is final per the build spec - assured and spare; never "premium
- * quality", never "wide range". `align` alternates the overlay left/right on
- * desktop as the chapters turn.
+ * Copy revised per owner (2026-08-21): each quote must speak to the product
+ * line under the word - slabs, worktops, Jaquar bathware - while staying
+ * assured and spare; never "premium quality", never "wide range". `align`
+ * alternates the overlay left/right on desktop as the chapters turn.
  */
 export const filmLoop = {
   mp4: "/film/film-loop.mp4",
@@ -37,7 +38,7 @@ export const filmChapters: FilmChapter[] = [
     id: "quartz",
     eyebrow: "The Surface",
     word: "QUARTZ",
-    quote: "“Where the day begins, and the light stays.”",
+    quote: "“Engineered quartz worktops - where the day begins, and the light stays.”",
     align: "left",
     from: 0,
     to: 4.54,
@@ -46,7 +47,7 @@ export const filmChapters: FilmChapter[] = [
     id: "marble",
     eyebrow: "The Interior",
     word: "MARBLE",
-    quote: "“Some rooms are built. Others are composed.”",
+    quote: "“Naturally engineered marble slabs. Some rooms are built, others are composed.”",
     align: "right",
     from: 4.54,
     to: 8.58,
@@ -55,7 +56,7 @@ export const filmChapters: FilmChapter[] = [
     id: "bathware",
     eyebrow: "The Detail",
     word: "BATHWARE",
-    quote: "“Luxury is the weight of a tap in your hand.”",
+    quote: "“Jaquar taps, showers and wash basins. Luxury is the weight of a tap in your hand.”",
     align: "left",
     from: 8.58,
     to: 12.62,
@@ -67,7 +68,7 @@ export const filmChapters: FilmChapter[] = [
     id: "terrazzo",
     eyebrow: "The Evening",
     word: "TERRAZZO",
-    quote: "“Made of fragments. Finished as one.”",
+    quote: "“Terrazzo slabs and tiles. Made of marble fragments, finished as one floor.”",
     align: "right",
     from: 12.62,
     to: 17.12,

@@ -298,13 +298,10 @@
     background-position: 0% calc(100% - 0.1em);
   }
 
-  /* Brand marquee: two copies of the track, first scrolls fully out. */
+  /* Brand marquee: two copies of the track, first scrolls fully out.
+     Owner (2026-08-21): marquees flow continuously - never pause on hover. */
   .marquee-gcb {
     animation: marquee-gcb 32s linear infinite;
-  }
-
-  .marquee-gcb:hover {
-    animation-play-state: paused;
   }
 
   @keyframes marquee-gcb {

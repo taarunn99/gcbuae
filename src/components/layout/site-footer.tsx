@@ -194,8 +194,16 @@ export function SiteFooter() {
           visibility: !isDesktop || nearBottom ? "visible" : "hidden",
         }}
       >
-        <div ref={innerRef} style={{ transformOrigin: "50% 0%" }}>
-          <Container className="relative z-10 pt-16 pb-8 sm:pt-20">
+        {/* min-height fills the screen up to the fixed header (h-16/sm:h-20)
+            so no strip of page background ever shows above the footer when it
+            is fully revealed (owner, 2026-08-21) - on every route and on
+            mobile, where the footer is in normal flow. */}
+        <div
+          ref={innerRef}
+          style={{ transformOrigin: "50% 0%" }}
+          className="flex min-h-[calc(100svh-4rem)] flex-col sm:min-h-[calc(100svh-5rem)]"
+        >
+          <Container className="relative z-10 my-auto w-full pt-16 pb-8 sm:pt-20">
             {/* Mark + icon-first contact, one line each side */}
             <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
               <Logo className="h-16 w-auto sm:h-20" />
