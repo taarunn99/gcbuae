@@ -106,7 +106,7 @@ export function SlabScale() {
                 style={{ aspectRatio: `${f.w} / ${f.h}` }}
               >
                 <Image
-                  src={`/kalingastone/quartz/swatches/${f.texture}.webp`}
+                  src={`/kalingastone/quartz/swatches-v2/${f.texture}.webp`}
                   alt={`${f.label} KalingaStone quartz slab format, faced in ${f.note.includes("Carrara") ? "Carrara Marmi" : "the range"}`}
                   fill
                   sizes="(min-width: 1024px) 30vw, 240px"

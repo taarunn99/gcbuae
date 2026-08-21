@@ -178,7 +178,7 @@ export function SiteHeader() {
                               label: "Quartz",
                               sub: "69 shades",
                               thumb:
-                                "/kalingastone/quartz/swatches/calacatta-lazza.webp",
+                                "/kalingastone/quartz/swatches-v2/calacatta-lazza.webp",
                             },
                             {
                               href: "/kalingastone/marble",

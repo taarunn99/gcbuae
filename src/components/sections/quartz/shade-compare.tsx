@@ -73,7 +73,7 @@ export function QuartzShadeCompare() {
       >
         {/* Right shade fills the frame */}
         <Image
-          src={`/kalingastone/quartz/swatches/${right}.webp`}
+          src={`/kalingastone/quartz/swatches-v2/${right}.webp`}
           alt={`KalingaStone Quartz ${quartzShades.find((s) => s.slug === right)?.name ?? right} swatch`}
           fill
           sizes="(min-width: 1024px) 60vw, 100vw"
@@ -85,7 +85,7 @@ export function QuartzShadeCompare() {
           style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         >
           <Image
-            src={`/kalingastone/quartz/swatches/${left}.webp`}
+            src={`/kalingastone/quartz/swatches-v2/${left}.webp`}
             alt={`KalingaStone Quartz ${quartzShades.find((s) => s.slug === left)?.name ?? left} swatch`}
             fill
             sizes="(min-width: 1024px) 60vw, 100vw"

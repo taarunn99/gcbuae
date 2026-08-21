@@ -395,7 +395,7 @@ export default function KalingaStoneQuartzPage() {
                   >
                     <span className="border-warm-black relative block aspect-[4/5] overflow-hidden rounded-lg border">
                       <Image
-                        src={`/kalingastone/quartz/swatches/${cover.slug}.webp`}
+                        src={`/kalingastone/quartz/swatches-v2/${cover.slug}.webp`}
                         alt={`${f.label} - KalingaStone quartz colour range`}
                         fill
                         sizes="(min-width: 1024px) 18vw, (min-width: 640px) 45vw, 100vw"

@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       images: [
         {
-          url: `/kalingastone/quartz/swatches/${shade.slug}.webp`,
+          url: `/kalingastone/quartz/swatches-v2/${shade.slug}.webp`,
           alt: `KalingaStone Quartz ${shade.name}`,
         },
       ],
@@ -76,7 +76,7 @@ export default async function QuartzShadePage({ params }: Props) {
     .filter((s) => s.family === shade.family && s.slug !== shade.slug)
     .slice(0, 4);
 
-  const swatch = `/kalingastone/quartz/swatches/${shade.slug}.webp`;
+  const swatch = `/kalingastone/quartz/swatches-v2/${shade.slug}.webp`;
   const lifestyle = shade.hasLifestyle
     ? `/kalingastone/quartz/lifestyle/${shade.slug}.webp`
     : null;
@@ -233,7 +233,7 @@ export default async function QuartzShadePage({ params }: Props) {
                   >
                     <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
                       <Image
-                        src={`/kalingastone/quartz/swatches/${s.slug}.webp`}
+                        src={`/kalingastone/quartz/swatches-v2/${s.slug}.webp`}
                         alt={`KalingaStone Quartz ${s.name} swatch`}
                         fill
                         sizes="(min-width: 1024px) 22vw, 45vw"

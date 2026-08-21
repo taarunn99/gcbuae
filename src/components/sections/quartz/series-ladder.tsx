@@ -59,7 +59,7 @@ function Row({
             style={{ zIndex: shown.length - i }}
           >
             <Image
-              src={`/kalingastone/quartz/swatches/${s.slug}.webp`}
+              src={`/kalingastone/quartz/swatches-v2/${s.slug}.webp`}
               alt={`${s.name} - Series ${series}`}
               fill
               sizes="48px"

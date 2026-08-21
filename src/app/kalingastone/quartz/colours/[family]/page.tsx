@@ -128,7 +128,7 @@ export default async function QuartzFamilyPage({ params }: Props) {
                 >
                   <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
                     <Image
-                      src={`/kalingastone/quartz/swatches/${s.slug}.webp`}
+                      src={`/kalingastone/quartz/swatches-v2/${s.slug}.webp`}
                       alt={`KalingaStone Quartz ${s.name} - Series ${s.series} ${family.label.toLowerCase()} slab`}
                       fill
                       sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"

@@ -46,14 +46,14 @@ type Tile = {
  *  Eight per brand, all full-bleed crops. Order matches `brands`. */
 const BRAND_TILES: Tile[][] = [
   [
-    { src: "/kalingastone/quartz/swatches/alluring.webp", alt: "Alluring quartz swatch" },
+    { src: "/kalingastone/quartz/swatches-v2/alluring.webp", alt: "Alluring quartz swatch" },
     { src: "/kalingastone/marble/swatches/emperador-scuro.webp", alt: "Emperador Scuro engineered marble swatch" },
     { src: "/kalingastone/terrazzo/swatches/exotic-green.webp", alt: "Exotic Green terrazzo swatch" },
-    { src: "/kalingastone/quartz/swatches/nero-classic.webp", alt: "Nero Classic quartz swatch" },
+    { src: "/kalingastone/quartz/swatches-v2/nero-classic.webp", alt: "Nero Classic quartz swatch" },
     { src: "/kalingastone/marble/swatches/artic-white.webp", alt: "Artic White engineered marble swatch" },
-    { src: "/kalingastone/quartz/swatches/pietra-grey.webp", alt: "Pietra Grey quartz swatch" },
+    { src: "/kalingastone/quartz/swatches-v2/pietra-grey.webp", alt: "Pietra Grey quartz swatch" },
     { src: "/kalingastone/terrazzo/swatches/jade.webp", alt: "Jade terrazzo swatch" },
-    { src: "/kalingastone/quartz/swatches/crema-gold.webp", alt: "Crema Gold quartz swatch" },
+    { src: "/kalingastone/quartz/swatches-v2/crema-gold.webp", alt: "Crema Gold quartz swatch" },
   ],
   [
     { src: "/jaquar/scenes/faucets.webp", alt: "Chrome basin mixer running over marble" },

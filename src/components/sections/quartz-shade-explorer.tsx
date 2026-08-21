@@ -35,7 +35,7 @@ function ShadeCard({
       <Link href={`/kalingastone/quartz/${shade.slug}`} className="group block">
         <span className="border-warm-black relative block aspect-[4/3] overflow-hidden rounded-lg border">
           <Image
-            src={`/kalingastone/quartz/swatches/${shade.slug}.webp`}
+            src={`/kalingastone/quartz/swatches-v2/${shade.slug}.webp`}
             alt={`KalingaStone Quartz ${shade.name} - Series ${shade.series} engineered quartz slab, ${shade.size} mm`}
             fill
             sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 45vw"
@@ -84,7 +84,7 @@ export function QuartzShadeExplorer() {
             >
               <span className="border-border/30 relative size-4 overflow-hidden rounded-full border">
                 <Image
-                  src={`/kalingastone/quartz/swatches/${cover.slug}.webp`}
+                  src={`/kalingastone/quartz/swatches-v2/${cover.slug}.webp`}
                   alt=""
                   fill
                   sizes="16px"
