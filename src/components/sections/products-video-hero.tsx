@@ -234,7 +234,7 @@ export function ProductsVideoHero() {
               className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,21,16,0.5),transparent_65%)]"
             />
             <p className="font-display text-ink relative text-3xl italic sm:text-5xl">
-              &ldquo;Every slab, a signature.&rdquo;
+              &ldquo;Every slab, a signature. Every fitting, a standard.&rdquo;
             </p>
             <p className="label-gcb text-ink/70 relative mt-5">
               Global Classic · Sharjah, UAE
@@ -251,7 +251,7 @@ export function ProductsVideoHero() {
           </div>
           <div className="absolute inset-x-0 bottom-0 z-10 pb-8">
             <p className="font-display text-ink/90 text-center text-xl italic sm:text-2xl">
-              &ldquo;Every slab, a signature.&rdquo;
+              &ldquo;Every slab, a signature. Every fitting, a standard.&rdquo;
             </p>
             <p aria-hidden className="text-ink/50 mt-3 text-center text-xs">
               Scroll to unveil ↓
