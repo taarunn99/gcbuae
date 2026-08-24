@@ -28,11 +28,14 @@ import { cn } from "@/lib/utils";
  */
 
 /** Stage colour per brand - deepened so the stage reads saturated, not
- *  washy, while still contrasting each logo's own colour: warm sand under
- *  KalingaStone's deep red mark, cool stone grey under Jaquar's black
- *  wordmark, FILA's own yellow behind its block. Order matches `brands`. */
+ *  washy, while still contrasting each logo's own colour: pastel salmon
+ *  blush under KalingaStone's deep red mark, cool stone grey under
+ *  Jaquar's black wordmark, FILA's own yellow behind its block. Order
+ *  matches `brands`. */
 // FILA stage softened to buttery pastel (owner 2026-08-20: full #FED400 hurt)
-const STAGE_COLORS = ["#ECDABF", "#CDD5CF", "#F6E7A8"];
+// KalingaStone stage moved from warm sand #ECDABF to a pastel salmon
+// blush (owner 2026-08-24: "salmon pink, pastel, but different").
+const STAGE_COLORS = ["#F1CBBC", "#CDD5CF", "#F6E7A8"];
 
 type Tile = {
   src: string;
