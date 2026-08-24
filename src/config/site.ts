@@ -72,6 +72,10 @@ export const siteConfig = {
   social: {
     linkedin: "",
     instagram: "https://www.instagram.com/globalclassic.bmt/",
+    /** The Google Business Profile / knowledge-panel entity
+     *  (kgmid /g/11yjnf04d5, owner's share link resolved 2026-08-24) -
+     *  ties the Maps listing to this site in the entity graph. */
+    googleBusiness: "https://www.google.com/search?kgmid=/g/11yjnf04d5",
   },
   group: lapizGroup,
   nav: [

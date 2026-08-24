@@ -8,7 +8,11 @@ import { siteConfig } from "@/config/site";
  */
 export function OrganizationJsonLd() {
   const { address, contact, social } = siteConfig;
-  const sameAs = [social.linkedin, social.instagram].filter(Boolean);
+  const sameAs = [
+    social.linkedin,
+    social.instagram,
+    social.googleBusiness,
+  ].filter(Boolean);
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
