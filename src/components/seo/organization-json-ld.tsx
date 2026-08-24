@@ -15,11 +15,14 @@ export function OrganizationJsonLd() {
     // GOVERNANCE §6: Organization + LocalBusiness org-wide. Geo coordinates
     // and opening hours get added when Tarun supplies the showroom details.
     "@type": ["Organization", "LocalBusiness"],
-    name: siteConfig.legalName,
-    // "GCB UAE" is the branded query buyers actually type; naming it here
-    // ties that query to this entity even though the visible copy never
-    // says it.
-    alternateName: [siteConfig.shortName, "GCB UAE"],
+    "@id": `${siteConfig.url}/#organization`,
+    // Common name first, exact trade-license name in legalName (that is
+    // what schema.org's legalName is for), and every branded query buyers
+    // type - "global classic", "gcb", "gcb uae" - in the name set so
+    // Google reconciles them to ONE entity (owner, 2026-08-24).
+    name: siteConfig.name,
+    legalName: siteConfig.legalName,
+    alternateName: [siteConfig.brandName, siteConfig.shortName, "GCB UAE"],
     url: siteConfig.url,
     // Google requires >=112px square for Organization logo; apple-icon is
     // 180x180 and served at a stable path (no build hash).

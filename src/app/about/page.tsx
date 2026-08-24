@@ -14,9 +14,12 @@ import { GcbButton } from "@/components/ui/gcb-button";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "About Us - Lapiz Group, Sharjah",
+  // absolute: a templated string would double the brand ("About Global
+  // Classic ... - Global Classic UAE"). Leading with the exact entity name
+  // makes this the brand-query landing page (owner, 2026-08-24).
+  title: { absolute: "About Global Classic Building Materials - Lapiz Group UAE" },
   description:
-    "A 2024 Sharjah company in the Lapiz Group - KalingaStone slabs, Jaquar and FILA stocked at Al Sajaa for project buyers and BOQ supply across the UAE.",
+    "Global Classic Building Materials Trading LLC, a Lapiz Group company in Sharjah - KalingaStone slabs, Jaquar and FILA stocked at Al Sajaa for UAE-wide supply.",
   alternates: { canonical: "/about" },
 };
 
@@ -84,7 +87,7 @@ export default function AboutPage() {
 
             <Reveal delay={0.12}>
               <p className="text-muted mt-10 max-w-xl leading-relaxed">
-                Global Classic Building Materials LLC is a sister company of
+                Global Classic Building Materials Trading LLC is a sister company of
                 the Lapiz Group of Companies, holding stock at the Al Sajaa
                 warehouse in Sharjah and supplying wholesale across the whole
                 of the UAE - contractors, developers, fabricators and interior

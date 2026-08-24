@@ -31,10 +31,13 @@ export const metadata: Metadata = {
   title: {
     // Kerakoll lesson (owner, 2026-08-18): a brand hub title must carry
     // the authority claim AND the category keywords, never just the brand.
-    absolute: "KalingaStone UAE - Quartz, Marble & Terrazzo Slab Reseller",
+    // "Supplier" leads (owner, 2026-08-24): it is the word buyers type and
+    // it is honest - this page OWNS the supplier query; child hubs do not
+    // repeat it (one query, one page).
+    absolute: "KalingaStone Supplier UAE - Quartz, Marble & Terrazzo Slabs",
   },
   description:
-    "KalingaStone engineered quartz, marble and terrazzo in the UAE - 128 shades stocked as full slabs in Sharjah by an authorized reseller, AED trade pricing.",
+    "Authorized KalingaStone reseller and slab supplier in Sharjah - 128 shades of quartz, marble and terrazzo ex-stock, AED trade pricing, delivery across the UAE.",
   alternates: { canonical: "/kalingastone" },
 };
 
@@ -57,7 +60,7 @@ const faqs = [
   },
   {
     q: "Is Global Classic an authorized KalingaStone reseller?",
-    a: "Yes - in writing. Global Classic Building Material Trading LLC is certified through the official KalingaStone channel as an authorized reseller for the Northern Emirates, UAE. The letter is published on this site and travels with our quotations.",
+    a: "Yes - in writing. Global Classic Building Materials Trading LLC is certified through the official KalingaStone channel as an authorized reseller for the Northern Emirates, UAE. The letter is published on this site and travels with our quotations. Under that authorization, Global Classic supplies KalingaStone slabs wholesale from Sharjah stock.",
   },
   {
     q: "What materials does KalingaStone make?",
@@ -70,6 +73,10 @@ const faqs = [
   {
     q: "Do you deliver KalingaStone slabs across the UAE?",
     a: "Yes. Slabs are held in stock at Global Classic's Al Sajaa warehouse in Sharjah and delivered to every emirate - Dubai, Abu Dhabi, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah. Supply is wholesale, with AED volume pricing quoted usually within one working day.",
+  },
+  {
+    q: "Who is the KalingaStone supplier for Sharjah and the Northern Emirates?",
+    a: "Global Classic Building Materials is the authorized KalingaStone reseller for the Northern Emirates, supplying quartz, marble and terrazzo slabs wholesale from its Al Sajaa warehouse in Sharjah, with delivery to every emirate.",
   },
 ];
 
@@ -133,7 +140,12 @@ export default function KalingaStonePage() {
               KalingaStone is the engineered stone brand of Classic Marble
               Company - quartz, marble and terrazzo produced at a 200,000 m²
               plant in Silvassa and exported to 66 countries. Global Classic is
-              an <strong>authorized reseller for the Northern Emirates</strong>,
+              an{" "}
+              <strong>
+                authorized reseller and wholesale supplier for the Northern
+                Emirates
+              </strong>
+              ,
               holding slabs in Sharjah stock across{" "}
               <strong>{kalingaStoneShadeTotal} shades</strong>, with wholesale
               AED pricing and delivery to every emirate.
@@ -262,7 +274,7 @@ export default function KalingaStonePage() {
         <Container className="relative z-10">
           <p className="label-gcb text-travertine">Wholesale supply</p>
           <h2 className="font-display text-phi-3 mt-4 max-w-2xl tracking-tight text-balance">
-            One reseller. Every emirate.
+            One supplier. Every emirate.
           </h2>
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.618fr_1fr]">
             <p className="text-ink/85 max-w-2xl text-lg leading-relaxed">

@@ -27,7 +27,7 @@ const lapizGroup: GroupCompany[] = [
       role: "Metal coatings",
     },
     {
-      name: "Global Classic Building Materials LLC",
+      name: "Global Classic Building Materials Trading LLC",
       role: "Stone, bathware & care",
       here: true,
     },
@@ -45,7 +45,11 @@ const lapizGroup: GroupCompany[] = [
 export const siteConfig = {
   name: "Global Classic Building Materials",
   shortName: "GCB",
-  legalName: "Global Classic Building Materials LLC",
+  /** The concise brand - Google's site-name candidate and the phrase
+   *  buyers type. Feeds WebSite schema, og:site_name and alternateName. */
+  brandName: "Global Classic",
+  /** Exact trade-license name (owner confirmed 2026-08-24). */
+  legalName: "Global Classic Building Materials Trading LLC",
   tagline: "Surfaces for enduring interiors",
   description:
     "Wholesale marble, quartz and terrazzo slabs, Jaquar bathware and FILA care from Sharjah - KalingaStone authorized reseller, AED trade pricing, UAE delivery.",

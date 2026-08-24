@@ -35,7 +35,7 @@ export function AuthorizedDistributor() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="text-ink/80 mt-8 max-w-xl text-lg leading-relaxed">
-                Global Classic Building Material Trading LLC is certified
+                Global Classic Building Materials Trading LLC is certified
                 through the official KalingaStone channel as an authorized
                 reseller for the Northern Emirates, UAE - and
                 certified by FILA Surface Chemicals Trading LLC as a Preferred

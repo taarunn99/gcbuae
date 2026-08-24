@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { SiteHeader } from "@/components/layout/site-header";
 import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
+import { WebSiteJsonLd } from "@/components/seo/website-json-ld";
 import { siteConfig } from "@/config/site";
 import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider";
 
@@ -60,7 +61,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
-    siteName: siteConfig.name,
+    // og:site_name is one of Google's documented site-name signals - keep
+    // it aligned with the WebSite schema `name` ("Global Classic").
+    siteName: siteConfig.brandName,
     title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
@@ -92,6 +95,7 @@ export default function RootLayout({
     >
       <body className="bg-background text-foreground flex min-h-dvh flex-col">
         <OrganizationJsonLd />
+        <WebSiteJsonLd />
         <SiteHeader />
         <WhatsAppFab />
         <SmoothScrollProvider>
