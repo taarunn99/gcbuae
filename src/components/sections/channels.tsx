@@ -222,7 +222,7 @@ function InstagramDeck() {
               >
                 <Image
                   src={card.src}
-                  alt=""
+                  alt={card.alt}
                   fill
                   sizes="16rem"
                   className="object-cover"

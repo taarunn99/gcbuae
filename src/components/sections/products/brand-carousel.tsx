@@ -318,7 +318,7 @@ function BrandSlide({
             >
               <Image
                 src={tile.src}
-                alt=""
+                alt={tile.alt}
                 fill
                 sizes="96px"
                 className="object-cover"

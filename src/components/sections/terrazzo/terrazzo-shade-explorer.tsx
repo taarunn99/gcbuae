@@ -82,7 +82,7 @@ export function TerrazzoShadeExplorer() {
               <span className="border-border/30 relative size-4 overflow-hidden rounded-full border">
                 <Image
                   src={`/kalingastone/terrazzo/swatches/${cover.slug}.webp`}
-                  alt=""
+                  alt={`KalingaStone Terrazzo ${cover.name} swatch`}
                   fill
                   sizes="16px"
                   className="object-cover"

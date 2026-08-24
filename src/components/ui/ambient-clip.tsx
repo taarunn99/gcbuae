@@ -19,6 +19,15 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
  * native poster attribute is dropped - the frame paints early, the film
  * fades in over it when it plays.
  */
+/** Poster descriptions - SEO/GEO audits flag alt="" as missing, and the
+ *  posters are real photographs worth describing (owner, 2026-08-24). */
+const POSTER_ALTS: Record<string, string> = {
+  "marble-vein": "Grey veining running through a polished white marble slab",
+  "quartz-kitchen": "White engineered quartz kitchen worktop in warm daylight",
+  "terrazzo-light": "Warm light across a white terrazzo floor with marble chips",
+  "brass-water": "Water running over a brushed brass tap into a stone basin",
+};
+
 export function AmbientClip({
   name,
   className = "",
@@ -52,7 +61,7 @@ export function AmbientClip({
       {priorityPoster && (
         <Image
           src={`/clips/${name}-poster.webp`}
-          alt=""
+          alt={POSTER_ALTS[name] ?? `${name.replace(/-/g, " ")} film poster`}
           fill
           sizes="(min-width: 1024px) 40rem, 100vw"
           className="object-cover"

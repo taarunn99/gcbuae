@@ -28,7 +28,7 @@ export function BeforeAfter({
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <Image src={src} alt="" fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover brightness-[0.55] saturate-50" loading="lazy" />
+          <Image src={src} alt={`${alt}, before treatment`} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover brightness-[0.55] saturate-50" loading="lazy" />
           <span className="fila-display absolute top-3 left-3 rounded-full bg-[#0B0B0C] px-3 py-1 text-xs text-white">
             Before
           </span>

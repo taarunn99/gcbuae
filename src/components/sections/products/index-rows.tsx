@@ -26,6 +26,29 @@ const HUBS: Record<string, string> = {
   "sealers-cleaners": "/fila",
 };
 
+/** Tile descriptions - SEO/GEO audits flag alt="" as missing, and each
+ *  tile is a real product photograph (owner, 2026-08-24). */
+const PREVIEW_ALTS: Record<string, string> = {
+  quartz:
+    "White engineered quartz island with fine grey veining and morning espresso",
+  "naturally-engineered-marble":
+    "Polished white engineered marble floor in a warm gallery hall",
+  terrazzo:
+    "White terrazzo flooring with grey and green marble chips beside a daybed",
+  faucets: "Brushed steel mixer tap over a white marble basin",
+  "wash-basins":
+    "Twin white ceramic wash basins on a pale limestone vanity",
+  "water-closets": "Rimless white ceramic wall hung WC in honed marble",
+  "showers-enclosures":
+    "Ceiling rain shower running in a warm white marble wet room",
+  wellness:
+    "White freestanding bathtub against a book matched marble wall",
+  "water-heaters":
+    "Jaquar vertical storage water heater on a sage green showroom wall",
+  "sealers-cleaners":
+    "FILA MP90 Eco Xtreme penetrating sealer beside a gloved hand on marble",
+};
+
 const PREVIEWS: Record<string, string> = {
   quartz: "/products/white-quartz-island-morning-espresso-uae-v2.webp",
   "naturally-engineered-marble":
@@ -80,7 +103,7 @@ export function IndexRows() {
               <span className="border-warm-black/25 relative hidden h-20 w-28 shrink-0 self-center overflow-hidden rounded-xl border sm:block">
                 <Image
                   src={PREVIEWS[product.slug]}
-                  alt=""
+                  alt={PREVIEW_ALTS[product.slug] ?? product.label}
                   fill
                   sizes="112px"
                   className="object-cover"

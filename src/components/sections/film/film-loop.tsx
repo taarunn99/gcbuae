@@ -171,7 +171,7 @@ export function FilmLoop() {
           (black-frame report, 2026-08-20). The video covers it once playing. */}
       <Image
         src={filmLoop.poster}
-        alt=""
+        alt="Engineered quartz terrace at golden hour - opening frame of the materials film"
         fill
         sizes="100vw"
         className="object-cover"

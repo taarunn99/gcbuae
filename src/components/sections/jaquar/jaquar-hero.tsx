@@ -53,7 +53,7 @@ export function JaquarHero() {
               unreliably (WebKit audit, 2026-08-20). */}
           <Image
             src="/jaquar/hero/jaquar-hero-poster.webp"
-            alt=""
+            alt="Jaquar bathware film poster - brassware and bath in a warm stone bathroom"
             fill
             quality={90}
             sizes="100vw"

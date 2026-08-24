@@ -85,7 +85,7 @@ export function QuartzShadeExplorer() {
               <span className="border-border/30 relative size-4 overflow-hidden rounded-full border">
                 <Image
                   src={`/kalingastone/quartz/swatches-v2/${cover.slug}.webp`}
-                  alt=""
+                  alt={`KalingaStone Quartz ${cover.name} swatch`}
                   fill
                   sizes="16px"
                   className="object-cover"

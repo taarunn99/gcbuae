@@ -395,7 +395,7 @@ export function ProductWheel() {
               >
                 <Image
                   src={product.image}
-                  alt={index === activeIndex ? product.alt : ""}
+                  alt={product.alt}
                   fill
                   // The real slot: ~43rem column at the 90rem container cap,
                   // ~52vw in the desktop grid below it, and the max-w-md

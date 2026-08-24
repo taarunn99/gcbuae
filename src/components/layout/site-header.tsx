@@ -204,7 +204,7 @@ export function SiteHeader() {
                                 <span className="border-warm-black relative block h-10 w-14 shrink-0 overflow-hidden rounded-md border">
                                   <Image
                                     src={hub.thumb}
-                                    alt=""
+                                    alt={`KalingaStone ${hub.label} swatch`}
                                     fill
                                     sizes="56px"
                                     className="object-cover"

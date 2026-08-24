@@ -95,7 +95,7 @@ export function ProductsVideoHero() {
         {reduced ? (
           <Image
             src="/products/hero/slab-procession-poster.webp"
-            alt=""
+            alt="Marble and quartz slabs standing in procession in a dark gallery - the product lines film poster"
             fill
             quality={90}
             sizes="100vw"
@@ -106,7 +106,7 @@ export function ProductsVideoHero() {
           {/* Poster layered under - iOS <video poster> hardening. */}
           <Image
             src="/products/hero/slab-procession-poster.webp"
-            alt=""
+            alt="Marble and quartz slabs standing in procession in a dark gallery - the product lines film poster"
             fill
             quality={90}
             sizes="100vw"
