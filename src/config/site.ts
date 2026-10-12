@@ -69,6 +69,11 @@ export const siteConfig = {
     postalCode: "",
     country: "AE",
   },
+  /** Centre of plus code 7HQQ9M62+45M (the address above), decoded
+   *  2026-10-12 - the same pin the Google Business Profile uses. */
+  geo: { latitude: 25.36034, longitude: 55.65042 },
+  mapUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=9M62%2B45M%20Al%20Sajaa%20Al%20Jlail%20Sharjah",
   social: {
     linkedin: "",
     instagram: "https://www.instagram.com/globalclassic.bmt/",

@@ -79,8 +79,8 @@ export default function HomePage() {
       <section className="bg-warm-black grain-gcb relative overflow-hidden py-32">
         <Container className="relative z-10">
           <SplitHeading className="font-display text-ink max-w-3xl text-3xl leading-tight tracking-tight text-balance sm:text-5xl">
-            A building materials partner for contractors, developers and
-            consultants across the Emirates.
+            Global Classic is a building materials partner for contractors,
+            developers and consultants across the Emirates.
           </SplitHeading>
 
           <RevealGroup className="mt-20 grid gap-12 sm:grid-cols-3">
