@@ -16,8 +16,8 @@ export function OrganizationJsonLd() {
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    // GOVERNANCE §6: Organization + LocalBusiness org-wide. Geo coordinates
-    // and opening hours get added when Tarun supplies the showroom details.
+    // GOVERNANCE §6: Organization + LocalBusiness org-wide. Opening hours
+    // get added when Tarun confirms the showroom timings.
     "@type": ["Organization", "LocalBusiness"],
     "@id": `${siteConfig.url}/#organization`,
     // Common name first, exact trade-license name in legalName (that is
@@ -40,6 +40,18 @@ export function OrganizationJsonLd() {
       postalCode: address.postalCode || undefined,
       addressCountry: address.country,
     },
+    // LocalBusiness essentials (2026-10-12): top-level phone, pin and map
+    // link let Google match this entity to the Business Profile on NAP,
+    // which is what earns the knowledge panel on the bare brand query.
+    telephone: contact.landline,
+    email: contact.email,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    hasMap: siteConfig.mapUrl,
+    areaServed: { "@type": "Country", name: "United Arab Emirates" },
     // Entity web: GCB is a Lapiz Group company (owner, 2026-08-18). The
     // group's web home is lapizblue.com - naming it links the two
     // knowledge-graph entities the partnership plan builds on.
