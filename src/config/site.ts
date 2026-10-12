@@ -75,7 +75,8 @@ export const siteConfig = {
   mapUrl:
     "https://www.google.com/maps/dir/?api=1&destination=9M62%2B45M%20Al%20Sajaa%20Al%20Jlail%20Sharjah",
   social: {
-    linkedin: "",
+    linkedin:
+      "https://www.linkedin.com/company/global-classic-building-materials-llc/",
     instagram: "https://www.instagram.com/globalclassic.bmt/",
     /** The Google Business Profile / knowledge-panel entity
      *  (kgmid /g/11yjnf04d5, owner's share link resolved 2026-08-24) -
